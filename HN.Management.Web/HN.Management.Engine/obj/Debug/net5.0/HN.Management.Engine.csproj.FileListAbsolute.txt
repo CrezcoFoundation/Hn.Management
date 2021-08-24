@@ -1,0 +1,15 @@
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\net5.0\HN.Management.Engine.deps.json
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\net5.0\HN.Management.Engine.runtimeconfig.json
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\net5.0\HN.Management.Engine.runtimeconfig.dev.json
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\net5.0\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\net5.0\ref\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\net5.0\HN.Management.Engine.pdb
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.AssemblyInfoInputs.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.AssemblyInfo.cs
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.csproj.CoreCompileInputs.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\ref\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.pdb
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.genruntimeconfig.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.csprojAssemblyReference.cache

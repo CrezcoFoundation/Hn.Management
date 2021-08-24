@@ -1,0 +1,12 @@
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\bin\Debug\netstandard2.0\HN.Management.Manager.deps.json
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\bin\Debug\netstandard2.0\HN.Management.Manager.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\bin\Debug\netstandard2.0\HN.Management.Manager.pdb
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\bin\Debug\netstandard2.0\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\bin\Debug\netstandard2.0\HN.Management.Engine.pdb
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.csprojAssemblyReference.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.AssemblyInfoInputs.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.AssemblyInfo.cs
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.csproj.CoreCompileInputs.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.csproj.CopyComplete
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Manager\obj\Debug\netstandard2.0\HN.Management.Manager.pdb

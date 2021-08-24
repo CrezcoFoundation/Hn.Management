@@ -1,0 +1,9 @@
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\netstandard2.0\HN.Management.Engine.deps.json
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\netstandard2.0\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\bin\Debug\netstandard2.0\HN.Management.Engine.pdb
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\netstandard2.0\HN.Management.Engine.AssemblyInfoInputs.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\netstandard2.0\HN.Management.Engine.AssemblyInfo.cs
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\netstandard2.0\HN.Management.Engine.csproj.CoreCompileInputs.cache
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\netstandard2.0\HN.Management.Engine.dll
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\netstandard2.0\HN.Management.Engine.pdb
+C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Engine\obj\Debug\netstandard2.0\HN.Management.Engine.csprojAssemblyReference.cache

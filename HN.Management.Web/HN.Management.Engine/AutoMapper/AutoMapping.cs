@@ -16,8 +16,7 @@ namespace HN.Management.Engine.AutoMapper
             CreateMap<Evidence, EvidenceDTO>();
             CreateMap<Project, ProjectDTO>();
             CreateMap<Student, StudentDTO>();
-            CreateMap<UserDonorPermit, UserDonorPermitDTO>();
-            CreateMap<UserProjectPermit, UserProjectPermitDTO>();
+            CreateMap<UserPermit, UserPermitDTO>();
             CreateMap<User, UserDTO>();
 
             //DTO to Entity
@@ -27,8 +26,7 @@ namespace HN.Management.Engine.AutoMapper
             CreateMap<EvidenceDTO, Evidence>();
             CreateMap<ProjectDTO, Project>();
             CreateMap<StudentDTO, Student>();
-            CreateMap<UserDonorPermitDTO, UserDonorPermit>();
-            CreateMap<UserProjectPermitDTO, UserProjectPermit>();
+            CreateMap<UserPermitDTO, UserPermit>();
             CreateMap<UserDTO, User>();
 
         }

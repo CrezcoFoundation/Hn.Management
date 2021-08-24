@@ -10,27 +10,22 @@ namespace HN.ManagementEngine.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         [Column("Name", TypeName = "Varchar")]
         [MaxLength(20)]
         public string Name { get; set; }
 
-        [Required]
         [Column("Description", TypeName = "Varchar")]
         [MaxLength(500)]
         public string Description { get; set; }
 
-        [Required]
         [Column("Country", TypeName = "Varchar")]
         [MaxLength(50)]
         public string Country { get; set; }
 
-        [Required]
         [Column("CountryFlag", TypeName = "Varchar")]
         [MaxLength(500)]
         public string CountryFlag { get; set; }
 
-        [Required]
         [Column("Image", TypeName = "Varchar")]
         [MaxLength(500)]
         public string Image { get; set; }

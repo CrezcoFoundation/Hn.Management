@@ -1,4 +1,5 @@
-﻿using HN.Management.Manager.Enums;
+﻿//using HN.Management.Engine.Models;
+using HN.Management.Manager.Enums;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Exceptions.Domain;
 using HN.ManagementEngine.DTO;
@@ -47,6 +48,20 @@ namespace HN.Management.Web.Apis.V1.Controllers
         {
             return Ok(await _userService.AddAsync(user));
         }
+
+        /*[HttpPost]
+        [Route("authenticate")]
+        public IActionResult Aunthenticate(AuthenticateRequest entity)
+        {
+            var response =  _userService.AuthenticateRequest(entity);
+
+            if(response == null)
+            {
+                return BadRequest(new { message = "Email or password is incorrect" });
+            }
+
+            return Ok(response);
+        }*/
 
         [HttpPut]
         [Route("update")]

@@ -40,14 +40,12 @@ namespace HN.ManagementEngine.Models
         [MaxLength(50)]
         public DateTime? Date { get; set; }
 
-        [Required]
         [ForeignKey("ProjectId")]
-        public int ProjectId { get; set; }
-        public Project Projects { get; set; }
+        public int? ProjectId { get; set; }
+        public Project Project { get; set; }
 
-        [Required]
         [ForeignKey("StudentId")]
-        public int StudentId { get; set; }
-        public Student Students { get; set; }
+        public int? StudentId { get; set; }
+        public Student Student { get; set; }
     }
 }

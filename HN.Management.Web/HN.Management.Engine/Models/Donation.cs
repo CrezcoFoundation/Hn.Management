@@ -10,34 +10,30 @@ namespace HN.ManagementEngine.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         [Column("Name", TypeName = "Varchar")]
         [MaxLength(20)]
         public string Name { get; set; }
 
-        [Required]
         [Column("Description", TypeName = "Varchar")]
         [MaxLength(500)]
         public string Description { get; set; }
 
-        [Required]
         [Column("MoneyAmount", TypeName = "int")]
         [MaxLength(11)]
         public int MoneyAmount { get; set; }
 
-        [Required]
         [Column("Date", TypeName = "Varchar")]
         [MaxLength(50)]
         public DateTime? Date { get; set; }
 
         [Required]
         [ForeignKey("ProjectId")]
-        public int ProjectId { get; set; }
-        public Project Projects { get; set; }
+        public int? ProjectId { get; set; }
+        public Project Project { get; set; }
 
         [Required]
         [ForeignKey("DonorId")]
-        public int DonorId { get; set; }
-        public Donor Donors { get; set; }
+        public int? DonorId { get; set; }
+        public Donor Donor { get; set; }
     }
 }

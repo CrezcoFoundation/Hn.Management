@@ -3,6 +3,7 @@ using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Exceptions.Domain;
 using HN.ManagementEngine.DTO;
 using HN.ManagementEngine.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
@@ -28,6 +29,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("activities")]
         public async Task<IActionResult> GetAllAsync()
         {

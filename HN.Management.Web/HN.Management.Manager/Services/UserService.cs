@@ -12,10 +12,12 @@ namespace HN.Management.Manager.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IUserPermitRepository _userPermitRepository;
         private readonly IMapper _mapper;
-        public UserService(IUserRepository usersRepository, IMapper mapper)
+        public UserService(IUserRepository usersRepository, IUserPermitRepository userPermitRepository, IMapper mapper)
         {
             _userRepository = usersRepository;
+            _userPermitRepository = userPermitRepository;
             _mapper = mapper;
         }
 
@@ -31,6 +33,28 @@ namespace HN.Management.Manager.Services
             var query = _userRepository.GetByConditionAsync(x => x.Id == userId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<UserDTO>(query.FirstOrDefault()));
+        }
+
+        public UserPermitDTO GetEmail(string email, string password)
+        {
+            var user = _userRepository.GetByConditionAsync(x => x.Email == email && x.Password == password).Result.FirstOrDefault();
+            var userPermit = _userPermitRepository.GetByConditionAsync(x => x.UserId == user.Id).Result.FirstOrDefault();
+            
+            if (user == null)
+            {
+                return null;
+            }
+
+            var result = new UserPermitDTO
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Password = user.Password,
+                DonorPermit = userPermit.DonorPermit,
+                ProjectPermit = userPermit.ProjectPermit
+            };
+
+            return result;
         }
 
         public async Task<UserDTO> AddAsync(UserDTO user)

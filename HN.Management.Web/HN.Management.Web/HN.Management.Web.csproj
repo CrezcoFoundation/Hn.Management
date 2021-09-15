@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Apis\V1\Controllers\UserRoleController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="private_key.pem" />
     <None Remove="private_key.xml" />
     <None Remove="public_key.pem" />

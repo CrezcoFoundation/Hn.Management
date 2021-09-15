@@ -12,12 +12,10 @@ namespace HN.Management.Manager.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IUserPermitRepository _userPermitRepository;
         private readonly IMapper _mapper;
-        public UserService(IUserRepository usersRepository, IUserPermitRepository userPermitRepository, IMapper mapper)
+        public UserService(IUserRepository usersRepository, IMapper mapper)
         {
             _userRepository = usersRepository;
-            _userPermitRepository = userPermitRepository;
             _mapper = mapper;
         }
 
@@ -35,24 +33,25 @@ namespace HN.Management.Manager.Services
             return await Task.FromResult(_mapper.Map<UserDTO>(query.FirstOrDefault()));
         }
 
-        public UserPermitDTO GetEmail(string email, string password)
+        public UserDTO GetEmail(string email, string password)
         {
-            var user = _userRepository.GetByConditionAsync(x => x.Email == email && x.Password == password).Result.FirstOrDefault();
-            var userPermit = _userPermitRepository.GetByConditionAsync(x => x.UserId == user.Id).Result.FirstOrDefault();
-            
+            var user = _userRepository.GetByConditionAsync(x => x.Email == email && x.PasswordHash == password).Result.FirstOrDefault();
+
+            var result = new UserDTO();
+
             if (user == null)
             {
                 return null;
             }
-
-            var result = new UserPermitDTO
+            else if (user != null)
             {
-                Id = user.Id,
-                Email = user.Email,
-                Password = user.Password,
-                DonorPermit = userPermit.DonorPermit,
-                ProjectPermit = userPermit.ProjectPermit
-            };
+                result = new UserDTO
+                {
+                    Email = user.Email,
+                    PasswordHash = user.PasswordHash,
+                    RoleName = user.RoleName
+                };
+            }
 
             return result;
         }

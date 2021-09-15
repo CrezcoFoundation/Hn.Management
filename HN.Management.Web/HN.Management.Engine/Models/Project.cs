@@ -10,24 +10,29 @@ namespace HN.ManagementEngine.Models
         [Key]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Name is required")]
+        [MaxLength(40, ErrorMessage = "Name can't be longer than 40 characters")]
         [Column("Name", TypeName = "Varchar")]
-        [MaxLength(20)]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Description is required")]
+        [MaxLength(500, ErrorMessage = "Description can't be longer than 500 characters")]
         [Column("Description", TypeName = "Varchar")]
-        [MaxLength(500)]
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Country is required")]
+        [MaxLength(50, ErrorMessage = "Country can't be longer than 50 characters")]
         [Column("Country", TypeName = "Varchar")]
-        [MaxLength(50)]
         public string Country { get; set; }
 
+        [Required(ErrorMessage = "CountryFlag is required")]
+        [MaxLength(500, ErrorMessage = "CountryFlag can't be longer than 500 characters")]
         [Column("CountryFlag", TypeName = "Varchar")]
-        [MaxLength(500)]
         public string CountryFlag { get; set; }
 
+        [Required(ErrorMessage = "Image is required")]
+        [MaxLength(500, ErrorMessage = "Image can't be longer than 500 characters")]
         [Column("Image", TypeName = "Varchar")]
-        [MaxLength(500)]
         public string Image { get; set; }
     }
 }

@@ -9,16 +9,17 @@ namespace HN.ManagementEngine.Models
         [Key]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Image is required")]
+        [MaxLength(500, ErrorMessage = "Image can't be longer than 500 characters")]
         [Column("Image", TypeName = "Varchar")]
-        [MaxLength(500)]
         public string Image { get; set; }
 
         [ForeignKey("ProjectId")]
         public int ProjectId { get; set; }
-        public Project Project { get; set; }
+        public virtual Project Project { get; set; }
 
-        [ForeignKey("ActivityId")]
-        public int ActivityId { get; set; }
-        public Activity Activity { get; set; }
+        [ForeignKey("ExpenseId")]
+        public int ExpenseId { get; set; }
+        public virtual Expense Expense { get; set; }
     }
 }

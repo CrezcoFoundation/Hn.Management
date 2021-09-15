@@ -9,6 +9,6 @@ namespace HN.Management.Manager.Services.Interfaces
 {
     public interface ITokenService
     {
-        string GenerateToken(UserPermitDTO user);
+        string GenerateToken(UserDTO user);
     }
 }

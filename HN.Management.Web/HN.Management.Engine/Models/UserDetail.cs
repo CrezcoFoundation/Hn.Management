@@ -1,19 +1,14 @@
-﻿
+﻿using HN.ManagementEngine.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HN.ManagementEngine.Models
+namespace HN.Management.Engine.Models
 {
-    [Table("Student")]
-    public class Student
+    [Table("UserDetail")]
+    public class UserDetail
     {
         [Key]
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Email is required")]
-        [MaxLength(40, ErrorMessage = "Email can't be longer than 40 characters")]
-        [Column("Email", TypeName = "Varchar")]
-        public string Email { get; set; }
 
         [Required(ErrorMessage = "FirstName is required")]
         [MaxLength(40, ErrorMessage = "FirstName can't be longer than 40 characters")]
@@ -30,8 +25,10 @@ namespace HN.ManagementEngine.Models
         [Column("Image", TypeName = "Varchar")]
         public string Image { get; set; }
 
-        [ForeignKey("ProjectId")]
-        public int ProjectId { get; set; }
-        public virtual Project Project { get; set; }
+        [Required(ErrorMessage = "Foreign key is required")]
+        [ForeignKey("UserId")]
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

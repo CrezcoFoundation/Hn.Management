@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Models\AuthenticateRequest.cs" />
     <Compile Remove="Models\AuthenticateResponse.cs" />
+    <Compile Remove="Repositories\Interfaces\IUserRoleRepository.cs" />
+    <Compile Remove="Repositories\UserRoleRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,36 +4,48 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HN.ManagementEngine.Models
 {
-    [Table("Donation")]
-    public class Donation
+    [Table("Activity")]
+    public class Expense
     {
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [Column("Name", TypeName = "Varchar")]
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
+        [Required]
         [Column("Description", TypeName = "Varchar")]
         [MaxLength(500)]
         public string Description { get; set; }
 
-        [Column("MoneyAmount", TypeName = "int")]
+        [Required]
+        [Column("LocalMoneyAmount", TypeName = "int")]
         [MaxLength(11)]
-        public int MoneyAmount { get; set; }
+        public int LocalMoneyAmount { get; set; }
 
+        [Required]
+        [Column("ConversionToDollar", TypeName = "int")]
+        [MaxLength(11)]
+        public int ConversionToDollar { get; set; }
+
+        [Required]
+        [Column("DollarMoneyAmount", TypeName = "int")]
+        [MaxLength(11)]
+        public int DollarMoneyAmount { get; set; }
+
+        [Required]
         [Column("Date", TypeName = "Varchar")]
         [MaxLength(50)]
         public DateTime? Date { get; set; }
 
-        [Required]
         [ForeignKey("ProjectId")]
         public int? ProjectId { get; set; }
         public virtual Project Project { get; set; }
 
-        [Required]
-        [ForeignKey("DonorId")]
-        public int? DonorId { get; set; }
-        public virtual Donor Donor { get; set; }
+        [ForeignKey("StudentId")]
+        public int? StudentId { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

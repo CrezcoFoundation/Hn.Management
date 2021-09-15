@@ -11,7 +11,7 @@ namespace HN.Management.Manager.Services.Interfaces
 
         Task<UserDTO> GetByConditionAsync(int userId);
 
-        UserPermitDTO GetEmail(string email, string password);
+        UserDTO GetEmail(string email, string password);
 
         Task<UserDTO> AddAsync(UserDTO user);
 

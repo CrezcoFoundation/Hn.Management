@@ -91,6 +91,7 @@ C:\Users\Catracho\Desktop\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\H
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\appsettings.json
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\HN.Management.Web.exe
+C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\AppResource.resx
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\HN.Management.Web.deps.json
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\HN.Management.Web.runtimeconfig.json
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\HN.Management.Web.runtimeconfig.dev.json
@@ -166,6 +167,8 @@ C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\HN.Management.Manager.pdb
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\HN.Management.Engine.pdb
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.csprojAssemblyReference.cache
+C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.AppResource.resources
+C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.csproj.GenerateResource.cache
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.AssemblyInfoInputs.cache
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.AssemblyInfo.cs
@@ -181,6 +184,3 @@ C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\ref\HN.Management.Web.dll
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.pdb
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.genruntimeconfig.cache
-C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.AppResource.resources
-C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\obj\Debug\net5.0\HN.Management.Web.csproj.GenerateResource.cache
-C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Web\bin\Debug\net5.0\AppResource.resx

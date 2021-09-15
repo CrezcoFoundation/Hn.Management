@@ -27,3 +27,4 @@ C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Engine\o
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\ref\HN.Management.Engine.dll
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.pdb
 C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.genruntimeconfig.cache
+C:\Users\Catracho\Desktop\Hn.Management\HN.Management.Web\HN.Management.Engine\obj\Debug\net5.0\HN.Management.Engine.csprojAssemblyReference.cache

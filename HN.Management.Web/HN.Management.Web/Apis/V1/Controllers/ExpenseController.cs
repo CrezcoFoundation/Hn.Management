@@ -17,86 +17,86 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/activity")]
+    [Route("api/expense")]
     public class ExpenseController : Controller
     {
         private readonly IDistributedCache _distributedCache;
-        private readonly IExpenseService _activityService;
-        public ExpenseController(IDistributedCache distributedCache, IExpenseService activityService)
+        private readonly IExpenseService _expenseService;
+        public ExpenseController(IDistributedCache distributedCache, IExpenseService expenseService)
         {
             _distributedCache = distributedCache;
-            _activityService = activityService;
+            _expenseService = expenseService;
         }
 
         [HttpGet]
         [Authorize]
-        [Route("activities")]
+        [Route("expenses")]
         public async Task<IActionResult> GetAllAsync()
         {
-            return Ok(await _activityService.GetAllAsync());
+            return Ok(await _expenseService.GetAllAsync());
         }
 
         [HttpGet]
-        [Route("activity")]
+        [Route("expense")]
         public async Task<IActionResult> GetByConditionAsync(int activityId)
         {
-            return Ok(await _activityService.GetByConditionAsync(activityId));
+            return Ok(await _expenseService.GetByConditionAsync(activityId));
         }
 
         [HttpGet]
         [Route("project")]
         public async Task<IActionResult> GetByProjectAsync(int projectId)
         {
-            return Ok(await _activityService.GetByProjectAsync(projectId));
+            return Ok(await _expenseService.GetByProjectAsync(projectId));
         }
 
         [HttpGet]
         [Route("student")]
         public async Task<IActionResult> GetByStudentAsync(int studentId)
         {
-            return Ok(await _activityService.GetByStudentAsync(studentId));
+            return Ok(await _expenseService.GetByStudentAsync(studentId));
         }
 
         [HttpGet]
         [Route("year")]
         public async Task<IActionResult> GetByYearAsync(int year, int projectId)
         {
-            return Ok(await _activityService.GetByYearAsync(year, projectId));
+            return Ok(await _expenseService.GetByYearAsync(year, projectId));
         }
 
         [HttpGet]
         [Route("month")]
         public async Task<IActionResult> GetByMonthAsync(int month, int year, int projectId)
         {
-            return Ok(await _activityService.GetByMonthAsync(month, year, projectId));
+            return Ok(await _expenseService.GetByMonthAsync(month, year, projectId));
         }
 
         [HttpGet]
         [Route("day")]
         public async Task<IActionResult> GetByDayAsync(int day, int month, int year, int projectId)
         {
-            return Ok(await _activityService.GetByDayAsync(day, month, year, projectId));
+            return Ok(await _expenseService.GetByDayAsync(day, month, year, projectId));
         }
 
         [HttpPost]
         [Route("new")]
         public async Task<IActionResult> AddAsync(ExpenseDTO activity)
         {
-            return Ok(await _activityService.AddAsync(activity));
+            return Ok(await _expenseService.AddAsync(activity));
         }
 
         [HttpPut]
         [Route("update")]
         public async Task<IActionResult> UpdateAsync(ExpenseDTO activity)
         {
-            return Ok(await _activityService.UpdateAsync(activity));
+            return Ok(await _expenseService.UpdateAsync(activity));
         }
 
         [HttpDelete]
         [Route("delete")]
         public async Task<IActionResult> DeleteAsync(ExpenseDTO activity)
         {
-            return Ok(await _activityService.DeleteAsync(activity));
+            return Ok(await _expenseService.DeleteAsync(activity));
         }
 
         [HttpGet]

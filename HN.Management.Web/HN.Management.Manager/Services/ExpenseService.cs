@@ -12,45 +12,45 @@ namespace HN.Management.Manager.Services
 {
     public class ExpenseService : IExpenseService
     {
-        private readonly IExpenseRepository _activityRepository;
+        private readonly IExpenseRepository _expenseRepository;
         private readonly IMapper _mapper;
-        public ExpenseService(IExpenseRepository activityRepository, IMapper mapper)
+        public ExpenseService(IExpenseRepository expenseRepository, IMapper mapper)
         {
-            _activityRepository = activityRepository;
+            _expenseRepository = expenseRepository;
             _mapper = mapper;
         }
 
         public async Task<IQueryable<ExpenseDTO>> GetAllAsync()
         {
-            var query = await _activityRepository.GetAllAsync();
+            var query = await _expenseRepository.GetAllAsync();
 
             return _mapper.Map<List<ExpenseDTO>>(query).AsQueryable();
         }
 
-        public async Task<ExpenseDTO> GetByConditionAsync(int activityId)
+        public async Task<ExpenseDTO> GetByConditionAsync(int id)
         {
-            var query = _activityRepository.GetByConditionAsync(x => x.Id == activityId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.Id == id).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<ExpenseDTO>(query.FirstOrDefault()));
         }
 
         public async Task<IQueryable<ExpenseDTO>> GetByProjectAsync(int projectId)
         {
-            var query = _activityRepository.GetByConditionAsync(x => x.ProjectId == projectId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.ProjectId == projectId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable()); 
         }
 
         public async Task<IQueryable<ExpenseDTO>> GetByStudentAsync(int studentId)
         {
-            var query = _activityRepository.GetByConditionAsync(x => x.StudentId == studentId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.StudentId == studentId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
         }
 
         public async Task<IQueryable<ExpenseDTO>> GetByYearAsync(int year, int projectId)
         {
-            var query = _activityRepository.GetByConditionAsync(x => x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
         }
@@ -58,38 +58,38 @@ namespace HN.Management.Manager.Services
         public async Task<IQueryable<ExpenseDTO>> GetByMonthAsync(int month, int year, int projectId)
         {
             
-            var query = _activityRepository.GetByConditionAsync(x => x.Date.Value.Month ==  month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value.Month ==  month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
         }
 
         public async Task<IQueryable<ExpenseDTO>> GetByDayAsync(int day, int month, int year, int projectId)
         {
-            var query = _activityRepository.GetByConditionAsync(x => x.Date.Value.Day == day && x.Date.Value.Month == month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value.Day == day && x.Date.Value.Month == month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
         }
 
-        public async Task<ExpenseDTO> AddAsync(ExpenseDTO activity)
+        public async Task<ExpenseDTO> AddAsync(ExpenseDTO expense)
         {
-            var entity = _mapper.Map<Expense>(activity);
-            var dto = await _activityRepository.AddAsync(entity);
+            var entity = _mapper.Map<Expense>(expense);
+            var dto = await _expenseRepository.AddAsync(entity);
 
             return _mapper.Map<ExpenseDTO>(dto);
         }
 
-        public async Task<ExpenseDTO> UpdateAsync(ExpenseDTO activity)
+        public async Task<ExpenseDTO> UpdateAsync(ExpenseDTO expense)
         {
-            var entity = _mapper.Map<Expense>(activity);
-            var dto = await _activityRepository.UpdateAsync(entity);
+            var entity = _mapper.Map<Expense>(expense);
+            var dto = await _expenseRepository.UpdateAsync(entity);
 
             return _mapper.Map<ExpenseDTO>(dto);
         }
 
-        public async Task<ExpenseDTO> DeleteAsync(ExpenseDTO activity)
+        public async Task<ExpenseDTO> DeleteAsync(ExpenseDTO expense)
         {
-            var entity = _mapper.Map<Expense>(activity);
-            var dto = await _activityRepository.DeleteAsync(entity);
+            var entity = _mapper.Map<Expense>(expense);
+            var dto = await _expenseRepository.DeleteAsync(entity);
 
             return _mapper.Map<ExpenseDTO>(dto);
         }

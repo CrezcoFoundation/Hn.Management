@@ -9,7 +9,7 @@ namespace HN.Management.Manager.Services.Interfaces
     {
         Task<IQueryable<ExpenseDTO>> GetAllAsync();
 
-        Task<ExpenseDTO> GetByConditionAsync(int activityId);
+        Task<ExpenseDTO> GetByConditionAsync(int id);
 
         Task<IQueryable<ExpenseDTO>> GetByProjectAsync(int projectId);
 
@@ -21,10 +21,10 @@ namespace HN.Management.Manager.Services.Interfaces
 
         Task<IQueryable<ExpenseDTO>> GetByDayAsync(int day, int month, int year, int projectId);
 
-        Task<ExpenseDTO> AddAsync(ExpenseDTO activity);
+        Task<ExpenseDTO> AddAsync(ExpenseDTO expense);
 
-        Task<ExpenseDTO> UpdateAsync(ExpenseDTO activity);
+        Task<ExpenseDTO> UpdateAsync(ExpenseDTO expense);
 
-        Task<ExpenseDTO> DeleteAsync(ExpenseDTO activity);
+        Task<ExpenseDTO> DeleteAsync(ExpenseDTO expense);
     }
 }

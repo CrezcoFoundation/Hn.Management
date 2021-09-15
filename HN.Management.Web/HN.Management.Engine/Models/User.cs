@@ -1,7 +1,7 @@
-﻿
+﻿using HN.Management.Engine.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace HN.ManagementEngine.Models
 {
@@ -11,26 +11,25 @@ namespace HN.ManagementEngine.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email is required")]
+        [MaxLength(40, ErrorMessage = "Email can't be longer than 40 characters")]
         [Column("Email", TypeName = "Varchar")]
-        [MaxLength(50)]
         public string Email { get; set; }
 
-        [Column("FirstName", TypeName = "Varchar")]
-        [MaxLength(50)]
-        public string FirstName { get; set; }
+        public bool IsEmailConfirmed { get; set; }
 
-        [Column("LastName", TypeName = "Varchar")]
-        [MaxLength(50)]
-        public string LastName { get; set; }
+        [Required(ErrorMessage = "PasswordHash is required")]
+        [MaxLength(40, ErrorMessage = "PasswordHash can't be longer than 40 characters")]
+        [Column("PasswordHash", TypeName = "Varchar")]
+        public string PasswordHash { get; set; }
 
-        [Required]
-        [Column("Password", TypeName = "Varchar")]
-        [MaxLength(50)]
-        public string Password { get; set; }
+        [Required(ErrorMessage ="RoleName is requiered")]
+        [MaxLength(40, ErrorMessage = "RoleName can't be longer than 40 characters")]
+        [Column("RoleName", TypeName = "Varchar")]
+        public string RoleName { get; set; }
 
-        [Column("Image", TypeName = "Varchar")]
-        [MaxLength(500)]
-        public string Image { get; set; }
+        [ForeignKey("RoleId")]
+        public int RoleId { get; set; }
+        public Role Role { get; set; }
     }
 }

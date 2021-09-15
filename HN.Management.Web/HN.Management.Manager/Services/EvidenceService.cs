@@ -35,7 +35,7 @@ namespace HN.Management.Manager.Services
 
         public async Task<IQueryable<EvidenceDTO>> GetByActivityAsync(int activityId)
         {
-            var query = _evidenceRepository.GetByConditionAsync(x => x.ActivityId == activityId).Result.ToList();
+            var query = _evidenceRepository.GetByConditionAsync(x => x.ExpenseId == activityId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<EvidenceDTO>>(query).AsQueryable());
         }

@@ -1,6 +1,4 @@
 ﻿
-using System.Text.Json.Serialization;
-
 namespace HN.ManagementEngine.DTO
 {
     public class UserDTO
@@ -9,13 +7,12 @@ namespace HN.ManagementEngine.DTO
 
         public string Email { get; set; }
 
-        public string FirstName { get; set; }
+        public bool IsEmailConfirmed { get; set; }
 
-        public string LastName { get; set; }
-        
-        [JsonIgnore]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
 
-        public string Image { get; set; }
+        public string RoleName { get; set; }
+
+        public int RoleId { get; set; }
     }
 }

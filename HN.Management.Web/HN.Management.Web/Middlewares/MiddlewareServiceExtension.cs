@@ -17,23 +17,24 @@ namespace HN.Management.Web.Extensions
       public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
         {
             //Services
-            service.AddScoped<IActivityService, ActivityService>();
+            service.AddScoped<IExpenseService, ExpenseService>();
             service.AddScoped<IDonationService, DonationService>();
             service.AddScoped<IDonorService, DonorService>();
             service.AddScoped<IEvidenceService, EvidenceService>();
             service.AddScoped<IProjectService, ProjectService>();
             service.AddScoped<IStudentService, StudetService>();
-            service.AddScoped<IUserPermitService, UserPermitService>();
+            //service.AddScoped<IUserRoleService, UserRoleService>();
             service.AddScoped<IUserService, UserService>();
+            service.AddScoped<ITokenService, TokenService>(); 
 
             //Repositories
-            service.AddScoped<IActivityRepository, ActivityRepository>();
+            service.AddScoped<IExpenseRepository, ExpenseRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IDonorRepository, DonorRepository>();
             service.AddScoped<IEvidenceRepository, EvidenceRepository>();
             service.AddScoped<IProjectRepository, ProjectRepository>();
             service.AddScoped<IStudentRepository, StudentRepository>();
-            service.AddScoped<IUserPermitRepository, UserPermitRepository>();
+            //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
             service.AddScoped<IUserRepository, UserRepository>();
         }
         public static void ConfigureRedis(this IServiceCollection services)

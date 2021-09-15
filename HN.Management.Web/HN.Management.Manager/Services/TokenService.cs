@@ -19,10 +19,10 @@ namespace HN.Management.Manager.Services
             _appSetting = appSetting.Value;
         }
 
-        public string GenerateToken(UserPermitDTO user)
+        public string GenerateToken(UserDTO user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSetting.Secret);
+            var key = Encoding.ASCII.GetBytes("OLAh6Yh5KwNFvOqgltw7");
             var expireTime = _appSetting.ExpireTime;
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -30,12 +30,11 @@ namespace HN.Management.Manager.Services
                     new Claim[]
                     {
                         new Claim(ClaimTypes.Email, user.Email),
-                        new Claim("DonorPermit", user.DonorPermit.ToString()),
-                        new Claim("ProjectPermit", user.ProjectPermit.ToString())
+                        new Claim("Role", user.RoleName.ToString())
                     }),
                 Issuer = _appSetting.ValidIssuer,
                 Audience = _appSetting.ValidAudience,
-                Expires = DateTime.UtcNow.AddMinutes(expireTime),
+                Expires = DateTime.UtcNow.AddMinutes(0.5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

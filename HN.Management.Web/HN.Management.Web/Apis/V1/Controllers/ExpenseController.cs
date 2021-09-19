@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/expense")]
+    [Route("api/expenses")]
     public class ExpenseController : Controller
     {
         private readonly IDistributedCache _distributedCache;
@@ -25,57 +25,41 @@ namespace HN.Management.Web.Apis.V1.Controllers
         public ExpenseController(IDistributedCache distributedCache, IExpenseService expenseService)
         {
             _distributedCache = distributedCache;
-            _expenseService = expenseService;
+            _expenseService = expenseService ?? throw new ArgumentNullException(nameof(expenseService));
         }
 
         [HttpGet]
         [Authorize]
-        [Route("expenses")]
         public async Task<IActionResult> GetAllAsync()
         {
             return Ok(await _expenseService.GetAllAsync());
         }
 
-        [HttpGet]
-        [Route("expense")]
-        public async Task<IActionResult> GetByConditionAsync(int activityId)
+        [HttpGet("expenseId")]
+        public async Task<IActionResult> GetByConditionAsync(int expenseId)
         {
-            return Ok(await _expenseService.GetByConditionAsync(activityId));
+            return Ok(await _expenseService.GetByConditionAsync(expenseId));
         }
 
         [HttpGet]
-        [Route("project")]
+        [Route("projects/{projectId}")]
         public async Task<IActionResult> GetByProjectAsync(int projectId)
         {
             return Ok(await _expenseService.GetByProjectAsync(projectId));
         }
 
         [HttpGet]
-        [Route("student")]
-        public async Task<IActionResult> GetByStudentAsync(int studentId)
+        [Route("students/{studentName}")]
+        public async Task<IActionResult> GetByStudentAsync(string studentName)
         {
-            return Ok(await _expenseService.GetByStudentAsync(studentId));
+            return Ok(await _expenseService.GetByStudentAsync(studentName));
         }
 
         [HttpGet]
-        [Route("year")]
-        public async Task<IActionResult> GetByYearAsync(int year, int projectId)
+        [Route("ranks/{startDate}/{endDate}")]
+        public async Task<IActionResult> GetByRankAsync(DateTime startDate, DateTime endDate)
         {
-            return Ok(await _expenseService.GetByYearAsync(year, projectId));
-        }
-
-        [HttpGet]
-        [Route("month")]
-        public async Task<IActionResult> GetByMonthAsync(int month, int year, int projectId)
-        {
-            return Ok(await _expenseService.GetByMonthAsync(month, year, projectId));
-        }
-
-        [HttpGet]
-        [Route("day")]
-        public async Task<IActionResult> GetByDayAsync(int day, int month, int year, int projectId)
-        {
-            return Ok(await _expenseService.GetByDayAsync(day, month, year, projectId));
+            return Ok(await _expenseService.GetByRankAsync(startDate, endDate));
         }
 
         [HttpPost]

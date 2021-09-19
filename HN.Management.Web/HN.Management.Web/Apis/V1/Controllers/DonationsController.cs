@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/donation")]
+    [Route("api/donations")]
     public class DonationsController : Controller
     {
         private readonly IDistributedCache _distributedCache;
@@ -24,56 +24,40 @@ namespace HN.Management.Web.Apis.V1.Controllers
         public DonationsController(IDistributedCache distributedCache, IDonationService donationService)
         {
             _distributedCache = distributedCache;
-            _donationService = donationService;
+            _donationService = donationService ?? throw new ArgumentNullException(nameof(donationService));
         }
 
-        [HttpGet]
-        [Route("donations")]
+        [HttpGet()]
         public async Task<IActionResult> GetAllAsync()
         {
             return Ok(await _donationService.GetAllAsync());
         }
 
-        [HttpGet]
-        [Route("donation")]
+        [HttpGet("{donationId}")]
         public async Task<IActionResult> GetByConditionAsync(int donationId)
         {
             return Ok(await _donationService.GetByConditionAsync(donationId));
         }
 
         [HttpGet]
-        [Route("project")]
+        [Route("projects/{projectId}")]
         public async Task<IActionResult> GetByProjectAsync(int projectId)
         {
             return Ok(await _donationService.GetByProjectAsync(projectId));
         }
 
         [HttpGet]
-        [Route("donor")]
-        public async Task<IActionResult> GetByStudentAsync(int donorId)
+        [Route("donors/{donorId}")]
+        public async Task<IActionResult> GetByDonortAsync(int donorId)
         {
             return Ok(await _donationService.GetByDonortAsync(donorId));
         }
 
         [HttpGet]
-        [Route("year")]
-        public async Task<IActionResult> GetByYearAsync(int year, int projectId)
+        [Route("ranks/{startDate}/{endDate}")]
+        public async Task<IActionResult> GetByRankAsync(DateTime startDate, DateTime endDate)
         {
-            return Ok(await _donationService.GetByYearAsync(year, projectId));
-        }
-
-        [HttpGet]
-        [Route("month")]
-        public async Task<IActionResult> GetByMonthAsync(int month, int year, int projectId)
-        {
-            return Ok(await _donationService.GetByMonthAsync(month, year, projectId));
-        }
-
-        [HttpGet]
-        [Route("day")]
-        public async Task<IActionResult> GetByDayAsync(int day, int month, int year, int projectId)
-        {
-            return Ok(await _donationService.GetByDayAsync(day, month, year, projectId));
+            return Ok(await _donationService.GetByRankAsync(startDate, endDate));
         }
 
         [HttpPost]

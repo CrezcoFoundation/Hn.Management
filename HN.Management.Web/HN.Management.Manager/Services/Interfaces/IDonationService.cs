@@ -1,4 +1,5 @@
 ﻿using HN.ManagementEngine.DTO;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,11 +15,7 @@ namespace HN.Management.Manager.Services.Interfaces
 
         Task<IQueryable<DonationDTO>> GetByDonortAsync(int donorId);
 
-        Task<IQueryable<DonationDTO>> GetByYearAsync(int year, int projectId);
-
-        Task<IQueryable<DonationDTO>> GetByMonthAsync(int month, int year, int projectId);
-
-        Task<IQueryable<DonationDTO>> GetByDayAsync(int day, int month, int year, int projectId);
+        Task<IQueryable<DonationDTO>> GetByRankAsync(DateTime startDate, DateTime endDate);
 
         Task<DonationDTO> AddAsync(DonationDTO donation);
 

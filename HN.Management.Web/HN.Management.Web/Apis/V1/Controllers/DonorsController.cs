@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/donor")]
+    [Route("api/donors")]
     public class DonorsController : Controller
     {
         private readonly IDistributedCache _distributedCache;
@@ -24,18 +24,16 @@ namespace HN.Management.Web.Apis.V1.Controllers
         public DonorsController(IDistributedCache distributedCache, IDonorService donorService)
         {
             _distributedCache = distributedCache;
-            _donorService = donorService;
+            _donorService = donorService ?? throw new ArgumentNullException(nameof(donorService));
         }
 
         [HttpGet]
-        [Route("donors")]
         public async Task<IActionResult> GetAllAsync()
         {
             return Ok(await _donorService.GetAllAsync());
         }
 
-        [HttpGet]
-        [Route("donor")]
+        [HttpGet("{donorId}")]
         public async Task<IActionResult> GetByConditionAsync(int donorId)
         {
             return Ok(await _donorService.GetByConditionAsync(donorId));

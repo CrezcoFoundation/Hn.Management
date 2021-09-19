@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/evidence")]
+    [Route("api/evidences")]
     public class EvidencesController : Controller
     {
         private readonly IDistributedCache _distributedCache;
@@ -24,28 +24,26 @@ namespace HN.Management.Web.Apis.V1.Controllers
         public EvidencesController(IDistributedCache distributedCache, IEvidenceService evidenceService)
         {
             _distributedCache = distributedCache;
-            _evidenceService = evidenceService;
+            _evidenceService = evidenceService ?? throw new ArgumentNullException(nameof(evidenceService));
         }
 
         [HttpGet]
-        [Route("evidences")]
         public async Task<IActionResult> GetAllAsync()
         {
             return Ok(await _evidenceService.GetAllAsync());
         }
 
-        [HttpGet]
-        [Route("evidence")]
+        [HttpGet("{evideceId}")]
         public async Task<IActionResult> GetByConditionAsync(int evideceId)
         {
             return Ok(await _evidenceService.GetByConditionAsync(evideceId));
         }
 
         [HttpGet]
-        [Route("activity")]
-        public async Task<IActionResult> GetByActivityAsync(int activityId)
+        [Route("expenses/{expenseId}")]
+        public async Task<IActionResult> GetByExpenseAsync(int expenseId)
         {
-            return Ok(await _evidenceService.GetByActivityAsync(activityId));
+            return Ok(await _evidenceService.GetByExpenseAsync(expenseId));
         }
         
         [HttpPost]

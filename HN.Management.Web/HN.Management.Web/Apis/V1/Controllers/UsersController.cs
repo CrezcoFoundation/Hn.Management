@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/user")]
+    [Route("api/users")]
     public class UsersController : Controller
     {
         private readonly IDistributedCache _distributedCache;
@@ -25,18 +25,16 @@ namespace HN.Management.Web.Apis.V1.Controllers
         public UsersController(IDistributedCache distributedCache, IUserService userService)
         {
             _distributedCache = distributedCache;
-            _userService = userService;
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
         [HttpGet]
-        [Route("users")]
         public async Task<IActionResult> GetAllAsync()
         {
             return Ok(await _userService.GetAllAsync());
         }
 
-        [HttpGet]
-        [Route("user")]
+        [HttpGet("{userId}")]
         public async Task<IActionResult> GetByConditionAsync(int userId)
         {
             return Ok(await _userService.GetByConditionAsync(userId));

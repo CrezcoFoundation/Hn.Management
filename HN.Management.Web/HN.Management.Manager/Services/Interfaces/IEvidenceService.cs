@@ -10,7 +10,7 @@ namespace HN.Management.Manager.Services.Interfaces
 
         Task<EvidenceDTO> GetByConditionAsync(int evidenceId);
 
-        Task<IQueryable<EvidenceDTO>> GetByActivityAsync(int activityId);
+        Task<IQueryable<EvidenceDTO>> GetByExpenseAsync(int expenseId);
 
         Task<EvidenceDTO> AddAsync(EvidenceDTO evidence);
 

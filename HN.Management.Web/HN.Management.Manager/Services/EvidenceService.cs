@@ -33,9 +33,9 @@ namespace HN.Management.Manager.Services
             return await Task.FromResult(_mapper.Map<EvidenceDTO>(query.FirstOrDefault()));
         }
 
-        public async Task<IQueryable<EvidenceDTO>> GetByActivityAsync(int activityId)
+        public async Task<IQueryable<EvidenceDTO>> GetByExpenseAsync(int expenseId)
         {
-            var query = _evidenceRepository.GetByConditionAsync(x => x.ExpenseId == activityId).Result.ToList();
+            var query = _evidenceRepository.GetByConditionAsync(x => x.ExpenseId == expenseId).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<EvidenceDTO>>(query).AsQueryable());
         }

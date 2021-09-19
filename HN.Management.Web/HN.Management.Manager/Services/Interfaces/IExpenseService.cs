@@ -13,13 +13,9 @@ namespace HN.Management.Manager.Services.Interfaces
 
         Task<IQueryable<ExpenseDTO>> GetByProjectAsync(int projectId);
 
-        Task<IQueryable<ExpenseDTO>> GetByStudentAsync(int studentId);
+        Task<IQueryable<ExpenseDTO>> GetByStudentAsync(string studentName);
 
-        Task<IQueryable<ExpenseDTO>> GetByYearAsync(int year, int projectId);
-
-        Task<IQueryable<ExpenseDTO>> GetByMonthAsync(int month, int year, int projectId);
-
-        Task<IQueryable<ExpenseDTO>> GetByDayAsync(int day, int month, int year, int projectId);
+        Task<IQueryable<ExpenseDTO>> GetByRankAsync(DateTime startDate, DateTime endDate);
 
         Task<ExpenseDTO> AddAsync(ExpenseDTO expense);
 

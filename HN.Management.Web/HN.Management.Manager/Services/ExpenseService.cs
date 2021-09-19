@@ -41,31 +41,16 @@ namespace HN.Management.Manager.Services
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable()); 
         }
 
-        public async Task<IQueryable<ExpenseDTO>> GetByStudentAsync(int studentId)
+        public async Task<IQueryable<ExpenseDTO>> GetByStudentAsync(string studentName)
         {
-            var query = _expenseRepository.GetByConditionAsync(x => x.StudentId == studentId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.Name == studentName).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
         }
 
-        public async Task<IQueryable<ExpenseDTO>> GetByYearAsync(int year, int projectId)
+        public async Task<IQueryable<ExpenseDTO>> GetByRankAsync(DateTime startDate, DateTime endDate)
         {
-            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
-
-            return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
-        }
-
-        public async Task<IQueryable<ExpenseDTO>> GetByMonthAsync(int month, int year, int projectId)
-        {
-            
-            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value.Month ==  month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
-
-            return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
-        }
-
-        public async Task<IQueryable<ExpenseDTO>> GetByDayAsync(int day, int month, int year, int projectId)
-        {
-            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value.Day == day && x.Date.Value.Month == month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
+            var query = _expenseRepository.GetByConditionAsync(x => x.Date.Value >= startDate && x.Date.Value <= endDate).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<ExpenseDTO>>(query).AsQueryable());
         }

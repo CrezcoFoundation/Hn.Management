@@ -3,6 +3,7 @@ using HN.Management.Engine.Repositories.Interfaces;
 using HN.Management.Manager.Services.Interfaces;
 using HN.ManagementEngine.DTO;
 using HN.ManagementEngine.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -47,23 +48,9 @@ namespace HN.Management.Manager.Services
             return await Task.FromResult(_mapper.Map<List<DonationDTO>>(query).AsQueryable());
         }
 
-        public async Task<IQueryable<DonationDTO>> GetByYearAsync(int year, int projectId)
+        public async Task<IQueryable<DonationDTO>> GetByRankAsync(DateTime startDate, DateTime endDate)
         {
-            var query = _donationsRepository.GetByConditionAsync(x => x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
-
-            return await Task.FromResult(_mapper.Map<List<DonationDTO>>(query).AsQueryable());
-        }
-
-        public async Task<IQueryable<DonationDTO>> GetByMonthAsync(int month, int year, int projectId)
-        {
-            var query = _donationsRepository.GetByConditionAsync(x => x.Date.Value.Month == month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
-
-            return await Task.FromResult(_mapper.Map<List<DonationDTO>>(query).AsQueryable());
-        }
-
-        public async Task<IQueryable<DonationDTO>> GetByDayAsync(int day, int month, int year, int projectId)
-        {
-            var query = _donationsRepository.GetByConditionAsync(x => x.Date.Value.Day == day && x.Date.Value.Month == month && x.Date.Value.Year == year && x.ProjectId == projectId).Result.ToList();
+            var query = _donationsRepository.GetByConditionAsync(x => x.Date.Value >= startDate && x.Date.Value <= endDate).Result.ToList();
 
             return await Task.FromResult(_mapper.Map<List<DonationDTO>>(query).AsQueryable());
         }

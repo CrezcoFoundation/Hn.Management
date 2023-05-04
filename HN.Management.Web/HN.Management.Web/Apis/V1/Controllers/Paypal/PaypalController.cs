@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HN.Management.Web.Apis.V1.Controllers.Paypal
 {
+    [Route("api/[Controller]")]
     public class PaypalController : Controller
     {
         private readonly IPaypalService paypalService;
@@ -15,7 +16,7 @@ namespace HN.Management.Web.Apis.V1.Controllers.Paypal
             this.paypalService = paypalService;
         }
 
-        
+        [HttpPost("order")]
         public async Task<IActionResult> CreateOrder(PaypalOrder paypalOrder)
         {
             try

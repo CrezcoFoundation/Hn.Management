@@ -9,12 +9,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using HN.Management.Manager.Services.Paypal;
+using HN.Management.Engine.Repositories.Paypal;
 
 namespace HN.Management.Web.Extensions
 {
     public static class MiddlewareServiceExtension
     {
-      public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
+        public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
         {
             //Services
             service.AddScoped<IExpenseService, ExpenseService>();
@@ -25,7 +27,8 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IStudentService, StudetService>();
             //service.AddScoped<IUserRoleService, UserRoleService>();
             service.AddScoped<IUserService, UserService>();
-            service.AddScoped<ITokenService, TokenService>(); 
+            service.AddScoped<ITokenService, TokenService>();
+            service.AddScoped<IPaypalService, PaypalService>();
 
             //Repositories
             service.AddScoped<IExpenseRepository, ExpenseRepository>();
@@ -36,6 +39,7 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IStudentRepository, StudentRepository>();
             //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
             service.AddScoped<IUserRepository, UserRepository>();
+            service.AddScoped<IPaypalRepository, PaypalRepository>();
         }
         public static void ConfigureRedis(this IServiceCollection services)
         {

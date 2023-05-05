@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-12 p-0" style="height: 45vh; overflow: hidden">
+      <img
+        class="card-img-top"
+        src="https://unsplash.it/600/1200"
+        alt="Card image cap"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="col-12 card p-5 d-flex flex-column flex-lg-row align-items-center"
+    >
+      <div class="col-12 col-lg-6">
+        <h5 class="text-left py-3">We'd love to connect with you!</h5>
+        <form [formGroup]="contactForm" (Submit)="onSubmited()">
+          <div class="mb-3">
+            <label for="userName" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control py-2"
+              id="userName"
+              aria-describedby="yourName"
+              placeholder="Enter your Name"
+              formControlName="inputName"
+              required
+            />
+            <label for="userEmail" class="form-label"></label>
+            <input
+              type="email"
+              class="form-control py-2"
+              id="userEmail"
+              aria-describedby="emailHelp"
+              placeholder="Enter a valid email address"
+              formControlName="inputEmail"
+              required
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label"></label>
+            <input
+              type="number"
+              name="mount"
+              id="amount"
+              formControlName="amount"
+              placeholder="Enter a mount"
+              aria-describedby="Amount number"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="messageTextArea" class="form-label"></label>
+            <textarea
+              class="form-control py-2"
+              name="messageArea"
+              id="messageTextArea"
+              placeholder="Enter your message"
+              cols="30"
+              rows="10"
+              formControlName="message"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3 form-check">
+            <label class="form-check-label" for="checkContact"
+              >Donate with PayPal</label
+            >
+            <i
+              class="ms-2 fa-brands fa-cc-paypal fa-xl"
+              style="color: #0079c1"
+            ></i>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="checkContact"
+              formControlName="checkForm"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!contactForm.valid"
+          >
+            Submit
+          </button>
+        </form>
+        <hr />
+        <p>Form Value: {{ contactForm.value | json }}</p>
+        <p>Form Status: {{ contactForm.status }}</p>
+      </div>
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
+        <h2 class="display-5 text-center p-3">Contact Us</h2>
+        <p>
+          Our mailing address is:<br />
+          152A Charlotte Street,<br />
+          Peterborough ON<br />
+          Phone: 705-742-3221
+        </p>
+        <div class="icons-contact d-flex align-items-center gap-4 mt-3">
+          <i class="fa-brands fa-facebook-f fa-xl"></i>
+          <i class="fa-brands fa-twitter fa-xl"></i>
+          <i class="fa-brands fa-instagram fa-xl"></i>
+          <i class="fa-brands fa-google-plus-g fa-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-multiple-items-slider></app-multiple-items-slider>

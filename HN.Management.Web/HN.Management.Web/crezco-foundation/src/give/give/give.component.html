@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center">
+  <div class="card col-md-12 p-5 m-3" style="max-width: 800px">
+    <form [formGroup]="giveForm" (ngSubmit)="onSubmit()">
+      <label class="form-label" for="first-name">First Name: </label>
+      <input
+        class="form-control"
+        id="first-name"
+        type="text"
+        formControlName="firstName"
+        required
+      />
+
+      <label class="form-label" for="last-name">Last Name: </label>
+      <input
+        class="form-control"
+        id="last-name"
+        type="text"
+        formControlName="lastName"
+      />
+
+      <label class="form-label" for="last-name">e-mail: </label>
+      <input
+        class="form-control"
+        id="last-name"
+        type="email"
+        formControlName="email"
+      />
+
+      <label class="form-label" for="last-name">Amount to donate: </label>
+      <input
+        class="form-control"
+        id="last-name"
+        type="number"
+        formControlName="amount"
+      />
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!giveForm.valid"
+      >
+        Donate with paypal
+      </button>
+    </form>
+
+    <hr />
+
+    <p>Form Value: {{ giveForm.value | json }}</p>
+
+    <p>Form Status: {{ giveForm.status }}</p>
+  </div>
+</div>

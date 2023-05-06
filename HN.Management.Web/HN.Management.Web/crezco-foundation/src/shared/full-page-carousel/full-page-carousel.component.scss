@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+/* * {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+} */
+.container {
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  width: 100%;
+}
+.gallery-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 91vh;
+  .item {
+    flex: 2;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: flex 0.5s ease;
+  }
+  .item:hover {
+    flex: 10;
+    transition: 0.5s;
+  }
+}
+
+/* Items Background images */
+.item-1 {
+  background-image: url("../../assets/Image/Home-accordion/College.png");
+}
+.item-2 {
+  background-image: url("../../assets/Image/Home-accordion/Special_Education.png");
+}
+.item-3 {
+  background-image: url("../../assets/Image/Home-accordion/Community_Support.png");
+}
+.item-4 {
+  background-image: url("../../assets/Image/Home-accordion/Student_Trips.png");
+}
+.item-5 {
+  background-image: url("../../assets/Image/Home-accordion/Waiting.png");
+}
+
+/* Item hover opacity property */
+.item-cont1,
+.item-cont2,
+.item-cont3,
+.item-cont4,
+.item-cont5 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #f2f8f8;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  padding: 0 0 45px 45px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.item-cont1:hover,
+.item-cont2:hover,
+.item-cont3:hover,
+.item-cont4:hover,
+.item-cont5:hover {
+  opacity: 1;
+}
+
+/* Items gradient color Bg */
+.item-cont1 {
+  background: rgb(0, 191, 27);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(0, 191, 27, 1) 0%,
+    rgba(0, 191, 27, 0) 50%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(0, 191, 27, 1) 0%,
+    rgba(0, 191, 27, 0) 50%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(0, 191, 27, 1) 0%,
+    rgba(0, 191, 27, 0) 50%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00bf1b",endColorstr="#00bf1b",GradientType=1);
+}
+.item-cont2 {
+  background: rgb(111, 0, 170);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(111, 0, 170, 1) 0%,
+    rgba(111, 0, 170, 0) 50%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(111, 0, 170, 1) 0%,
+    rgba(111, 0, 170, 0) 50%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(111, 0, 170, 1) 0%,
+    rgba(111, 0, 170, 0) 50%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f00aa",endColorstr="#6f00aa",GradientType=1);
+}
+.item-cont3 {
+  background: rgb(244, 142, 8);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(244, 142, 8, 1) 0%,
+    rgba(244, 142, 8, 0) 50%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(244, 142, 8, 1) 0%,
+    rgba(244, 142, 8, 0) 50%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(244, 142, 8, 1) 0%,
+    rgba(244, 142, 8, 0) 50%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f48e08",endColorstr="#f48e08",GradientType=1);
+}
+.item-cont4 {
+  background: rgb(0, 191, 27);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(0, 191, 27, 1) 0%,
+    rgba(0, 191, 27, 0) 50%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(0, 191, 27, 1) 0%,
+    rgba(0, 191, 27, 0) 50%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(0, 191, 27, 1) 0%,
+    rgba(0, 191, 27, 0) 50%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00bf1b",endColorstr="#00bf1b",GradientType=1);
+}
+.item-cont5 {
+  background: rgb(111, 0, 170);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(111, 0, 170, 1) 0%,
+    rgba(111, 0, 170, 0) 50%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(111, 0, 170, 1) 0%,
+    rgba(111, 0, 170, 0) 50%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(111, 0, 170, 1) 0%,
+    rgba(111, 0, 170, 0) 50%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f00aa",endColorstr="#6f00aa",GradientType=1);
+}
+
+/* Items Content */
+.item-cont1 > h2,
+.item-cont2 > h2,
+.item-cont3 > h2,
+.item-cont4 > h2,
+.item-cont5 > h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 1.2em;
+  margin-bottom: 0.2em;
+}
+.item-cont1 > p,
+.item-cont2 > p,
+.item-cont3 > p,
+.item-cont4 > p,
+.item-cont5 > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: lowercase;
+  text-align: left;
+  width: 90%;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+.item-cont1 > a,
+.item-cont2 > a,
+.item-cont3 > a,
+.item-cont4 > a,
+.item-cont5 > a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #f2f8f8;
+  text-decoration: none;
+}

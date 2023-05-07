@@ -10,7 +10,8 @@
     "lint": "npx eslint src/**/**/*.ts",
     "lint:fix": "npx eslint src/**/**/*.ts --fix",
     "prettier": "npx prettier --check src/**/**/*.ts",
-    "prettier:write": "npx prettier --write src/"
+    "prettier:write": "npx prettier --write src/",
+    "husky:prepare": "cd ../.. && husky install HN.Management.Web/crezco-foundation/.husky"
   },
   "private": true,
   "dependencies": {

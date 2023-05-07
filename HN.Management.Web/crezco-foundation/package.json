@@ -9,13 +9,9 @@
     "test": "ng test",
     "lint": "npx eslint src/**/**/*.ts",
     "lint:fix": "npx eslint src/**/**/*.ts --fix",
-    "prettier": "npx prettier --check src/",
+    "prettier": "npx prettier --check src/**/**/*.ts",
     "prettier:write": "npx prettier --write src/",
     "prepare": "cd ../.. && husky install HN.Management.Web/crezco-foundation/.husky"
-  },
-  "lint-staged": {
-    "src/**/**/*.ts": "npm run eslint src/**/**/*.ts",
-    "src/**/**/*.{ts,hmtl,scss}": "npm run prettier:write"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +27,10 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
+  },
+  "lint-staged":{
+    "src/**/**/*.ts": "npx eslint --cache",
+    "src/**/**/{*.ts,*.html,*.scss}": "npx prettier --check"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.7",

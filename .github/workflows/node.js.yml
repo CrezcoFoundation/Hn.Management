@@ -20,9 +20,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20
-    - run: |      
-        cd HN.Management.Web/crezco-foundation &&
+    - run: |
         npm ci &&
         npm run build --prod --if-present &&
         npm run lint &&
         npm run prettier
+      working-directory: HN.Management.Web/crezco-foundation

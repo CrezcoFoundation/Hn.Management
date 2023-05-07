@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "prestart": "cp scripts/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit && echo 'hook copied'",
+    
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "npx eslint src/**/*.ts",
-    "lint:fix": "npx eslint src/**/*.ts --fix",
+    "lint": "npx eslint src/**/**/*.ts",
+    "lint:fix": "npx eslint src/**/**/*.ts --fix",
     "prettier": "npx prettier --check src/",
     "prettier:write": "npx prettier --write src/"
   },

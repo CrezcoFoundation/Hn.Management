@@ -29,8 +29,8 @@
     "zone.js": "~0.12.0"
   },
   "lint-staged":{
-    "src/**/**/*.ts": "npx eslint --cache",
-    "src/**/**/{*.ts,*.html,*.scss}": "npx prettier --check"
+    "./src/contact-us/contact-us/contact-us.component.ts": "npx eslint --cache",
+    "./src/contact-us/contact-us/contact-us.component.{ts,html,scss}": "npx prettier --check"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.7",

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
-               
+
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',

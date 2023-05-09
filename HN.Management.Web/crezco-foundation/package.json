@@ -4,14 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "npx eslint src/**/**/*.ts",
     "lint:fix": "npx eslint src/**/**/*.ts --fix",
-    "prettier": "npx prettier --check src/",
-    "prettier:write": "npx prettier --write src/"
+    "prettier": "npx prettier --check src/**/**/*.ts",
+    "prettier:write": "npx prettier --write src/",
+    "husky:prepare": "cd ../.. && husky install HN.Management.Web/crezco-foundation/.husky"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +28,10 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
+  "lint-staged": {
+    "./**/**/**/*.component.ts": "npx eslint --cache",
+    "./**/**/**/*.component.{ts,html,scss}": "npx prettier --check"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.7",
     "@angular/cli": "~15.2.7",
@@ -40,6 +44,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

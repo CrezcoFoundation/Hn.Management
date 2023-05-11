@@ -4,15 +4,17 @@
       *ngFor="let info of crezcoInfo"
       class="item {{ info.cInfoTags.tParent }}"
     >
-      <div class="{{ info.cInfoTags.tChildren }}">
-        <h2>{{ info.cInfoTitle }}</h2>
-        <p>
-          {{ info.cInfoDescription }}
-        </p>
-        <a href="{{ info.cInfoUrl }}"
-          >See more <i class="{{ info.cInfoIcon }}"></i
-        ></a>
-      </div>
+      <a href="/" class="text-decoration-none">
+        <div class="{{ info.cInfoTags.tChildren }}">
+          <h2>{{ info.cInfoTitle }}</h2>
+          <p>
+            {{ info.cInfoDescription }}
+          </p>
+          <a href="{{ info.cInfoUrl }}"
+            >Learn More <i class="{{ info.cInfoIcon }}"></i
+          ></a>
+        </div>
+      </a>
     </div>
   </div>
 </div>

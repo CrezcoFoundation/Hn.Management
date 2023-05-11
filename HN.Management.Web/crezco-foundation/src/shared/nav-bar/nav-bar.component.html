@@ -1,5 +1,34 @@
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul
+    class="navbar-nav d-flex flex-column align-items-center justify-content-center gap-4"
+  >
+    <li class="nav-item">
+      <a
+        class="nav-link text-white active"
+        aria-current="page"
+        [routerLink]="['/']"
+        ><h2 class="display-3 fw-bold">Home</h2>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" [routerLink]="['/give']">
+        <h2 class="display-3 fw-bold">Give</h2>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" [routerLink]="['/crezco-story']">
+        <h2 class="display-3 fw-bold">Crezco's Story</h2>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" [routerLink]="['/contact-us']">
+        <h2 class="display-3 fw-bold">Contact Us</h2>
+      </a>
+    </li>
+  </ul>
+</div>
 <nav class="navbar bg-body-tertiary py-3">
-  <div class="container">
+  <div class="container-fluid px-5 mx-5">
     <a class="navbar-brand p-0" [routerLink]="['/']">
       <img
         src="../../assets/Image/Logo/Logo2.png"
@@ -22,29 +51,13 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <i class="fa-solid fa-bars fa-xl"></i>
-        <!-- <span class="navbar-toggler-icon"></span> -->
+        <div id="nav-icon1">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/']"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/give']">Give</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/crezco-story']"
-              >Crezco's Story</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/contact-us']">Contact Us</a>
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 </nav>

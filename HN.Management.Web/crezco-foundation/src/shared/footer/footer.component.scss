@@ -10,11 +10,20 @@ footer {
 }
 
 .logo-footer > a > img {
-  width: 200px;
+  width: 180px;
   height: auto;
 }
 
 .project-links > h5 {
   color: #00bf1b;
   font-weight: bold;
+}
+
+.social-icon {
+  max-width: 45px;
+  width: 100%;
+}
+
+.link-footer {
+  font-size: 1.1rem;
 }

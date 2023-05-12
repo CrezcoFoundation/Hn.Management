@@ -20,7 +20,7 @@ export function getCrezcoInformationObjet(): CrezcoInformationInteface[] {
       },
       cInfoTitle: 'College Scholarships',
       cInfoDescription:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nostrum enim nulla distinctio.',
+        'Cycles of poverty are broken through higher educational opportunities. Students in our...',
       cInfoUrl: '#',
       cInfoIcon: 'fa-solid fa-arrow-right',
     },
@@ -32,7 +32,7 @@ export function getCrezcoInformationObjet(): CrezcoInformationInteface[] {
       },
       cInfoTitle: 'Special Education',
       cInfoDescription:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nostrum enim nulla distinctio.',
+        'Helpful resources are provided for children in need of special educational services that are...',
       cInfoUrl: '#',
       cInfoIcon: 'fa-solid fa-arrow-right',
     },
@@ -44,7 +44,7 @@ export function getCrezcoInformationObjet(): CrezcoInformationInteface[] {
       },
       cInfoTitle: 'Community Support',
       cInfoDescription:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nostrum enim nulla distinctio.',
+        'Attending the needs in our community allows us to be a light in the world around us...',
       cInfoUrl: '#',
       cInfoIcon: 'fa-solid fa-arrow-right',
     },
@@ -56,7 +56,7 @@ export function getCrezcoInformationObjet(): CrezcoInformationInteface[] {
       },
       cInfoTitle: 'Student Trips',
       cInfoDescription:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nostrum enim nulla distinctio.',
+        'Instilling an attitude and practice of service is an important value. We seek opportunities and...',
       cInfoUrl: '#',
       cInfoIcon: 'fa-solid fa-arrow-right',
     },
@@ -66,9 +66,9 @@ export function getCrezcoInformationObjet(): CrezcoInformationInteface[] {
         tParent: 'item-5',
         tChildren: 'item-cont5',
       },
-      cInfoTitle: 'Waiting Section',
+      cInfoTitle: 'Medical Assistance',
       cInfoDescription:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nostrum enim nulla distinctio.',
+        'Medical emergencies can create great economic burden or result in a lack of care. Responding to...',
       cInfoUrl: '#',
       cInfoIcon: 'fa-solid fa-arrow-right',
     },

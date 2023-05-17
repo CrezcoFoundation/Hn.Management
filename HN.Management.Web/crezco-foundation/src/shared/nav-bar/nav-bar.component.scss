@@ -8,7 +8,7 @@
 }
 
 .donate-btn {
-  margin-right: 5em;
+  /* margin-right: 5em; */
 }
 
 .navbar-toggler,
@@ -28,25 +28,69 @@
   margin-top: 12em;
 }
 
+.menu-container {
+  height: 100vh;
+}
+
+.link-footer {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.project-links > h5 {
+  font-family: "Oswald", "Arial";
+  text-transform: uppercase;
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  font-size: 2rem;
+  color: #00bf1b;
+  font-weight: bold;
+}
+
+.line-container {
+  height: 55vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+div > .line {
+  height: 38vh;
+  background: #fff;
+  width: 2px;
+}
+
+.line-logo {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  .sub-line-logo {
+    background-color: white;
+    width: 2px;
+    height: 55%;
+  }
+}
+
 .navbar-collapse {
   /* display: flex; */
   position: fixed;
   z-index: 2;
-  background: rgb(0, 0, 0);
+  background: rgb(62, 30, 103);
   background: -moz-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.49763655462184875) 100%
+    rgba(62, 30, 103, 0.9) 0%,
+    rgba(62, 30, 103, 0.9) 100%
   );
   background: -webkit-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.49763655462184875) 100%
+    rgba(62, 30, 103, 0.9) 0%,
+    rgba(62, 30, 103, 0.9) 100%
   );
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.49763655462184875) 100%
+    rgba(62, 30, 103, 0.9) 0%,
+    rgba(62, 30, 103, 0.9) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
   width: 100%;
@@ -61,7 +105,7 @@
   width: 40px;
   height: 10px;
   position: relative;
-  padding: 15px;
+  /* padding: 15px; */
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -95,16 +139,16 @@
 /* Icon 1 */
 
 #nav-icon1 span:nth-child(1) {
-  top: 8px;
+  top: -12px;
 }
 
 #nav-icon1 span:nth-child(2),
 #nav-icon1 span:nth-child(3) {
-  top: 23px;
+  top: 2px;
 }
 
 #nav-icon1 span:nth-child(4) {
-  top: 38px;
+  top: 17px;
 }
 
 #nav-icon1.open span:nth-child(1) {

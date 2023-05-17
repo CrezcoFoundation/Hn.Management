@@ -3,33 +3,35 @@
     class="d-flex flex-column justify-content-between align-items-center py-3"
   >
     <div
-      class="content-footer d-flex flex-row align-items-center justify-content-around my-4 col-lg-7"
+      class="content-footer d-flex flex-lg-row flex-column align-items-center justify-content-around my-4 col-12 col-lg-7 gap-5 gap-lg-0"
     >
       <!-- Logo and social media container -->
-      <div class="d-flex flex-column align-items-center justify-content-center">
+      <div
+        class="d-flex flex-column align-items-center justify-content-center col-3"
+      >
         <div class="logo-footer mb-4">
-          <a href="#"
+          <a href="#" target="_blank"
             ><img
               src="../../assets/Image/Logo/crezco-logo-footer.svg"
               alt="Logo Crezco"
           /></a>
         </div>
-        <div class="d-flex align-items-center justify-content-between col-12">
-          <a href="#"
+        <div class="d-flex align-items-center justify-content-between gap-4">
+          <a href="#" target="_blank"
             ><img
               class="social-icon"
               src="../../assets/Image/footer-social-networks/Facebook-icon.png"
               alt="Logo Crezco"
             />
           </a>
-          <a href="#"
+          <a href="https://www.instagram.com/crezcofoundation/" target="_blank"
             ><img
               class="social-icon"
               src="../../assets/Image/footer-social-networks/Instagram-icon.png"
               alt="Logo Crezco"
             />
           </a>
-          <a href="#"
+          <a href="#" target="_blank"
             ><img
               class="social-icon"
               src="../../assets/Image/footer-social-networks/LinkedIn-icon.png"
@@ -76,18 +78,30 @@
           class="nav d-flex flex-column align-items-start justify-content-start"
         >
           <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer">Home</a>
+            <a [routerLink]="['/']" class="nav-link px-0 text-white link-footer"
+              >Home</a
+            >
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer">Give</a>
+            <a
+              [routerLink]="['/give']"
+              class="nav-link px-0 text-white link-footer"
+              >Give</a
+            >
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer"
+            <a
+              [routerLink]="['/crezco-story']"
+              class="nav-link px-0 text-white link-footer"
               >Crezco's Story</a
             >
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer">Contact</a>
+            <a
+              [routerLink]="['/contact-us']"
+              class="nav-link px-0 text-white link-footer"
+              >Contact</a
+            >
           </li>
         </ul>
       </div>

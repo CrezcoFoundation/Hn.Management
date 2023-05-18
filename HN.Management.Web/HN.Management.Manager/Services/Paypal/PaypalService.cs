@@ -18,5 +18,20 @@ namespace HN.Management.Manager.Services.Paypal
         {
             return await paypalRepository.CreateOrder(paypalOrder);
         }
+
+        public async Task<string> GetOrderByIdAsync(string orderId)
+        {
+            return await paypalRepository.GetOrderByIdAsync(orderId);
+        }
+
+        public async Task<string> ConfirmOrderByIdAsync(string orderId)
+        {
+            return await paypalRepository.ConfirmOrderAsync(orderId);
+        }
+
+        public async Task<string> AutorizeOrderByIdAsync(string orderId)
+        {
+            return await paypalRepository.AuthorizeOrderByIdAsync(orderId);
+        }
     }
 }

@@ -37,23 +37,12 @@ namespace HN.Management.Web.Apis.V1.Controllers.Paypal
                 if (string.IsNullOrEmpty(paypalOrder.ShippingPreference))
                     throw new ArgumentNullException(nameof(paypalOrder.ShippingPreference));
 
-                paypalOrder = new PaypalOrder()
-                {
-                    AmountValue = "100",
-                    BrandName = "CREZCO Foundation INC Test",
-                    ShippingPreference = "SET_PROVIDED_ADDRESS",
-                    CurrencyCode = "USD",
-                    LandingPage = "BILLING",
-                    UserAction = "PAY_NOW"
-                };
-
                 var order = await paypalService.CreateOrder(paypalOrder);
 
                 return Ok(new JsonResult(order));
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

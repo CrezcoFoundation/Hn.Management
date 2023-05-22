@@ -1,4 +1,6 @@
-﻿namespace HN.Management.Engine.Models.Paypal
+﻿using System.Collections.Generic;
+
+namespace HN.Management.Engine.Models.Paypal
 {
     public class PaypalOrder
     {
@@ -13,5 +15,7 @@
         public string CurrencyCode { get; set; }
 
         public string AmountValue { get; set; }
+
+        public PurchaseUnitRequest PurchaseUnitRequest { get; set; }
     }
 }

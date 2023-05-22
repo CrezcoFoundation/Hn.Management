@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using PurchaseUnitRequest = PayPalCheckoutSdk.Orders.PurchaseUnitRequest;
 using AmountWithBreakdown = PayPalCheckoutSdk.Orders.AmountWithBreakdown;
+using AmountBreakdown = PayPalCheckoutSdk.Orders.AmountBreakdown;
+using Money = PayPalCheckoutSdk.Orders.Money;
+using Item = PayPalCheckoutSdk.Orders.Item;
+using ShippingDetail = PayPalCheckoutSdk.Orders.ShippingDetail;
+using System.Linq;
 
 namespace HN.Management.Engine.Repositories.Paypal
 {
@@ -69,6 +74,11 @@ namespace HN.Management.Engine.Repositories.Paypal
 
         private OrderRequest BuildRequestBody(PaypalOrder paypalOrder)
         {
+            var purchaseUnitRequest = paypalOrder.PurchaseUnitRequest;
+            var amountWithBreakdown = purchaseUnitRequest.AmountWithBreakdown;
+            var shippingDetail = purchaseUnitRequest.ShippingDetail;
+            var items = new List<Item>();
+
             var orderRequest = new OrderRequest()
             {
                 CheckoutPaymentIntent = "CAPTURE",
@@ -83,82 +93,62 @@ namespace HN.Management.Engine.Repositories.Paypal
                 {
                     new PurchaseUnitRequest()
                     {
-                        ReferenceId =  "PUHFTEST",
-                        Description = "Crezco Foundation Test",
-                        CustomId = "DonatationId",
-                        SoftDescriptor = "Honduras Program",
+                        ReferenceId =  purchaseUnitRequest.ReferenceId,
+                        Description = purchaseUnitRequest.Description,
+                        CustomId = purchaseUnitRequest.CustomId,
+                        SoftDescriptor = purchaseUnitRequest.SoftDescriptor,
 
                         AmountWithBreakdown = new AmountWithBreakdown()
                         {
-                            CurrencyCode = paypalOrder.CurrencyCode,
-                            Value = "165",
-                             AmountBreakdown = new AmountBreakdown
+                            CurrencyCode = amountWithBreakdown.CurrencyCode,
+                            Value = amountWithBreakdown.Value,
+
+                             AmountBreakdown =  new AmountBreakdown
                             {
                                 ItemTotal = new Money
                                 {
-                                    CurrencyCode = "USD",
-                                    Value = "150.00"
+                                    CurrencyCode = amountWithBreakdown.CurrencyCode,
+                                    Value = amountWithBreakdown.AmountBreakdown.ItemTotal.Value
                                 },
 
                                 TaxTotal = new Money
                                 {
-                                    CurrencyCode = "USD",
-                                    Value = "15.00"
+                                    CurrencyCode = amountWithBreakdown.CurrencyCode,
+                                    Value = amountWithBreakdown.AmountBreakdown.TaxTotal.Value
                                 }
                             }
                         },
-                        Items = new List<Item>
+                        Items = purchaseUnitRequest.Items.Select(item =>  new Item
                         {
-                            new Item
+                            Name = item.Name,
+                            Description = item.Description,
+                            Sku = item.Sku,
+                            Quantity = item.Quantity,
+                            Category = item.Category,
+                            UnitAmount = new Money
                             {
-                                Name = "University Plan",
-                                Description = "University Program Peru, Honduras, Mexico",
-                                Sku = "sku01",
-                                UnitAmount = new Money
-                                {
-                                    CurrencyCode = "USD",
-                                    Value = "100.00"
-                                },
-                                Tax = new Money
-                                {
-                                    CurrencyCode = "USD",
-                                    Value = "10.00"
-                                },
-                                Quantity = "1",
-                                Category = "PHYSICAL_GOODS"
+                                CurrencyCode = item.UnitAmount.CurrencyCode,
+                                Value = item.UnitAmount.Value,
                             },
-                            new Item
+                            Tax = new Money
                             {
-                                Name = "Hogar Honduras Reach",
-                                Description = "Hogar de niños Reach Internacional",
-                                Sku = "sku02",
-                                UnitAmount = new Money
-                                {
-                                    CurrencyCode = "USD",
-                                    Value = "50.00"
-                                },
-                                Tax = new Money
-                                {
-                                    CurrencyCode = "USD",
-                                    Value = "5.00"
-                                },
-                                Quantity = "1",
-                                Category = "PHYSICAL_GOODS"
+                                CurrencyCode = item.Tax.CurrencyCode,
+                                Value = item.Tax.Value,
                             }
-                        },
+                        }).ToList(),
                         ShippingDetail = new ShippingDetail
                         {
                             Name = new Name
                             {
-                                FullName = "Amanda Corea"
+                                FullName = shippingDetail.FullName,
                             },
                            AddressPortable = new AddressPortable
                            {
-                               AddressLine1 = "Hagerstown, Maryland",
-                               AddressLine2 = "Rio atengo 2057",
-                               AdminArea2 = "test admin area 2",
-                               CountryCode = "US",
-                               PostalCode = "21740"
+                               AddressLine1 =shippingDetail.AddressLine1,
+                               AddressLine2 = shippingDetail.AddressLine2,
+                               AdminArea2 = shippingDetail.AdminArea2,
+                               CountryCode = shippingDetail.CountryCode,
+                               PostalCode = shippingDetail.PostalCode,
                            }
                         }
                     }

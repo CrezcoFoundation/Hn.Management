@@ -9,12 +9,12 @@ namespace HN.ManagementEngine.Models
     public class User
     {
         [Key]
-        public int Id { get; set; }
+        public int UserID { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
         [MaxLength(40, ErrorMessage = "Email can't be longer than 40 characters")]
         [Column("Email", TypeName = "Varchar")]
-        public string Email { get; set; }
+        public string UserEmail { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
 
@@ -29,7 +29,7 @@ namespace HN.ManagementEngine.Models
         public string RoleName { get; set; }
 
         [ForeignKey("RoleId")]
-        public int RoleId { get; set; }
+        public int RoleID { get; set; }
         public Role Role { get; set; }
     }
 }

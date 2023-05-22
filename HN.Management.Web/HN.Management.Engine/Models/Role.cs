@@ -7,7 +7,7 @@ namespace HN.Management.Engine.Models
     public class Role
     {
         [Key]
-        public int Id { get; set; }
+        public int RoleId { get; set; }
 
         [Required(ErrorMessage = "RoleName is required")]
         [MaxLength(40, ErrorMessage = "RoleName can't be longer than 40 characters")]

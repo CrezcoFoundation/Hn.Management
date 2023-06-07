@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  font-family: "Inter", sans-serif;
+}
+
 .theme-blue {
   color: #427bb8;
 }
@@ -133,22 +138,93 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-top: 15px;
 }
 
-/* NERM STYLES */
+/* ======================== NERM STYLES ======================== */
+
+.hero-banner {
+  height: 300px;
+  background-image: url(../../assets/Image/Give-page/banner-give_page.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .hero-give_banner {
   max-width: 100%;
   width: 100%;
 }
 
-.title-give_content {
-  position: absolute;
-  h2 {
-    width: 100%;
-    font-family: "Oswald", sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    position: relative;
-    top: 6.5em;
+.title-give_content > h2 {
+  width: 100%;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 200px;
   }
+  .title-give_content > h2 {
+    top: 1.5em;
+  }
+}
+
+.item-form_title {
+  color: #007bc2;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.item-form_description {
+  color: #9e9e9e;
+}
+
+.item-form_input {
+  padding: 5px;
+}
+
+.line-separator {
+  background: lightgray;
+  width: 100%;
+  height: 1.1px;
+}
+
+.resume-container {
+  border: 1.1px solid lightgray;
+}
+
+.resume-title {
+  font-weight: 700;
+}
+
+.resume-mount {
+  font-weight: 700;
+}
+
+.result-donation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  padding: 2em 0;
+}
+
+.donate-btn {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-primary,
+.btn-primary:active {
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: #00bf1b;
+  border: #00b518;
 }

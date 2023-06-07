@@ -54,7 +54,7 @@ export function getCrezcoInformationObjet(): CrezcoInformationInteface[] {
         tParent: 'item-4',
         tChildren: 'item-cont4',
       },
-      cInfoTitle: 'Student Trips',
+      cInfoTitle: 'Student Mission Trips',
       cInfoDescription:
         'Instilling an attitude and practice of service is an important value. We seek opportunities and...',
       cInfoUrl: '#',

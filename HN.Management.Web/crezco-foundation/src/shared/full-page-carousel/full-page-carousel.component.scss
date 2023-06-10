@@ -72,6 +72,16 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .item-cont1,
+  .item-cont2,
+  .item-cont3,
+  .item-cont4,
+  .item-cont5 {
+    padding: 0 0 0 5em;
+  }
+}
+
 /* Items gradient color Bg */
 .item-cont1 {
   background: rgb(0, 191, 27);
@@ -183,6 +193,17 @@
   margin-bottom: 0.2em;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .item-cont1 > h2,
+  .item-cont2 > h2,
+  .item-cont3 > h2,
+  .item-cont4 > h2,
+  .item-cont5 > h2 {
+    max-width: 70%;
+  }
+}
+
 .item-cont1 > p,
 .item-cont2 > p,
 .item-cont3 > p,
@@ -204,6 +225,68 @@
 .item-cont5 > a {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
+  color: #f2f8f8;
+  text-decoration: none;
+}
+
+/* MOBILE VERSION CAROUSEL */
+
+.img-item1 {
+  background-image: url("../../assets/Image/Home-accordion/College.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.img-item2 {
+  background-image: url("../../assets/Image/Home-accordion/Special_Education.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.img-item3 {
+  background-image: url("../../assets/Image/Home-accordion/Community_Support.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.img-item4 {
+  background-image: url("../../assets/Image/Home-accordion/Student_Trips.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.img-item5 {
+  background-image: url("../../assets/Image/Home-accordion/Waiting.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title-carousel {
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  max-width: 100%;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.2em;
+  /* margin-bottom: 0.2em; */
+  text-decoration: none;
+}
+
+.description-carousel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: left;
+  max-width: 70%;
+  line-height: 1.5em;
+  /* margin-bottom: 1em; */
+  text-decoration: none;
+}
+
+.learn-carousel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
   color: #f2f8f8;
   text-decoration: none;
 }

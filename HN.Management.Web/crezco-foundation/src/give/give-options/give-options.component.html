@@ -15,34 +15,48 @@
       <h5 class="text-white">$0.00</h5>
     </div>
     <div class="form-options p-5">
-      <form action="">
+      <form [formGroup]="giveOptionsForm">
         <div>
           <div
             class="d-flex align-items-center justify-content-start gap-2 ms-3 ms-lg-0"
           >
-            <div class="form-check ms-lg-5">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="setUpRecurring"
-                id="radio-today"
-                checked
-              />
-              <label class="form-check-label mx-2" for="radio-today">
-                Give
-              </label>
-            </div>
-            <div>
-              <select
-                id="otpions-freq"
-                class="form-select mx-lg-5"
-                aria-label="Default select example"
-              >
-                <option selected>Today</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+          <div class="form-check ms-lg-5">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="oneTimeDonation"
+              formArrayName="donationType"
+              (change)="recurringDonationChange($event)"
+              name="donationType"
+              id="oneTimeDonation"
+            />
+            <label class="form-check-label mx-2" for="setup-recurring">
+              Set Up One Time Donation
+            </label>
+          </div>
+          </div>
+
+          <div formArrayName="donationFields">
+            <div *ngFor="let field of donationFields.controls; let i = index;">
+              <div *ngIf="donationType === 'oneTimeDonation'" [formGroup]="field">
+                <div>
+                  <div>
+                    <select
+                      id="day"
+                      class="form-select mx-lg-5"
+                      formControlName="day" 
+                      aria-label="Default select example"
+                    >
+                      <option selected>today</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                      <option value="4">...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <hr />
             </div>
           </div>
           <!-- Line separator -->
@@ -58,15 +72,59 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="setUpRecurring"
-                id="setup-recurring"
+                value="recurringDonation"
+                formArrayName="donationType"
+                (change)="recurringDonationChange($event)"
+                name="donationType"
+                id="recurringDonation"
               />
               <label class="form-check-label mx-2" for="setup-recurring">
                 Set Up Recurring Donation
               </label>
             </div>
           </div>
+
+          <div formArrayName="donationFields">
+            <div *ngFor="let field of donationFields.controls; let i = index;">
+              <div *ngIf="donationType === 'recurringDonation'" [formGroup]="field">
+                <div>                  
+                  <input type="date" formControlName="startDate" />
+                </div>
+                <div>
+                  <label>End Date:</label><br />
+                  <input type="date" formControlName="endDate" />
+                </div>
+                <div>
+                  <label>Recurring Doantion interval</label><br />
+                  <div>
+                    <select
+                      id="interval"
+                      class="form-select mx-lg-5"
+                      formControlName="interval" 
+                      aria-label="Default select example"
+                    >
+                      <option selected>Weekly</option>
+                      <option value="1">Every two weeks</option>
+                      <option value="2">Twice a month</option>
+                      <option value="3">Monthly</option>
+                      <option value="4">...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
         </div>
+
+        <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!giveOptionsForm.valid"
+            (click)="getFormData()"
+          >
+            Submit
+          </button>
       </form>
     </div>
   </div>

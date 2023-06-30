@@ -9,7 +9,7 @@
 <div class="container px-5 my-5">
   <div class="d-grid d-lg-flex align-items-start justify-content-center gap-5">
     <div class="form-container col-lg-5">
-      <form  [formGroup]="donationAreasForm">
+      <form [formGroup]="donationAreasForm">
         <div
           class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
         >
@@ -158,7 +158,6 @@
               placeholder="$"
             />
           </div>
-
         </div>
       </form>
     </div>
@@ -167,7 +166,7 @@
         class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
       >
         <h5 class="resume-title">College Scholarships</h5>
-        <h5 class="resume-mount" >{{collegeScholariships}}</h5>
+        <h5 class="resume-mount">{{ collegeScholariships }}</h5>
       </div>
       <!-- Line separator -->
       <div class="line-separator my-2"></div>
@@ -176,7 +175,7 @@
         class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
       >
         <h5 class="resume-title">Special Education</h5>
-        <h5 class="resume-mount">{{specialEducation}}</h5>
+        <h5 class="resume-mount">{{ specialEducation }}</h5>
       </div>
       <!-- Line separator -->
       <div class="line-separator my-2"></div>
@@ -185,7 +184,7 @@
         class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
       >
         <h5 class="resume-title">Community Support</h5>
-        <h5 class="resume-mount">{{communitySupport}}</h5>
+        <h5 class="resume-mount">{{ communitySupport }}</h5>
       </div>
       <!-- Line separator -->
       <div class="line-separator my-2"></div>
@@ -194,7 +193,7 @@
         class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
       >
         <h5 class="resume-title">Student Mission Trip</h5>
-        <h5 class="resume-mount">{{studentMissionTrip}}</h5>
+        <h5 class="resume-mount">{{ studentMissionTrip }}</h5>
       </div>
       <!-- Line separator -->
       <div class="line-separator my-2"></div>
@@ -203,7 +202,7 @@
         class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
       >
         <h5 class="resume-title">Medical Assistance</h5>
-        <h5 class="resume-mount">{{medicalAssistence}}</h5>
+        <h5 class="resume-mount">{{ medicalAssistence }}</h5>
       </div>
       <!-- Line separator -->
       <div class="line-separator my-2"></div>
@@ -212,13 +211,19 @@
         class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
       >
         <h5 class="resume-title">General Donation</h5>
-        <h5 class="resume-mount">{{generalDonation}}</h5>
+        <h5 class="resume-mount">{{ generalDonation }}</h5>
       </div>
 
       <div class="result-donation">
         <h3 class="text-white">Current Total: $0.00</h3>
         <a class="donate-btn">
-          <button (click)="getDonateAreas()" [routerLink]="['/give-options']"  class="btn btn-primary py-2 px-3">Continue to Donate</button>
+          <button
+            (click)="getDonateAreas()"
+            [routerLink]="['/give-options']"
+            class="btn btn-primary py-2 px-3"
+          >
+            Continue to Donate
+          </button>
         </a>
       </div>
     </div>

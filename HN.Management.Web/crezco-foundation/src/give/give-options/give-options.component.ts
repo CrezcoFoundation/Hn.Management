@@ -10,21 +10,21 @@ import { Validators } from '@angular/forms';
 })
 export class GiveOptionsComponent {
   giveOptionsForm: FormGroup;
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder) {
     this.giveOptionsForm = this.fb.group({
       // eslint-disable-next-line @typescript-eslint/unbound-method
-      donationType: ['oneTimeDonation', Validators.required,],
-      donationFields: this.fb.array([])
+      donationType: ['oneTimeDonation', Validators.required],
+      donationFields: this.fb.array([]),
     });
 
     console.warn(this.giveOptionsForm.value);
   }
 
-  recurringDonationChange(evt: any){
+  recurringDonationChange(evt: any) {
     var donationType = evt.target.value;
-    console.log('donationType:',donationType)
+    console.log('donationType:', donationType);
     this.giveOptionsForm.get('donationType')?.setValue(donationType);
-    console.log('donationType:',this.donationType)
+    console.log('donationType:', this.donationType);
     if (donationType === 'oneTimeDonation') {
       this.cleanRecurringDonationFields(0);
       this.addRecurringDonationFields(donationType);
@@ -37,7 +37,7 @@ export class GiveOptionsComponent {
 
   get donationType(): FormControl {
     // @ts-ignore
-    return this.giveOptionsForm.get('donationType')?.value; 
+    return this.giveOptionsForm.get('donationType')?.value;
   }
 
   get donationFields(): FormArray {
@@ -62,13 +62,13 @@ export class GiveOptionsComponent {
       fields = this.fb.group({
         startDate: new FormControl(''),
         endDate: new FormControl(''),
-        interval: new FormControl('')
+        interval: new FormControl(''),
       });
       this.donationFields.push(fields);
     }
   }
 
-  getFormData(){
+  getFormData() {
     console.warn(this.giveOptionsForm.value);
   }
 }

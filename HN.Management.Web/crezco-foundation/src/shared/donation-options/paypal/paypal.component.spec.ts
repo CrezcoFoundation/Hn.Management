@@ -8,7 +8,7 @@ describe('PaypalComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PaypalComponent]
+      declarations: [PaypalComponent],
     });
     fixture = TestBed.createComponent(PaypalComponent);
     component = fixture.componentInstance;

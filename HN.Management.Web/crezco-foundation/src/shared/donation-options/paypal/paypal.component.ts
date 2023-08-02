@@ -14,7 +14,8 @@ export class PaypalComponent implements OnInit {
       hosted_button_id: environment.paypal.hosted_button_id,
       // business: environment.paypal.business,
       image: {
-        src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+        //src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+        src: '../../../assets/Image/payment-logos/Yellow_PayPal_Button.png',
         title: 'PayPal - The safer, easier way to pay online!',
         alt: 'Donate with PayPal button',
       },

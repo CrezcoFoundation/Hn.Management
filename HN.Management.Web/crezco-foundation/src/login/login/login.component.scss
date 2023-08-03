@@ -1,0 +1,53 @@
+.bg-gray {
+  background-color: #c9c9c9;
+}
+
+.card-login {
+  margin: 2em 0 5em 0;
+  border-radius: 20px;
+}
+
+.title-login {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+
+.donate-btn {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-primary,
+.btn-primary:active {
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: #00bf1b;
+  border: #00b518;
+}
+
+.btn-disabled {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: #c9c9c9;
+  border: #c9c9c9;
+}
+
+.form-control {
+  position: relative;
+  border: 1px solid #2b2b2b;
+  border-radius: 1px;
+}
+.form-control:focus {
+  border: 1px solid #2b2b2b;
+  box-shadow: none !important;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+.span-text {
+  color: gray;
+}

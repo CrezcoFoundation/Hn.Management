@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactUsComponent } from 'src/contact-us/contact-us/contact-us.component';
 import { CrezcoStoryComponent } from 'src/crezco-story/crezco-story/crezco-story.component';
 import { GiveComponent } from 'src/give/give/give.component';
-import { LoginComponent } from 'src/login/login.component';
+import { LoginComponent } from 'src/login/login/login.component';
 import { HomeComponent } from 'src/home/home.component';
 
 const routes: Routes = [

@@ -1,0 +1,69 @@
+<!-- Reset Password Section Start -->
+<div class="container-fluid bg-gray">
+  <div class="col d-flex align-items-center justify-content-center">
+    <div
+      class="col-12 col-lg-5 card px-2 py-5 d-flex flex-column flex-lg-row align-items-center justify-content-center border-0 card-login mt-5"
+    >
+      <div class="col-10">
+        <h2 class="text-center py-3 title-login">Forgot Your Password?</h2>
+        <form>
+          <div class="d-flex flex-column gap-3 gap-lg-4">
+            <div>
+              <span class="span-text fs-6 text-center"
+                >Enter your email and we'll send you a link to reset your
+                password</span
+              >
+            </div>
+            <div class="form-group d-flex flex-column gap-2">
+              <div>
+                <label for="email">Email</label>
+              </div>
+              <div class="inputEmail">
+                <!-- TODO: Add a email icon -->
+                <div
+                  class="col d-flex align-items-center justify-content-center"
+                >
+                  <img
+                    class="Icon-Email"
+                    src="../../assets/Image/icons-form/mail.svg"
+                    alt="Email icon form"
+                  />
+                </div>
+                <input
+                  type="text || email"
+                  id="email"
+                  class="form-control py-2 py-lg-3"
+                  placeholder="example@email.com"
+                  (ngModel)="(emailName)"
+                  name="email"
+                  required
+                />
+              </div>
+            </div>
+            <!-- Login button -->
+            <div>
+              <!-- TODO: Validate the password reset form -->
+              <a href="" class="donate-btn row">
+                <button
+                  type="submit"
+                  class="btn btn-primary p-3"
+                  (click)="forgot()"
+                >
+                  Reset Password
+                </button>
+              </a>
+            </div>
+            <div
+              class="d-flex flex-column flex-lg-row align-items-center justify-content-center"
+            >
+              <div>
+                <a href="/"> Go back home </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Reset Password Section End -->

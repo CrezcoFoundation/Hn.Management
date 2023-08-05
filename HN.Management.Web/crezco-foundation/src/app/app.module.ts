@@ -10,6 +10,7 @@ import { HomeModule } from 'src/home/home.module';
 import { GiveModule } from 'src/give/give.module';
 import { CrezcoStoryModule } from 'src/crezco-story/crezco-story.module';
 import { ContactUsModule } from 'src/contact-us/contact-us.module';
+import { AuthModule } from 'src/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { ContactUsModule } from 'src/contact-us/contact-us.module';
     SharedModule,
     BrowserModule,
     AppRoutingModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  FormArray,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-forgot',
@@ -6,10 +13,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./forgot.component.scss'],
 })
 export class ForgotComponent {
-  emailName: string = '';
+  constructor(private fb: FormBuilder) {}
 
-  forgot() {
-    // TODO: Here can add the logic to send form data to the server
-    console.log('Correo electrónico:', this.emailName);
+  forgotForm = this.fb.group({
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    emailName: ['', Validators.required],
+  });
+
+  onSubmited() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.forgotForm.status);
+    console.log(this.forgotForm.value);
   }
 }

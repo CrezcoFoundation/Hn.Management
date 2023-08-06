@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  FormArray,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -6,12 +13,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  userName: string = '';
-  userLastName: string = '';
-  userEmail: string = '';
-  password: string = '';
+  constructor(private fb: FormBuilder) {}
 
-  register() {
-    // TODO: Here can add the logic to send form data to the server
+  registerForm = this.fb.group({
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    userName: ['', Validators.required],
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    userLastName: ['', Validators.required],
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    userEmail: ['', Validators.required],
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    password: ['', Validators.required],
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    confirmPassword: ['', Validators.required],
+  });
+
+  onRegister() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.registerForm.status);
+    console.log(this.registerForm.value);
   }
 }

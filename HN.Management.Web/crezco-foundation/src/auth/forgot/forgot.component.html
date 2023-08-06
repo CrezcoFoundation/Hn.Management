@@ -6,7 +6,7 @@
     >
       <div class="col-10">
         <h2 class="text-center py-3 title-login">Forgot Your Password?</h2>
-        <form>
+        <form [formGroup]="forgotForm" (Submit)="onSubmited()">
           <div class="d-flex flex-column gap-3 gap-lg-4">
             <div>
               <span class="span-text fs-6 text-center"
@@ -30,11 +30,11 @@
                   />
                 </div>
                 <input
-                  type="text || email"
+                  type="email"
                   id="email"
                   class="form-control py-2 py-lg-3"
                   placeholder="example@email.com"
-                  (ngModel)="(emailName)"
+                  formControlName="emailName"
                   name="email"
                   required
                 />
@@ -44,11 +44,7 @@
             <div>
               <!-- TODO: Validate the password reset form -->
               <a href="" class="donate-btn row">
-                <button
-                  type="submit"
-                  class="btn btn-primary p-3"
-                  (click)="forgot()"
-                >
+                <button type="submit" class="btn btn-primary p-3">
                   Reset Password
                 </button>
               </a>
@@ -61,6 +57,12 @@
               </div>
             </div>
           </div>
+          <hr />
+          <p>
+            Form Value:<br />
+            {{ forgotForm.value | json }}
+          </p>
+          <p>Form Status: {{ forgotForm.status }}</p>
         </form>
       </div>
     </div>

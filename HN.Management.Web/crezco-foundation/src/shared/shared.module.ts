@@ -7,6 +7,7 @@ import { FullPageCarouselComponent } from './full-page-carousel/full-page-carous
 import { MultipleItemsSliderComponent } from './multiple-items-slider/multiple-items-slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { PaypalComponent } from './donation-options/paypal/paypal.component';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import { RouterModule } from '@angular/router';
     FullPageCarouselComponent,
     MultipleItemsSliderComponent,
     FooterComponent,
+    PaypalComponent,
   ],
   imports: [NgOptimizedImage, RouterModule, CommonModule],
   exports: [
+    PaypalComponent,
     MultipleItemsSliderComponent,
     FullPageCarouselComponent,
     FooterComponent,

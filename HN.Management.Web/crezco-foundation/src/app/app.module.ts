@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // custom
 import { SharedModule } from 'src/shared/shared.module';
@@ -13,6 +14,7 @@ import { ContactUsModule } from 'src/contact-us/contact-us.module';
 import { StoreModule } from '@ngrx/store';
 import { crezcoReducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AuthModule } from 'src/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +32,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       metaReducers,
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    AuthModule,
+    ReactiveFormsModule,
   ],
 })
 export class AppModule {}

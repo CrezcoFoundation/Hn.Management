@@ -14,7 +14,7 @@
                 password</span
               >
             </div>
-            <div class="form-group d-flex flex-column gap-2">
+            <div class="form-group d-flex flex-column gap-2 row">
               <div>
                 <label for="email">Email</label>
               </div>
@@ -40,14 +40,16 @@
                 />
               </div>
             </div>
-            <!-- Login button -->
-            <div>
+            <!-- Submit button -->
+            <div class="row">
               <!-- TODO: Validate the password reset form -->
-              <a href="" class="donate-btn row">
-                <button type="submit" class="btn btn-primary p-3">
-                  Reset Password
-                </button>
-              </a>
+              <button
+                type="submit"
+                class="btn btn-primary p-3"
+                [disabled]="!forgotForm.valid"
+              >
+                Reset Password
+              </button>
             </div>
             <div
               class="d-flex flex-column flex-lg-row align-items-center justify-content-center"

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // custom
 import { SharedModule } from 'src/shared/shared.module';
@@ -25,6 +26,7 @@ import { AuthModule } from 'src/auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    ReactiveFormsModule,
   ],
 })
 export class AppModule {}

@@ -5,13 +5,6 @@
       class="col-12 col-lg-5 card p-5 d-flex flex-column flex-lg-row align-items-center justify-content-center border-0 card-login"
     >
       <div class="col-10">
-        <div class="d-none d-lg-block text-center mb-4">
-          <img
-            class="logo-site"
-            src="../../assets/Image/Logo/Logo2.png"
-            alt="Site Logo Crezco"
-          />
-        </div>
         <h2 class="text-center py-3 title-login">Create an Account</h2>
         <form [formGroup]="registerForm" (Submit)="onRegister()">
           <div class="d-flex flex-column gap-3 gap-lg-4">
@@ -129,11 +122,15 @@
                 />
               </div>
             </div>
-            <!-- Login button -->
+            <!-- Submit button -->
             <div class="row">
               <!-- TODO: Validate the Login form -->
-              <button type="submit" class="btn btn-primary p-3 col">
-                Login
+              <button
+                type="submit"
+                class="btn btn-primary p-3 col"
+                [disabled]="!registerForm.valid"
+              >
+                Create an Account
               </button>
             </div>
             <!-- Guest button -->

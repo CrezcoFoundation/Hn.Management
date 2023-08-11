@@ -18,23 +18,15 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
-    /* this.initRegForm(); */
   }
-
-  /* initRegForm() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    });
-  } */
 
   toggleFieldTextType(): void {
     this.fieldTextType = !this.fieldTextType;
   }
 
-  /* onSubmited() {
+  onSubmited() {
     // TODO: Use EventEmitter with form value
     console.log(this.loginForm.status);
     console.log(this.loginForm.value);
-  } */
+  }
 }

@@ -1,4 +1,4 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
 
 .bg-gray {
   background-color: #f1f1f1;
@@ -92,11 +92,6 @@ input::placeholder {
   }
 }
 
-.fa-eye-slash:hover,
-.fa-eye:hover {
-  cursor: pointer;
-}
-
-.material-symbols-outlined:hover {
+.cond-icon:hover {
   cursor: pointer;
 }

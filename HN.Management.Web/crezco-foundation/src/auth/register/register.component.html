@@ -75,17 +75,33 @@
                 <div
                   class="col d-flex align-items-center justify-content-center"
                 >
-                  <a href="" class="text-decoration-none">
+                  <span class="cond-icon">
                     <img
+                      [ngClass]="{
+                      'd-block': !fieldTextType,
+                      'd-none': fieldTextType,
+                    }"
+                      (click)="toggleFieldTextType()"
                       class="Icon-Email"
                       src="../../assets/Image/icons-form/eye-off.svg"
-                      alt="Password icon form"
+                      alt="Email icon form"
                     />
-                  </a>
+                    <img
+                      [ngClass]="{
+                      'd-none': !fieldTextType,
+                      'd-block': !fieldTextType,
+                    }"
+                      (click)="toggleFieldTextType()"
+                      class="Icon-Email"
+                      src="../../assets/Image/icons-form/eye.svg"
+                      alt="Email icon form"
+                    />
+                  </span>
                 </div>
                 <input
                   type="password"
                   id="password"
+                  [type]="fieldTextType ? 'text' : 'password'"
                   class="form-control py-2 py-lg-3"
                   placeholder="Enter Your Password"
                   formControlName="password"
@@ -103,17 +119,33 @@
                 <div
                   class="col d-flex align-items-center justify-content-center"
                 >
-                  <a href="">
+                  <span class="cond-icon">
                     <img
+                      [ngClass]="{
+                      'd-block': !fieldTextType,
+                      'd-none': fieldTextType,
+                    }"
+                      (click)="toggleFieldTextType()"
                       class="Icon-Email"
                       src="../../assets/Image/icons-form/eye-off.svg"
-                      alt="Password icon form"
+                      alt="Email icon form"
                     />
-                  </a>
+                    <img
+                      [ngClass]="{
+                      'd-none': !fieldTextType,
+                      'd-block': !fieldTextType,
+                    }"
+                      (click)="toggleFieldTextType()"
+                      class="Icon-Email"
+                      src="../../assets/Image/icons-form/eye.svg"
+                      alt="Email icon form"
+                    />
+                  </span>
                 </div>
                 <input
                   type="password"
                   id="password"
+                  [type]="fieldTextType ? 'text' : 'password'"
                   class="form-control py-2 py-lg-3"
                   placeholder="Confirm Your Password"
                   formControlName="confirmPassword"

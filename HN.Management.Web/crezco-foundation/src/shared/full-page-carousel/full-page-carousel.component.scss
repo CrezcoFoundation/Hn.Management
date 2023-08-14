@@ -72,13 +72,13 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 390px) {
   .item-cont1,
   .item-cont2,
   .item-cont3,
   .item-cont4,
   .item-cont5 {
-    padding: 0 0 0 5em;
+    padding: 0 0 0 2.5em;
   }
 }
 
@@ -232,31 +232,32 @@
 /* MOBILE VERSION CAROUSEL */
 
 .img-item1 {
-  background-image: url("../../assets/Image/Home-accordion/College.png");
+  background-image: url("../../assets/Image/Home-accordion/mobile-img/College.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .img-item2 {
-  background-image: url("../../assets/Image/Home-accordion/Special_Education.png");
+  background-image: url("../../assets/Image/Home-accordion/mobile-img/Special_Education.png");
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .img-item3 {
-  background-image: url("../../assets/Image/Home-accordion/Community_Support.png");
+  background-image: url("../../assets/Image/Home-accordion/mobile-img/Community_Support.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .img-item4 {
-  background-image: url("../../assets/Image/Home-accordion/Student_Trips.png");
+  background-image: url("../../assets/Image/Home-accordion/mobile-img/Student_Trips.png");
   background-position: top;
   background-size: cover;
+  height: 347px;
   background-repeat: no-repeat;
 }
 .img-item5 {
-  background-image: url("../../assets/Image/Home-accordion/Medical_Assistance.png");
+  background-image: url("../../assets/Image/Home-accordion/mobile-img/Medical_Assistance.png");
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;

@@ -14,6 +14,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('../auth/auth-routing.module').then((m) => m.AuthRoutingModule),
   },
+  {
+    path: 'projects',
+    loadChildren: () =>
+      import('../projects/projects-routing.module').then((m) => m.ProjectsRoutingModule),
+  },
   { path: '', component: HomeComponent },
 ];
 

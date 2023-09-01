@@ -1,9 +1,11 @@
+<!-- <router-outlet></router-outlet> -->
+
 <!-- Image banner section start -->
 <section class="container-fluid p-0">
   <div class="d-none d-lg-block">
     <img
       class="banner-university"
-      src="../../assets/Image/Projects-images/university/Banner_University.png"
+      src="../../assets/Image/Projects-images/university/banner-university.webp"
       alt="University banner"
     />
   </div>
@@ -19,10 +21,12 @@
 
 <!-- Description section start -->
 <section class="container p-0 my-5 py-lg-5">
-  <div class="title-project">
+  <div data-aos="fade-up" class="title-project">
     <h2 class="text-center">University Sponsorship</h2>
   </div>
   <div
+    data-aos="fade-up"
+    data-aos-offset="200"
     class="d-flex flex-column align-items-center justify-content-center my-4"
   >
     <p class="text-center description-project">
@@ -39,6 +43,8 @@
     </p>
   </div>
   <div
+    data-aos="fade-up"
+    data-aos-offset="200"
     class="d-flex flex-column align-items-center justify-content-center mt-4"
   >
     <a href="/given" class="donate-btn">
@@ -61,18 +67,24 @@
   >
     <div>
       <img
+        data-aos="fade-up"
+        data-aos-offset="200"
         src="../../assets/Image/Projects-images/university/nolvia-grad.jpg"
         alt="image collage project"
       />
     </div>
     <div>
       <img
+        data-aos="fade-up"
+        data-aos-offset="200"
         src="../../assets/Image/Projects-images/university/childs.jpg"
         alt="image collage project"
       />
     </div>
     <div>
       <img
+        data-aos="fade-up"
+        data-aos-offset="200"
         src="../../assets/Image/Projects-images/university/mainor-laptop.jpg"
         alt="image collage project"
       />
@@ -84,12 +96,16 @@
   >
     <div>
       <img
+        data-aos="fade-up"
+        data-aos-offset="200"
         src="../../assets/Image/Projects-images/university/students-1.jpg"
         alt="image collage project"
       />
     </div>
     <div>
       <img
+        data-aos="fade-up"
+        data-aos-offset="200"
         src="../../assets/Image/Projects-images/university/student-works.jpg"
         alt="image collage project"
       />
@@ -103,23 +119,39 @@
   class="container-fluid p-0 d-flex flex-column align-items-center justify-content-center gap-5 paragraph-section"
 >
   <div
+    data-aos="fade-up"
+    data-aos-offset="200"
     class="d-flex flex-column align-items-center justify-content-center my-4"
   >
-    <p class="text-center text-white mb-0">
-      “Education empowers individuals to disrupt destructive cycles of
-      cognitive, emotional, and financial impoverishment, initiating a ripple
-      effect of positive transformation within the surrounding community.”
-      <br />
-      - Amanda Corea, Founder of Crezco -
-    </p>
+    <div class="my-3 my-lg-5">
+      <p class="text-center text-white mb-0">
+        “Education empowers individuals <br /><span class="thin-font"
+          >to disrupt </span
+        >destructive cycles
+        <span class="thin-font">
+          cognitive,<br />
+          emotional, and financial impoverishment,<br />
+          initiating a ripple effect of </span
+        >positive transformation <br /><span class="thin-font">within the </span
+        >surrounding community.”
+        <br />
+      </p>
+      <div class="mt-4 author-font text-center">
+        <span class="text-white text-center"
+          >- Amanda Corea, Founder of Crezco -</span
+        >
+      </div>
+    </div>
   </div>
 </section>
 <!-- Paragraph section end -->
 
 <!-- Boxes section start -->
 <section class="container-fluid p-0">
-  <div class="d-flex flex-column flex-lg-row">
+  <div class="d-flex flex-column-reverse flex-lg-row">
     <div
+      data-aos="fade-up"
+      data-aos-offset="200"
       class="d-flex flex-column align-items-start justify-content-center gap-3 text-box"
     >
       <div class="title-box">
@@ -136,7 +168,7 @@
         </p>
       </div>
     </div>
-    <div class="image-box">
+    <div data-aos="fade-left" data-aos-offset="200" class="image-box">
       <img
         src="../../assets/Image/Projects-images/university/pray-hands.jpg"
         alt="Emotional Health"
@@ -144,8 +176,10 @@
     </div>
   </div>
 
-  <div class="d-flex flex-column flex-lg-row-reverse">
+  <div class="d-flex flex-column-reverse flex-lg-row-reverse">
     <div
+      data-aos="fade-up"
+      data-aos-offset="200"
       class="d-flex flex-column align-items-start justify-content-center gap-3 text-box"
     >
       <div class="title-box">
@@ -161,10 +195,10 @@
         </p>
       </div>
     </div>
-    <div class="image-box">
+    <div data-aos="fade-right" data-aos-offset="200" class="image-box">
       <img
         src="../../assets/Image/Projects-images/university/hands-hearth.jpg"
-        alt="Student sponsorship"
+        alt="Hands hearth"
       />
     </div>
   </div>
@@ -173,80 +207,113 @@
 
 <!-- Other Projects section start -->
 <section class="container-fluid mt-lg-5 py-5 section-projects_card">
-  <div class="text-center title-box mb-5">
+  <div
+    data-aos="fade-up"
+    data-aos-duration="600"
+    class="text-center title-box mb-5"
+  >
     <h3>Other Projects</h3>
   </div>
   <div
     class="container-fluid d-flex flex-column flex-lg-row align-items-center justify-content-center gap-5 mb-5"
   >
-    <div class="card" style="width: 20rem; background-color: #6f00aa">
-      <img
-        src="../../assets/Image/Home-accordion/mobile-img/Special_Education.png"
-        class="card-img-top"
-        alt="img-project"
-      />
-      <div class="card-body">
-        <h4 class="card-title text-white">Special<br />Education</h4>
-        <p class="card-text text-white">
-          At Crezco, we firmly believe that one size does not fit all when it
-          comes to education...
-        </p>
-        <a href="#" class="text-white text-decoration-none">
-          Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
-        </a>
+    <!-- [routerLink]="['../special-education']" -->
+    <a
+      href="../special-education"
+      class="text-decoration-none"
+      data-aos="fade-up"
+      data-aos-duration="600"
+    >
+      <div class="card" style="width: 20rem; background-color: #6f00aa">
+        <img
+          src="../../assets/Image/Home-accordion/mobile-img/Special_Education.png"
+          class="card-img-top"
+          alt="img-project"
+        />
+        <div class="card-body">
+          <h4 class="card-title text-white">Special<br />Education</h4>
+          <p class="card-text text-white">
+            At Crezco, we firmly believe that one size does not fit all when it
+            comes to education...
+          </p>
+          <a href="#" class="text-white text-decoration-none link-card">
+            Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 20rem; background-color: #f48e08">
-      <img
-        src="../../assets/Image/Home-accordion/mobile-img/Community_Support.png"
-        class="card-img-top"
-        alt="img-project"
-      />
-      <div class="card-body">
-        <h4 class="card-title text-white">Community<br />Support</h4>
-        <p class="card-text text-white">
-          Attending the needs of the local community allows Crezco to be a light
-          in the world...
-        </p>
-        <a href="#" class="text-white text-decoration-none">
-          Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
-        </a>
+    </a>
+    <a
+      href="#"
+      class="text-decoration-none"
+      data-aos="fade-up"
+      data-aos-duration="600"
+    >
+      <div class="card" style="width: 20rem; background-color: #f48e08">
+        <img
+          src="../../assets/Image/Home-accordion/mobile-img/Community_Support.png"
+          class="card-img-top"
+          alt="img-project"
+        />
+        <div class="card-body">
+          <h4 class="card-title text-white">Community<br />Support</h4>
+          <p class="card-text text-white">
+            Attending the needs of the local community allows Crezco to be a
+            light in the world...
+          </p>
+          <a href="#" class="text-white text-decoration-none link-card">
+            Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 20rem; background-color: #00bf1b">
-      <img
-        src="../../assets/Image/Home-accordion/mobile-img/Student_Trips.png"
-        class="card-img-top"
-        alt="img-project"
-      />
-      <div class="card-body">
-        <h4 class="card-title text-white">Student<br />Mission Trips</h4>
-        <p class="card-text text-white">
-          The Crezco Student Mission Trip Program is centered on fostering a
-          deep sense of...
-        </p>
-        <a href="#" class="text-white text-decoration-none">
-          Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
-        </a>
+    </a>
+    <a
+      href="#"
+      class="text-decoration-none"
+      data-aos="fade-up"
+      data-aos-duration="600"
+    >
+      <div class="card" style="width: 20rem; background-color: #00bf1b">
+        <img
+          src="../../assets/Image/Home-accordion/mobile-img/Student_Trips.png"
+          class="card-img-top"
+          alt="img-project"
+        />
+        <div class="card-body">
+          <h4 class="card-title text-white">Student<br />Mission Trips</h4>
+          <p class="card-text text-white">
+            The Crezco Student Mission Trip Program is centered on fostering a
+            deep sense of...
+          </p>
+          <a href="#" class="text-white text-decoration-none link-card">
+            Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 20rem; background-color: #6f00aa">
-      <img
-        src="../../assets/Image/Home-accordion/mobile-img/Medical_Assistance.png"
-        class="card-img-top"
-        alt="img-project"
-      />
-      <div class="card-body">
-        <h4 class="card-title text-white">Medical<br />Assistance</h4>
-        <p class="card-text text-white">
-          Crezco's Medical Assistance Program serves as a source of hope for
-          families facing...
-        </p>
-        <a href="#" class="text-white text-decoration-none">
-          Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
-        </a>
+    </a>
+    <a
+      href="#"
+      class="text-decoration-none"
+      data-aos="fade-up"
+      data-aos-duration="600"
+    >
+      <div class="card" style="width: 20rem; background-color: #6f00aa">
+        <img
+          src="../../assets/Image/Home-accordion/mobile-img/Medical_Assistance.png"
+          class="card-img-top"
+          alt="img-project"
+        />
+        <div class="card-body">
+          <h4 class="card-title text-white">Medical<br />Assistance</h4>
+          <p class="card-text text-white">
+            Crezco's Medical Assistance Program serves as a source of hope for
+            families facing...
+          </p>
+          <a href="#" class="text-white text-decoration-none link-card">
+            Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+          </a>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 <!-- Other Projects section end -->

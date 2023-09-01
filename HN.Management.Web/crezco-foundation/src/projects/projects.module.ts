@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 // Custom imports from Projects Folder
 import { UniversitySponsorshipComponent } from './university-sponsorship/university-sponsorship.component';
@@ -18,7 +19,7 @@ import { ProjectsRoutingModule } from './projects-routing.module';
     MedicalAssistanceComponent,
     CommunitySupportComponent,
   ],
-  imports: [CommonModule, BrowserModule, ProjectsRoutingModule],
+  imports: [CommonModule, BrowserModule, RouterModule, ProjectsRoutingModule],
   bootstrap: [
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,

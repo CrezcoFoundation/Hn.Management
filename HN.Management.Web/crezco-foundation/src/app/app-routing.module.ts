@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'projects',
     loadChildren: () =>
       import('../projects/projects-routing.module').then(
-        (m) => m.ProjectsRoutingModule
+        (p) => p.ProjectsRoutingModule
       ),
   },
   { path: '', component: HomeComponent },

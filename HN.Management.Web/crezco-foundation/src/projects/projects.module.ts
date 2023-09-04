@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 
 // Custom imports from Projects Folder
 import { UniversitySponsorshipComponent } from './university-sponsorship/university-sponsorship.component';
@@ -10,6 +8,7 @@ import { SpecialEducationComponent } from './special-education/special-education
 import { MedicalAssistanceComponent } from './medical-assistance/medical-assistance.component';
 import { CommunitySupportComponent } from './community-support/community-support.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,9 @@ import { ProjectsRoutingModule } from './projects-routing.module';
     SpecialEducationComponent,
     MedicalAssistanceComponent,
     CommunitySupportComponent,
+    ProjectsComponent,
   ],
-  imports: [CommonModule, RouterModule, ProjectsRoutingModule],
+  imports: [CommonModule, ProjectsRoutingModule],
   bootstrap: [
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,

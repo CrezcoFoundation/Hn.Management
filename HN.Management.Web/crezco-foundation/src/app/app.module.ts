@@ -17,7 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthModule } from 'src/auth/auth.module';
 
 // Projects pages
-import { ProjectsModule } from 'src/projects/projects.module';
+import { ProjectsModule } from '../projects/projects.module';
 
 @NgModule({
   declarations: [AppComponent],

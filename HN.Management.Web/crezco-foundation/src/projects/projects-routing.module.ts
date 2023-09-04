@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsRoutes } from './projects-routes';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [ 
-  { path: 'products', loadChildren: () => import('./projects-routes').then(m => m.ProjectsRoutes) } 
+const routes: Routes = [
+  {
+    path: '',
+    component: ProjectsComponent,
+    children: ProjectsRoutes,
+  },
 ];
 
 @NgModule({
@@ -11,6 +17,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class ProjectsRoutingModule {}
-
-
-

@@ -11,8 +11,4 @@ export const ProjectsRoutes: Routes = [
   { path: 'special-education', component: SpecialEducationComponent },
   { path: 'medical-assistance', component: MedicalAssistanceComponent },
   { path: 'community-support', component: CommunitySupportComponent },
-  {
-    path: '**',
-    redirectTo: 'university'
-  }
 ];

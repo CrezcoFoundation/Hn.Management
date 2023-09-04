@@ -27,5 +27,12 @@ import { ProjectsRoutingModule } from './projects-routing.module';
     MedicalAssistanceComponent,
     CommunitySupportComponent,
   ],
+  exports: [
+    UniversitySponsorshipComponent,
+    StudentMissionTripComponent,
+    SpecialEducationComponent,
+    MedicalAssistanceComponent,
+    CommunitySupportComponent,
+  ],
 })
 export class ProjectsModule {}

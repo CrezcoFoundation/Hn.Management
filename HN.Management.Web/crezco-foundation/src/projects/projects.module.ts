@@ -19,7 +19,7 @@ import { ProjectsRoutingModule } from './projects-routing.module';
     MedicalAssistanceComponent,
     CommunitySupportComponent,
   ],
-  imports: [CommonModule, BrowserModule, RouterModule, ProjectsRoutingModule],
+  imports: [CommonModule, RouterModule, ProjectsRoutingModule],
   bootstrap: [
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,

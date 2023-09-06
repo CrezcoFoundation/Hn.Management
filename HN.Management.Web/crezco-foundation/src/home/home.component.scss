@@ -37,6 +37,10 @@
   border: 1px solid #2b2b2b;
 }
 
+input.input-email:focus-visible {
+  outline: transparent;
+}
+
 .btn-email {
   background-color: transparent;
   border: none;

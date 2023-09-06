@@ -14,7 +14,6 @@ import { ContactUsModule } from 'src/contact-us/contact-us.module';
 import { StoreModule } from '@ngrx/store';
 import { crezcoReducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AuthModule } from 'src/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +31,6 @@ import { AuthModule } from 'src/auth/auth.module';
       metaReducers,
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    AuthModule,
     ReactiveFormsModule,
   ],
 })

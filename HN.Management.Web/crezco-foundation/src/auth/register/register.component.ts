@@ -13,20 +13,25 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private fb: FormBuilder) {}
+  // @ts-ignoretypes
+  registerForm: FormGroup;
+  fieldTextType: boolean = false;
 
-  registerForm = this.fb.group({
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    userName: ['', Validators.required],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    userLastName: ['', Validators.required],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    userEmail: ['', Validators.required],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    password: ['', Validators.required],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    confirmPassword: ['', Validators.required],
-  });
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      userLastName: ['', Validators.required],
+      userEmail: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+    });
+  }
+
+  toggleFieldTextType(): void {
+    this.fieldTextType = !this.fieldTextType;
+  }
 
   onRegister() {
     // TODO: Use EventEmitter with form value

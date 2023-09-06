@@ -28,9 +28,9 @@
   margin-top: 12em;
 }
 
-.menu-container {
+/* .menu-container {
   height: 100vh;
-}
+} */
 
 .link-footer {
   font-size: 1.6rem;
@@ -50,7 +50,7 @@
 }
 
 .line-container {
-  height: 55vh;
+  height: 50vh;
   display: flex;
   align-items: flex-end;
 }
@@ -179,33 +179,35 @@ div > .line {
 
 /* ================== MENU ICON ANIMATION ================== */
 
-.modal-content {
-  height: 550px;
-  border-radius: 30px;
-  border: 7px solid #e9eef6;
-  /* box-shadow:  4px 8px 3px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.3); */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+.span-menu {
+  position: relative;
+  z-index: 9999;
 }
+
+.Icon-menu {
+  width: 40px;
+  max-width: 100%;
+}
+
+/* Menu Modal Modification */
 
 .modal-dialog {
-  border-radius: 30px;
+  transform: none;
+  transition: transform 0.3s ease-out;
+  position: relative;
+  background-color: transparent;
 }
 
-@media (min-width: 576px) {
-  /* .modal {
-    --bs-modal-box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-  } */
-  .modal-dialog {
-    max-width: 380px;
-    margin-right: 180px;
-    margin-top: 60px;
-  }
+.modal-content-menu {
+  width: 100%;
+  pointer-events: auto;
 }
 
-@media (max-width: 575.98px) {
-  .modal-dialog {
-    max-width: 400px;
-    margin-left: 60px;
-    margin-top: 60px;
-  }
+#exampleModalToggle {
+  background: rgb(62, 30, 103);
+  background: linear-gradient(
+    90deg,
+    rgba(62, 30, 103, 0.8029586834733894) 0%,
+    rgba(62, 30, 103, 0.80015756302521) 100%
+  );
 }

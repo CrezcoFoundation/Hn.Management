@@ -45,6 +45,10 @@
   border-radius: 5px;
 }
 
+.btn:first-child:active {
+  background-color: #00bf1b;
+}
+
 .form-label {
   font-weight: 500;
 }
@@ -61,4 +65,8 @@ textarea#messageTextArea {
 input::placeholder,
 textarea.form-control::placeholder {
   color: lightgray;
+}
+
+.char-count-red {
+  color: #db190c;
 }

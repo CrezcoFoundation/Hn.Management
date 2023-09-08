@@ -82,7 +82,7 @@
       <div class="col px-5">
         <div class="py-5 mx-lg-5 px-lg-5">
           <h3 class="contact-title text-center">GET IN TOUCH</h3>
-          <form [formGroup]="contactForm" (Submit)="onSubmited()">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmited()">
             <div class="mb-3">
               <label for="userName" class="form-label">Enter Your Name</label>
               <input
@@ -106,51 +106,47 @@
                 formControlName="inputEmail"
                 required
               />
-              <!-- <div id="emailHelp" class="form-text">
-                We'll never share your email with anyone else.
-              </div> -->
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
               <label for="messageTextArea" class="form-label"
                 >Enter Your Message</label
               >
               <textarea
-                class="form-control py-2"
-                name="messageArea"
+                [(ngModel)]="textChar"
+                (input)="updateCharCount()"
+                class="form-control py-3 py-lg-2 flex-wrap"
                 id="messageTextArea"
                 placeholder="Enter your message"
                 cols="30"
                 rows="5"
+                maxlength="200"
                 formControlName="message"
                 required
               ></textarea>
-            </div>
-            <a href="" class="text-decoration-none">
-              <div
-                class="d-flex align-items-center justify-content-center col message-btn"
-              >
-                <button
-                  type="submit"
-                  class="btn btn-primary py-2 px-5 py-lg-2 px-lg-3"
+              <!-- Character Counter -->
+              <div id="character-counter text-right" class="text-end mt-2">
+                <p
+                  [ngClass]="{ 'char-count-red': charCount >= 150 }"
+                  class="char-count-red m-0"
                 >
-                  SEND MESSAGE
-                </button>
+                  {{ charCount }}/200
+                </p>
               </div>
-            </a>
-            <!-- <button
-              type="submit"
-              class="btn btn-primary"
-              [disabled]="!contactForm.valid"
-            >
-              Submit
-            </button> -->
+            </div>
+            <div class="d-flex align-items-center justify-content-center row">
+              <button
+                [disabled]="!contactForm.valid"
+                type="submit"
+                class="btn btn-primary py-2 px-0"
+              >
+                <a class="text-decoration-none text-center text-white">
+                  SEND MESSAGE
+                </a>
+              </button>
+            </div>
           </form>
         </div>
-        <!-- <hr />
-        <p>Form Value: {{ contactForm.value | json }}</p>
-        <p>Form Status: {{ contactForm.status }}</p> -->
       </div>
     </div>
   </div>
 </div>
-<!-- <app-multiple-items-slider></app-multiple-items-slider> -->

@@ -26,9 +26,11 @@
     "@angular/router": "^16.1.2",
     "@ngrx/store": "^16.0.1",
     "@ngrx/store-devtools": "^16.0.1",
+    "@sweetalert2/ngx-sweetalert2": "^12.2.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.0-alpha3",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.7.27",
     "zone.js": "~0.13.1"
   },
   "lint-staged": {

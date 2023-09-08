@@ -1,5 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 
+.home-banner img {
+  width: 100%;
+  position: relative;
+}
+
+.content-hero {
+  position: absolute;
+  h1 {
+    font-size: 64px;
+  }
+  .text-content_hero {
+    font-size: 25px;
+    font-family: Inter;
+  }
+}
+
+.btn,
+.btn-primary {
+  font-family: Inter;
+  background-color: #00bf1b;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+}
+
 /* * {
     margin: 0; padding: 0;
     box-sizing: border-box;

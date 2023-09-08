@@ -10,17 +10,14 @@ const routes: Routes = [
   { path: 'crezco-story', component: CrezcoStoryComponent },
   { path: 'give', component: GiveComponent },
   {
-     path: 'auth',
-      loadChildren: () =>
-    import('../auth/auth.module').then((m) => m.AuthModule),
+    path: 'auth',
+    loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
   },
   {
-     path: 'projects',
-  loadChildren: () =>
-   import('../projects/projects.module').then(
-    (m) => m.ProjectsModule
-  ),
- },
+    path: 'projects',
+    loadChildren: () =>
+      import('../projects/projects.module').then((m) => m.ProjectsModule),
+  },
   { path: '', component: HomeComponent },
 ];
 

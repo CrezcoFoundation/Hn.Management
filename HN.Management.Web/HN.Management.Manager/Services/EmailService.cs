@@ -40,6 +40,7 @@ namespace HN.Management.Manager.Services
 
             var mailMessage = new MailMessage()
             {
+                Subject = $"Newsletter Program Request Received - {email}",
                 From = new MailAddress("it@crezcofoundation.org"),
                 Body = $"Dear Crezco Onboarding Team,\r\nI want to receive Newsletter Program, this is my email: {email}"
             };

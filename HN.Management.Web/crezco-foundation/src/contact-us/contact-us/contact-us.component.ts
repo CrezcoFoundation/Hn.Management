@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { ContactEmailsService } from '../contact-emails.service';
+import { EmailInterface } from '../email-interface';
 
 @Component({
   selector: 'app-contact-us',
@@ -14,6 +16,9 @@ export class ContactUsComponent implements OnInit {
   // Conteo de caracteres para el textArea
   textChar: string = '';
   charCount: number = 0;
+  // @ts-ignoretypes
+  http;
+  emailContent: any;
 
   updateCharCount() {
     this.charCount = this.textChar.length;
@@ -24,7 +29,10 @@ export class ContactUsComponent implements OnInit {
     }
   }
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private contactServices: ContactEmailsService
+  ) {}
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -45,10 +53,24 @@ export class ContactUsComponent implements OnInit {
     this.contactForm.reset({});
   }
 
-  onSubmited() {
-    // TODO: Agregar la url del backend
-    console.log(this.contactForm.status);
-    console.log(this.contactForm.value);
-    this.showAlert();
+  sendEmail = (emailContent: EmailInterface) => {
+    return this.http.post(this.contactForm + '/employees', {
+      email_content: [emailContent],
+    });
+  };
+
+  public onSubmited() {
+    this.contactServices.sendEmail(this.emailContent).subscribe(
+      (dataEmail) => {
+        console.log('Data email', dataEmail);
+        this.showAlert();
+      },
+      (error) => {
+        console.error('Error sending email', error);
+      }
+    );
   }
 }
+
+// TODO: Ruta POST del backend
+//https://localhost:5001/api/mail/contact-me

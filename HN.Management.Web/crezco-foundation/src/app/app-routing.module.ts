@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactUsComponent } from 'src/contact-us/contact-us/contact-us.component';
 import { CrezcoStoryComponent } from 'src/crezco-story/crezco-story/crezco-story.component';

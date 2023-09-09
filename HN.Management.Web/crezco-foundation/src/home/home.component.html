@@ -57,7 +57,8 @@
             requests.
           </p>
           <form
-            action=""
+            [formGroup]="newsletterForm"
+            (ngSubmit)="onSubmited()"
             class="d-flex align-items-center justify-content-center"
           >
             <input
@@ -99,7 +100,7 @@
             small group involved! Campaigns are both in-kind and monetary.
             Contact us for more information.
           </p>
-          <a href="#" class="donate-btn"
+          <a [routerLink]="['/contact-us']" class="donate-btn"
             ><button class="btn btn-primary py-2 px-5 py-lg-2 px-lg-3 mb-3">
               CONTACT US
             </button></a
@@ -121,6 +122,3 @@
   </div>
 </section>
 <!-- Pray Section Start -->
-
-<!-- <h2 class="display-2 text-center p-3">Programs</h2>
-<app-multiple-items-slider></app-multiple-items-slider> -->

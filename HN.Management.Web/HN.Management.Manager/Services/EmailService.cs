@@ -4,21 +4,28 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Services.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace HN.Management.Manager.Services
 {
 	public class EmailService : IEmailService
 	{
+        private readonly EmailOptions emailOptionsVal;
+
+        public EmailService(IOptions<EmailOptions> emailOptions)
+        {
+            emailOptionsVal = emailOptions.Value;
+        }
         public async Task<string> ContactMe(ContactRequest contactRequest)
         {
             try
             {
                 MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("it@crezcofoundation.org"); 
-            mailMessage.To.Add("info@crezcofoundation.org");
-            mailMessage.CC.Add("anaeltrabajo@gmail.com");
-            mailMessage.CC.Add("jearsoft@gmail.com");
-            mailMessage.CC.Add("nerm.animator@gmail.com");
+            mailMessage.From = new MailAddress(emailOptionsVal.From); 
+            mailMessage.To.Add(emailOptionsVal.To);
+            mailMessage.CC.Add(emailOptionsVal.Cc);
+            //mailMessage.CC.Add("jearsoft@gmail.com");
+            //mailMessage.CC.Add("nerm.animator@gmail.com");
                 mailMessage.Subject = $"New Contact Received - {contactRequest.FullName}";
             mailMessage.Body = $"Dear Crezco Onboarding Team,\r\nThere is a new Contact Received: \r\nFullName: {contactRequest.FullName}, \r\nEmailAddress: {contactRequest.Email}, \r\nMessage: {contactRequest.Message}";
 

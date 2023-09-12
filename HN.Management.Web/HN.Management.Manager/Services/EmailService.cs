@@ -27,7 +27,7 @@ namespace HN.Management.Manager.Services
             //mailMessage.CC.Add("jearsoft@gmail.com");
             //mailMessage.CC.Add("nerm.animator@gmail.com");
                 mailMessage.Subject = $"New Contact Received - {contactRequest.FullName}";
-            mailMessage.Body = $"Dear Crezco Onboarding Team,\r\nThere is a new Contact Received: \r\nFullName: {contactRequest.FullName}, \r\nEmailAddress: {contactRequest.Email}, \r\nMessage: {contactRequest.Message}";
+            mailMessage.Body = $"Dear Crezco Information Team,\r\nThere has been a new inquiry on the website. See the contact information below: \r\nName: {contactRequest.FullName}, \r\nEmailAddress: {contactRequest.Email}, \r\nMessage: {contactRequest.Message}";
 
              var smtpClient = await this.GetSmtpClient();
             smtpClient.Send(mailMessage);

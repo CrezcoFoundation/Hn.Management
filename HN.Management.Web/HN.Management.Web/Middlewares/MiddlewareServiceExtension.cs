@@ -30,6 +30,9 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
 
+            //Services
+            service.AddScoped<IEmailService, EmailService>();
+
             //Repositories
             service.AddScoped<IExpenseRepository, ExpenseRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();

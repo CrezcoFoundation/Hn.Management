@@ -1,25 +1,163 @@
 <app-full-page-carousel></app-full-page-carousel>
-<!-- Mission Section Start -->
-<section class="container my-5">
+<!-- Projects Section Start -->
+<section class="container-fluid p-0 section-projects_card">
+  <div class="text-center title-box my-5">
+    <h3 class="text-center">Our Projects</h3>
+  </div>
   <div
-    data-aos="fade-up"
-    class="d-flex flex-column gap-1 align-items-center justify-content-center mission-content"
+    class="container-fluid d-flex flex-row flex-lg-column align-items-center justify-content-start justify-content-lg-center mb-5 gap-4 cards-container"
   >
-    <h2 class="mission-title">CREZCO'S MISSION</h2>
-    <p class="col-10 col-lg-8 text-center">
-      Crezco's mission is to provide resources that support the emotional,
-      intellectual, social, and spiritual growth for at-risk children & youth in
-      Latin America by addressing complex contributing factors including
-      education, family patterns, basic needs, and mental health.
-    </p>
-    <a [routerLink]="['/give']" class="donate-btn"
-      ><button class="btn btn-primary py-2 px-5 py-lg-2 px-lg-3 mb-3">
-        Donate Now
-      </button></a
+    <div
+      class="d-flex align-items-center justify-content-start justify-content-lg-center gap-4"
     >
+      <a
+        [routerLink]="['../projects/special-education']"
+        class="text-decoration-none ps-3 ps-lg-0"
+      >
+        <div
+          class="card col rounded-3"
+          style="width: 20rem; background-color: #00bf1b"
+        >
+          <img
+            src="../../assets/Image/Home-accordion/mobile-img/College.png"
+            class="card-img-top rounded-3"
+            alt="img-project"
+          />
+          <div class="card-body">
+            <h4 class="card-title text-white">University<br />Sponsorship</h4>
+            <p class="card-text text-white">
+              Cycles of poverty are broken through higher educational
+              opportunities. Students in our...
+            </p>
+            <a
+              [routerLink]="['../projects/special-education']"
+              class="text-white text-decoration-none link-card"
+            >
+              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+            </a>
+          </div>
+        </div>
+      </a>
+      <a
+        [routerLink]="['../projects/special-education']"
+        class="text-decoration-none"
+      >
+        <div
+          class="card col rounded-3"
+          style="width: 20rem; background-color: #6f00aa"
+        >
+          <img
+            src="../../assets/Image/Home-accordion/mobile-img/Special_Education.png"
+            class="card-img-top rounded-3"
+            alt="img-project"
+          />
+          <div class="card-body">
+            <h4 class="card-title text-white">Special<br />Education</h4>
+            <p class="card-text text-white">
+              At Crezco, we firmly believe that one size does not fit all when
+              it comes to education...
+            </p>
+            <a
+              [routerLink]="['../projects/special-education']"
+              class="text-white text-decoration-none link-card"
+            >
+              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+            </a>
+          </div>
+        </div>
+      </a>
+      <a
+        [routerLink]="['../projects/community-support']"
+        class="text-decoration-none"
+      >
+        <div
+          class="card col rounded-3"
+          style="width: 20rem; background-color: #f48e08"
+        >
+          <img
+            src="../../assets/Image/Home-accordion/mobile-img/Community_Support.png"
+            class="card-img-top rounded-3"
+            alt="img-project"
+          />
+          <div class="card-body">
+            <h4 class="card-title text-white">Community<br />Support</h4>
+            <p class="card-text text-white">
+              Attending the needs of the local community allows Crezco to be a
+              light in the world...
+            </p>
+            <a
+              [routerLink]="['../projects/community-support']"
+              class="text-white text-decoration-none link-card"
+            >
+              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+            </a>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      class="d-flex align-items-center justify-content-start justify-content-lg-center gap-4"
+    >
+      <a
+        [routerLink]="['../projects/mission-trip']"
+        class="text-decoration-none"
+      >
+        <div
+          class="card col rounded-3"
+          style="width: 20rem; background-color: #00bf1b"
+        >
+          <img
+            src="../../assets/Image/Home-accordion/mobile-img/Student_Trips.png"
+            class="card-img-top rounded-3"
+            alt="img-project"
+          />
+          <div class="card-body">
+            <h4 class="card-title text-white">Student<br />Mission Trips</h4>
+            <p class="card-text text-white">
+              The Crezco Student Mission Trip Program is centered on fostering a
+              deep sense of...
+            </p>
+            <a
+              [routerLink]="['../projects/mission-trip']"
+              class="text-white text-decoration-none link-card"
+            >
+              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+            </a>
+          </div>
+        </div>
+      </a>
+      <a
+        [routerLink]="['../projects/medical-assistance']"
+        class="text-decoration-none pe-3 pe-lg-0"
+      >
+        <div
+          class="card col rounded-3"
+          style="width: 20rem; background-color: #6f00aa"
+        >
+          <img
+            src="../../assets/Image/Home-accordion/mobile-img/Medical_Assistance.png"
+            class="card-img-top rounded-3"
+            alt="img-project"
+          />
+          <div class="card-body">
+            <h4 class="card-title text-white">Medical<br />Assistance</h4>
+            <p class="card-text text-white">
+              Crezco's Medical Assistance Program serves as a source of hope for
+              families facing...
+            </p>
+            <a
+              [routerLink]="['../projects/medical-assistance']"
+              class="text-white text-decoration-none link-card"
+            >
+              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+            </a>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
-<!-- Mission Section End -->
+<!-- Projects Section End -->
 
 <!-- Pray Section Start -->
 <section>
@@ -41,7 +179,7 @@
         <div
           data-aos="fade-up"
           data-aos-offset="300"
-          class="text-center text-lg-start col-9 col-lg-4 d-flex flex-column gap-3 justify-content-center align-items-lg-start align-items-center"
+          class="text-center text-lg-start col-12 col-lg-4 d-flex flex-column gap-3 justify-content-center align-items-lg-start align-items-center fs-5"
         >
           <p>
             Join us in praying for Crezco's ministry: our programs, program
@@ -57,17 +195,19 @@
             requests.
           </p>
           <form
-            action=""
+            [formGroup]="newsletterForm"
+            (ngSubmit)="onSubmited()"
             class="d-flex align-items-center justify-content-center"
           >
             <input
               type="email"
               placeholder="Email Address"
-              required
               class="input-email"
+              formControlName="letterEmail"
+              required
             />
-            <a href="#">
-              <button class="btn-email">
+            <a>
+              <button [disabled]="!newsletterForm.valid" class="btn-email">
                 <img
                   src="../assets/Image/Home-accordion/pray-section/arrow-right-circle.png"
                   alt="icon arrow"
@@ -84,7 +224,7 @@
       >
         <div
           data-aos="fade-up"
-          class="text-center text-lg-start col-10 col-lg-4 d-flex flex-column gap-3 justify-content-center align-items-lg-start align-items-center"
+          class="text-center text-lg-start col-12 col-lg-4 d-flex flex-column gap-3 justify-content-center align-items-lg-start align-items-center fs-5"
         >
           <h3 class="volunteers-title">ADMINISTRATIVE SUPPORT</h3>
           <p>
@@ -99,7 +239,7 @@
             small group involved! Campaigns are both in-kind and monetary.
             Contact us for more information.
           </p>
-          <a href="#" class="donate-btn"
+          <a [routerLink]="['/contact-us']" class="donate-btn"
             ><button class="btn btn-primary py-2 px-5 py-lg-2 px-lg-3 mb-3">
               CONTACT US
             </button></a
@@ -121,6 +261,3 @@
   </div>
 </section>
 <!-- Pray Section Start -->
-
-<!-- <h2 class="display-2 text-center p-3">Programs</h2>
-<app-multiple-items-slider></app-multiple-items-slider> -->

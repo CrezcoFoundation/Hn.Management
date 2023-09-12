@@ -15,12 +15,7 @@ import { RegisterComponent } from './register/register.component';
     ForgotComponent,
     RegisterComponent,
   ],
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    AuthRoutingModule,
-    FormsModule,
-  ],
+  imports: [ReactiveFormsModule, CommonModule, AuthRoutingModule, FormsModule],
   bootstrap: [
     LoginComponent,
     AuthComponent,

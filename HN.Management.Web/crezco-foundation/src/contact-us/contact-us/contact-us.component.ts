@@ -1,31 +1,65 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { ContactEmailsService } from '../contact-emails.service';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss'],
 })
-export class ContactUsComponent {
-  contactForm = this.fb.group({
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    inputName: ['', Validators.required],
-    //lastName: [''],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    inputEmail: ['', Validators.email],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    amount: ['', Validators.min(20)],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    messageTextArea: ['', Validators.required],
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    checkForm: ['', Validators.required],
-  });
+export class ContactUsComponent implements OnInit {
+  // @ts-ignoretypes
+  contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  // Conteo de caracteres para el textArea
+  textChar: string = '';
+  charCount: number = 0;
 
-  onSubmited() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.contactForm.value);
+  updateCharCount() {
+    this.charCount = this.textChar.length;
+    if (this.charCount > 200) {
+      // Se limita el texto a 200 caracteres
+      this.textChar = this.textChar.substring(0, 200);
+      this.charCount = 200;
+    }
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private contactServices: ContactEmailsService
+  ) {}
+
+  ngOnInit() {
+    this.contactForm = this.formBuilder.group({
+      inputName: ['', Validators.required],
+      inputEmail: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
+    });
+  }
+
+  showAlert() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Tu mensaje ha sido enviado',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    this.contactForm.reset({});
+  }
+
+  public onSubmited() {
+    this.contactServices.sendEmail(this.contactForm.value).subscribe(
+      () => {
+        this.showAlert();
+      },
+      (error) => {
+        console.error('Error sending email', error);
+      }
+    );
   }
 }
+
+// TODO: Ruta POST del backend
+//https://localhost:5001/api/mail/contact-me

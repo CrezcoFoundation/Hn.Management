@@ -1,213 +1,43 @@
-.btn,
-.btn-primary {
-  background-color: #00bf1b;
-  text-transform: uppercase;
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  position: absolute;
+  z-index: 9991;
+}
+
+.btn-login {
+  color: #2b2b2b;
+  background-color: white;
+  border: 0.2px solid #2b2b2b;
+  border-radius: 10px;
+  text-transform: capitalize;
   font-size: 1.1rem;
-  border: none;
   font-weight: 500;
 }
 
-/* .donate-btn {
-  margin-right: 5em;
-} */
-
-.navbar-toggler,
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
-  outline: none;
-  box-shadow: none;
-  border: 0;
-  position: sticky;
-  z-index: 100;
-  right: 6em;
-  top: 8px;
+.btn-login:hover {
+  color: white;
+  background-color: #08d123;
+  border: 1px solid #08d123;
 }
 
-.navbar-nav {
-  margin-top: 12em;
+.btn,
+.btn-primary {
+  color: white;
+  background-color: #00bf1b;
+  border: none;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-/* .menu-container {
-  height: 100vh;
-} */
-
-.link-footer {
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.project-links > h5 {
-  font-family: "Oswald", "Arial";
-  text-transform: uppercase;
-  display: flex;
-  /* flex-direction: column; */
-  /* align-items: flex-start; */
-  font-size: 2rem;
-  color: #00bf1b;
-  font-weight: bold;
-}
-
-.line-container {
-  height: 50vh;
-  display: flex;
-  align-items: flex-end;
-}
-
-div > .line {
-  height: 38vh;
-  background: #fff;
-  width: 2px;
-}
-
-.line-logo {
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  .sub-line-logo {
-    background-color: white;
-    width: 2px;
-    height: 55%;
-  }
-}
-
-.navbar-collapse {
-  /* display: flex; */
-  position: fixed;
-  z-index: 2;
-  background: rgb(62, 30, 103);
-  background: -moz-linear-gradient(
-    0deg,
-    rgba(62, 30, 103, 0.9) 0%,
-    rgba(62, 30, 103, 0.9) 100%
-  );
-  background: -webkit-linear-gradient(
-    0deg,
-    rgba(62, 30, 103, 0.9) 0%,
-    rgba(62, 30, 103, 0.9) 100%
-  );
-  background: linear-gradient(
-    0deg,
-    rgba(62, 30, 103, 0.9) 0%,
-    rgba(62, 30, 103, 0.9) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ================== MENU ICON ANIMATION ================== */
-
-#nav-icon1 {
-  width: 40px;
-  height: 10px;
-  position: relative;
-  /* padding: 15px; */
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
-}
-
-#nav-icon1 span {
-  display: block;
-  position: absolute;
-  height: 4px;
-  width: 100%;
-  background: #333132;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
-}
-
-/* Icon 1 */
-
-#nav-icon1 span:nth-child(1) {
-  top: -12px;
-}
-
-#nav-icon1 span:nth-child(2),
-#nav-icon1 span:nth-child(3) {
-  top: 2px;
-}
-
-#nav-icon1 span:nth-child(4) {
-  top: 17px;
-}
-
-#nav-icon1.open span:nth-child(1) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
-
-#nav-icon1.open span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-#nav-icon1.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-#nav-icon1.open span:nth-child(4) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
-
-/* ================== MENU ICON ANIMATION ================== */
-
-.span-menu {
-  position: relative;
-  z-index: 9999;
-}
-
-.Icon-menu {
-  width: 40px;
-  max-width: 100%;
-}
-
-/* Menu Modal Modification */
-
-.modal-dialog {
-  transform: none;
-  transition: transform 0.3s ease-out;
-  position: relative;
-  background-color: transparent;
-}
-
-.modal-content-menu {
-  width: 100%;
-  pointer-events: auto;
-}
-
-#exampleModalToggle {
-  background: rgb(62, 30, 103);
-  background: linear-gradient(
-    90deg,
-    rgba(62, 30, 103, 0.8029586834733894) 0%,
-    rgba(62, 30, 103, 0.80015756302521) 100%
-  );
+.btn:hover,
+.btn-primary:hover {
+  color: white;
+  background-color: #08d123;
 }

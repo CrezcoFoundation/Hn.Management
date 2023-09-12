@@ -11,8 +11,6 @@ export class ContactEmailsService {
   constructor(private http: HttpClient) {}
 
   sendEmail = (emailContent: EmailInterface) => {
-    return this.http.post(this.baseUrl + '/employees', {
-      email_content: [emailContent],
-    });
+    return this.http.post(this.baseUrl + '/employees', emailContent);
   };
 }

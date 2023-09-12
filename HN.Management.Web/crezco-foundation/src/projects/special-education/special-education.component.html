@@ -17,12 +17,12 @@
 <!-- Image banner section end -->
 
 <!-- Description section start -->
-<section class="container p-0 my-5 py-lg-5">
+<section class="container p-0 my-5 py-lg-3">
   <div class="title-project">
     <h2 class="text-center">Special Education</h2>
   </div>
   <div
-    class="d-flex flex-column align-items-center justify-content-center my-4"
+    class="d-flex flex-column align-items-center justify-content-center my-4 row"
   >
     <p class="text-center description-project">
       At Crezco, we firmly believe that one size does not fit all when it comes
@@ -37,7 +37,7 @@
   <div
     class="d-flex flex-column align-items-center justify-content-center mt-4"
   >
-    <a href="/given" class="donate-btn">
+    <a href="/" class="donate-btn">
       <button
         class="btn btn-primary py-2 px-3"
         data-bs-dismiss="modal"
@@ -253,7 +253,10 @@
   <div
     class="container-fluid d-flex flex-row align-items-center justify-content-start justify-content-lg-center mb-5 gap-4 cards-container"
   >
-    <a [routerLink]="['../university']" class="text-decoration-none ps-3">
+    <a
+      [routerLink]="['../university']"
+      class="text-decoration-none ps-3 ps-lg-0"
+    >
       <div
         class="card col rounded-3"
         style="width: 20rem; background-color: #00bf1b"
@@ -263,11 +266,11 @@
           class="card-img-top rounded-3"
           alt="img-project"
         />
-        <div class="card-body">
+        <div class="card-body mb-2">
           <h4 class="card-title text-white">University<br />Sponsorship</h4>
-          <p class="card-text text-white mb-5">
-            Higher educational opportunities hold the key to breaking
-            negative...
+          <p class="card-text text-white fs-5">
+            Higher educational
+            <br />opportunities hold the key to <br />breaking negative...
           </p>
           <a
             [routerLink]="['../university']"
@@ -288,11 +291,12 @@
           class="card-img-top rounded-3"
           alt="img-project"
         />
-        <div class="card-body">
+        <div class="card-body mb-2">
           <h4 class="card-title text-white">Community<br />Support</h4>
-          <p class="card-text text-white">
-            Attending the needs of the local community allows Crezco to be a
-            light in the world...
+          <p class="card-text text-white fs-5">
+            Attending the needs of the
+            <br />local community allows Crezco <br />to be a light in the
+            world...
           </p>
           <a
             [routerLink]="['../community-support']"
@@ -313,11 +317,11 @@
           class="card-img-top rounded-3"
           alt="img-project"
         />
-        <div class="card-body">
+        <div class="card-body mb-2">
           <h4 class="card-title text-white">Student<br />Mission Trips</h4>
-          <p class="card-text text-white">
-            The Crezco Student Mission Trip Program is centered on fostering a
-            deep sense of...
+          <p class="card-text text-white fs-5">
+            The Crezco Student Mission Trip
+            <br />Program is centered on <br />fostering a deep sense of...
           </p>
           <a
             [routerLink]="['../mission-trip']"
@@ -330,7 +334,7 @@
     </a>
     <a
       [routerLink]="['../medical-assistance']"
-      class="text-decoration-none pe-3"
+      class="text-decoration-none pe-3 pe-lg-0"
     >
       <div
         class="card col rounded-3"
@@ -341,11 +345,12 @@
           class="card-img-top rounded-3"
           alt="img-project"
         />
-        <div class="card-body">
+        <div class="card-body mb-2">
           <h4 class="card-title text-white">Medical<br />Assistance</h4>
-          <p class="card-text text-white">
-            Crezco's Medical Assistance Program serves as a source of hope for
-            families facing...
+          <p class="card-text text-white fs-5">
+            Crezco's Medical Assistance
+            <br />Program serves as a source of <br />hope for families
+            facing...
           </p>
           <a
             [routerLink]="['../medical-assistance']"

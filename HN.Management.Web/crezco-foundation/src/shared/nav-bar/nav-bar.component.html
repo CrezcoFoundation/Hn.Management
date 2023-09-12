@@ -1,130 +1,6 @@
-<!-- <div class="collapse navbar-collapse overflow-scroll" id="navbarNav">
-  <div
-    class="container d-flex flex-lg-row flex-column align-items-center justify-content-center col-12 gap-lg-5 gap-2 menu-container"
-  >
-    <div
-      class="col-lg-3 col-10 d-flex flex-column align-items-center align-items-lg-start"
-    >
-      <a [routerLink]="['/give']" class="donate-btn">
-        <button class="btn btn-primary py-2 px-3 mb-5">Donate Now</button>
-      </a>
-      <div class="project-links text-white">
-        <h5 class="text-lg-left text-center">Our Projects:</h5>
-        <ul
-          class="nav d-flex flex-column align-items-lg-start align-items-center justify-content-start"
-        >
-          <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer"
-              >College Scholarships</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer"
-              >Special Education</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer"
-              >Community Support</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer"
-              >Student Mission Trips</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer"
-              >Medical Assitance</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="line-container d-none d-lg-flex">
-      <div class="line"></div>
-    </div>
-    <div class="col-lg-3 col-10 mt-lg-5">
-      <ul
-        class="navbar-nav d-flex flex-column align-items-lg-start align-items-center justify-content-center mt-lg-5 mt-0"
-      >
-        <li class="nav-item mt-lg-5">
-          <a
-            class="nav-link text-white active mt-4"
-            aria-current="page"
-            [routerLink]="['/']"
-            ><h4 class="fw-bold text-left text-uppercase">Home</h4>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['/give']">
-            <h4 class="fw-bold text-left text-uppercase">Give</h4>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['/crezco-story']">
-            <h4 class="fw-bold text-left text-uppercase">Crezco's Story</h4>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['/contact-us']">
-            <h4 class="fw-bold text-left text-uppercase">Contact Us</h4>
-          </a>
-        </li>
-        <li
-          class="d-flex flex-row align-items-center justify-content-between gap-3"
-        >
-          <div>
-            <a href="#" target="_blank"
-              ><img
-                src="assets/Image/Logo/crezco-logo-menu.svg"
-                alt="Logo Crezco"
-                width="200px"
-              />
-            </a>
-          </div>
-          <div class="line-logo">
-            <div class="sub-line-logo"></div>
-          </div>
-          <div
-            class="d-flex flex-row align-items-center justify-content-between gap-2"
-          >
-            <a href="#" target="_blank"
-              ><img
-                class="social-icon"
-                src="assets/Image/footer-social-networks/Facebook-icon.png"
-                alt="Logo Crezco"
-                width="35px"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/crezcofoundation/"
-              target="_blank"
-              ><img
-                class="social-icon"
-                src="assets/Image/footer-social-networks/Instagram-icon.png"
-                alt="Logo Crezco"
-                width="35px"
-              />
-            </a>
-            <a href="#" target="_blank"
-              ><img
-                class="social-icon"
-                src="assets/Image/footer-social-networks/LinkedIn-icon.png"
-                alt="Logo Crezco"
-                width="35px"
-              />
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div> -->
-
 <!-- Modal Menu Container -->
 
-<div
+<!-- <div
   class="modal fade"
   id="exampleModalToggle"
   aria-hidden="true"
@@ -138,25 +14,16 @@
           class="container d-flex flex-lg-row flex-column align-items-center justify-content-center col-12 gap-lg-5 gap-2 menu-container"
         >
           <div
-            class="col-lg-4 col-10 d-flex flex-column align-items-center align-items-lg-start"
+            class="d-flex flex-column align-items-center"
           >
-            <a [routerLink]="['/give']" class="donate-btn">
-              <button
-                class="btn btn-primary py-2 px-3 mb-5"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
-                Donate Now
-              </button>
-            </a>
-            <div class="project-links text-white">
-              <h5 class="text-lg-left text-center">Our Projects:</h5>
+            <div class="project-links text-white text-center">
+              <h5 class="text-center mb-3">Our Projects</h5>
               <ul
-                class="nav d-flex flex-column align-items-lg-start align-items-center justify-content-start"
+                class="nav d-flex flex-column align-items-center justify-content-start"
               >
                 <li class="nav-item nav-item text-center text-lg-left">
                   <a
-                    href="#"
+                    [routerLink]="['/projects/university']"
                     class="nav-link px-0 text-white link-footer"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -165,7 +32,7 @@
                 </li>
                 <li class="nav-item nav-item text-center text-lg-left">
                   <a
-                    href="#"
+                    [routerLink]="['/projects/special-education']"
                     class="nav-link px-0 text-white link-footer"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -174,7 +41,7 @@
                 </li>
                 <li class="nav-item nav-item text-center text-lg-left">
                   <a
-                    href="#"
+                    [routerLink]="['/projects/community-support']"
                     class="nav-link px-0 text-white link-footer"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -183,7 +50,7 @@
                 </li>
                 <li class="nav-item nav-item text-center text-lg-left">
                   <a
-                    href="#"
+                    [routerLink]="['/projects/mission-trip']"
                     class="nav-link px-0 text-white link-footer"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -192,7 +59,7 @@
                 </li>
                 <li class="nav-item nav-item text-center text-lg-left">
                   <a
-                    href="#"
+                    [routerLink]="['/projects/medical-assistance']"
                     class="nav-link px-0 text-white link-footer"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -216,7 +83,7 @@
                   [routerLink]="['/']"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                  ><h4 class="fw-bold text-left text-uppercase">Home</h4>
+                  ><h3 class="fw-bold text-left text-uppercase">Home</h3>
                 </a>
               </li>
               <li class="nav-item">
@@ -226,7 +93,7 @@
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 >
-                  <h4 class="fw-bold text-left text-uppercase">Give</h4>
+                  <h3 class="fw-bold text-left text-uppercase">Give</h3>
                 </a>
               </li>
               <li class="nav-item">
@@ -236,9 +103,9 @@
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 >
-                  <h4 class="fw-bold text-left text-uppercase">
+                  <h3 class="fw-bold text-left text-uppercase">
                     Crezco's Story
-                  </h4>
+                  </h3>
                 </a>
               </li>
               <li class="nav-item">
@@ -248,11 +115,11 @@
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 >
-                  <h4 class="fw-bold text-left text-uppercase">Contact Us</h4>
+                  <h3 class="fw-bold text-left text-uppercase">Contact Us</h3>
                 </a>
               </li>
               <li
-                class="d-flex flex-row align-items-center justify-content-between gap-3"
+                class="d-flex flex-row align-items-center justify-content-between gap-3 mt-3"
               >
                 <div>
                   <a
@@ -315,24 +182,11 @@
           </div>
         </div>
       </div>
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Show a second modal and hide this one with the button below.
-      </div>
-      <div>
-        Or, go to <a [routerLink]="['/give']" data-bs-dismiss="modal" aria-label="Close">Donate</a>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-      </div> -->
     </div>
   </div>
-</div>
+</div> -->
 
-<nav class="navbar bg-body-tertiary py-2 py-lg-3">
+<!-- <nav class="navbar bg-body-tertiary py-2 py-lg-3">
   <div
     class="container-fluid px-lg-5 mx-1 mx-lg-4 justify-content-between flex-nowrap"
   >
@@ -346,11 +200,10 @@
       />
     </a>
     <div class="d-flex align-items-center gap-2 gap-lg-0">
-      <!-- Button trigger modal -->
       <div>
         <button
           type="button"
-          class="btn btn-primary me-lg-4"
+          class="btn btn-primary me-lg-4 fs-6"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
@@ -391,18 +244,81 @@
               d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
             />
           </svg>
-          <!-- <img
-          [ngClass]="{
-            'd-none': !fieldTextType,
-            'd-block': !fieldTextType,
-          }"
-          (click)="toggleFieldTextType()"
-          class="Icon-menu"
-          src="../../assets/Image/icons-form/x-lg.svg"
-          alt="Menu close icon"
-          /> -->
         </span>
       </div>
+    </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img
+        src="assets/Image/Logo/Logo2.png"
+        alt="Logo site Foundation"
+        width="140"
+        height="auto"
+        class="p-0"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="true"
+          >
+            Projects
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['/crezco-story']"
+            >Crezco's Story</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" [routerLink]="['/auth/login']">
+            <button class="btn-login py-1 px-3">Login</button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Donate Now
+            </button>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -416,7 +332,7 @@
   aria-hidden="false"
   data-bs-backdrop="false"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog centered">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
         <button
@@ -431,11 +347,38 @@
       >
         <app-paypal></app-paypal>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-      </div> -->
     </div>
   </div>
 </div>
+
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->

@@ -52,10 +52,8 @@ namespace HN.Management.Manager.Services
                 Body = $"Dear Crezco Onboarding Team,\r\nI want to receive Newsletter Program, this is my email: {email}"
             };
 
-            mailMessage.To.Add("info@crezcofoundation.org");
-            mailMessage.CC.Add("anaeltrabajo@gmail.com");
-            mailMessage.CC.Add("jearsoft@gmail.com");
-            mailMessage.CC.Add("nerm.animator@gmail.com");
+            mailMessage.To.Add(emailOptionsVal.To);
+            mailMessage.CC.Add(emailOptionsVal.Cc);
             smtpClient.Send(mailMessage);
 
             return await Task.FromResult("Email Sent Sucessfully.");
@@ -63,10 +61,10 @@ namespace HN.Management.Manager.Services
 
         private async Task<SmtpClient> GetSmtpClient() {
             SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Host = "smtp.gmail.com";
-            smtpClient.Port = 587;
+            smtpClient.Host = emailOptionsVal.Server;
+            smtpClient.Port = emailOptionsVal.Port;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential("it@crezcofoundation.org", "grhgucmyiwffqsmf");
+            smtpClient.Credentials = new NetworkCredential(emailOptionsVal.To, "grhgucmyiwffqsmf");
             smtpClient.EnableSsl = true;
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtpClient.Timeout = 20000;

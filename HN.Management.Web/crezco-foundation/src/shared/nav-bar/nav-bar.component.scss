@@ -1,4 +1,16 @@
-/* .btn-login {
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  position: absolute;
+  z-index: 9991;
+}
+
+.btn-login {
   color: #2b2b2b;
   background-color: white;
   border: 0.2px solid #2b2b2b;
@@ -10,8 +22,8 @@
 
 .btn-login:hover {
   color: white;
-  background-color: #00bf1b;
-  border: 1px solid #00bf1b;
+  background-color: #08d123;
+  border: 1px solid #08d123;
 }
 
 .btn,
@@ -27,5 +39,5 @@
 .btn:hover,
 .btn-primary:hover {
   color: white;
-  background-color: #01d21d;
-} */
+  background-color: #08d123;
+}

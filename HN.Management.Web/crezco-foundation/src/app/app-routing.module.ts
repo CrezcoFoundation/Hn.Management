@@ -5,6 +5,8 @@ import { CrezcoStoryComponent } from 'src/crezco-story/crezco-story/crezco-story
 import { GiveComponent } from 'src/give/give/give.component';
 import { HomeComponent } from 'src/home/home.component';
 
+import { LocationStrategy, Location, PathLocationStrategy } from '@angular/common';
+
 const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'crezco-story', component: CrezcoStoryComponent },
@@ -25,7 +27,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes,)],
   exports: [RouterModule],
+  providers: [
+    Location, {provide: LocationStrategy, useClass: PathLocationStrategy}
+  ]
 })
 export class AppRoutingModule {}

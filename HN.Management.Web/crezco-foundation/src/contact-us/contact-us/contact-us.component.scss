@@ -5,8 +5,12 @@
   /* margin: 0; padding: 0; */
 }
 
+.cards {
+  background-color: white;
+}
+
 .card-contact {
-  padding: 0 5rem;
+  padding: 7rem 6rem 5rem 6rem;
 }
 
 .contact-title {
@@ -24,6 +28,11 @@
 .icons-contact {
   max-width: 40px;
   width: 100%;
+  transition: 0.3s ease all;
+}
+
+a .icons-contact:hover {
+  transform: translateY(-5px);
 }
 
 .bg-violet {
@@ -62,11 +71,39 @@ textarea#messageTextArea {
   box-shadow: 0 0 0 0.25rem rgb(125 13 253 / 26%);
 }
 
+textarea.form-control {
+  max-height: 170px !important;
+  min-height: 160px !important;
+}
+
 input::placeholder,
 textarea.form-control::placeholder {
   color: lightgray;
 }
 
+.form-check-input {
+  border: 1px solid #6f00aa;
+  width: 1.5em;
+  height: 1.5em;
+}
+.form-check-input:checked {
+  background-color: #6f00aa;
+}
+.form-check-input:focus {
+  box-shadow: none !important;
+}
+
 .char-count-red {
   color: #db190c;
+}
+
+/* Mobile Styles */
+@media (max-width: 576px) {
+  .card-contact {
+    padding: 3rem 1rem;
+  }
+  textarea.form-control {
+    max-height: 240px !important;
+    min-height: 230px !important;
+  }
 }

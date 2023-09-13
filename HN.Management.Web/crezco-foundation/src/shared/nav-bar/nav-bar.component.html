@@ -1,254 +1,4 @@
-<!-- Modal Menu Container -->
-
-<!-- <div
-  class="modal fade"
-  id="exampleModalToggle"
-  aria-hidden="true"
-  aria-labelledby="exampleModalToggleLabel"
-  tabindex="-1"
->
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content-menu">
-      <div class="overflow-scroll">
-        <div
-          class="container d-flex flex-lg-row flex-column align-items-center justify-content-center col-12 gap-lg-5 gap-2 menu-container"
-        >
-          <div
-            class="d-flex flex-column align-items-center"
-          >
-            <div class="project-links text-white text-center">
-              <h5 class="text-center mb-3">Our Projects</h5>
-              <ul
-                class="nav d-flex flex-column align-items-center justify-content-start"
-              >
-                <li class="nav-item nav-item text-center text-lg-left">
-                  <a
-                    [routerLink]="['/projects/university']"
-                    class="nav-link px-0 text-white link-footer"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    >University Sponsorship</a
-                  >
-                </li>
-                <li class="nav-item nav-item text-center text-lg-left">
-                  <a
-                    [routerLink]="['/projects/special-education']"
-                    class="nav-link px-0 text-white link-footer"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    >Special Education</a
-                  >
-                </li>
-                <li class="nav-item nav-item text-center text-lg-left">
-                  <a
-                    [routerLink]="['/projects/community-support']"
-                    class="nav-link px-0 text-white link-footer"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    >Community Support</a
-                  >
-                </li>
-                <li class="nav-item nav-item text-center text-lg-left">
-                  <a
-                    [routerLink]="['/projects/mission-trip']"
-                    class="nav-link px-0 text-white link-footer"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    >Student Mission Trips</a
-                  >
-                </li>
-                <li class="nav-item nav-item text-center text-lg-left">
-                  <a
-                    [routerLink]="['/projects/medical-assistance']"
-                    class="nav-link px-0 text-white link-footer"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    >Medical Assitance</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="line-container d-none d-lg-flex">
-            <div class="line"></div>
-          </div>
-          <div class="col-lg-3 col-10 mt-lg-5">
-            <ul
-              class="navbar-nav d-flex flex-column align-items-lg-start align-items-center justify-content-center mt-lg-5 mt-0"
-            >
-              <li class="nav-item mt-lg-5">
-                <a
-                  class="nav-link text-white active mt-4"
-                  aria-current="page"
-                  [routerLink]="['/']"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  ><h3 class="fw-bold text-left text-uppercase">Home</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white"
-                  [routerLink]="['/give']"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <h3 class="fw-bold text-left text-uppercase">Give</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white"
-                  [routerLink]="['/crezco-story']"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <h3 class="fw-bold text-left text-uppercase">
-                    Crezco's Story
-                  </h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white"
-                  [routerLink]="['/contact-us']"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <h3 class="fw-bold text-left text-uppercase">Contact Us</h3>
-                </a>
-              </li>
-              <li
-                class="d-flex flex-row align-items-center justify-content-between gap-3 mt-3"
-              >
-                <div>
-                  <a
-                    href="/"
-                    target="blank"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    ><img
-                      src="assets/Image/Logo/crezco-logo-menu.svg"
-                      alt="Logo Crezco"
-                      width="200px"
-                    />
-                  </a>
-                </div>
-                <div class="line-logo">
-                  <div class="sub-line-logo"></div>
-                </div>
-                <div
-                  class="d-flex flex-row align-items-center justify-content-between gap-2"
-                >
-                  <a
-                    href="#"
-                    target="_blank"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    ><img
-                      class="social-icon"
-                      src="assets/Image/footer-social-networks/Facebook-icon.png"
-                      alt="Logo Crezco"
-                      width="35px"
-                    />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/crezcofoundation/"
-                    target="_blank"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    ><img
-                      class="social-icon"
-                      src="assets/Image/footer-social-networks/Instagram-icon.png"
-                      alt="Logo Crezco"
-                      width="35px"
-                    />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                    ><img
-                      class="social-icon"
-                      src="assets/Image/footer-social-networks/LinkedIn-icon.png"
-                      alt="Logo Crezco"
-                      width="35px"
-                    />
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <nav class="navbar bg-body-tertiary py-2 py-lg-3">
-  <div
-    class="container-fluid px-lg-5 mx-1 mx-lg-4 justify-content-between flex-nowrap"
-  >
-    <a class="navbar-brand p-0" [routerLink]="['/']">
-      <img
-        src="assets/Image/Logo/Logo2.png"
-        alt="Logo site Foundation"
-        width="140"
-        height="auto"
-        class="d-inline-block align-text-center"
-      />
-    </a>
-    <div class="d-flex align-items-center gap-2 gap-lg-0">
-      <div>
-        <button
-          type="button"
-          class="btn btn-primary me-lg-4 fs-6"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          Donate now
-        </button>
-      </div>
-      <div>
-        <span
-          class="text-decoration-none text-muted span-menu"
-          data-bs-toggle="modal"
-          href="#exampleModalToggle"
-          role="button"
-        >
-          <img
-            [ngClass]="{
-            'd-block': !fieldTextType,
-            'd-none': fieldTextType,
-          }"
-            (click)="toggleFieldTextType()"
-            class="Icon-menu"
-            src="../../assets/Image/icons-form/list.svg"
-            alt="Menu icon"
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="45"
-            height="45"
-            fill="#E3E3E3"
-            class="bi bi-x"
-            viewBox="0 0 16 16"
-            [ngClass]="{
-            'd-none': !fieldTextType,
-            'd-block': !fieldTextType,
-          }"
-            (click)="toggleFieldTextType()"
-          >
-            <path
-              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
-            />
-          </svg>
-        </span>
-      </div>
-    </div>
-  </div>
-</nav> -->
+<!-- Navbar Container Start -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
   <div class="container align-items-center justify-content-around col-lg-9">
@@ -258,7 +8,14 @@
         alt="Logo site Foundation"
         width="140"
         height="auto"
-        class="p-0"
+        class="p-0 d-none d-lg-block"
+      />
+      <img
+        src="assets/Image/Logo/Crezco-iso.svg"
+        alt="Logo site Foundation"
+        width="50"
+        height="auto"
+        class="p-0 d-block d-lg-none"
       />
     </a>
     <a class="nav-link d-block d-lg-none">
@@ -278,29 +35,83 @@
       aria-controls="navbarNavDropdown"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      (click)="toggleMenu()"
     >
-      <span class="navbar-toggler-icon"></span>
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <i
+        class="fa-solid fa-lg"
+        [ngClass]="{
+          'fa-bars-staggered': !isMenuOpen,
+          'fa-xmark fa-xl': isMenuOpen
+        }"
+      ></i>
     </button>
     <div
       class="collapse navbar-collapse justify-content-end"
       id="navbarNavDropdown"
     >
-      <ul class="navbar-nav align-items-center me-5 gap-4">
+      <ul
+        class="navbar-nav align-items-center me-lg-4 gap-4 py-4 py-lg-0 my-3 my-lg-0"
+      >
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link text-center"
             href="#"
             id="navbarDropdownMenuLink"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="true"
+            aria-haspopup="true"
+            aria-expanded="false"
+            (mouseenter)="mouseEnter('ul')"
+            (mouseleave)="mouseLeave('ul')"
           >
+            <!-- [ngClass]="[toggleShow]" -->
             Projects
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <!-- [ngClass]="[toggleShowList]" -->
+          <ul
+            class="dropdown-menu px-2"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <li>
+              <a
+                class="dropdown-item item-university"
+                [routerLink]="['/projects/university']"
+                >University Sponsorship</a
+              >
+            </li>
+            <hr class="m-1" />
+            <li>
+              <a
+                class="dropdown-item item-special"
+                [routerLink]="['/projects/special-education']"
+                >Special Education</a
+              >
+            </li>
+            <hr class="m-1" />
+            <li>
+              <a
+                class="dropdown-item item-community"
+                [routerLink]="['/projects/community-support']"
+                >Community Support</a
+              >
+            </li>
+            <hr class="m-1" />
+            <li>
+              <a
+                class="dropdown-item item-student"
+                [routerLink]="['/projects/mission-trip']"
+                >Student Mission Trips</a
+              >
+            </li>
+            <hr class="m-1" />
+            <li>
+              <a
+                class="dropdown-item item-medical"
+                [routerLink]="['/projects/medical-assistance']"
+                >Medical Assistance</a
+              >
+            </li>
           </ul>
         </li>
         <li class="nav-item">
@@ -312,7 +123,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" [routerLink]="['/contact-us']">Contact</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" [routerLink]="['/auth/login']">
@@ -342,7 +153,7 @@
   aria-hidden="false"
   data-bs-backdrop="false"
 >
-  <div class="modal-dialog centered">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
         <button
@@ -360,3 +171,5 @@
     </div>
   </div>
 </div>
+
+<!-- Navbar Container Ends -->

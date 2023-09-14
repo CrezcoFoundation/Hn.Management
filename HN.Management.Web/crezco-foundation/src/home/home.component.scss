@@ -31,10 +31,15 @@
 }
 
 .input-email {
-  padding: 0.8rem 0.5rem;
+  padding: 0.8rem;
   width: 20em;
+  font-weight: 400;
+  font-size: 1rem;
   background-color: white;
-  border: 1px solid #2b2b2b;
+  border: 1px solid #c9c9c9;
+}
+.input-email::placeholder {
+  color: #c9c9c9;
 }
 
 input.input-email:focus-visible {

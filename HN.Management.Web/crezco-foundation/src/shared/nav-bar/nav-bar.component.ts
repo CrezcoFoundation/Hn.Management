@@ -9,19 +9,6 @@ import { Component } from '@angular/core';
 export class NavBarComponent {
   constructor() {}
 
-  toggleShow: string = '';
-  toggleShowList: string = '';
-
-  toggleDropdown: boolean = false;
-
-  mouseEnter(ul: string) {
-    this.toggleShow = 'show';
-    this.toggleShowList = 'show';
-  }
-  mouseLeave(ul: string) {
-    this.toggleShow = '';
-  }
-
   /* Menu icon transition */
   isMenuOpen = false;
 

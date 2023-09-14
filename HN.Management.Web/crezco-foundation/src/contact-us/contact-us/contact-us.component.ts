@@ -48,6 +48,7 @@ export class ContactUsComponent implements OnInit {
       timer: 2000,
     });
     this.contactForm.reset({});
+    this.charCount = 0;
   }
 
   onSubmited() {

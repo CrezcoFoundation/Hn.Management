@@ -15,6 +15,7 @@
 }
 
 .nav-item a {
+  font-size: 1.1rem;
   color: #2b2b2b;
   font-weight: 500;
 }
@@ -24,7 +25,12 @@
 
 .navbar-nav .dropdown:hover .dropdown-menu {
   display: block;
+  left: -70px !important;
 }
+
+/* .dropdown-menu[data-bs-popper] {
+  left: -70px !important;
+} */
 
 .link-submenu {
   cursor: pointer;
@@ -78,8 +84,8 @@ li .item-medical:hover {
 
 .btn-login:hover {
   color: white;
-  background-color: #08d123;
-  border: 1px solid #08d123;
+  background-color: #6f00aa;
+  border: 1px solid #6f00aa;
 }
 
 .btn,
@@ -96,4 +102,71 @@ li .item-medical:hover {
 .btn-primary:hover {
   color: white;
   background-color: #08d123;
+}
+
+.disabled-item_navbar {
+  pointer-events: none;
+  color: #c9c9c9;
+  opacity: 30%;
+}
+
+/* Mobile Styles */
+
+@media (max-width: 575.98px) {
+  .btn-login {
+    color: white;
+    background-color: transparent;
+    border: 0.2px solid white;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+.item-project {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #00bf1b;
+}
+
+.navbar-mobile {
+  background-color: #6f00aa;
+  height: 100vh;
+}
+
+.item-mobile a {
+  color: white;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+}
+.item-mobile a:hover {
+  color: white;
+}
+
+/* .hr-line {
+  background-color: white;
+  height: 3.5px;
+  opacity: 1;
+  width: 80%;
+  border: none;
+} */
+
+.logo-footer > a > img {
+  width: 120px;
+  height: auto;
+}
+
+.project-links > h5 {
+  color: #00bf1b;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.social-icon {
+  width: 30px;
+  max-width: 100%;
 }

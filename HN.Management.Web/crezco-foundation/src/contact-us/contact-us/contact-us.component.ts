@@ -35,6 +35,7 @@ export class ContactUsComponent implements OnInit {
       inputName: ['', Validators.required],
       inputEmail: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
+      subscription: [''],
     });
   }
 
@@ -42,14 +43,15 @@ export class ContactUsComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Tu mensaje ha sido enviado',
+      title: 'Your message has been sent',
       showConfirmButton: false,
       timer: 2000,
     });
     this.contactForm.reset({});
+    this.charCount = 0;
   }
 
-  public onSubmited() {
+  onSubmited() {
     this.contactServices.sendEmail(this.contactForm.value).subscribe(
       () => {
         this.showAlert();

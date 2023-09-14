@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Tu mensaje ha sido enviado',
+      title: 'Your message has been sent',
       showConfirmButton: false,
       timer: 2000,
     });

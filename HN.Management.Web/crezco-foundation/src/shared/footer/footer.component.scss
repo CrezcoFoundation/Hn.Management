@@ -49,6 +49,12 @@ hr {
   opacity: 1;
 }
 
+.disabled-item_navbar {
+  pointer-events: none;
+  color: #c9c9c9;
+  opacity: 30%;
+}
+
 @media (min-width: 992px) {
   .content-footer {
     gap: 16em;

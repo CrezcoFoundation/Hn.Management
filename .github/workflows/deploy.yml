@@ -27,6 +27,7 @@ jobs:
               with:
                 local-dir: HN.Management.Web/crezco-foundation/dist/
                 server: crezcofoundation.org
+                server-dir: public_html/
                 username: ${{ secrets.FTP_USER_NAME }}
                 password: ${{ secrets.FTP_USER_PASSWORD }}
 

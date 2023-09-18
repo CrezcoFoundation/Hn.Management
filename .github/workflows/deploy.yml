@@ -18,9 +18,9 @@ jobs:
             
             - name: Set Up Project
               run: |
-                  cd HN.Management.Web/crezco-foundation &&
                   npm i &&
                   npm run build --if-present
+              working-directory: ./HN.Management.Web\crezco-foundation
 
             
 

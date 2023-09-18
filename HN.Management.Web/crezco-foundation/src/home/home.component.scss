@@ -31,10 +31,15 @@
 }
 
 .input-email {
-  padding: 0.8rem 0.5rem;
-  width: 15em;
+  padding: 0.8rem;
+  width: 20em;
+  font-weight: 400;
+  font-size: 1rem;
   background-color: white;
-  border: 1px solid #2b2b2b;
+  border: 1px solid #c9c9c9;
+}
+.input-email::placeholder {
+  color: #c9c9c9;
 }
 
 input.input-email:focus-visible {
@@ -59,12 +64,70 @@ input.input-email:focus-visible {
   font-weight: bold;
 }
 
+/* Cards Projects Styles */
+
+.title-box h3 {
+  font-size: 45px;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 30px;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card {
+  transition: ease 0.3s all;
+  border: none;
+}
+
+.card:hover {
+  box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.link-card:hover {
+  filter: opacity(0.5);
+}
+
+.cards-container {
+  overflow: visible;
+}
+
+.rounded-3 {
+  border-radius: 20px !important;
+}
+/* Cards Projects Styles */
+
 @media only screen and (max-width: 768px) {
+  .input-email {
+    width: 15em;
+  }
   .mission-title {
     font-size: 40px;
   }
 
   .volunteers-title {
     font-size: 30px;
+  }
+  .card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .image-box img {
+    max-width: 100%;
+  }
+  .cards-container {
+    overflow: scroll;
+  }
+
+  .rounded-3 {
+    border-radius: 10px !important;
   }
 }

@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-  fieldTextType: boolean = false;
-
   constructor() {}
 
-  toggleFieldTextType(): void {
-    this.fieldTextType = !this.fieldTextType;
+  /* Menu icon transition */
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

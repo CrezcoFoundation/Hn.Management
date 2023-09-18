@@ -14,10 +14,10 @@
 
 .description-project {
   font-family: Inter;
-  font-size: 17px;
+  font-size: 1.3rem;
   font-style: normal;
   line-height: 1.5em;
-  max-width: 54%;
+  max-width: 74%;
 }
 
 .btn,
@@ -35,11 +35,11 @@
 }
 
 .collage-photo img {
-  max-width: 610px;
+  max-width: 100%;
 }
 
 .collage-photo_file2 img {
-  max-width: 940px;
+  max-width: 100%;
 }
 
 .paragraph-section {
@@ -72,7 +72,7 @@ div > .author-font span {
 }
 
 .text-box {
-  padding: 10em;
+  /* padding: 10em; */
   .title-box h3 {
     font-size: 45px;
     font-family: "Oswald", sans-serif;
@@ -81,10 +81,14 @@ div > .author-font span {
     text-align: left;
   }
   .description-box p {
-    line-height: 1.8em;
-    font-size: 1.1rem;
+    line-height: 1.8rem;
+    font-size: 1.3rem;
     text-align: left;
   }
+}
+
+section {
+  overflow-x: hidden;
 }
 
 .section-projects_card {
@@ -99,7 +103,7 @@ div > .author-font span {
 }
 
 .image-box img {
-  max-width: 960px;
+  max-width: 100%;
 }
 
 .card-title {
@@ -123,6 +127,14 @@ div > .author-font span {
   filter: opacity(0.5);
 }
 
+.cards-container {
+  overflow: visible;
+}
+
+.rounded-3 {
+  border-radius: 20px !important;
+}
+
 // Media Queries mobile
 
 @media only screen and (max-width: 768px) {
@@ -130,17 +142,18 @@ div > .author-font span {
     font-size: 45px;
   }
   .description-project {
-    max-width: 80%;
+    max-width: 90%;
+    font-size: 1.15rem;
   }
   .collage-photo img {
-    max-width: 350px;
+    max-width: 180px;
   }
   .collage-photo_file2 img {
-    max-width: 350px;
+    max-width: 100%;
   }
   .paragraph-section {
     /* height: 270px; */
-    margin: 3em 0 0 0;
+    /* margin: 3em 0 0 0; */
     div > p {
       /* max-width: 90%; */
       font-size: 1.2rem;
@@ -158,15 +171,29 @@ div > .author-font span {
   }
 
   .text-box {
-    padding: 2em;
+    /* padding: 2em; */
     .title-box h3 {
       text-align: center;
     }
     .description-box p {
       text-align: center;
+      font-size: 1.15rem;
     }
   }
+
+  .card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
   .image-box img {
     max-width: 100%;
+  }
+  .cards-container {
+    overflow: scroll;
+  }
+
+  .rounded-3 {
+    border-radius: 10px !important;
   }
 }

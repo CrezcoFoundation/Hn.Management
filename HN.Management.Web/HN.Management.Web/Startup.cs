@@ -1,5 +1,7 @@
 using HN.Management.Engine.AutoMapper;
 using HN.Management.Engine.Data;
+using HN.Management.Manager.Services.Interfaces;
+using HN.Management.Manager.Services;
 using HN.Management.Web.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using HN.Management.Engine.ViewModels;
 
 namespace HN.Management.Web
 {
@@ -52,6 +55,11 @@ namespace HN.Management.Web
             //});           
 
             services.AddControllers();
+            services.AddScoped<IEmailService, EmailService>();
+
+            services.Configure<EmailOptions>(Configuration.GetSection(
+                                EmailOptions.EmailSettings));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HN.Management", Version = "v1" });

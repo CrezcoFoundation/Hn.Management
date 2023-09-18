@@ -1,9 +1,11 @@
 <div class="container-fluid bg-contact">
-  <div class="container px-3 px-lg-5 py-5 card-contact">
+  <div class="container d-grid place-items-center card-contact">
     <div
-      class="col-12 card d-flex flex-column-reverse flex-lg-row align-items-center rounded-4 my-lg-5"
+      class="col-12 cards d-flex flex-column-reverse flex-lg-row align-items-center rounded-4 mt-5"
     >
-      <div class="d-flex flex-column align-items-left p-5 bg-violet">
+      <div
+        class="d-flex flex-column align-items-left p-5 bg-violet col-12 col-lg-5"
+      >
         <div class="my-lg-5 mx-lg-4">
           <div>
             <h3 class="text-left py-3 contact-title text-uppercase text-white">
@@ -79,10 +81,10 @@
           </div>
         </div>
       </div>
-      <div class="col px-5">
-        <div class="py-5 mx-lg-5 px-lg-5">
+      <div class="col px-5 align-items-center justify-content-center">
+        <div class="mx-lg-5 px-lg-5 my-5 my-lg-0">
           <h3 class="contact-title text-center">GET IN TOUCH</h3>
-          <form [formGroup]="contactForm" (Submit)="onSubmited()">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmited()">
             <div class="mb-3">
               <label for="userName" class="form-label">Enter Your Name</label>
               <input
@@ -106,51 +108,65 @@
                 formControlName="inputEmail"
                 required
               />
-              <!-- <div id="emailHelp" class="form-text">
-                We'll never share your email with anyone else.
-              </div> -->
             </div>
-            <div class="mb-3">
+            <div class="mb-0">
               <label for="messageTextArea" class="form-label"
                 >Enter Your Message</label
               >
               <textarea
-                class="form-control py-2"
-                name="messageArea"
+                [(ngModel)]="textChar"
+                (input)="updateCharCount()"
+                class="form-control py-3 py-lg-2 flex-wrap"
                 id="messageTextArea"
                 placeholder="Enter your message"
                 cols="30"
                 rows="5"
+                maxlength="200"
                 formControlName="message"
                 required
               ></textarea>
-            </div>
-            <a href="" class="text-decoration-none">
+              <!-- Character Counter -->
               <div
-                class="d-flex align-items-center justify-content-center col message-btn"
+                id="character-counter"
+                class="d-flex flex-lg-row flex-column-reverse align-items-lg-center align-items-end justify-content-between my-3"
               >
-                <button
-                  type="submit"
-                  class="btn btn-primary py-2 px-5 py-lg-2 px-lg-3"
-                >
-                  SEND MESSAGE
-                </button>
+                <div class="form-check d-flex align-items-start">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                    formControlName="subscription"
+                  />
+                  <label class="form-check-label mt-1" for="flexCheckChecked">
+                    I want to subscribe to the newsletter
+                  </label>
+                </div>
+                <div>
+                  <p
+                    [ngClass]="{ 'char-count-red': charCount >= 150 }"
+                    class="char-count-red m-0"
+                  >
+                    {{ charCount }}/200
+                  </p>
+                </div>
               </div>
-            </a>
-            <!-- <button
-              type="submit"
-              class="btn btn-primary"
-              [disabled]="!contactForm.valid"
-            >
-              Submit
-            </button> -->
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center row">
+              <button
+                [disabled]="!contactForm.valid"
+                type="submit"
+                class="btn btn-primary py-2 px-0"
+              >
+                <a class="text-decoration-none text-center text-white">
+                  SEND MESSAGE
+                </a>
+              </button>
+            </div>
           </form>
         </div>
-        <!-- <hr />
-        <p>Form Value: {{ contactForm.value | json }}</p>
-        <p>Form Status: {{ contactForm.status }}</p> -->
       </div>
     </div>
   </div>
 </div>
-<!-- <app-multiple-items-slider></app-multiple-items-slider> -->

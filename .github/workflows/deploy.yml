@@ -22,5 +22,14 @@ jobs:
                   npm run build --if-present
               working-directory: HN.Management.Web/crezco-foundation
 
+            - name: 📂 Sync files
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+              with:
+                local-dir: dist/
+                server: ${{ secrets.FTP_HOST_URL }}
+                username: ${{ secrets.FTP_USER_NAME }}
+                password: ${{ secrets.FTP_USER_PASSWORD }}
+              working-directory: HN.Management.Web/crezco-foundation
+
             
 

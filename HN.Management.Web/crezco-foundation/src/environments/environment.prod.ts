@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   paypal: {
     env: 'prod',
-    hosted_button_id: 'prod-button',
-    // business: 'YOUR_EMAIL_OR_PAYERID',
+    hosted_button_id: 'TBZXER826VLHC',
+    business: 'acorea@crezcofoundation.org',
   },
 };

@@ -3,6 +3,6 @@ export const environment = {
   paypal: {
     env: 'sandbox',
     hosted_button_id: 'WMFDDNBLUNRXW',
-    // business: 'YOUR_EMAIL_OR_PAYERID',
+    business: 'YOUR_EMAIL_OR_PAYERID',
   },
 };

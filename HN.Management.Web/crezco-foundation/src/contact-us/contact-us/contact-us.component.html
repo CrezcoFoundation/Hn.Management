@@ -6,14 +6,14 @@
       <div
         class="d-flex flex-column align-items-left p-5 bg-violet col-12 col-lg-5"
       >
-        <div class="my-lg-5 mx-lg-4">
+        <div class="my-lg-5 mx-lg-4 py-lg-3 d-flex flex-column gap-3">
           <div>
-            <h3 class="text-left py-3 contact-title text-uppercase text-white">
+            <h3 class="text-left contact-title text-uppercase text-white m-0">
               Learn more <br />about crezco
             </h3>
           </div>
           <div>
-            <p class="text-white">
+            <p class="text-white m-0">
               Contact us to learn more about how you<br
                 class="d-lg-block d-none"
               />
@@ -50,7 +50,7 @@
               <p class="mb-0 text-white">33 3333 3333 333</p>
             </div>
           </div>
-          <div class="d-flex flex-column align-items-center gap-4 mt-4">
+          <div class="d-flex flex-column align-items-center gap-4 mt-3">
             <div>
               <h4
                 class="text-center text-uppercase social-media_title text-white"
@@ -82,8 +82,8 @@
         </div>
       </div>
       <div class="col px-5 align-items-center justify-content-center">
-        <div class="mx-lg-5 px-lg-5 my-5 my-lg-0">
-          <h3 class="contact-title text-center">GET IN TOUCH</h3>
+        <div class="mx-md-4 px-md-4 my-5 my-lg-0">
+          <h3 class="contact-title text-center mb-4">GET IN TOUCH</h3>
           <form [formGroup]="contactForm" (ngSubmit)="onSubmited()">
             <div class="mb-3">
               <label for="userName" class="form-label">Enter Your Name</label>
@@ -153,11 +153,11 @@
               </div>
             </div>
 
-            <div class="d-flex align-items-center justify-content-center row">
+            <div class="d-flex align-items-center justify-content-center">
               <button
                 [disabled]="!contactForm.valid"
                 type="submit"
-                class="btn btn-primary py-2 px-0"
+                class="btn btn-primary py-2 px-0 col"
               >
                 <a class="text-decoration-none text-center text-white">
                   SEND MESSAGE

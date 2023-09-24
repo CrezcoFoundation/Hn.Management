@@ -51,8 +51,9 @@ namespace HN.Management.Web.Extensions
                 options.Configuration = "localhost:4455";
             });
         }
-        public static IApplicationBuilder UseApiExceptionHandling(this IApplicationBuilder app)
-                => app.UseMiddleware<ApiExceptionHandlingMiddleware>();
+
+        // public static IApplicationBuilder UseApiExceptionHandling(this IApplicationBuilder app)
+        //      => app.UseMiddleware<ApiExceptionHandlingMiddleware>();
 
         public static void ConfigureJWToken(this IServiceCollection services, IConfiguration config)
         {

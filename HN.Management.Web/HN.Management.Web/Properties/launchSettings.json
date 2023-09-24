@@ -22,15 +22,14 @@
       "ancmHostingModel": "OutOfProcess"
     },
     "HN.Management.Web": {
-      "commandName": "Executable",
+      "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:34698",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "remoteDebugEnabled": false,
       "dotnetRunMessages": "true",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+      "remoteDebugEnabled": false
     }
   }
 }

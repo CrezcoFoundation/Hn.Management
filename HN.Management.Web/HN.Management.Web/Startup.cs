@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using HN.Management.Engine.ViewModels;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace HN.Management.Web
 {
@@ -25,9 +26,11 @@ namespace HN.Management.Web
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureJWToken(Configuration);
@@ -55,6 +58,12 @@ namespace HN.Management.Web
             //});           
 
             services.AddControllers();
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });
+
+
             services.AddScoped<IEmailService, EmailService>();
 
             services.Configure<EmailOptions>(Configuration.GetSection(
@@ -81,8 +90,18 @@ namespace HN.Management.Web
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
             }
             
-            app.UseApiExceptionHandling();
+            // app.UseApiExceptionHandling();
+
+            app.UseStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
+
             app.UseRouting();
+
+            app.UseCors(builder =>
+            builder.WithOrigins("http://localhost:4200"));
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -90,6 +109,15 @@ namespace HN.Management.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "start");
+                }
             });
         }
     }

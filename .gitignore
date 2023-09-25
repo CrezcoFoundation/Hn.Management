@@ -68,3 +68,5 @@ HN.Management.Web/HN.Management.Web/ClientApp/docs/
 HN.Management.Web/HN.Management.Web/ClientApp/workflows/
 
 HN.Management.Web/HN.Management.Web/ClientApp/dist/
+
+HN.Management.Web/node_modules/

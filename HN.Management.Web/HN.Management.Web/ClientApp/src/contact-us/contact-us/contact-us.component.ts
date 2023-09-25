@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ContactEmailsService } from '../contact-emails.service';
+import { EmailInterface } from '../email-interface';
 
 @Component({
   selector: 'app-contact-us',
@@ -32,8 +33,8 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      inputName: ['', Validators.required],
-      inputEmail: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
       subscription: [''],
     });

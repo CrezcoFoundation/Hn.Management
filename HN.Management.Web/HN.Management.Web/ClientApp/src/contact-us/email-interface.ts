@@ -1,5 +1,5 @@
 export interface EmailInterface {
-  inputName: string;
-  inputEmail: string;
+  name: string;
+  email: string;
   message: string;
 }

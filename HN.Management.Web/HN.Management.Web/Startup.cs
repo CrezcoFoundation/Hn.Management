@@ -1,17 +1,14 @@
 using HN.Management.Engine.AutoMapper;
-using HN.Management.Engine.Data;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Manager.Services;
 using HN.Management.Web.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
-using Microsoft.AspNetCore.SpaServices;
 
 namespace HN.Management.Web
 {
@@ -34,7 +31,9 @@ namespace HN.Management.Web
             services.ConfigureClassesWithInterfaces();
             services.AddAutoMapper(typeof(AutoMapping));
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DeveloperDatabase")));
+            //Add Cosmos db configuration
+            services.SetupCosmosDb(Configuration);
+
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             //{

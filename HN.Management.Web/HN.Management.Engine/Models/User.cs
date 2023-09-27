@@ -1,16 +1,13 @@
 ﻿using HN.Management.Engine.Models;
-using System.Collections.Generic;
+using HN.Management.Engine.Models.Base;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HN.ManagementEngine.Models
 {
     [Table("User")]
-    public class User
-    {
-        [Key]
-        public int Id { get; set; }
-
+    public class User : BaseEntity
+    { 
         [Required(ErrorMessage = "Email is required")]
         [MaxLength(40, ErrorMessage = "Email can't be longer than 40 characters")]
         [Column("Email", TypeName = "Varchar")]

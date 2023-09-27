@@ -28,8 +28,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "dotnetRunMessages": "true",
-      "remoteDebugEnabled": false
+      "remoteDebugEnabled": false,
+      "dotnetRunMessages": "true"
     }
   }
 }

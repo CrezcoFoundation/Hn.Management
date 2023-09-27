@@ -35,16 +35,16 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetByConditionAsync(int userId)
+        public async Task<IActionResult> GetByConditionAsync(User user)
         {
-            return Ok(await _userService.GetByConditionAsync(userId));
+            return Ok(await _userService.GetByConditionAsync(user));
         }
 
         [HttpPost]
         [Route("new")]
-        public async Task<IActionResult> AddAsync(UserDTO user)
+        public async Task<IActionResult> AddUserAsync(UserDTO user)
         {
-            return Ok(await _userService.AddAsync(user));
+            return Ok(await _userService.AddUserAsync(user));
         }
 
         /*[HttpPost]
@@ -70,9 +70,9 @@ namespace HN.Management.Web.Apis.V1.Controllers
 
         [HttpDelete]
         [Route("delete")]
-        public async Task<IActionResult> DeleteAsync(UserDTO user)
+        public async Task<IActionResult> DeleteAsync(string id)
         {
-            return Ok(await _userService.DeleteAsync(user));
+            return Ok(await _userService.DeleteAsync(id));
         }
 
         [HttpGet]

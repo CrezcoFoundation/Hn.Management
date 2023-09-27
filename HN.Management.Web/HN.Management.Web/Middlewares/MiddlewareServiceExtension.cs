@@ -11,6 +11,12 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using HN.Management.Manager.Services.Paypal;
 using HN.Management.Engine.Repositories.Paypal;
+using static HN.Management.Engine.CosmosDb.Setting.CosmosSetting;
+using HN.Management.Engine.CosmosDb;
+using HN.Management.Engine.CosmosDb.Interfaces;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using PayPalCheckoutSdk.Orders;
 
 namespace HN.Management.Web.Extensions
 {
@@ -19,13 +25,14 @@ namespace HN.Management.Web.Extensions
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
         {
             //Services
-            service.AddScoped<IExpenseService, ExpenseService>();
-            service.AddScoped<IDonationService, DonationService>();
-            service.AddScoped<IDonorService, DonorService>();
-            service.AddScoped<IEvidenceService, EvidenceService>();
-            service.AddScoped<IProjectService, ProjectService>();
-            service.AddScoped<IStudentService, StudetService>();
+            //service.AddScoped<IExpenseService, ExpenseService>();
+            //service.AddScoped<IDonationService, DonationService>();
+            //service.AddScoped<IDonorService, DonorService>();
+            //service.AddScoped<IEvidenceService, EvidenceService>();
+            //service.AddScoped<IProjectService, ProjectService>();
+            //service.AddScoped<IStudentService, StudetService>();
             //service.AddScoped<IUserRoleService, UserRoleService>();
+
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
@@ -34,16 +41,19 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IEmailService, EmailService>();
 
             //Repositories
-            service.AddScoped<IExpenseRepository, ExpenseRepository>();
-            service.AddScoped<IDonationRepository, DonationRepository>();
-            service.AddScoped<IDonorRepository, DonorRepository>();
-            service.AddScoped<IEvidenceRepository, EvidenceRepository>();
-            service.AddScoped<IProjectRepository, ProjectRepository>();
-            service.AddScoped<IStudentRepository, StudentRepository>();
+            //service.AddScoped<IExpenseRepository, ExpenseRepository>();
+            //service.AddScoped<IDonationRepository, DonationRepository>();
+            //service.AddScoped<IDonorRepository, DonorRepository>();
+            //service.AddScoped<IEvidenceRepository, EvidenceRepository>();
+            //service.AddScoped<IProjectRepository, ProjectRepository>();
+            //service.AddScoped<IStudentRepository, StudentRepository>();
             //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
+
+
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
         }
+
         public static void ConfigureRedis(this IServiceCollection services)
         {
             services.AddStackExchangeRedisCache(options =>
@@ -82,5 +92,47 @@ namespace HN.Management.Web.Extensions
             });
         }
 
+        /// <summary>
+        ///  Setup Cosmos DB
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        public static void SetupCosmosDb(this IServiceCollection services, IConfiguration configuration)
+        {
+            // Bind database-related bindings
+            CosmosDbSettings cosmosDbConfig = configuration.GetSection("ConnectionStrings:CosmosDb").Get<CosmosDbSettings>();
+            // register CosmosDB client and data repositories
+            services.AddCosmosDb(cosmosDbConfig.EndpointUrl,
+                                 cosmosDbConfig.PrimaryKey,
+                                 cosmosDbConfig.DatabaseName,
+                                 cosmosDbConfig.Containers);
+        }
+
+
+        /// <summary>
+        ///  Register a singleton instance of Cosmos Db Container Factory, which is a wrapper for the CosmosClient.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="endpointUrl"></param>
+        /// <param name="primaryKey"></param>
+        /// <param name="databaseName"></param>
+        /// <param name="containers"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddCosmosDb(this IServiceCollection services,
+                                                     string endpointUrl,
+                                                     string primaryKey,
+                                                     string databaseName,
+                                                     List<ContainerInfo> containers)
+        {
+            Microsoft.Azure.Cosmos.CosmosClient client = new Microsoft.Azure.Cosmos.CosmosClient(endpointUrl, primaryKey);
+            CosmosContainerFactory cosmosDbClientFactory = new CosmosContainerFactory(client, databaseName, containers);
+
+            // Microsoft recommends a singleton client instance to be used throughout the application
+            // https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet#definition
+            // "CosmosClient is thread-safe. Its recommended to maintain a single instance of CosmosClient per lifetime of the application which enables efficient connection management and performance"
+            services.AddSingleton<ICosmosContainerFactory>(cosmosDbClientFactory);
+
+            return services;
+        }
     }
 }

@@ -21,21 +21,22 @@ namespace HN.Management.Manager.Services
 
         public async Task<IQueryable<UserDTO>> GetAllAsync()
         {
-            var query = await _userRepository.GetAllAsync();
+            var query = await _userRepository.GetItemsAsync("Select * from User");
 
             return _mapper.Map<List<UserDTO>>(query).AsQueryable();
         }
 
-        public async Task<UserDTO> GetByConditionAsync(int userId)
+        public async Task<UserDTO> GetByConditionAsync(User user)
         {
-            var query = _userRepository.GetByConditionAsync(x => x.Id == userId).Result.ToList();
+            var query = await this._userRepository.GetItemsAsync(string.Empty);
 
-            return await Task.FromResult(_mapper.Map<UserDTO>(query.FirstOrDefault()));
+            return await Task.FromResult(_mapper.Map<UserDTO>(query));
         }
 
-        public UserDTO GetEmail(string email, string password)
+        public async Task<UserDTO> GetEmail(string email, string password)
         {
-            var user = _userRepository.GetByConditionAsync(x => x.Email == email && x.PasswordHash == password).Result.FirstOrDefault();
+            var query = await _userRepository.GetUserByEmail(email);
+            var user = query.FirstOrDefault();
 
             var result = new UserDTO();
 
@@ -56,28 +57,27 @@ namespace HN.Management.Manager.Services
             return result;
         }
 
-        public async Task<UserDTO> AddAsync(UserDTO user)
+        public async Task<UserDTO> AddUserAsync(UserDTO user)
         {
             var entity = _mapper.Map<User>(user);
-            var dto = await _userRepository.AddAsync(entity);
+            await _userRepository.AddItemAsync(entity);
 
-            return _mapper.Map<UserDTO>(dto);
+            return _mapper.Map<UserDTO>(user);
         }
 
         public async Task<UserDTO> UpdateAsync(UserDTO user)
         {
             var entity = _mapper.Map<User>(user);
-            var dto = await _userRepository.UpdateAsync(entity);
+            await _userRepository.UpdateItemAsync(entity.Id, entity);
 
-            return _mapper.Map<UserDTO>(dto);
+            return user;
         }
 
-        public async Task<UserDTO> DeleteAsync(UserDTO user)
-        {
-            var entity = _mapper.Map<User>(user);
-            var dto = await _userRepository.DeleteAsync(entity);
+        public async Task<bool> DeleteAsync(string id)
+        { 
+            await _userRepository.DeleteItemAsync(id);
 
-            return _mapper.Map<UserDTO>(dto);
+            return true;
         }
     }
 }

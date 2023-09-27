@@ -51,7 +51,8 @@ namespace HN.Management.Web.Middlewares
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
-                context.Items["User"] = userService.GetByConditionAsync(userId);
+                //TODO COMMENTED BY JONATHAN
+                // context.Items["User"] = userService.GetByConditionAsync(userId);
             }
             catch
             {

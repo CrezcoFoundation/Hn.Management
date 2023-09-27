@@ -1,8 +1,8 @@
-﻿using HN.ManagementEngine.Models;
+﻿//using HN.ManagementEngine.Models;
 
-namespace HN.Management.Engine.Repositories.Interfaces
-{
-    public interface IProjectRepository : IGenericRepository<Project>
-    {
-    }
-}
+//namespace HN.Management.Engine.Repositories.Interfaces
+//{
+//    public interface IProjectRepository : IGenericRepository<Project>
+//    {
+//    }
+//}

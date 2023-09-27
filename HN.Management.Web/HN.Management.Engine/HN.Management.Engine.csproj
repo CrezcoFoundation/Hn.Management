@@ -35,12 +35,24 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.35.4" />
+    <PackageReference Include="Ardalis.Specification" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="ViewModels\" />
+    <None Remove="CosmosDb\" />
+    <None Remove="CosmosDb\Setting\" />
+    <None Remove="Models\Base\" />
+    <None Remove="CosmosDb\Interfaces\" />
+    <None Remove="Repositories\Generic\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="CosmosDb\" />
+    <Folder Include="CosmosDb\Setting\" />
+    <Folder Include="Models\Base\" />
+    <Folder Include="CosmosDb\Interfaces\" />
+    <Folder Include="Repositories\Generic\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿//using HN.Management.Engine.Models;
 using HN.ManagementEngine.DTO;
+using HN.ManagementEngine.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,15 +10,15 @@ namespace HN.Management.Manager.Services.Interfaces
     {
         Task<IQueryable<UserDTO>> GetAllAsync();
 
-        Task<UserDTO> GetByConditionAsync(int userId);
+        Task<UserDTO> GetByConditionAsync(User user);
 
-        UserDTO GetEmail(string email, string password);
+        Task<UserDTO> GetEmail(string email, string password);
 
-        Task<UserDTO> AddAsync(UserDTO user);
+        Task<UserDTO> AddUserAsync(UserDTO user);
 
         Task<UserDTO> UpdateAsync(UserDTO user);
 
-        Task<UserDTO> DeleteAsync(UserDTO user);
+        Task<bool> DeleteAsync(string id);
 
         //AuthenticateResponse AuthenticateRequest(AuthenticateRequest model);
     }

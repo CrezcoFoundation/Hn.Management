@@ -58,7 +58,7 @@
     font-family: Oswald;
     font-size: 40px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 1.4em;
     text-transform: uppercase;
   }
@@ -161,7 +161,7 @@ section {
     .thin-font {
       font-size: 1.2rem;
       font-style: normal;
-      font-weight: 300;
+      font-weight: 200;
       line-height: 1.2em;
     }
   }
@@ -195,5 +195,21 @@ section {
 
   .rounded-3 {
     border-radius: 10px !important;
+  }
+}
+
+.image-example img {
+  max-width: 100%;
+}
+.modal-image img {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .image-example img {
+    max-width: 100%;
+  }
+  .modal-image img {
+    max-width: 100%;
   }
 }

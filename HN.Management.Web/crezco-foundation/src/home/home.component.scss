@@ -19,6 +19,10 @@
   font-weight: 500;
   border: none;
 }
+a > .btn:hover,
+a > .btn-primary:hover {
+  background-color: #08d123;
+}
 
 /* Pray Section Styles */
 .pray-section {

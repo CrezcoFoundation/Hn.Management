@@ -168,7 +168,11 @@
             <!-- Guest button -->
             <div class="row">
               <!-- TODO: Validate the Guest option button -->
-              <a href="/" class="donate-btn row">
+              <a
+                [routerLink]="['/']"
+                routerLinkActive="router-link-active"
+                class="donate-btn row"
+              >
                 <button type="submit" class="btn btn-disabled p-3 col">
                   Continue as Guest
                 </button>
@@ -183,7 +187,7 @@
                 </span>
               </div>
               <div>
-                <a [routerLink]="['../login']"> Log in </a>
+                <a [routerLink]="['/auth/login']"> Log in </a>
               </div>
             </div>
           </div>

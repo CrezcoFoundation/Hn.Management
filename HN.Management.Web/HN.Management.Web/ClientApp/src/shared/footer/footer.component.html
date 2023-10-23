@@ -10,31 +10,31 @@
         class="d-flex flex-column align-items-center justify-content-center row"
       >
         <div class="logo-footer mb-3 text-center">
-          <a href="/"
+          <a [routerLink]="['/']"
             ><img
               src="assets/Image/Logo/crezco-logo-footer.svg"
               alt="Logo Crezco"
           /></a>
         </div>
         <div class="d-flex align-items-center justify-content-around gap-3">
-          <a href="#" target="_blank"
+          <a [routerLink]="['/']" target="_blank"
             ><img
               class="social-icon"
-              src="assets/Image/footer-social-networks/Facebook-icon.png"
+              src="assets/Image/Social-networks_icons/Facebook-icon.png"
               alt="Logo Crezco"
             />
           </a>
           <a href="https://www.instagram.com/crezcofoundation/" target="_blank"
             ><img
               class="social-icon"
-              src="assets/Image/footer-social-networks/Instagram-icon.png"
+              src="assets/Image/Social-networks_icons/Instagram-icon.png"
               alt="Logo Crezco"
             />
           </a>
-          <a href="#" target="_blank"
+          <a [routerLink]="['/']" target="_blank"
             ><img
               class="social-icon"
-              src="assets/Image/footer-social-networks/LinkedIn-icon.png"
+              src="assets/Image/Social-networks_icons/LinkedIn-icon.png"
               alt="Logo Crezco"
             />
           </a>
@@ -91,7 +91,9 @@
           class="nav d-flex flex-column align-items-start justify-content-start"
         >
           <li class="nav-item">
-            <a href="#" class="nav-link px-0 text-white link-footer">Home</a>
+            <a [routerLink]="['/']" class="nav-link px-0 text-white link-footer"
+              >Home</a
+            >
           </li>
           <li class="nav-item">
             <a

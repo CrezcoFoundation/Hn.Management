@@ -81,7 +81,7 @@
             </div>
 
             <div class="d-flex align-items-center justify-content-end">
-              <a [routerLink]="['../forgot']" class="text-decoration-none"
+              <a [routerLink]="['/auth/forgot']" class="text-decoration-none"
                 >Forgot password?</a
               >
             </div>
@@ -98,7 +98,11 @@
             <!-- Guest button -->
             <div class="row">
               <!-- TODO: Validate the Guest option button -->
-              <a href="/" class="donate-btn row">
+              <a
+                [routerLink]="['/']"
+                routerLinkActive="router-link-active"
+                class="donate-btn row"
+              >
                 <button class="btn btn-disabled p-3">Continue as Guest</button>
               </a>
             </div>
@@ -111,7 +115,7 @@
                 </span>
               </div>
               <div>
-                <a [routerLink]="['../register']"> Create an account </a>
+                <a [routerLink]="['/auth/register']"> Create an account </a>
               </div>
             </div>
           </div>

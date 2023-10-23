@@ -20,12 +20,12 @@ jobs:
               run: |
                   npm i &&
                   npm run build:prod --if-present
-              working-directory: HN.Management.Web/crezco-foundation
+              working-directory: HN.Management.Web/HN.Management.Web/ClientApp
 
             - name: 📂 Sync files
               uses: SamKirkland/FTP-Deploy-Action@v4.3.4
               with:
-                local-dir: HN.Management.Web/crezco-foundation/dist/
+                local-dir: HN.Management.Web/HN.Management.Web/ClientApp/dist/
                 server: crezcofoundation.org
                 server-dir: public_html/
                 username: ${{ secrets.FTP_USER_NAME }}

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-     <FrontendRoot>ClientApp</FrontendRoot>
+     <FrontendRoot>ClientApp\</FrontendRoot>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 

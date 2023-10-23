@@ -1,0 +1,100 @@
+/* ========= Oswald Font Family ========= */
+@font-face {
+  font-family: "Oswald";
+  src: url("../src/assets/fonts/Oswald/woff/Oswald-ExtraLight.woff")
+    format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../src/assets/fonts/Oswald/woff/Oswald-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../src/assets/fonts/Oswald/woff/Oswald-Regular.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../src/assets/fonts/Oswald/woff/Oswald-Medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../src/assets/fonts/Oswald/woff/Oswald-SemiBold.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Oswald";
+  src: url("../src/assets/fonts/Oswald/woff/Oswald-Bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* ========= Inter Font Family ========= */
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-ExtraLight.woff")
+    format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-Bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-ExtraBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter/woff/Inter-Black.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* FontAwsome Styles Import */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+/* Btn Site Style */
+.btn:hover,
+a .btn:hover,
+.btn-primary:hover {
+  background-color: #08d123 !important;
+}

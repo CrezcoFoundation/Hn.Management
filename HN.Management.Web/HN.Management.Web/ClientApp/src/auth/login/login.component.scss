@@ -1,0 +1,97 @@
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
+
+.bg-gray {
+  background-color: #f1f1f1;
+}
+
+.logo-site {
+  width: 100%;
+  max-width: 170px;
+}
+
+.card-login {
+  margin: 2em 0 5em 0;
+  border-radius: 20px;
+}
+
+.title-login {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+
+.donate-btn {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-primary,
+.btn-primary:active {
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: #00bf1b;
+  border: #00b518;
+}
+
+.btn-check:checked + .btn,
+:not(.btn-check) + .btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+  color: #00b518;
+}
+
+.btn-disabled {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: #c9c9c9;
+  border: #c9c9c9;
+}
+
+.form-control {
+  position: relative;
+  border: none;
+  border-radius: 1px;
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+}
+.form-control:focus {
+  border: none;
+  box-shadow: none !important;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+.span-text {
+  color: gray;
+}
+
+.inputEmail {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  border: 1px solid #2b2b2b;
+}
+
+.Icon-Email {
+  color: #c9c9c9;
+  padding: 10px;
+  max-width: 750px;
+  max-height: 50px;
+}
+@media only screen and (max-width: 600px) {
+  .Icon-Email {
+    max-width: 650px;
+    max-height: 50px;
+  }
+}
+
+.cond-icon:hover {
+  cursor: pointer;
+}

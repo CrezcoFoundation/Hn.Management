@@ -1,0 +1,232 @@
+<div
+  class="container-fluid px-0 hero-banner d-flex align-items-end justify-content-center"
+  id="give-page"
+>
+  <div class="container-fluid title-give_content">
+    <h2 class="text-center mb-4 mb-lg-5">Donate Now</h2>
+  </div>
+</div>
+<!-- GIVE FORM -->
+<div class="container px-5 my-5">
+  <div class="d-grid d-lg-flex align-items-start justify-content-center gap-5">
+    <div class="form-container col-lg-5">
+      <form [formGroup]="donationAreasForm">
+        <div
+          class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
+        >
+          <div class="col-lg-7">
+            <label class="item-form_title" for="college"
+              >College Scholarships<i
+                class="fa-solid fa-chevron-right fa-xs ms-lg-4 ms-2"
+              ></i></label
+            ><br />
+            <span class="item-form_description"
+              >Sponsor a student's educational career</span
+            >
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <input
+              class="item-form_input col-6 col-lg-10"
+              id="college"
+              type="number"
+              formControlName="collegeScholariships"
+              placeholder="$"
+            />
+          </div>
+        </div>
+        <!-- Line separator -->
+        <div class="line-separator my-2"></div>
+        <div
+          class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
+        >
+          <div class="col-lg-7">
+            <label class="item-form_title col-8 col-lg-12" for="education"
+              >Special Education<i
+                class="fa-solid fa-chevron-right fa-xs ms-lg-4 ms-2"
+              ></i></label
+            ><br />
+            <span class="item-form_description"
+              >Provide helpful resources for those in need of special
+              services</span
+            >
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <input
+              class="item-form_input col-8 col-lg-10"
+              id="education"
+              type="number"
+              formControlName="specialEducation"
+              placeholder="$"
+            />
+          </div>
+        </div>
+        <!-- Line separator -->
+        <div class="line-separator my-2"></div>
+        <div
+          class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
+        >
+          <div class="col-lg-7">
+            <label class="item-form_title" for="community"
+              >Community Support<i
+                class="fa-solid fa-chevron-right fa-xs ms-lg-4 ms-2"
+              ></i></label
+            ><br />
+            <span class="item-form_description"
+              >Allow us to be a light to the community around us</span
+            >
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <input
+              class="item-form_input col-7 col-lg-10"
+              id="community"
+              type="number"
+              formControlName="communitySupport"
+              placeholder="$"
+            />
+          </div>
+        </div>
+        <!-- Line separator -->
+        <div class="line-separator my-2"></div>
+        <div
+          class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
+        >
+          <div class="col-lg-7">
+            <label class="item-form_title" for="mision-trip"
+              >Student Mission Trip<i
+                class="fa-solid fa-chevron-right fa-xs ms-lg-4 ms-2"
+              ></i></label
+            ><br />
+            <span class="item-form_description"
+              >Help provide an opportunity for students to give back</span
+            >
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <input
+              class="item-form_input col-7 col-lg-10"
+              id="mision-trip"
+              type="number"
+              formControlName="studentMissionTrip"
+              placeholder="$"
+            />
+          </div>
+        </div>
+        <!-- Line separator -->
+        <div class="line-separator my-2"></div>
+        <div
+          class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
+        >
+          <div class="col-lg-7">
+            <label class="item-form_title" for="medical"
+              >Medical Assistance<i
+                class="fa-solid fa-chevron-right fa-xs ms-lg-4 ms-2"
+              ></i></label
+            ><br />
+            <span class="item-form_description"
+              >Save a life and create hope in dire situations</span
+            >
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <input
+              class="item-form_input col-6 col-lg-10"
+              id="medical"
+              type="number"
+              formControlName="medicalAssistence"
+              placeholder="$"
+            />
+          </div>
+        </div>
+        <!-- Line separator -->
+        <div class="line-separator my-2"></div>
+        <div
+          class="item-form d-flex flex-row align-items-center justify-content-between mb-3"
+        >
+          <div class="col-lg-7">
+            <label class="item-form_title" for="general-donation"
+              >General Donation<i
+                class="fa-solid fa-chevron-right fa-xs ms-lg-4 ms-2"
+              ></i></label
+            ><br />
+            <span class="item-form_description"
+              >Your donation will go towards the most pressing need</span
+            >
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <input
+              class="item-form_input col-7 col-lg-10"
+              id="general-donation"
+              type="number"
+              formControlName="generalDonation"
+              placeholder="$"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-4 resume-container">
+      <div
+        class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
+      >
+        <h5 class="resume-title">College Scholarships</h5>
+        <h5 class="resume-mount">{{ collegeScholariships }}</h5>
+      </div>
+      <!-- Line separator -->
+      <div class="line-separator my-2"></div>
+
+      <div
+        class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
+      >
+        <h5 class="resume-title">Special Education</h5>
+        <h5 class="resume-mount">{{ specialEducation }}</h5>
+      </div>
+      <!-- Line separator -->
+      <div class="line-separator my-2"></div>
+
+      <div
+        class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
+      >
+        <h5 class="resume-title">Community Support</h5>
+        <h5 class="resume-mount">{{ communitySupport }}</h5>
+      </div>
+      <!-- Line separator -->
+      <div class="line-separator my-2"></div>
+
+      <div
+        class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
+      >
+        <h5 class="resume-title">Student Mission Trip</h5>
+        <h5 class="resume-mount">{{ studentMissionTrip }}</h5>
+      </div>
+      <!-- Line separator -->
+      <div class="line-separator my-2"></div>
+
+      <div
+        class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
+      >
+        <h5 class="resume-title">Medical Assistance</h5>
+        <h5 class="resume-mount">{{ medicalAssistence }}</h5>
+      </div>
+      <!-- Line separator -->
+      <div class="line-separator my-2"></div>
+
+      <div
+        class="resume-item d-flex align-items-center justify-content-between mx-3 my-2"
+      >
+        <h5 class="resume-title">General Donation</h5>
+        <h5 class="resume-mount">{{ generalDonation }}</h5>
+      </div>
+
+      <div class="result-donation">
+        <h3 class="text-white">Current Total: $0.00</h3>
+        <a class="donate-btn">
+          <button
+            (click)="getDonateAreas()"
+            [routerLink]="['/give-options']"
+            class="btn btn-primary py-2 px-3"
+          >
+            Continue to Donate
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,28 +18,29 @@ namespace HN.Management.Web
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
+
             //Initialize Logger
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(config)
-                .CreateLogger();
+            // Log.Logger = new LoggerConfiguration()
+            // .ReadFrom.Configuration(config)
+            // .CreateLogger();
             try
             {
-                Log.Information("Application Starting.");
+                //Log.Information("Application Starting.");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "The Application failed to start.");
+                //Log.Fatal(ex, "The Application failed to start.");
             }
             finally
             {
-                Log.CloseAndFlush();
+                //Log.CloseAndFlush();
             }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .UseSerilog()
+            
+          Host.CreateDefaultBuilder(args) 
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

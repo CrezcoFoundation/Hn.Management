@@ -81,7 +81,7 @@
      <!-- Deploy Angular application script-->
   <Target Name="PublishAngular" AfterTargets="ComputeFilesToPublish">
     <Exec Command="npm install" WorkingDirectory="$(FrontendRoot)" />
-    <Exec Command="npm run build --configuration production" WorkingDirectory="$(FrontendRoot)" />
+    <Exec Command="npm run build:prod" WorkingDirectory="$(FrontendRoot)" />
     <ItemGroup>
       <DistFiles Include="$(FrontendRoot)dist\**" />
       <ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">

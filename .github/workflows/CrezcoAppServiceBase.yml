@@ -2,7 +2,7 @@ name: Build and deploy .NET Core application to Web App CrezcoAppServiceBase
 on:
   push:
     branches:
-    - develop
+    - master
 env:
   AZURE_WEBAPP_NAME: CrezcoAppServiceBase
   AZURE_WEBAPP_PACKAGE_PATH: HN.Management.Web/publish

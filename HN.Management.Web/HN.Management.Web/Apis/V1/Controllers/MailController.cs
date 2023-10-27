@@ -33,6 +33,14 @@ namespace HN.Management.Web.Apis.V1.Controllers
         {
             return this.Ok(await this.emailService.SendNewsletterProgram(email));
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("running")]
+        public async Task<IActionResult> Running([FromQuery] string email)
+        {
+            return this.Ok("running");
+        }
     }
 }
 

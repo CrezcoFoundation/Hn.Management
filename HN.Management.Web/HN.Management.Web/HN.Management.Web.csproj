@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-     <FrontendRoot>ClientApp</FrontendRoot>
+     <FrontendRoot>ClientApp\</FrontendRoot>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
@@ -82,7 +82,7 @@
      <!-- Deploy Angular application script-->
   <Target Name="PublishAngular" AfterTargets="ComputeFilesToPublish">
     <Exec Command="npm install" WorkingDirectory="$(FrontendRoot)" />
-    <Exec Command="npm run build -- --prod" WorkingDirectory="$(FrontendRoot)" />
+    <Exec Command="npm run build:prod" WorkingDirectory="$(FrontendRoot)" Condition="'$(Configuration)' == 'Release'"/>
     <ItemGroup>
       <DistFiles Include="$(FrontendRoot)dist\**" />
       <ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">

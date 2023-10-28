@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using HN.ManagementEngine.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using HN.Management.Engine.Repositories.Generic;
-using HN.ManagementEngine.Models;
 
 namespace HN.Management.Engine.Repositories.Interfaces
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository
     {
-        Task<IEnumerable<User>> GetUserByEmail(string email);
-        Task<IEnumerable<User>> FilterUsers(User user);
+        IQueryable<User> GetAllQueryable();
+        IEnumerable<User> GetAll();
+        Task<IEnumerable<User>> GetAllAsync();
+        Task<User> GetAsync(string id);
+        Task<User> InsertAsync(User item);
+        Task<User> UpdateAsync(User item);
+        Task Delete(string id);
     }
 }

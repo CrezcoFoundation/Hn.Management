@@ -5,18 +5,14 @@ using HN.Management.Manager.Services;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using HN.Management.Manager.Services.Paypal;
 using HN.Management.Engine.Repositories.Paypal;
-using static HN.Management.Engine.CosmosDb.Setting.CosmosSetting;
-using HN.Management.Engine.CosmosDb;
 using HN.Management.Engine.CosmosDb.Interfaces;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
-using PayPalCheckoutSdk.Orders;
+using HN.ManagementEngine.Models;
+using HN.Management.Engine.CosmosDb.Accessors;
 
 namespace HN.Management.Web.Extensions
 {
@@ -26,7 +22,7 @@ namespace HN.Management.Web.Extensions
         {
             //Services
             //service.AddScoped<IExpenseService, ExpenseService>();
-            //service.AddScoped<IDonationService, DonationService>();
+            service.AddScoped<IDonationService, DonationService>();
             //service.AddScoped<IDonorService, DonorService>();
             //service.AddScoped<IEvidenceService, EvidenceService>();
             //service.AddScoped<IProjectService, ProjectService>();
@@ -48,7 +44,6 @@ namespace HN.Management.Web.Extensions
             //service.AddScoped<IProjectRepository, ProjectRepository>();
             //service.AddScoped<IStudentRepository, StudentRepository>();
             //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
-
 
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
@@ -99,40 +94,8 @@ namespace HN.Management.Web.Extensions
         /// <param name="configuration"></param>
         public static void SetupCosmosDb(this IServiceCollection services, IConfiguration configuration)
         {
-            // Bind database-related bindings
-            CosmosDbSettings cosmosDbConfig = configuration.GetSection("ConnectionStrings:CosmosDb").Get<CosmosDbSettings>();
-            // register CosmosDB client and data repositories
-            services.AddCosmosDb(cosmosDbConfig.EndpointUrl,
-                                 cosmosDbConfig.PrimaryKey,
-                                 cosmosDbConfig.DatabaseName,
-                                 cosmosDbConfig.Containers);
-        }
-
-
-        /// <summary>
-        ///  Register a singleton instance of Cosmos Db Container Factory, which is a wrapper for the CosmosClient.
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="endpointUrl"></param>
-        /// <param name="primaryKey"></param>
-        /// <param name="databaseName"></param>
-        /// <param name="containers"></param>
-        /// <returns></returns>
-        public static IServiceCollection AddCosmosDb(this IServiceCollection services,
-                                                     string endpointUrl,
-                                                     string primaryKey,
-                                                     string databaseName,
-                                                     List<ContainerInfo> containers)
-        {
-            Microsoft.Azure.Cosmos.CosmosClient client = new Microsoft.Azure.Cosmos.CosmosClient(endpointUrl, primaryKey);
-            CosmosContainerFactory cosmosDbClientFactory = new CosmosContainerFactory(client, databaseName, containers);
-
-            // Microsoft recommends a singleton client instance to be used throughout the application
-            // https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet#definition
-            // "CosmosClient is thread-safe. Its recommended to maintain a single instance of CosmosClient per lifetime of the application which enables efficient connection management and performance"
-            services.AddSingleton<ICosmosContainerFactory>(cosmosDbClientFactory);
-
-            return services;
+            services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
+            services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();
         }
     }
 }

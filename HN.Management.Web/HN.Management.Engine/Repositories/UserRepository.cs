@@ -1,69 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Linq;
 using System.Threading.Tasks;
 using HN.Management.Engine.CosmosDb.Interfaces;
-using HN.Management.Engine.Repositories.Generic;
 using HN.Management.Engine.Repositories.Interfaces;
-using Microsoft.Azure.Cosmos;
 using User = HN.ManagementEngine.Models.User;
 
 namespace HN.Management.Engine.Repositories
 {
-    public class UserRepository : CosmosRepository<User>, IUserRepository
+    public class UserRepository : IUserRepository
     {
-        /// <summary>
-        ///     CosmosDB container name
-        /// </summary>
-        public override string ContainerName { get; } = "TODO";
+        internal const string UserPartition = "User";
+        private readonly IDataManager<User> dataManager;
 
-        /// <summary>
-        ///  Generate Id.
-        ///  e.g. "shoppinglist:783dfe25-7ece-4f0b-885e-c0ea72135942"
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public override string GenerateId(User entity) => $"{entity.Id}:{Guid.NewGuid()}";
-
-        /// <summary>
-        ///  Returns the value of the partition key
-        /// </summary>
-        /// <param name="entityId"></param>
-        /// <returns></returns>
-        public override PartitionKey ResolvePartitionKey(string entityId) => new PartitionKey(entityId.Split(':')[0]);
-
-        public UserRepository(ICosmosContainerFactory factory) : base(factory)
+        public UserRepository(IDataManager<User> dataManager)
         {
+            this.dataManager = dataManager;
         }
 
-        // Use Cosmos DB Parameterized Query to avoid SQL Injection. 
-        public async Task<IEnumerable<User>> GetUserByEmail(string email)
+        public IQueryable<User> GetAllQueryable()
         {
-            List<User> results = new List<User>();
-            string query = @$"SELECT c.Name FROM c WHERE c.Email = @Email";
-
-            QueryDefinition queryDefinition = new QueryDefinition(query)
-                                                    .WithParameter("@Email", email);
-            string queryString = queryDefinition.QueryText;
-
-            IEnumerable<User> entities = await this.GetItemsAsync(queryString);
-
-            return results;
+            return this.dataManager.GetAllAccessibleItemsAsQueryable();
         }
 
-        // Use Cosmos DB Parameterized Query to avoid SQL Injection.
-        public async Task<IEnumerable<User>> FilterUsers(User user)
+        public IEnumerable<User> GetAll()
         {
+            var filter = this.GetAllQueryable();
 
-            List<User> results = new List<User>();
-            string query = @$"SELECT c.Name FROM c WHERE c.Email = @Email";
+            Expression<Func<User, bool>> matchPartitionKey = x => x.PartitionKey ==
+            UserPartition;
+            filter = filter.Where(matchPartitionKey);
 
-            QueryDefinition queryDefinition = new QueryDefinition(query)
-                                                    .WithParameter("@Email", user.Email);
-            string queryString = queryDefinition.QueryText;
+            return filter.AsEnumerable();
+        }
 
-            IEnumerable<User> entities = await this.GetItemsAsync(queryString);
+        public async Task<IEnumerable<User>> GetAllAsync()
+        {
+            return await this.dataManager.GetAllAccessibleItemsAsync();
+        }
 
-            return results;
+        public async Task<User> GetAsync(string id)
+        {
+            return await this.dataManager.GetItemByIdAsync(id, UserPartition);
+        }
+          
+        public async Task<User> InsertAsync(User item)
+        {
+            if (item == null)
+            {
+                throw new ArgumentException("One or more of the required properities its missing or has null value");
+            }
+
+            if (string.IsNullOrEmpty(item.Id))
+            {
+                item.Id = Guid.NewGuid().ToString("D");
+            }
+            item.IsDeleted = true;
+
+            return await this.dataManager.CreateItemAsync(item);
+        }
+
+        public async Task<User> UpdateAsync(User item)
+        {
+            item.LastUpdatedAt = DateTime.UtcNow;
+            //TODO: we really need log the session name of the user (username, email, userId), for now I let "System", but this must change.
+            item.LastUpdatedByName = "System";
+
+            return await this.dataManager.UpsertItemAsync(item);
+        }
+
+        public async Task Delete(string id)
+        {
+            await this.dataManager.DeleteItemAsync(id);
         }
     }
 }

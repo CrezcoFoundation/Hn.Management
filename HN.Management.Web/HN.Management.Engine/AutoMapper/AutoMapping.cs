@@ -13,7 +13,7 @@ namespace HN.Management.Engine.AutoMapper
 
             //Entity to DTO
             CreateMap<Expense, ExpenseDTO>();
-            CreateMap<Donation, DonationDTO>();
+            CreateMap<Donation, Donation>();
             CreateMap<Donor, DonorDTO>();
             CreateMap<Evidence, EvidenceDTO>();
             CreateMap<Project, ProjectDTO>();
@@ -23,7 +23,7 @@ namespace HN.Management.Engine.AutoMapper
 
             //DTO to Entity
             CreateMap<ExpenseDTO, Expense>();
-            CreateMap<DonationDTO, Donation>();
+            CreateMap<Donation, Donation>();
             CreateMap<DonorDTO, Donor>();
             CreateMap<EvidenceDTO, Evidence>();
             CreateMap<ProjectDTO, Project>();

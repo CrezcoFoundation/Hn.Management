@@ -62,21 +62,21 @@ namespace HN.Management.Web.Apis.V1.Controllers
 
         [HttpPost]
         [Route("new")]
-        public async Task<IActionResult> AddAsync(DonationDTO donation)
+        public async Task<IActionResult> AddAsync(ManagementEngine.DTO.Donation donation)
         {
             return Ok(await _donationService.AddAsync(donation));
         }
 
         [HttpPut]
         [Route("update")]
-        public async Task<IActionResult> UpdateAsync(DonationDTO donation)
+        public async Task<IActionResult> UpdateAsync(ManagementEngine.DTO.Donation donation)
         {
             return Ok(await _donationService.UpdateAsync(donation));
         }
 
         [HttpDelete]
         [Route("delete")]
-        public async Task<IActionResult> DeleteAsync(DonationDTO donation)
+        public async Task<IActionResult> DeleteAsync(ManagementEngine.DTO.Donation donation)
         {
             return Ok(await _donationService.DeleteAsync(donation));
         }
@@ -87,13 +87,13 @@ namespace HN.Management.Web.Apis.V1.Controllers
         {
             var cacheKey = CacheManagerKeys.Activities.ToString();
             string serializedActivitiesList;
-            var activities = new List<Donation>();
+            var activities = new List<ManagementEngine.Models.Donation>();
             var redisActivitiesList = await _distributedCache.GetAsync(cacheKey);
 
             if (redisActivitiesList != null)
             {
                 serializedActivitiesList = Encoding.UTF8.GetString(redisActivitiesList);
-                activities = JsonConvert.DeserializeObject<List<Donation>>(serializedActivitiesList);
+                activities = JsonConvert.DeserializeObject<List<ManagementEngine.Models.Donation>>(serializedActivitiesList);
             }
             else
             {

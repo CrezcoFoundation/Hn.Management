@@ -47,12 +47,4 @@
     <None Remove="CosmosDb\Interfaces\" />
     <None Remove="Repositories\Generic\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="CosmosDb\" />
-    <Folder Include="CosmosDb\Setting\" />
-    <Folder Include="Models\Base\" />
-    <Folder Include="CosmosDb\Interfaces\" />
-    <Folder Include="Repositories\Generic\" />
-  </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@ using HN.Management.Engine.CosmosDb.Accessors;
 using System;
 using Microsoft.Azure.Cosmos;
 using HN.Management.Engine.CosmosDb.Client;
+using HN.Management.Engine.CosmosDb.Base;
 
 namespace HN.Management.Web.Extensions
 {
@@ -99,8 +100,8 @@ namespace HN.Management.Web.Extensions
         {
             services.AddSingleton(serviceProvider => CreateCosmosDbClient<Donation>(
                 serviceProvider,
-                "Database",
-                "Collection"));
+                Databases.CrezcoDatabaseId,
+                Databases.CrezcoCollectionName));
 
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();

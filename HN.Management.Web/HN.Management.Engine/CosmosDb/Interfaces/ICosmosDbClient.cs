@@ -1,5 +1,5 @@
-﻿using Microsoft.Azure.Cosmos;
-using Microsoft.Azure.Cosmos.Serialization.HybridRow.Schemas;
+﻿using HN.Management.Engine.Util;
+using Microsoft.Azure.Cosmos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using PartitionKey = Microsoft.Azure.Cosmos.PartitionKey;
 
 namespace HN.Management.Engine.CosmosDb.Interfaces
 {
-    public interface ICosmosDbClient<T>
+     public interface ICosmosDbClient<T>
     {
         bool CollectionExists(string databaseName, string collectionName);
 
@@ -29,26 +29,25 @@ namespace HN.Management.Engine.CosmosDb.Interfaces
             int take,
             string partitionKey = null);
 
-        Task<IEnumerable<T>> GetPaginatedItemsByExpressionAsync<Tkey>(
+        Task<IEnumerable<T>> GetPaginatedItemsByExpressionAsync<TKey>(
             Expression<Func<T, bool>> predicate,
-            Expression<Func<T, Tkey>> orderPredicate,
+            Expression<Func<T, TKey>> orderPredicate,
             SortDirection sortDirection,
             int skip,
             int take,
             string partitionKey = null);
 
-        Task<IList<T>> GetPaginatedItemsByExpressionAsync<Tkey>(
-            Func<IQueryable<T>, IQueryable<T>> predicated,
-            Expression<Func<T, Tkey>> orderPredicate,
-            SortDirection sortDirection,
-            int skip,
-            int take,
-            string partitionKey = null);
-
-
-        Task<IList<T>> GetPaginatedItemsByExpressionAsync<Tkey>(
+        Task<IList<T>> GetPaginatedItemsByExpressionAsync<TKey>(
             Func<IQueryable<T>, IQueryable<T>> predicate,
-            IList<(Expression<Func<T, Tkey>> sortPredicate, SortDirection sortDirection)> sortOperations,
+            Expression<Func<T, TKey>> orderPredicate,
+            SortDirection sortDirection,
+            int skip,
+            int take,
+            string partitionKey = null);
+
+        Task<IList<T>> GetPaginatedItemsByExpressionAsync<TKey>(
+            Func<IQueryable<T>, IQueryable<T>> predicate,
+            IList<(Expression<Func<T, TKey>> sortPredicate, SortDirection sortDirection)> sortOperations,
             int skip,
             int take,
             string partitionKey = null);
@@ -59,45 +58,44 @@ namespace HN.Management.Engine.CosmosDb.Interfaces
 
         Task<IEnumerable<T>> GetAllItemsByExpressionAsync(
             Expression<Func<T, bool>> predicate,
-            string partitionkey = null);
+            string partitionKey = null);
 
         IEnumerable<T> GetAllItemsByExpression(
-             Func<IQueryable<T>, IQueryable<T>> predicate,
-             string partitionkey = null);
+            Func<IQueryable<T>, IQueryable<T>> predicate,
+            string partitionKey = null);
 
         Task<IEnumerable<T>> GetAllItemsByExpressionAsync(
-                Func<IQueryable<T>, IQueryable<T>> predicate,
-                string partitionkey = null);
+            Func<IQueryable<T>, IQueryable<T>> predicate,
+            string partitionKey = null);
 
         Task<IEnumerable<TResult>> GetAllItemsByExpressionAsync<TResult>(
-                Func<IQueryable<T>, IQueryable<T>> predicate,
-                Expression<Func<T, TResult>> select,
-                string partitionkey = null);
+            Func<IQueryable<T>, IQueryable<T>> predicate,
+            Expression<Func<T, TResult>> select,
+            string partitionKey = null);
 
         Task<int> GetCountByExpressionAsync(
-                Expression<Func<T, bool>> predicate,
-                string partitionKey = null);
+            Expression<Func<T, bool>> predicate,
+            string partitionKey = null);
 
         Task<int> GetCountByExpressionAsync(
-                Func<IQueryable<T>, IQueryable<T>> predicate,
-                string partitionkey = null);
+            Func<IQueryable<T>, IQueryable<T>> predicate,
+            string partitionKey = null);
 
         IQueryable<T> GetItemsByExpressionAsQueryable(
-                Func<IQueryable<T>, IQueryable<T>> predicate);
+            Func<IQueryable<T>, IQueryable<T>> predicate);
 
         IQueryable<T> GetItemsByExpressionAsQueryable(
-                Expression<Func<T, bool>> predicate);
+            Expression<Func<T, bool>> predicate);
 
         Task<IList<T>> GetItemsBySqlExpressionAsync(
-                string sqlExpression,
-                IDictionary<string, string> parameters,
-                bool getAllResults,
-                int skip = 0,
-                int take = 50,
-                string partitionKey = null);
+            string sqlExpression,
+            IDictionary<string, string> parameters,
+            bool getAllResults,
+            int skip = 0,
+            int take = 50,
+            string partitionKey = null);
 
-
-        IOrderedQueryable<T> GetAllItemsAsQueryable(QueryRequestOptions requestoptions = null);
+        IOrderedQueryable<T> GetAllItemsAsQueryable(QueryRequestOptions requestOptions = null);
 
         Task<IList<T>> GetAllItemsAsync();
 
@@ -105,15 +103,15 @@ namespace HN.Management.Engine.CosmosDb.Interfaces
 
         Task<T> ReplaceItemAsync(T instance, bool ifMatchEtag = false);
 
-        Task<T> UpdateItemAsync(Func<T, T> updateItem, string id, string partitionkey = null);
+        Task<T> UpdateItemAsync(Func<T, T> updateItem, string id, string partitionKey = null);
 
         Task<T> UpsertItemAsync(T item);
 
-        Task<T> DeleteItemAsync(T item);
+        Task DeleteItemAsync(T instance);
 
-        Task<T> DeleteItemAsync(string id, string partitionKey = null);
+        Task DeleteItemAsync(string id, string partitionKey = null);
 
-        Task<T> DeleteItemAsync(string id, PartitionKey partitionKey);
+        Task DeleteItemAsync(string id, PartitionKey partitionKey);
 
         Task<ContainerProperties> GetContainerPropertiesAsync();
     }

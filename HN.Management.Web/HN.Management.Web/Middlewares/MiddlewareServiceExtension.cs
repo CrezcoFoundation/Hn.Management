@@ -13,6 +13,9 @@ using HN.Management.Engine.Repositories.Paypal;
 using HN.Management.Engine.CosmosDb.Interfaces;
 using HN.ManagementEngine.Models;
 using HN.Management.Engine.CosmosDb.Accessors;
+using System;
+using Microsoft.Azure.Cosmos;
+using HN.Management.Engine.CosmosDb.Client;
 
 namespace HN.Management.Web.Extensions
 {
@@ -94,8 +97,30 @@ namespace HN.Management.Web.Extensions
         /// <param name="configuration"></param>
         public static void SetupCosmosDb(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<Donation>(
+                serviceProvider,
+                "Database",
+                "Collection"));
+
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();
+        }
+
+        private static ICosmosDbClient<T> CreateCosmosDbClient<T>(
+            IServiceProvider serviceProvider,
+            string databaseId,
+            string collectionName)
+            where T : IBaseEntity
+        {
+            var cosmosClient = serviceProvider.GetService<CosmosClient>();
+
+            var configuration = serviceProvider.GetService<IConfiguration>();
+
+            return new CosmosDbClient<T>(
+                cosmosClient,
+                databaseId,
+                collectionName,
+                configuration);
         }
     }
 }

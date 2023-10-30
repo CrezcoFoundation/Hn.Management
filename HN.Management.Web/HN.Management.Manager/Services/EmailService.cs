@@ -48,7 +48,7 @@ namespace HN.Management.Manager.Services
             var mailMessage = new MailMessage()
             {
                 Subject = $"Newsletter Program Request Received - {email}",
-                From = new MailAddress("it@crezcofoundation.org"),
+                From = new MailAddress(emailOptionsVal.To),
                 Body = $"Dear Crezco Onboarding Team,\r\nI want to receive Newsletter Program, this is my email: {email}"
             };
 
@@ -64,10 +64,10 @@ namespace HN.Management.Manager.Services
             smtpClient.Host = emailOptionsVal.Server;
             smtpClient.Port = emailOptionsVal.Port;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential(emailOptionsVal.To, "grhgucmyiwffqsmf");
+            smtpClient.Credentials = new NetworkCredential(emailOptionsVal.To, emailOptionsVal.CredentialPassword);
             smtpClient.EnableSsl = true;
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.Timeout = 20000;
+            smtpClient.Timeout = emailOptionsVal.Timeout;
 
             return await Task.FromResult(smtpClient);
         }

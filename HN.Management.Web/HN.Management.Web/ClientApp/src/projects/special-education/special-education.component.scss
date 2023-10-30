@@ -1,0 +1,76 @@
+@import url(../university-sponsorship/university-sponsorship.component.scss);
+
+.paragraph-section {
+  /* height: 471px; */
+  background-color: #6f00aa;
+  /* margin: 7em 0; */
+  div > p {
+    font-family: Oswald;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.4em;
+    text-transform: uppercase;
+  }
+  .thin-font {
+    font-family: Oswald;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 1.4em;
+    text-transform: uppercase;
+  }
+}
+
+.cards-container {
+  overflow: visible;
+}
+
+.rounded-3 {
+  border-radius: 20px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .description-project {
+    max-width: 90%;
+    font-size: 1.15rem;
+  }
+  .paragraph-section {
+    div > p {
+      font-size: 1.2rem;
+    }
+    .thin-font {
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 200;
+      line-height: 1.5em;
+    }
+  }
+  div > .author-font span {
+    font-size: 1.2rem;
+  }
+  .text-box {
+    /* padding: 2em; */
+    .title-box h3 {
+      text-align: center;
+    }
+    .description-box p {
+      text-align: center;
+      font-size: 1.15rem;
+    }
+  }
+  .card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .image-box img {
+    max-width: 100%;
+  }
+  .cards-container {
+    overflow: scroll;
+  }
+  .rounded-3 {
+    border-radius: 10px !important;
+  }
+}

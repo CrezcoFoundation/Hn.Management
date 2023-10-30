@@ -1,0 +1,172 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.nav-item a {
+  font-size: 1.1rem;
+  color: #2b2b2b;
+  font-weight: 500;
+}
+.nav-item a:hover {
+  color: #6f00aa;
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+  left: -70px !important;
+}
+
+/* .dropdown-menu[data-bs-popper] {
+  left: -70px !important;
+} */
+
+.link-submenu {
+  cursor: pointer;
+}
+
+.item-university,
+.item-special,
+.item-community,
+.item-student,
+.item-medical {
+  color: #2b2b2b;
+  padding: 0.8em;
+  border-radius: 10px;
+}
+
+li .item-university:hover {
+  color: white;
+  background-color: #00bf1b;
+}
+li .item-special:hover {
+  color: white;
+  background-color: #6f00aa;
+}
+li .item-community:hover {
+  color: white;
+  background-color: #f48e08;
+}
+li .item-student:hover {
+  color: white;
+  background-color: #00bf1b;
+}
+li .item-medical:hover {
+  color: white;
+  background-color: #6f00aa;
+}
+
+.modal {
+  position: absolute;
+  z-index: 9991;
+}
+
+.btn-login {
+  color: #2b2b2b;
+  background-color: white;
+  border: 0.2px solid #2b2b2b;
+  border-radius: 10px;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.btn-login:hover {
+  color: white;
+  background-color: #6f00aa;
+  border: 1px solid #6f00aa;
+}
+
+.btn,
+.btn-primary {
+  color: white;
+  background-color: #00bf1b;
+  border: none;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.btn:hover,
+.btn-primary:hover {
+  color: white;
+  background-color: #08d123;
+}
+
+.disabled-item_navbar {
+  pointer-events: none;
+  color: #c9c9c9;
+  opacity: 30%;
+}
+
+/* Mobile Styles */
+
+@media (max-width: 575.98px) {
+  .btn-login {
+    color: white;
+    background-color: transparent;
+    border: 0.2px solid white;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+.item-project {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #00bf1b;
+}
+
+.navbar-mobile {
+  background-color: #6f00aa;
+  height: 100vh;
+}
+
+.item-mobile a {
+  color: white;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+}
+.item-mobile a:hover {
+  color: white;
+}
+
+/* .hr-line {
+  background-color: white;
+  height: 3.5px;
+  opacity: 1;
+  width: 80%;
+  border: none;
+} */
+
+.logo-footer > a > img {
+  width: 120px;
+  height: auto;
+}
+
+.project-links > h5 {
+  color: #00bf1b;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.social-icon {
+  width: 30px;
+  max-width: 100%;
+}

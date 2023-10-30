@@ -1,8 +1,8 @@
 ﻿using HN.Management.Manager.Enums;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Exceptions.Domain;
-using HN.ManagementEngine.DTO;
 using HN.ManagementEngine.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
@@ -16,12 +16,12 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/donations")]
-    public class DonationsController : Controller
+    [Route("api/donation")]
+    public class DonationController : Controller
     {
         private readonly IDistributedCache _distributedCache;
         private readonly IDonationService _donationService;
-        public DonationsController(IDistributedCache distributedCache, IDonationService donationService)
+        public DonationController(IDistributedCache distributedCache, IDonationService donationService)
         {
             _distributedCache = distributedCache;
             _donationService = donationService ?? throw new ArgumentNullException(nameof(donationService));
@@ -34,51 +34,31 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpGet("{donationId}")]
-        public async Task<IActionResult> GetByConditionAsync(int donationId)
+        public async Task<IActionResult> GetByConditionAsync(string donationId)
         {
-            return Ok(await _donationService.GetByConditionAsync(donationId));
-        }
-
-        [HttpGet]
-        [Route("projects/{projectId}")]
-        public async Task<IActionResult> GetByProjectAsync(int projectId)
-        {
-            return Ok(await _donationService.GetByProjectAsync(projectId));
-        }
-
-        [HttpGet]
-        [Route("donors/{donorId}")]
-        public async Task<IActionResult> GetByDonortAsync(int donorId)
-        {
-            return Ok(await _donationService.GetByDonortAsync(donorId));
-        }
-
-        [HttpGet]
-        [Route("ranks/{startDate}/{endDate}")]
-        public async Task<IActionResult> GetByRankAsync(DateTime startDate, DateTime endDate)
-        {
-            return Ok(await _donationService.GetByRankAsync(startDate, endDate));
+            return Ok(await _donationService.GetByIdAsync(donationId));
         }
 
         [HttpPost]
-        [Route("new")]
-        public async Task<IActionResult> AddAsync(ManagementEngine.DTO.Donation donation)
+        [Route("create")]
+        [AllowAnonymous]
+        public async Task<IActionResult> CreateAsync(Donation donation)
         {
-            return Ok(await _donationService.AddAsync(donation));
+            return Ok(await _donationService.InsertAsync(donation));
         }
 
         [HttpPut]
         [Route("update")]
-        public async Task<IActionResult> UpdateAsync(ManagementEngine.DTO.Donation donation)
+        public async Task<IActionResult> UpdateAsync(Donation donation)
         {
             return Ok(await _donationService.UpdateAsync(donation));
         }
 
         [HttpDelete]
         [Route("delete")]
-        public async Task<IActionResult> DeleteAsync(ManagementEngine.DTO.Donation donation)
+        public async Task<IActionResult> DeleteAsync(string id)
         {
-            return Ok(await _donationService.DeleteAsync(donation));
+            return Ok(await _donationService.DeleteAsync(id));
         }
 
         [HttpGet]
@@ -87,13 +67,13 @@ namespace HN.Management.Web.Apis.V1.Controllers
         {
             var cacheKey = CacheManagerKeys.Activities.ToString();
             string serializedActivitiesList;
-            var activities = new List<ManagementEngine.Models.Donation>();
+            var activities = new List<Donation>();
             var redisActivitiesList = await _distributedCache.GetAsync(cacheKey);
 
             if (redisActivitiesList != null)
             {
                 serializedActivitiesList = Encoding.UTF8.GetString(redisActivitiesList);
-                activities = JsonConvert.DeserializeObject<List<ManagementEngine.Models.Donation>>(serializedActivitiesList);
+                activities = JsonConvert.DeserializeObject<List<Donation>>(serializedActivitiesList);
             }
             else
             {

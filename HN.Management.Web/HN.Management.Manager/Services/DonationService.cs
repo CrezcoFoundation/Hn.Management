@@ -21,6 +21,11 @@ namespace HN.Management.Manager.Services
             return result.ToList();
         }
 
+        public async Task<Donation> GetByIdAsync(string id)
+        {
+            return await donationsRepository.GetAsync(id);
+        }
+
         public async Task<Donation> InsertAsync(Donation donation)
         {
             return await donationsRepository.InsertAsync(donation);

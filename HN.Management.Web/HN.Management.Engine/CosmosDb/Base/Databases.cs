@@ -9,6 +9,6 @@ namespace HN.Management.Engine.CosmosDb.Base
     public static class Databases
     {
         public const string CrezcoDatabaseId = "CrezcoFoundation";
-        public const string CrezcoCollectionName = "CrezcoServices";
+        public const string CrezcoCollectionName = "CrezcoModules";
     }
 }

@@ -2,7 +2,6 @@
 using HN.Management.Manager.Enums;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Exceptions.Domain;
-using HN.ManagementEngine.DTO;
 using HN.ManagementEngine.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
@@ -35,16 +34,16 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetByConditionAsync(User user)
+        public async Task<IActionResult> GetByIdAsync(string id)
         {
-            return Ok(await _userService.GetByConditionAsync(user));
+            return Ok(await _userService.GetByIdAsync(id));
         }
 
         [HttpPost]
-        [Route("new")]
-        public async Task<IActionResult> AddUserAsync(UserDTO user)
+        [Route("create")]
+        public async Task<IActionResult> CreateAsync(User user)
         {
-            return Ok(await _userService.AddUserAsync(user));
+            return Ok(await _userService.CreateUserAsync(user));
         }
 
         /*[HttpPost]
@@ -63,7 +62,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
 
         [HttpPut]
         [Route("update")]
-        public async Task<IActionResult> UpdateAsync(UserDTO user)
+        public async Task<IActionResult> UpdateAsync(User user)
         {
             return Ok(await _userService.UpdateAsync(user));
         }
@@ -81,13 +80,13 @@ namespace HN.Management.Web.Apis.V1.Controllers
         {
             var cacheKey = CacheManagerKeys.Activities.ToString();
             string serializedActivitiesList;
-            var activities = new List<User>();
+            var activities = new List<ManagementEngine.Models.User>();
             var redisActivitiesList = await _distributedCache.GetAsync(cacheKey);
 
             if (redisActivitiesList != null)
             {
                 serializedActivitiesList = Encoding.UTF8.GetString(redisActivitiesList);
-                activities = JsonConvert.DeserializeObject<List<User>>(serializedActivitiesList);
+                activities = JsonConvert.DeserializeObject<List<ManagementEngine.Models.User>>(serializedActivitiesList);
             }
             else
             {

@@ -10,5 +10,6 @@ namespace HN.Management.Manager.Services.Interfaces
         Task<Donation> InsertAsync(Donation donation);
         Task<Donation> UpdateAsync(Donation donation);
         Task<bool> DeleteAsync(string id);
+        Task<Donation> GetByIdAsync(string id);
     }
 }

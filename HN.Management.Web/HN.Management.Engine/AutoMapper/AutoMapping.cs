@@ -10,27 +10,6 @@ namespace HN.Management.Engine.AutoMapper
     {
         public AutoMapping()
         {
-
-            //Entity to DTO
-            CreateMap<Expense, ExpenseDTO>();
-            CreateMap<Donation, Donation>();
-            CreateMap<Donor, DonorDTO>();
-            CreateMap<Evidence, EvidenceDTO>();
-            CreateMap<Project, ProjectDTO>();
-            CreateMap<Student, StudentDTO>();
-            CreateMap<UserDetail, UserDetailDto>();
-            CreateMap<User, UserDTO>();
-
-            //DTO to Entity
-            CreateMap<ExpenseDTO, Expense>();
-            CreateMap<Donation, Donation>();
-            CreateMap<DonorDTO, Donor>();
-            CreateMap<EvidenceDTO, Evidence>();
-            CreateMap<ProjectDTO, Project>();
-            CreateMap<StudentDTO, Student>();
-            CreateMap<UserDetail, UserDetailDto>();
-            CreateMap<UserDTO, User>();
-
         }
     }
 }

@@ -16,7 +16,7 @@ namespace HN.ManagementEngine.Models
         public string SchemaVersion { get; set; } = "1.0";
 
         [JsonProperty("isDeleted")]
-        public bool IsDeleted { get; set; } = "1.0";
+        public bool IsDeleted { get; set; }
 
         [JsonProperty("email")]
         [Required(ErrorMessage = "Email is required")]

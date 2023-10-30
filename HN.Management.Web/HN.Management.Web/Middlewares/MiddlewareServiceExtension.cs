@@ -98,6 +98,11 @@ namespace HN.Management.Web.Extensions
         /// <param name="configuration"></param>
         public static void SetupCosmosDb(this IServiceCollection services, IConfiguration configuration)
         {
+            // Cosmos Configuration
+            var cosmosDbConnection = configuration.GetConnectionString("CosmosDb");
+            var cosmosClient = new CosmosClient(cosmosDbConnection);
+            services.AddSingleton(cosmosClient);
+
             services.AddSingleton(serviceProvider => CreateCosmosDbClient<Donation>(
                 serviceProvider,
                 Databases.CrezcoDatabaseId,

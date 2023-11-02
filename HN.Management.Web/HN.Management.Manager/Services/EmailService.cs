@@ -24,20 +24,7 @@ namespace HN.Management.Manager.Services
                 MailMessage mailMessage = new MailMessage();
                 mailMessage.From = new MailAddress(emailOptionsVal.From);
 
-                var emailRecipients = emailOptionsVal.To.Split(",").ToList();
-                foreach (var mails in emailRecipients)
-                {
-                    mailMessage.To.Add(mails);
-                }
-
-                var emailCcRecipients = emailOptionsVal.Cc.Split(",").ToList();
-                foreach (var mails in emailCcRecipients)
-                {
-                    mailMessage.CC.Add(mails);
-                }
-
-                //mailMessage.CC.Add("jearsoft@gmail.com");
-                //mailMessage.CC.Add("nerm.animator@gmail.com");
+                mailMessage = this.BuildRecipient(mailMessage, emailOptionsVal.To, emailOptionsVal.Cc);
                 mailMessage.Subject = $"New Contact Received - {contactRequest.Name}";
                 mailMessage.Body = $"Dear Crezco Information Team,\r\nThere has been a new inquiry on the website. See the contact information below: \r\nName: {contactRequest.Name}, \r\nEmailAddress: {contactRequest.Email}, \r\nMessage: {contactRequest.Message}";
 
@@ -65,18 +52,7 @@ namespace HN.Management.Manager.Services
                 Body = $"Dear Crezco Onboarding Team,\r\nI want to receive Newsletter Program, this is my email: {email}"
             };
 
-            var emailRecipients = emailOptionsVal.To.Split(",").ToList();
-            foreach (var mails in emailRecipients)
-            {
-                mailMessage.To.Add(mails);
-            }
-
-            var emailCcRecipients = emailOptionsVal.Cc.Split(",").ToList();
-            foreach (var mails in emailCcRecipients)
-            {
-                mailMessage.CC.Add(mails);
-            }
-
+            mailMessage = this.BuildRecipient(mailMessage, emailOptionsVal.To, emailOptionsVal.Cc);
             smtpClient.Send(mailMessage);
 
             return await Task.FromResult("Email Sent Sucessfully.");
@@ -94,6 +70,24 @@ namespace HN.Management.Manager.Services
             smtpClient.Timeout = emailOptionsVal.Timeout;
 
             return await Task.FromResult(smtpClient);
+        }
+
+        private MailMessage BuildRecipient(MailMessage mailMessage, string to, string cc)
+        {
+            var emailRecipients = to.Split(",").ToList();
+
+            foreach (var mails in emailRecipients)
+            {
+                mailMessage.To.Add(mails);
+            }
+
+            var emailCcRecipients = cc.Split(",").ToList();
+            foreach (var mails in emailCcRecipients)
+            {
+                mailMessage.CC.Add(mails);
+            }
+
+            return mailMessage;
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HN.Management.Engine.ViewModels
+﻿namespace HN.Management.Engine.ViewModels
 {
     public class EmailOptions
     {
@@ -14,8 +8,7 @@ namespace HN.Management.Engine.ViewModels
         public string Cc { get; set; }
         public string Server { get; set; }
         public int Port { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string AdminEmail { get; set; }
         public string CredentialPassword { get; set; }
         public int Timeout { get; set; }
     }

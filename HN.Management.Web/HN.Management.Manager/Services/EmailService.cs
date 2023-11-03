@@ -1,30 +1,34 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace HN.Management.Manager.Services
 {
     public class EmailService : IEmailService
     {
-        private readonly EmailOptions emailOptionsVal;
+        private readonly IConfiguration _configuration;
 
-        public EmailService(IOptions<EmailOptions> emailOptions)
+        public EmailService(IConfiguration configuration)
         {
-            emailOptionsVal = emailOptions.Value;
+            _configuration = configuration;
         }
+        
         public async Task<string> ContactMe(ContactRequest contactRequest)
         {
+            var emailSettings = _configuration.GetSection("EmailSettings").Get<EmailOptions>();
             try
             {
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress(emailOptionsVal.From);
+                mailMessage.From = new MailAddress(emailSettings.From);
 
-                mailMessage = this.BuildRecipient(mailMessage, emailOptionsVal.To, emailOptionsVal.Cc);
+                mailMessage = this.BuildRecipient(mailMessage, emailSettings.To, emailSettings.Cc);
                 mailMessage.Subject = $"New Contact Received - {contactRequest.Name}";
                 mailMessage.Body = $"Dear Crezco Information Team,\r\nThere has been a new inquiry on the website. See the contact information below: \r\nName: {contactRequest.Name}, \r\nEmailAddress: {contactRequest.Email}, \r\nMessage: {contactRequest.Message}";
 
@@ -42,17 +46,17 @@ namespace HN.Management.Manager.Services
 
         public async Task<string> SendNewsletterProgram(string email)
         {
-
+            var emailSettings = _configuration.GetSection("EmailSettings").Get<EmailOptions>();
             var smtpClient = await this.GetSmtpClient();
 
             var mailMessage = new MailMessage()
             {
                 Subject = $"Newsletter Program Request Received - {email}",
-                From = new MailAddress(emailOptionsVal.From),
+                From = new MailAddress(emailSettings.From),
                 Body = $"Dear Crezco Onboarding Team,\r\nI want to receive Newsletter Program, this is my email: {email}"
             };
 
-            mailMessage = this.BuildRecipient(mailMessage, emailOptionsVal.To, emailOptionsVal.Cc);
+            mailMessage = this.BuildRecipient(mailMessage, emailSettings.To, emailSettings.Cc);
             smtpClient.Send(mailMessage);
 
             return await Task.FromResult("Email Sent Sucessfully.");
@@ -60,14 +64,15 @@ namespace HN.Management.Manager.Services
 
         private async Task<SmtpClient> GetSmtpClient()
         {
+            var emailSettings = _configuration.GetSection("EmailSettings").Get<EmailOptions>();
             SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Host = emailOptionsVal.Server;
-            smtpClient.Port = emailOptionsVal.Port;
+            smtpClient.Host = emailSettings.Server;
+            smtpClient.Port = emailSettings.Port;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential(emailOptionsVal.AdminEmail, emailOptionsVal.CredentialPassword);
+            smtpClient.Credentials = new NetworkCredential(emailSettings.AdminEmail, emailSettings.CredentialPassword);
             smtpClient.EnableSsl = true;
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.Timeout = emailOptionsVal.Timeout;
+            smtpClient.Timeout = emailSettings.Timeout;
 
             return await Task.FromResult(smtpClient);
         }

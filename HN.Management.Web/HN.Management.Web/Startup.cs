@@ -11,22 +11,24 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
-using Microsoft.AspNetCore.SpaServices;
-using HN.Management.Web.Middlewares;
 
 namespace HN.Management.Web
 {
     public class Startup
     {
         //private readonly Microsoft.Extensions.Configuration.IConfiguration _configuration;
-        public Startup(IConfiguration configuration)
+        [System.Obsolete]
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
+            Configuration = configuration;
             Configuration = new ConfigurationBuilder()
-            .AddConfiguration(configuration)
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            .Build();
+                .AddConfiguration(configuration)
+                .SetBasePath(environment.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables()
+                .Build();
         }
-
         public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940

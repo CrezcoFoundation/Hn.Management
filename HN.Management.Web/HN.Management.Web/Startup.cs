@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
 using Microsoft.AspNetCore.SpaServices;
+using HN.Management.Web.Middlewares;
 
 namespace HN.Management.Web
 {
@@ -20,7 +21,10 @@ namespace HN.Management.Web
         //private readonly Microsoft.Extensions.Configuration.IConfiguration _configuration;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = new ConfigurationBuilder()
+            .AddConfiguration(configuration)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -35,6 +39,7 @@ namespace HN.Management.Web
             services.AddAutoMapper(typeof(AutoMapping));
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DeveloperDatabase")));
+            services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             //{

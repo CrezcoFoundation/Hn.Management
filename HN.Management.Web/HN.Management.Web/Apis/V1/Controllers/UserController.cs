@@ -33,7 +33,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
             return Ok(await userService.GetAllAsync());
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(string id)
         {
             return Ok(await userService.GetByIdAsync(id));

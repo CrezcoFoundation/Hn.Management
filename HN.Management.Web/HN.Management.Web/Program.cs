@@ -16,7 +16,7 @@ namespace HN.Management.Web
         {
             //Read Configuration from appSettings
             var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.Development.json")
                 .Build();
 
             //Initialize Logger

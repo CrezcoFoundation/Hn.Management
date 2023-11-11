@@ -2,7 +2,7 @@
 
 namespace HN.ManagementEngine.DTO
 {
-    public class DonationDTO
+    public class Donation
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,39 +1,40 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using HN.Management.Engine.CosmosDb;
+using Newtonsoft.Json;
+using System;
 
 namespace HN.ManagementEngine.Models
 {
-    [Table("Donation")]
-    public class Donation
+    public class Donation : CosmosEntity
     {
-        [Key]
-        public int Id { get; set; }
+        public const string DonationSchema = "Donation";
 
-        [Column("Name", TypeName = "Varchar")]
-        [MaxLength(20)]
+        public override string PartitionKey { get; set; } = DonationSchema;
+
+        [JsonProperty("schemaName")]
+        public string SchemaName { get; set; } = DonationSchema;
+
+        [JsonProperty("schemaVersion")]
+        public string SchemaVersion { get; set; } = "1.0";
+
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Column("Description", TypeName = "Varchar")]
-        [MaxLength(500)]
+        [JsonProperty("descripcion")]
         public string Description { get; set; }
 
-        [Column("MoneyAmount", TypeName = "int")]
-        [MaxLength(11)]
+        [JsonProperty("moneyAmount")]
         public int MoneyAmount { get; set; }
 
-        [Column("Date", TypeName = "Varchar")]
-        [MaxLength(50)]
-        public DateTime? Date { get; set; }
+        [JsonProperty("isDeleted")]
+        public bool? IsDeleted { get; set; }
 
-        [Required]
-        [ForeignKey("ProjectId")]
-        public int? ProjectId { get; set; }
-        public virtual Project Project { get; set; }
+        [JsonProperty("dateDonated")]
+        public DateTimeOffset? DateDonated { get; set; }
 
-        [Required]
-        [ForeignKey("DonorId")]
-        public int? DonorId { get; set; }
-        public virtual Donor Donor { get; set; }
+        [JsonProperty("projectId")]
+        public string ProjectId { get; set; }
+
+        [JsonProperty("donorId")]
+        public string DonorId { get; set; }
     }
 }

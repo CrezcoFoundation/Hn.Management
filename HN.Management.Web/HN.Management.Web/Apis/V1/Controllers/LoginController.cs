@@ -4,6 +4,7 @@ using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Engine.Models.Auth;
 using System.Net;
 using HN.Management.Manager.Exceptions;
+using System.Threading.Tasks;
 
 namespace HN.Management.Web.Apis.V1.Controllers
 {
@@ -21,10 +22,8 @@ namespace HN.Management.Web.Apis.V1.Controllers
 
         [HttpPost]
         [Route("auth")]
-        public IActionResult Authenticate([FromBody]LoginRequest loginRequest)
+        public async Task<IActionResult> AuthenticateAsync([FromBody]LoginRequest loginRequest)
         {
-            var token = string.Empty;
-
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -35,14 +34,14 @@ namespace HN.Management.Web.Apis.V1.Controllers
                 throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
             }
 
-            var result = _userService.GetEmail(loginRequest.Email, loginRequest.Password);
+            var result = await this._userService.GetEmail(loginRequest.Email, loginRequest.Password);
 
             if(result == null)
             {
                 throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
             }
 
-            token = _tokenService.GenerateToken(result);
+            var token = _tokenService.GenerateToken(result);
             return Ok(token);
         }
                

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using HN.Management.Engine.Repositories.Interfaces;
 using HN.Management.Manager.Services.Interfaces;
-using HN.ManagementEngine.DTO;
 using HN.ManagementEngine.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,33 +10,28 @@ namespace HN.Management.Manager.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
+        private readonly IUserRepository userRepository;
         public UserService(IUserRepository usersRepository, IMapper mapper)
         {
-            _userRepository = usersRepository;
-            _mapper = mapper;
+            userRepository = usersRepository;
         }
 
-        public async Task<IQueryable<UserDTO>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            var query = await _userRepository.GetAllAsync();
-
-            return _mapper.Map<List<UserDTO>>(query).AsQueryable();
+            return await this.userRepository.GetAllAsync();
         }
 
-        public async Task<UserDTO> GetByConditionAsync(int userId)
+        public async Task<User> GetByIdAsync(string id)
         {
-            var query = _userRepository.GetByConditionAsync(x => x.Id == userId).Result.ToList();
-
-            return await Task.FromResult(_mapper.Map<UserDTO>(query.FirstOrDefault()));
+            return await this.userRepository.GetAsync(id);
         }
 
-        public UserDTO GetEmail(string email, string password)
+        public async Task<User> GetEmail(string email, string password)
         {
-            var user = _userRepository.GetByConditionAsync(x => x.Email == email && x.PasswordHash == password).Result.FirstOrDefault();
+            var query = new List<User>() ;
+            var user = query.FirstOrDefault();
 
-            var result = new UserDTO();
+            var result = new User();
 
             if (user == null)
             {
@@ -45,39 +39,33 @@ namespace HN.Management.Manager.Services
             }
             else if (user != null)
             {
-                result = new UserDTO
+                result = new User
                 {
                     Email = user.Email,
-                    PasswordHash = user.PasswordHash,
-                    RoleName = user.RoleName
+                    PasswordHash = user.PasswordHash
                 };
             }
 
             return result;
         }
 
-        public async Task<UserDTO> AddAsync(UserDTO user)
+        public async Task<User> CreateUserAsync(User user)
         {
-            var entity = _mapper.Map<User>(user);
-            var dto = await _userRepository.AddAsync(entity);
-
-            return _mapper.Map<UserDTO>(dto);
+            return await userRepository.InsertAsync(user);
         }
 
-        public async Task<UserDTO> UpdateAsync(UserDTO user)
-        {
-            var entity = _mapper.Map<User>(user);
-            var dto = await _userRepository.UpdateAsync(entity);
+        public async Task<User> UpdateAsync(User user)
+        { 
+            await userRepository.UpdateAsync(user);
 
-            return _mapper.Map<UserDTO>(dto);
+            return user;
         }
 
-        public async Task<UserDTO> DeleteAsync(UserDTO user)
+        public async Task<bool> DeleteAsync(string id)
         {
-            var entity = _mapper.Map<User>(user);
-            var dto = await _userRepository.DeleteAsync(entity);
+            await userRepository.Delete(id);
 
-            return _mapper.Map<UserDTO>(dto);
+            return true;
         }
     }
 }

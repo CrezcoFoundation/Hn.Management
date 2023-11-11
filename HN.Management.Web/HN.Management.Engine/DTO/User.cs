@@ -1,7 +1,7 @@
 ﻿
 namespace HN.ManagementEngine.DTO
 {
-    public class UserDTO
+    public class User
     {
         public int Id { get; set; }
 

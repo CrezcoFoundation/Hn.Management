@@ -5,12 +5,19 @@ using HN.Management.Manager.Services;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using HN.Management.Manager.Services.Paypal;
 using HN.Management.Engine.Repositories.Paypal;
+using HN.Management.Engine.CosmosDb.Interfaces;
+using HN.ManagementEngine.Models;
+using HN.Management.Engine.CosmosDb.Accessors;
+using System;
+using Microsoft.Azure.Cosmos;
+using HN.Management.Engine.CosmosDb.Client;
+using HN.Management.Engine.CosmosDb.Base;
+using User = HN.ManagementEngine.Models.User;
 
 namespace HN.Management.Web.Extensions
 {
@@ -19,31 +26,32 @@ namespace HN.Management.Web.Extensions
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
         {
             //Services
-            service.AddScoped<IExpenseService, ExpenseService>();
-            service.AddScoped<IDonationService, DonationService>();
-            service.AddScoped<IDonorService, DonorService>();
-            service.AddScoped<IEvidenceService, EvidenceService>();
-            service.AddScoped<IProjectService, ProjectService>();
-            service.AddScoped<IStudentService, StudetService>();
+            //service.AddScoped<IExpenseService, ExpenseService>();
+            //service.AddScoped<IDonorService, DonorService>();
+            //service.AddScoped<IEvidenceService, EvidenceService>();
+            //service.AddScoped<IProjectService, ProjectService>();
+            //service.AddScoped<IStudentService, StudetService>();
             //service.AddScoped<IUserRoleService, UserRoleService>();
-            service.AddScoped<IUserService, UserService>();
+             
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
-
-            //Services
             service.AddScoped<IEmailService, EmailService>();
+            service.AddScoped<IDonationService, DonationService>();
+            service.AddScoped<IUserService, UserService>();
 
             //Repositories
-            service.AddScoped<IExpenseRepository, ExpenseRepository>();
-            service.AddScoped<IDonationRepository, DonationRepository>();
-            service.AddScoped<IDonorRepository, DonorRepository>();
-            service.AddScoped<IEvidenceRepository, EvidenceRepository>();
-            service.AddScoped<IProjectRepository, ProjectRepository>();
-            service.AddScoped<IStudentRepository, StudentRepository>();
+            //service.AddScoped<IExpenseRepository, ExpenseRepository>();
+            //service.AddScoped<IDonorRepository, DonorRepository>();
+            //service.AddScoped<IEvidenceRepository, EvidenceRepository>();
+            //service.AddScoped<IProjectRepository, ProjectRepository>();
+            //service.AddScoped<IStudentRepository, StudentRepository>();
             //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
+
             service.AddScoped<IUserRepository, UserRepository>();
+            service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
         }
+
         public static void ConfigureRedis(this IServiceCollection services)
         {
             services.AddStackExchangeRedisCache(options =>
@@ -82,5 +90,51 @@ namespace HN.Management.Web.Extensions
             });
         }
 
+        /// <summary>
+        ///  Setup Cosmos DB
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        public static void SetupCosmosDb(this IServiceCollection services, IConfiguration configuration)
+        {
+            // Cosmos Configuration
+            var cosmosDbConnection = configuration.GetConnectionString("CosmosDb");
+            var cosmosClient = new CosmosClient(cosmosDbConnection);
+            services.AddSingleton(cosmosClient);
+
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<Donation>(
+                serviceProvider,
+                Databases.CrezcoDatabaseId,
+                Databases.CrezcoCollectionName));
+
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<User>(
+                serviceProvider,
+                Databases.CrezcoDatabaseId,
+                Databases.CrezcoCollectionName));
+
+            //Readers and Managers
+            services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
+            services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();
+       
+            services.AddScoped<IDataReader<User>, UserDataAccessor>();
+            services.AddScoped<IDataManager<User>, UserDataAccessor>();
+        }
+
+        private static ICosmosDbClient<T> CreateCosmosDbClient<T>(
+            IServiceProvider serviceProvider,
+            string databaseId,
+            string collectionName)
+            where T : IBaseEntity
+        {
+            var cosmosClient = serviceProvider.GetService<CosmosClient>();
+
+            var configuration = serviceProvider.GetService<IConfiguration>();
+
+            return new CosmosDbClient<T>(
+                cosmosClient,
+                databaseId,
+                collectionName,
+                configuration);
+        }
     }
 }

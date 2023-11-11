@@ -1,5 +1,4 @@
 ﻿using HN.Management.Engine.Models;
-using HN.ManagementEngine.DTO;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -7,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using HN.Management.Manager.Services.Interfaces;
+using HN.ManagementEngine.Models;
 
 namespace HN.Management.Manager.Services
 {
@@ -19,7 +19,7 @@ namespace HN.Management.Manager.Services
             _appSetting = appSetting.Value;
         }
 
-        public string GenerateToken(UserDTO user)
+        public string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("OLAh6Yh5KwNFvOqgltw7");
@@ -30,7 +30,7 @@ namespace HN.Management.Manager.Services
                     new Claim[]
                     {
                         new Claim(ClaimTypes.Email, user.Email),
-                        new Claim("Role", user.RoleName.ToString())
+                        new Claim("Role", user.Role.RoleName.ToString())
                     }),
                 Issuer = _appSetting.ValidIssuer,
                 Audience = _appSetting.ValidAudience,

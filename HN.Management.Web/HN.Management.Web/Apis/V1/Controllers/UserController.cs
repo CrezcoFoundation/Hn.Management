@@ -2,7 +2,6 @@
 using HN.Management.Manager.Enums;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Exceptions.Domain;
-using HN.ManagementEngine.DTO;
 using HN.ManagementEngine.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
@@ -17,77 +16,59 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/users")]
-    public class UsersController : Controller
+    [Route("api/[controller]")]
+    public class UserController : Controller
     {
-        private readonly IDistributedCache _distributedCache;
-        private readonly IUserService _userService;
-        public UsersController(IDistributedCache distributedCache, IUserService userService)
+        private readonly IDistributedCache distributedCache;
+        private readonly IUserService userService;
+        public UserController(IDistributedCache distributedCache, IUserService userService)
         {
-            _distributedCache = distributedCache;
-            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+            this.distributedCache = distributedCache;
+            this.userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllAsync()
         {
-            return Ok(await _userService.GetAllAsync());
+            return Ok(await userService.GetAllAsync());
         }
 
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetByConditionAsync(int userId)
+        public async Task<IActionResult> GetByIdAsync(string id)
         {
-            return Ok(await _userService.GetByConditionAsync(userId));
+            return Ok(await userService.GetByIdAsync(id));
         }
 
-        [HttpPost]
-        [Route("new")]
-        public async Task<IActionResult> AddAsync(UserDTO user)
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateAsync(User user)
         {
-            return Ok(await _userService.AddAsync(user));
+            return Ok(await userService.CreateUserAsync(user));
         }
 
-        /*[HttpPost]
-        [Route("authenticate")]
-        public IActionResult Aunthenticate(AuthenticateRequest entity)
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateAsync(User user)
         {
-            var response =  _userService.AuthenticateRequest(entity);
-
-            if(response == null)
-            {
-                return BadRequest(new { message = "Email or password is incorrect" });
-            }
-
-            return Ok(response);
-        }*/
-
-        [HttpPut]
-        [Route("update")]
-        public async Task<IActionResult> UpdateAsync(UserDTO user)
-        {
-            return Ok(await _userService.UpdateAsync(user));
+            return Ok(await userService.UpdateAsync(user));
         }
 
-        [HttpDelete]
-        [Route("delete")]
-        public async Task<IActionResult> DeleteAsync(UserDTO user)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(string id)
         {
-            return Ok(await _userService.DeleteAsync(user));
+            return Ok(await userService.DeleteAsync(id));
         }
 
-        [HttpGet]
-        [Route("redis")]
+        [HttpGet("redis")]
         public async Task<IActionResult> GetAllActivitiessUsingRedisCache()
         {
             var cacheKey = CacheManagerKeys.Activities.ToString();
             string serializedActivitiesList;
-            var activities = new List<User>();
-            var redisActivitiesList = await _distributedCache.GetAsync(cacheKey);
+            var activities = new List<ManagementEngine.Models.User>();
+            var redisActivitiesList = await distributedCache.GetAsync(cacheKey);
 
             if (redisActivitiesList != null)
             {
                 serializedActivitiesList = Encoding.UTF8.GetString(redisActivitiesList);
-                activities = JsonConvert.DeserializeObject<List<User>>(serializedActivitiesList);
+                activities = JsonConvert.DeserializeObject<List<ManagementEngine.Models.User>>(serializedActivitiesList);
             }
             else
             {
@@ -96,7 +77,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
                 var options = new DistributedCacheEntryOptions()
                     .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
                     .SetSlidingExpiration(TimeSpan.FromMinutes(2));
-                await _distributedCache.SetAsync(cacheKey, redisActivitiesList, options);
+                await distributedCache.SetAsync(cacheKey, redisActivitiesList, options);
             }
             return Ok(activities);
         }

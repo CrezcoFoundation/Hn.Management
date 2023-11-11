@@ -1,11 +1,9 @@
 using HN.Management.Engine.AutoMapper;
-using HN.Management.Engine.Data;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Manager.Services;
 using HN.Management.Web.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,10 +35,12 @@ namespace HN.Management.Web
         {
             services.ConfigureJWToken(Configuration);
             services.ConfigureRedis();
+
+            //Add Cosmos db configuration
+            services.SetupCosmosDb(Configuration);
             services.ConfigureClassesWithInterfaces();
             services.AddAutoMapper(typeof(AutoMapping));
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DeveloperDatabase")));
             services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -82,17 +82,17 @@ namespace HN.Management.Web
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
-            
+
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
             }
-            
+
             // app.UseApiExceptionHandling();
 
             app.UseStaticFiles();

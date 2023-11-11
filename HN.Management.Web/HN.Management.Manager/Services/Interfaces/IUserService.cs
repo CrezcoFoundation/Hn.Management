@@ -1,24 +1,16 @@
-﻿//using HN.Management.Engine.Models;
-using HN.ManagementEngine.DTO;
-using System.Linq;
+﻿using HN.ManagementEngine.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HN.Management.Manager.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<IQueryable<UserDTO>> GetAllAsync();
-
-        Task<UserDTO> GetByConditionAsync(int userId);
-
-        UserDTO GetEmail(string email, string password);
-
-        Task<UserDTO> AddAsync(UserDTO user);
-
-        Task<UserDTO> UpdateAsync(UserDTO user);
-
-        Task<UserDTO> DeleteAsync(UserDTO user);
-
-        //AuthenticateResponse AuthenticateRequest(AuthenticateRequest model);
+        Task<IEnumerable<User>> GetAllAsync();
+        Task<User> GetByIdAsync(string id);
+        Task<User> GetEmail(string email, string password);
+        Task<User> CreateUserAsync(User user);
+        Task<User> UpdateAsync(User user);
+        Task<bool> DeleteAsync(string id);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper.Configuration.Annotations;
 using HN.Management.Engine.CosmosDb.Interfaces;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 
 namespace HN.Management.Engine.CosmosDb
@@ -14,11 +15,12 @@ namespace HN.Management.Engine.CosmosDb
         [Ignore]
         public virtual string PartitionKey { get; set; }
 
-        [JsonProperty("etag")]
+        [JsonProperty("_etag")]
         [Ignore]
         public string Etag { get; set; }
 
         [JsonProperty("_ts")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
         [Ignore]
         public DateTime LastModified { get; set; } = DateTime.UtcNow;
 

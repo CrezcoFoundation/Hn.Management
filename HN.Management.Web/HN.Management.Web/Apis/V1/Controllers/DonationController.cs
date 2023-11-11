@@ -2,7 +2,6 @@
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Exceptions.Domain;
 using HN.ManagementEngine.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
@@ -16,59 +15,54 @@ using System.Threading.Tasks;
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/donation")]
+    [Route("api/[controller]")]
     public class DonationController : Controller
     {
-        private readonly IDistributedCache _distributedCache;
-        private readonly IDonationService _donationService;
+        private readonly IDistributedCache distributedCache;
+        private readonly IDonationService donationService;
         public DonationController(IDistributedCache distributedCache, IDonationService donationService)
         {
-            _distributedCache = distributedCache;
-            _donationService = donationService ?? throw new ArgumentNullException(nameof(donationService));
+            this.distributedCache = distributedCache;
+            this.donationService = donationService ?? throw new ArgumentNullException(nameof(donationService));
         }
 
-        [HttpGet()]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllAsync()
         {
-            return Ok(await _donationService.GetAllAsync());
+            return Ok(await donationService.GetAllAsync());
         }
 
-        [HttpGet("{donationId}")]
-        public async Task<IActionResult> GetByConditionAsync(string donationId)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByConditionAsync(string id)
         {
-            return Ok(await _donationService.GetByIdAsync(donationId));
+            return Ok(await donationService.GetByIdAsync(id));
         }
 
-        [HttpPost]
-        [Route("create")]
-        [AllowAnonymous]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateAsync(Donation donation)
         {
-            return Ok(await _donationService.InsertAsync(donation));
+            return Ok(await donationService.InsertAsync(donation));
         }
 
-        [HttpPut]
-        [Route("update")]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateAsync(Donation donation)
         {
-            return Ok(await _donationService.UpdateAsync(donation));
+            return Ok(await donationService.UpdateAsync(donation));
         }
 
-        [HttpDelete]
-        [Route("delete")]
+        [HttpDelete("{id}")] 
         public async Task<IActionResult> DeleteAsync(string id)
         {
-            return Ok(await _donationService.DeleteAsync(id));
+            return Ok(await donationService.DeleteAsync(id));
         }
 
-        [HttpGet]
-        [Route("redis")]
+        [HttpGet("redis")]
         public async Task<IActionResult> GetAllActivitiessUsingRedisCache()
         {
             var cacheKey = CacheManagerKeys.Activities.ToString();
             string serializedActivitiesList;
             var activities = new List<Donation>();
-            var redisActivitiesList = await _distributedCache.GetAsync(cacheKey);
+            var redisActivitiesList = await distributedCache.GetAsync(cacheKey);
 
             if (redisActivitiesList != null)
             {
@@ -82,7 +76,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
                 var options = new DistributedCacheEntryOptions()
                     .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
                     .SetSlidingExpiration(TimeSpan.FromMinutes(2));
-                await _distributedCache.SetAsync(cacheKey, redisActivitiesList, options);
+                await distributedCache.SetAsync(cacheKey, redisActivitiesList, options);
             }
             return Ok(activities);
         }

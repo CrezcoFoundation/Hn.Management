@@ -44,7 +44,7 @@ namespace HN.Management.Engine.Repositories
         {
             return await this.dataManager.GetItemByIdAsync(id, UserPartition);
         }
-          
+
         public async Task<User> InsertAsync(User item)
         {
             if (item == null)
@@ -72,7 +72,7 @@ namespace HN.Management.Engine.Repositories
 
         public async Task Delete(string id)
         {
-            await this.dataManager.DeleteItemAsync(id);
+            await this.dataManager.DeleteItemAsync(id, UserPartition);
         }
     }
 }

@@ -64,6 +64,7 @@ namespace HN.Management.Engine.Repositories
             {
                 item.Id = Guid.NewGuid().ToString("D");
             }
+
             item.IsDeleted = true;
 
             return await this.dataManager.CreateItemAsync(item);
@@ -80,7 +81,7 @@ namespace HN.Management.Engine.Repositories
 
         public async Task Delete(string id)
         {
-            await this.dataManager.DeleteItemAsync(id);
+            await this.dataManager.DeleteItemAsync(id, DonationPartition);
         }
     }
 }

@@ -35,13 +35,13 @@ namespace HN.Management.Web
         {
             services.ConfigureJWToken(Configuration);
             services.ConfigureRedis();
+
+            //Add Cosmos db configuration
+            services.SetupCosmosDb(Configuration);
             services.ConfigureClassesWithInterfaces();
             services.AddAutoMapper(typeof(AutoMapping));
 
             services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));
-            //Add Cosmos db configuration
-            services.SetupCosmosDb(Configuration);
-
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             //{
@@ -82,17 +82,17 @@ namespace HN.Management.Web
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
-            
+
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
             }
-            
+
             // app.UseApiExceptionHandling();
 
             app.UseStaticFiles();

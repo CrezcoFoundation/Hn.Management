@@ -6,12 +6,13 @@ namespace HN.Management.Engine.CosmosDb.Interfaces
     {
         [JsonProperty("id")]
         public string Id { get; set; }
-
-        [JsonProperty("partitionKey")]
-
+ 
+        /// <summary>
+        /// Partition Key - All children must implement this.
+        /// </summary>
         public string PartitionKey { get; set; }
 
-        [JsonProperty("etag")]
+        [JsonProperty("_etag")]
         public string Etag { get; set; }
     }
 }

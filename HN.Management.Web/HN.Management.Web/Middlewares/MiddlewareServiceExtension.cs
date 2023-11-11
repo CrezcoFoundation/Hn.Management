@@ -17,6 +17,7 @@ using System;
 using Microsoft.Azure.Cosmos;
 using HN.Management.Engine.CosmosDb.Client;
 using HN.Management.Engine.CosmosDb.Base;
+using User = HN.ManagementEngine.Models.User;
 
 namespace HN.Management.Web.Extensions
 {
@@ -26,23 +27,20 @@ namespace HN.Management.Web.Extensions
         {
             //Services
             //service.AddScoped<IExpenseService, ExpenseService>();
-            service.AddScoped<IDonationService, DonationService>();
             //service.AddScoped<IDonorService, DonorService>();
             //service.AddScoped<IEvidenceService, EvidenceService>();
             //service.AddScoped<IProjectService, ProjectService>();
             //service.AddScoped<IStudentService, StudetService>();
             //service.AddScoped<IUserRoleService, UserRoleService>();
-
-            service.AddScoped<IUserService, UserService>();
+             
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
-
-            //Services
             service.AddScoped<IEmailService, EmailService>();
+            service.AddScoped<IDonationService, DonationService>();
+            service.AddScoped<IUserService, UserService>();
 
             //Repositories
             //service.AddScoped<IExpenseRepository, ExpenseRepository>();
-            //service.AddScoped<IDonationRepository, DonationRepository>();
             //service.AddScoped<IDonorRepository, DonorRepository>();
             //service.AddScoped<IEvidenceRepository, EvidenceRepository>();
             //service.AddScoped<IProjectRepository, ProjectRepository>();
@@ -50,6 +48,7 @@ namespace HN.Management.Web.Extensions
             //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
             service.AddScoped<IUserRepository, UserRepository>();
+            service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
         }
 
@@ -108,8 +107,17 @@ namespace HN.Management.Web.Extensions
                 Databases.CrezcoDatabaseId,
                 Databases.CrezcoCollectionName));
 
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<User>(
+                serviceProvider,
+                Databases.CrezcoDatabaseId,
+                Databases.CrezcoCollectionName));
+
+            //Readers and Managers
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();
+       
+            services.AddScoped<IDataReader<User>, UserDataAccessor>();
+            services.AddScoped<IDataManager<User>, UserDataAccessor>();
         }
 
         private static ICosmosDbClient<T> CreateCosmosDbClient<T>(

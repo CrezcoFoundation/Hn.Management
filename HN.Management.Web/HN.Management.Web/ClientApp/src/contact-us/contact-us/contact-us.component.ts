@@ -10,6 +10,10 @@ import { EmailInterface } from '../email-interface';
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit {
+
+  emailCrezco: string = 'info@crezcofoundation.org';
+  numberCrezco: string = '33 3333 3333 333';
+  
   // @ts-ignoretypes
   contactForm: FormGroup;
 

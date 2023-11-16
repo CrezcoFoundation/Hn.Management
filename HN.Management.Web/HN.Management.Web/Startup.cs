@@ -103,8 +103,12 @@ namespace HN.Management.Web
 
             app.UseRouting();
 
-            app.UseCors(builder =>
-            builder.WithOrigins("http://localhost:4200"));
+            app.UseCors(x => x
+             .AllowAnyOrigin()
+             .AllowAnyMethod()
+             .AllowAnyHeader());
+
+            app.UseHttpsRedirection();
 
             app.UseAuthentication();
             app.UseAuthorization();

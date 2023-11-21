@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContactEmailsService } from 'src/contact-us/contact-emails.service';
+import { ContactEmailsService } from 'src/app/web-site/contact-us/contact-emails.service';
 import Swal from 'sweetalert2';
 
 @Component({

@@ -5,7 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // Custom imports from Projects Folder
 import { HomeComponent } from './home.component';
-import { SharedModule } from 'src/shared/shared.module';
+import { SharedModule } from 'src/app/web-site/shared/shared.module';
 //Sweet alert
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 

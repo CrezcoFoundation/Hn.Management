@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactUsComponent } from 'src/contact-us/contact-us/contact-us.component';
-import { CrezcoStoryComponent } from 'src/crezco-story/crezco-story/crezco-story.component';
-import { GiveComponent } from 'src/give/give/give.component';
-import { HomeComponent } from 'src/home/home.component';
+import { ContactUsComponent } from 'src/app/web-site/contact-us/contact-us/contact-us.component';
+import { CrezcoStoryComponent } from 'src/app/web-site/crezco-story/crezco-story/crezco-story.component';
+import { GiveComponent } from 'src/app/web-site/give/give/give.component';
+import { HomeComponent } from 'src/app/web-site/home/home.component';
 
 import {
   LocationStrategy,
@@ -17,12 +17,12 @@ const routes: Routes = [
   { path: 'give', component: GiveComponent },
   {
     path: 'auth',
-    loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('../app/web-site/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'projects',
     loadChildren: () =>
-      import('../projects/projects.module').then((m) => m.ProjectsModule),
+      import('../app/web-site/projects/projects.module').then((m) => m.ProjectsModule),
   },
   { path: '', component: HomeComponent },
 ];

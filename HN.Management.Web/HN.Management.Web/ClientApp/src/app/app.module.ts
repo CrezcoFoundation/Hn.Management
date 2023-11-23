@@ -14,12 +14,14 @@ import { ContactUsModule } from 'src/contact-us/contact-us.module';
 import { StoreModule } from '@ngrx/store';
 import { crezcoReducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UserModule } from './components/users/user.module';
 
 @NgModule({
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],
   imports: [
+    UserModule,
     ContactUsModule,
     CrezcoStoryModule,
     GiveModule,

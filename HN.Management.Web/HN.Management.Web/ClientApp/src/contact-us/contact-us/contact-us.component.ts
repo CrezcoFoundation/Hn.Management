@@ -55,15 +55,28 @@ export class ContactUsComponent implements OnInit {
     this.contactForm.reset({});
     this.charCount = 0;
   }
+  
+  showAlertError() {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'error',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    this.contactForm.reset({});
+    this.charCount = 0;
+  }
 
   onSubmited() {
     this.contactServices.sendEmail(this.contactForm.value).subscribe(
       () => {
         this.showAlert();
       },
-      (error) => {
+      /* (error) => {
+        this.showAlertError();
         console.error('Error sending email', error);
-      }
+      } */
     );
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactEmailsService } from 'src/app/web-site/contact-us/contact-emails.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,11 +12,14 @@ export class HomeComponent implements OnInit {
   // @ts-ignoretypes
   newsletterForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private contactEmailService: ContactEmailsService
+  ) {}
 
   ngOnInit() {
     this.newsletterForm = this.formBuilder.group({
-      letterEmail: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -27,13 +31,26 @@ export class HomeComponent implements OnInit {
       showConfirmButton: false,
       timer: 2000,
     });
-    this.newsletterForm.reset({});
+
+    this.onResetForm();
   }
 
   onSubmited() {
-    // TODO: Agregar la url del backend
-    console.log(this.newsletterForm.status);
-    console.log(this.newsletterForm.value);
-    this.showAlert();
+
+    this.contactEmailService
+      .sendNewsLetterEmail(this.newsletterForm.value)
+      .subscribe(
+        () => {
+          this.showAlert();
+          this.onResetForm();
+        },
+        (error) => {
+          console.error('Error sending email', error);
+        }
+      );
+  }
+
+  onResetForm() {
+    this.newsletterForm.reset({});
   }
 }

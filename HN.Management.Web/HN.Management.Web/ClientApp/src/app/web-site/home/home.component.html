@@ -203,11 +203,14 @@
               type="email"
               placeholder="Email Address"
               class="input-email"
-              formControlName="letterEmail"
+              formControlName="email"
               required
             />
             <a>
-              <button [disabled]="!newsletterForm.valid" class="btn-email">
+              <button
+              type="submit"
+              [disabled]="!newsletterForm.valid"
+              class="btn-email">
                 <img
                   src="../assets/Image/Home-accordion/pray-section/arrow-right-circle.webp"
                   alt="icon arrow"

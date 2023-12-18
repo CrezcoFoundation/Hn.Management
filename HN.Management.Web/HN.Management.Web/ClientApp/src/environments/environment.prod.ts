@@ -6,5 +6,5 @@ export const environment = {
     business: 'acorea@crezcofoundation.org',
   }, 
   title: 'Crezco Foundation Org',
-  api_url: 'http://localhost:34698'
+  api_url: 'https://www.crezcofoundation.org'
 };

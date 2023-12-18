@@ -32,7 +32,7 @@ export class ContactUsComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private contactServices: ContactEmailsService
+    private contactService: ContactEmailsService
   ) {}
 
   ngOnInit() {
@@ -69,8 +69,8 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmited() {
-    this.contactServices.sendEmail(this.contactForm.value).subscribe(
-      () => {
+    this.contactService.sendContactEmail(this.contactForm.value).subscribe(
+      (result) => {
         this.showAlert();
       },
       /* (error) => {
@@ -80,6 +80,3 @@ export class ContactUsComponent implements OnInit {
     );
   }
 }
-
-// TODO: Ruta POST del backend
-//https://localhost:5001/api/mail/contact-me

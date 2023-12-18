@@ -6,8 +6,8 @@ import {
   createSelector,
   MetaReducer,
 } from '@ngrx/store';
-import { DonationInterface } from 'src/give/interfaces/donation.interface';
-import { donationReducer } from 'src/give/reducers/donation.reducer';
+import { DonationInterface } from 'src/app/web-site/give/interfaces/donation.interface';
+import { donationReducer } from 'src/app/web-site/give/reducers/donation.reducer';
 
 export interface CrezcoState {
   donationReducer: DonationInterface;

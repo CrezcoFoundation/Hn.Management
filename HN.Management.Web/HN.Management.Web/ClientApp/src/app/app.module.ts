@@ -6,20 +6,22 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // custom
-import { SharedModule } from 'src/shared/shared.module';
-import { HomeModule } from 'src/home/home.module';
-import { GiveModule } from 'src/give/give.module';
-import { CrezcoStoryModule } from 'src/crezco-story/crezco-story.module';
-import { ContactUsModule } from 'src/contact-us/contact-us.module';
+import { SharedModule } from 'src/app/web-site/shared/shared.module';
+import { HomeModule } from 'src/app/web-site/home/home.module';
+import { GiveModule } from 'src/app/web-site/give/give.module';
+import { CrezcoStoryModule } from 'src/app/web-site/crezco-story/crezco-story.module';
+import { ContactUsModule } from 'src/app/web-site/contact-us/contact-us.module';
 import { StoreModule } from '@ngrx/store';
 import { crezcoReducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { WebSiteModule } from './web-site/web-site.module';
 
 @NgModule({
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],
   imports: [
+    WebSiteModule,
     ContactUsModule,
     CrezcoStoryModule,
     GiveModule,

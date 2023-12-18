@@ -10,6 +10,10 @@ import { EmailInterface } from '../email-interface';
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit {
+
+  emailCrezco: string = 'info@crezcofoundation.org';
+  numberCrezco: string = '33 3333 3333 333';
+  
   // @ts-ignoretypes
   contactForm: FormGroup;
 
@@ -51,15 +55,28 @@ export class ContactUsComponent implements OnInit {
     this.contactForm.reset({});
     this.charCount = 0;
   }
+  
+  showAlertError() {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'error',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    this.contactForm.reset({});
+    this.charCount = 0;
+  }
 
   onSubmited() {
     this.contactService.sendContactEmail(this.contactForm.value).subscribe(
       (result) => {
         this.showAlert();
       },
-      (error) => {
+      /* (error) => {
+        this.showAlertError();
         console.error('Error sending email', error);
-      }
+      } */
     );
   }
 }

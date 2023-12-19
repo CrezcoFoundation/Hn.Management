@@ -131,7 +131,7 @@
           <a class="nav-link" [routerLink]="['/contact-us']">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/auth/login']">
+          <a class="nav-link disabled" [routerLink]="['/auth/login']">
             <button class="btn-login py-1 px-3">Login</button>
           </a>
         </li>
@@ -280,15 +280,40 @@
       <!-- Mobile version menu end -->
     </div>
     <!-- id="navbarNavDropdown" -->
-    <a class="nav-link d-none d-lg-block">
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Donate Now
-      </button>
-    </a>
+    <!-- Languages options -->
+    <div class="row g-4">
+      <div class="col-md d-flex flex-row gap-4">
+        <a class="nav-link d-none d-lg-block">
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+          {{ 'HOME.donate' | i18next }}
+          </button>
+        </a>
+
+          <div class="form-floating">
+            <label for="language">language:</label>  
+            <select formControlName="language" class="form-control" (change)="changeLanguage($event)">  
+                <option>Choose language</option>  
+                <option *ngFor="let web of languages">{{web}}</option>  
+            </select>  
+            <div *ngIf="f.language.touched && f.language.invalid" class="alert alert-danger">  
+                <!-- <div *ngIf="f.language.errors">Name is required.</div>  --> 
+            </div>  
+          </div>
+          <p>{{ 'HOME.donate' | i18next }}</p>
+
+          <!-- <div class="form-floating">
+            <select class="form-select pb-0 pt-0" id="floatingSelectGrid">
+              <option value="1" selected>En</option>
+              <option value="2">Es</option>
+            </select>
+          </div> -->
+
+      </div>
+    </div>
   </div>
 </nav>
 

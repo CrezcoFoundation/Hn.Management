@@ -170,3 +170,13 @@ li .item-medical:hover {
   width: 30px;
   max-width: 100%;
 }
+
+.form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+  height: calc(2.2rem + calc(var(--bs-border-width) * 2));
+  min-height: calc(2rem + calc(var(--bs-border-width) * 2));
+}
+
+.form-select:focus {
+  border-color: #c2c2c2;
+  box-shadow: 0 0 0 0.25rem rgba(49, 164, 83, 0.25);
+}

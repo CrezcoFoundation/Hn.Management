@@ -23,14 +23,14 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Translation files
 import en from '../assets/locales/en.translation.json';
-import el from '../assets/locales/es.translation.json';
+import es from '../assets/locales/es.translation.json';
 
 const resources = {
   en: {
     translation: en
   },
-  el: {
-    translation: el
+  es: {
+    translation: es
   }
 };
 
@@ -41,7 +41,7 @@ export function appInit(i18next: ITranslationService) {
       .use(LanguageDetector)
       .init({
       resources,
-      supportedLngs: ['en', 'el'],
+      supportedLngs: ['en', 'es'],
       fallbackLng: 'en',
       debug: true,
       returnEmptyString: false,

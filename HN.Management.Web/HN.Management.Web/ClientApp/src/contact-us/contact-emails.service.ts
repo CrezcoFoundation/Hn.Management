@@ -1,56 +1,40 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EmailInterface } from './email-interface';
 import { environment } from 'src/environments/environment';
-import { retry, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactEmailsService {
+
+
+  /* showAlert() {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Http failure response for http://localhost:34698/api/mail/contact-me: 0 Unknown Error',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  } */
+
+
+
   baseUrl = environment.api_url;
-  mailControllerBase = '/api/mail';
-  newsLetterProgram = '/newsletter-program';
+  mailControllerBase= '/api/mail';
+  newsLetterProgram= '/newsletter-program';
   contactMe = '/contact-me';
 
-  newsLetterEmailRequest = `${this.baseUrl}${this.mailControllerBase}${this.newsLetterProgram}/`
+  newsLetterEmailRequest = `${this.baseUrl}${this.mailControllerBase}${this.newsLetterProgram}`
   contactMeRequest = `${this.baseUrl}${this.mailControllerBase}${this.contactMe}`
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-    // Http Options
-    httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
-
-  sendContactEmail = (emailContent: EmailInterface) => {
-    return this.http.post(this.contactMeRequest, emailContent, this.httpOptions)
-    .pipe(retry(1), catchError(this.handleError));
+  sendEmail = (emailContent: EmailInterface) => { 
+    /* this.showAlert(); */
+    return this.http.post(this.contactMeRequest, emailContent);
   };
-
-  sendNewsLetterEmail = (request: any) => {
-    console.log(request.email, "call service");
-
-    return this.http.post(`${this.newsLetterEmailRequest}?email=${request.email}`, "",  this.httpOptions)
-    .pipe(retry(1), catchError(this.handleError));
-  };
-
-    // Error handling
-    handleError(error: any) {
-      let errorMessage = '';
-      if (error.error instanceof ErrorEvent) {
-        // Get client-side error
-        errorMessage = error.error.message;
-      } else {
-        // Get server-side error
-        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-      }
-      window.alert(errorMessage);
-      return throwError(() => {
-        return errorMessage;
-      });
-    }
 }

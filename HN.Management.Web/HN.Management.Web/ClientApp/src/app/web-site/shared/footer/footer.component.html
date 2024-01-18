@@ -1,0 +1,135 @@
+<div class="fluid-container">
+  <footer
+    class="d-flex flex-column justify-content-between align-items-center py-3"
+  >
+    <div
+      class="content-footer d-flex flex-lg-row flex-column align-items-center justify-content-between my-5 my-lg-4"
+    >
+      <!-- Logo and social media container -->
+      <div
+        class="d-flex flex-column align-items-center justify-content-center row"
+      >
+        <div class="logo-footer mb-3 text-center">
+          <a [routerLink]="['/']"
+            ><img
+              src="assets/Image/Logo/crezco-logo-footer.svg"
+              alt="Logo Crezco"
+          /></a>
+        </div>
+        <div class="d-flex align-items-center justify-content-around gap-3">
+          <a [routerLink]="['/']" target="_blank"
+            ><img
+              class="social-icon"
+              src="assets/Image/footer-social-networks/Facebook-icon.png"
+              alt="Logo Crezco"
+            />
+          </a>
+          <a href="https://www.instagram.com/crezcofoundation/" target="_blank"
+            ><img
+              class="social-icon"
+              src="assets/Image/footer-social-networks/Instagram-icon.png"
+              alt="Logo Crezco"
+            />
+          </a>
+          <a [routerLink]="['/']" target="_blank"
+            ><img
+              class="social-icon"
+              src="assets/Image/footer-social-networks/LinkedIn-icon.png"
+              alt="Logo Crezco"
+            />
+          </a>
+        </div>
+      </div>
+      <!-- Project links of Foundation -->
+      <div class="project-links text-white mt-4 mt-lg-0">
+        <h5>Our Projects</h5>
+        <ul
+          class="nav d-flex flex-column align-items-start justify-content-start"
+        >
+          <li class="nav-item">
+            <a
+              [routerLink]="['/projects/university']"
+              class="nav-link px-0 text-white link-footer"
+              >University Sponsorship</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/projects/special-education']"
+              class="nav-link px-0 text-white link-footer"
+              >Special Education</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/projects/community-support']"
+              class="nav-link px-0 text-white link-footer"
+              >Community Support</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/projects/mission-trip']"
+              class="nav-link px-0 text-white link-footer"
+              >Student Mission Trips</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/projects/medical-assistance']"
+              class="nav-link px-0 text-white link-footer"
+              >Medical Assistance</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- Sepatator -->
+      <!-- <hr class="d-block d-lg-none" /> -->
+      <!-- Page Links -->
+      <div class="page-links">
+        <ul
+          class="nav d-flex flex-column align-items-start justify-content-start"
+        >
+          <li class="nav-item">
+            <a [routerLink]="['/']" class="nav-link px-0 text-white link-footer"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/give']"
+              class="nav-link px-0 text-white link-footer disabled-item_navbar"
+              >Donate Now</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/crezco-story']"
+              class="nav-link px-0 text-white link-footer"
+              >Crezco's Story</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['/contact-us']"
+              class="nav-link px-0 text-white link-footer"
+              >Contact</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              [routerLink]="['auth/login']"
+              class="nav-link px-0 text-white link-footer disabled-item_navbar"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="content-footer_foundation">
+  <p class="col-12 py-3 mb-0 text-white text-center signature-crezco">
+    © 2023 Crezco Foundation Inc.
+  </p>
+</div>

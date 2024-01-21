@@ -2,7 +2,8 @@
   "dependencies": {
     "compute.appService1": {
       "group": "connections",
-      "type": "compute.appService"
+      "type": "compute.appService",
+      "connectionId": null
     }
   }
 }

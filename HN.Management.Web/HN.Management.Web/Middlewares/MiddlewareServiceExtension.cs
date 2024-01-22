@@ -18,6 +18,7 @@ using Microsoft.Azure.Cosmos;
 using HN.Management.Engine.CosmosDb.Client;
 using HN.Management.Engine.CosmosDb.Base;
 using User = HN.ManagementEngine.Models.User;
+using HN.Management.Engine.Models.Auth;
 
 namespace HN.Management.Web.Extensions
 {
@@ -112,12 +113,28 @@ namespace HN.Management.Web.Extensions
                 Databases.CrezcoDatabaseId,
                 Databases.CrezcoCollectionName));
 
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<Role>(
+                serviceProvider,
+                Databases.CrezcoDatabaseId,
+                Databases.CrezcoCollectionName));
+
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<RolePrivilege>(
+             serviceProvider,
+             Databases.CrezcoDatabaseId,
+             Databases.CrezcoCollectionName));
+
             //Readers and Managers
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();
-       
+             
             services.AddScoped<IDataReader<User>, UserDataAccessor>();
             services.AddScoped<IDataManager<User>, UserDataAccessor>();
+             
+            services.AddScoped<IDataReader<Role>, RoleDataAccessor>();
+            services.AddScoped<IDataManager<Role>, RoleDataAccessor>();
+
+            services.AddScoped<IDataReader<RolePrivilege>, PrivilegeDataAccessor>();
+            services.AddScoped<IDataManager<RolePrivilege>, PrivilegeDataAccessor>();
         }
 
         private static ICosmosDbClient<T> CreateCosmosDbClient<T>(

@@ -21,11 +21,14 @@ namespace HN.ManagementEngine.Models
         [JsonProperty("email")]
         public string Email { get; set; }
 
+        [JsonProperty("userName")]
+        public string UserName { get; set; }
+
         [JsonProperty("isEmailConfirmed")]
         public bool IsEmailConfirmed { get; set; }
 
-        [JsonProperty("passwordHash")]
-        public string PasswordHash { get; set; }
+        [JsonProperty("password")]
+        public string Password { get; set; }
 
         [JsonProperty("role")]
         public Role Role { get; set; }

@@ -42,7 +42,7 @@ namespace HN.Management.Manager.Services
                 result = new User
                 {
                     Email = user.Email,
-                    PasswordHash = user.PasswordHash
+                    Password = user.Password
                 };
             }
 

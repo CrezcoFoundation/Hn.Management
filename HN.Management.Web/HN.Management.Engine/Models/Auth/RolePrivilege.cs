@@ -1,5 +1,6 @@
 ﻿using HN.Management.Engine.CosmosDb;
 using Newtonsoft.Json;
+using System;
 
 namespace HN.Management.Engine.Models.Auth
 {
@@ -12,7 +13,9 @@ namespace HN.Management.Engine.Models.Auth
         public string SchemaName { get; set; } = UserSchema;
 
         public Role Role { get; set; }
-        public int? RoleId { get; set; }
+
+        public string RoleId { get; set; }
+
         public string Privilege { get; set; }
     }
 }

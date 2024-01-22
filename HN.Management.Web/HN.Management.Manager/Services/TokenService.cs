@@ -81,7 +81,7 @@ namespace HN.Management.Manager.Services
                     new Claim[]
                     {
                         new Claim(ClaimTypes.Email, user.Email),
-                        new Claim("Role", user.Role.RoleName.ToString())
+                        new Claim("Role", user.Role.Name.ToString())
                     }),
                 Issuer = _appSetting.ValidIssuer,
                 Audience = _appSetting.ValidAudience,

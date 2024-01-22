@@ -12,5 +12,7 @@ namespace HN.Management.Engine.Models.Auth
         public string SchemaName { get; set; } = UserSchema;
 
         public string Name { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

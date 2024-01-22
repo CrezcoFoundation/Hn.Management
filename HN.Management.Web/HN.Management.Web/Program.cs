@@ -26,7 +26,13 @@ namespace HN.Management.Web
             try
             {
                 //Log.Information("Application Starting.");
-                CreateHostBuilder(args).Build().Run();
+                CreateHostBuilder(args)
+                    .UseDefaultServiceProvider(opt =>
+                    {
+                        // this overrides the default service provider options
+                        // so that it doesn't validate the service collection (which raises exceptions)
+                    })
+                    .Build().Run();
             }
             catch (Exception ex)
             {

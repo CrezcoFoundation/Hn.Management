@@ -19,6 +19,7 @@ using HN.Management.Engine.CosmosDb.Client;
 using HN.Management.Engine.CosmosDb.Base;
 using User = HN.ManagementEngine.Models.User;
 using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.Repositories.Auth;
 
 namespace HN.Management.Web.Extensions
 {
@@ -51,6 +52,8 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
+            service.AddScoped<IRoleRepository, RoleRepository>();
+            service.AddScoped<IRolePrivilegeRepository, RolePrivilegeRepository>();
         }
 
         public static void ConfigureRedis(this IServiceCollection services)

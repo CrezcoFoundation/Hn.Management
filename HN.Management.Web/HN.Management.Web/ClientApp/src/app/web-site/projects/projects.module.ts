@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // Custom imports from Projects Folder
 import { UniversitySponsorshipComponent } from './university-sponsorship/university-sponsorship.component';
@@ -10,6 +12,14 @@ import { CommunitySupportComponent } from './community-support/community-support
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
+}
+
 @NgModule({
   declarations: [
     UniversitySponsorshipComponent,
@@ -19,7 +29,21 @@ import { ProjectsComponent } from './projects/projects.component';
     CommunitySupportComponent,
     ProjectsComponent,
   ],
-  imports: [CommonModule, ProjectsRoutingModule],
+  imports: [
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    RouterModule,
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ProjectsRoutingModule,
+  ],
   bootstrap: [
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,

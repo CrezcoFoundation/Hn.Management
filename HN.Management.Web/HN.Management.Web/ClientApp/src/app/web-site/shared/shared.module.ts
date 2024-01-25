@@ -3,6 +3,10 @@ import { NgModule, APP_INITIALIZER, LOCALE_ID  } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
 
 // bootstrap components
@@ -85,6 +89,10 @@ export const I18N_PROVIDERS = [
   useFactory: localeIdFactory
 }];
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
+}
+
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -97,8 +105,16 @@ export const I18N_PROVIDERS = [
     NgOptimizedImage,
     RouterModule,
     CommonModule,
-    FormsModule,  
+    FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     I18NextModule.forRoot()],
   exports: [
     PaypalComponent,

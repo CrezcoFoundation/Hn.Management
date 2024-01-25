@@ -11,7 +11,11 @@ import { HomeModule } from 'src/app/web-site/home/home.module';
 import { SharedModule } from 'src/app/web-site/shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
 
 // i18n Translate
@@ -30,6 +34,10 @@ const resources = {
     translation: el
   }
 };
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
+}
 
 export function appInit(i18next: ITranslationService) {
   return () =>
@@ -91,6 +99,14 @@ export const I18N_PROVIDERS = [
     WebSiteComponent
   ],
   imports: [
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ContactUsModule,
     CrezcoStoryModule,
     GiveModule,
@@ -98,7 +114,7 @@ export const I18N_PROVIDERS = [
     SharedModule,
     CommonModule,
     WebSiteRoutingModule,
-    FormsModule,  
+    FormsModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,

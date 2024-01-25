@@ -1,4 +1,91 @@
-{ "HOME": {
-    "donate": "Donar ahora"
+{
+  "GENERAL": {
+    "Learn_more": "Leer más",
+    "Button_contact": "Contáctanos"
+  },
+  "NAVBAR": {
+    "Link1": "Proyectos",
+    "Projects": {
+      "Project_1": "Patrocinio Universitario",
+      "Project_2": "Educación Especial",
+      "Project_3": "Soporte Comunitario",
+      "Project_4": "Viajes Misioneros",
+      "Project_5": "Asistencia Médica",
+      "Project_Footer" : "Nuestros Proyectos",
+      "Home" : "Inicio"
+    },
+    "Link2": "Historia Crezco",
+    "Link3": "Contacto",
+    "Link4": "Entrar"
+  },
+  "PAGE_HOME": {
+    "subtitle_home": "Tiene como objetivo proporcionar recursos que apoyen el crecimiento de niños en riesgo a través de oportunidades educativas y abordando patrones familiares negativos.",
+    "Donate": "Donar ahora",
+    "Paragraphs": {
+      "Pray_1": "Únase a nosotros en oración por el ministerio de Crezco: nuestros programas, los participantes de los programas, las comunidades en las que trabajamos y nuestros voluntarios.",
+      "Button_pray": "Descargar Calendario",
+      "Pray_2": "Suscríbase a nuestro boletín anual con actualizaciones del programa y solicitudes de oración."
+    },
+    "Administrative": {
+      "Title": "SOPORTE ADMINISTRATIVO",
+      "Subtitle": "Crezco necesita voluntarios en una variedad de áreas que incluyen contabilidad, trabajo de secretaria y gestión de viajes. Contáctenos para más información."
+    },
+    "Domain_Camp": {
+      "Title": "CAMPAÑAS DE DONACIÓN",
+      "Subtitle": "Apoye nuestras campañas de donación y proyectos especiales. Haga correr la voz a otros patrocinadores y donantes potenciales. ¡Involucre a su iglesia, escuela o grupo pequeño! Las campañas son tanto en especie como monetarias. Contáctenos para más información."
     }
-}
+  },
+  "PAGE_PROJECTS": {
+    "University_Page": {
+      "Abreviation": "Las investigaciones han demostrado que las oportunidades de educación..."
+    },
+    "Special_education": {
+      "Abreviation": "En Crezco, creemos firmemente que no hay una solución única para todos cuando se trata de..."
+    },
+    "Community_support": {
+      "Abreviation": "Atender las necesidades de la comunidad local permite a Crezco ser una luz en..."
+    },
+    "Student_mission": {
+      "Abreviation": "El programa de viaje misionero estudiantil de Crezco se centra en fomentar un profundo..."
+    },
+    "Medical_assistance": {
+      "Abreviation": "El Programa de Asistencia Médica de Crezco sirve como fuente de esperanza para las..."
+    }
+  },
+    "PAGE_CONTACT": {
+      "Title_left": "SABER MÁS ACERCA DE CREZCO",
+      "Title_right": "CONTÁCTANOS",
+      "Paragraph_1": "Contáctanos para aprender más sobre cómo ¡Puedes involucrarte en un proyecto Crezco!",
+      "Contact_email": "info@crezcofoundation.org",
+      "Contact_phone": "33 3333 3333 333",
+      "Visit_us": "VISÍTANOS EN REDES SOCIALES",
+      "Label_1": "Ingrese su nombre",
+      "Label_2": "Ingrese su correo electrónico",
+      "Label_3": "Ingrese su mensaje",
+      "Contact_newsletter": "Quiero suscribirme al boletín de noticias",
+      "Contact_button": "ENVIAR MENSAJE"
+    },
+    "STORY_CREZCO": {
+      "Title_story": "HISTORIA DE CREZCO",
+      "Paragraph_1": "Crezco es una organización que se originó a partir de un pequeño ministerio eclesiástico con sede en los Estados Unidos. Este ministerio comenzó en 1996 con viajes misioneros de corto plazo a un hogar de niños cristianos en Honduras, Centroamérica.",
+      "Paragraph_2": "A lo largo de los años, se desarrolló una fuerte relación entre la iglesia y el hogar de niños, lo que llevó a darse cuenta de que los recién graduados de la escuela secundaria del hogar necesitaban apoyo para continuar con su educación superior.",
+      "Section_2": "CRECIMIENTO POR EL CONOCIMIENTO",
+      "Subsection_2": "Con la ayuda de miembros de la iglesia local, miembros de la comunidad, donaciones y patrocinios, el ministerio trabajó para hacer realidad el sueño de una educación universitaria para estos jóvenes adultos. El objetivo general era dotar a estos estudiantes de la educación y las habilidades necesarias para romper los ciclos de pobreza, falta de educación, patrones familiares poco saludables, problemas de salud mental y las circunstancias que los llevaron al hogar de niños en primer lugar. Además, el ministerio tuvo como objetivo inculcar en estos jóvenes adultos la pasión por servir a los demás en el nombre de Jesús.",
+      "Section_3": "CRECIMIENTO POR EL EMPODERAMIENTO",
+      "Subsection_3": "La financiación de estos esfuerzos siempre ha provenido de donaciones proporcionadas por personas de diversas comunidades. Estas donaciones cubren costos universitarios, matrículas, transporte y artículos personales esenciales para cada estudiante. A lo largo de los años, 26 jóvenes se han beneficiado del aspecto de educación universitaria del ministerio, y 15 se graduaron exitosamente de universidades cristianas en países como Costa Rica, México y Perú.",
+      "Subsection_4": "Estos graduados han obtenido títulos en diversos campos, incluyendo ingeniería de sistemas informáticos, artes culinarias, fisioterapia, enfermería, psicología clínica y diseño gráfico. Actualmente, hay alumnos estudiando en Perú y México, y cada año nuevos alumnos del hogar inician sus estudios universitarios.",
+      "Section_4": {
+        "Line_1": "Graduados del Programa Universitario*",
+        "Line_2": "MÁS DE",
+        "Line_3": "10 GRADUADOS",
+        "Line_4": "*NO TODOS ESTÁN EN LAS FOTOS"
+      },
+      "Section_5": "CRECIMIENTO POR LA INFLUENCIA",
+      "Subsection_5": "A medida que el ministerio continuó expandiendo su influencia más allá de su propósito inicial, se tomó la decisión de establecer Crezco como una organización formal. Además del programa universitario, el trabajo de Crezco también incluye el apoyo continuo al hogar infantil y a la comunidad local. Este apoyo abarca desde abordar situaciones de emergencia y proporcionar recursos de atención médica hasta coordinar donaciones de ropa y suministros educativos, organizar celebraciones especiales y participar en esfuerzos de socorro en casos de desastre. La colaboración entre Crezco y la pequeña comunidad de Honduras ha crecido mucho más allá de lo que jamás imaginamos.",
+      "Section_banner1": "Crezco atribuye el crecimiento de su influencia y el éxito de los miembros de nuestra comunidad al apoyo continuo y las oportunidades con las que Dios nos ha bendecido, y anticipamos muchos años más de apoyo y colaboración.",
+      "Section_banner2": "Crezco sigue comprometido con su misión de transformar las vidas de los adultos jóvenes y la comunidad a la que sirve a través de la educación, la fe y el servicio.",
+      "Section_6": {
+        "Title_admin": "JUNTA Y FUNCIONARIOS DE ADMINISTRACIÓN"
+      }
+    }
+  }

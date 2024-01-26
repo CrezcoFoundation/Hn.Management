@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using HN.Management.Manager.Services.Interfaces;
-using HN.Management.Engine.Models.Auth;
 using System.Net;
 using HN.Management.Manager.Exceptions;
 using System.Threading.Tasks;
+using HN.Management.Engine.ViewModels;
 
 namespace HN.Management.Web.Apis.V1.Controllers
 {

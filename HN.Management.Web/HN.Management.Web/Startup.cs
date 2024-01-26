@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
+using HN.Management.Engine.CosmosDb.Interfaces;
+using System;
 
 namespace HN.Management.Web
 {
@@ -76,6 +78,7 @@ namespace HN.Management.Web
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HN.Management", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,7 +94,10 @@ namespace HN.Management.Web
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
+
             }
+
+            app.UseMiddleware<TokenService>();
 
             // app.UseApiExceptionHandling();
 
@@ -126,6 +132,9 @@ namespace HN.Management.Web
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
+
+            var seedDatabaseService = app.ApplicationServices.GetService<IDataInitializer>();
+            seedDatabaseService.SeedDatabase();
         }
     }
 }

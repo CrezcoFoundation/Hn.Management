@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WebSiteComponent } from './web-site/web-site.component';
+import { ContactUsComponent } from 'src/app/web-site/contact-us/contact-us/contact-us.component';
+import { CrezcoStoryComponent } from 'src/app/web-site/crezco-story/crezco-story/crezco-story.component';
+import { GiveComponent } from 'src/app/web-site/give/give/give.component';
+import { HomeComponent } from 'src/app/web-site/home/home.component';
 
 import {
   LocationStrategy,
@@ -9,10 +12,19 @@ import {
 } from '@angular/common';
 
 const routes: Routes = [
-  { path: '', component: WebSiteComponent },
-  { path: 'webSite', loadChildren: () => import('./web-site/web-site.module').then(m => m.WebSiteModule) },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: '**', redirectTo: '' }
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'crezco-story', component: CrezcoStoryComponent },
+  { path: 'give', component: GiveComponent },
+  {
+    path: 'auth',
+    loadChildren: () => import('../app/web-site/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'projects',
+    loadChildren: () =>
+      import('../app/web-site/projects/projects.module').then((m) => m.ProjectsModule),
+  },
+  { path: '', component: HomeComponent },
 ];
 
 @NgModule({

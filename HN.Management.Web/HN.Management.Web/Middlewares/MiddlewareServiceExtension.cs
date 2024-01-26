@@ -18,6 +18,9 @@ using Microsoft.Azure.Cosmos;
 using HN.Management.Engine.CosmosDb.Client;
 using HN.Management.Engine.CosmosDb.Base;
 using User = HN.ManagementEngine.Models.User;
+using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.Repositories.Auth;
+using HN.Management.Engine.CosmosDb.DataInitializer;
 
 namespace HN.Management.Web.Extensions
 {
@@ -32,7 +35,7 @@ namespace HN.Management.Web.Extensions
             //service.AddScoped<IProjectService, ProjectService>();
             //service.AddScoped<IStudentService, StudetService>();
             //service.AddScoped<IUserRoleService, UserRoleService>();
-             
+
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
             service.AddScoped<IEmailService, EmailService>();
@@ -50,6 +53,10 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
+            service.AddScoped<IRoleRepository, RoleRepository>();
+            service.AddScoped<IRolePrivilegeRepository, RolePrivilegeRepository>();
+
+            service.AddScoped<IDataInitializer, DataInitializer>();
         }
 
         public static void ConfigureRedis(this IServiceCollection services)
@@ -112,12 +119,29 @@ namespace HN.Management.Web.Extensions
                 Databases.CrezcoDatabaseId,
                 Databases.CrezcoCollectionName));
 
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<Role>(
+                serviceProvider,
+                Databases.CrezcoDatabaseId,
+                Databases.CrezcoCollectionName));
+
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<RolePrivilege>(
+             serviceProvider,
+             Databases.CrezcoDatabaseId,
+             Databases.CrezcoCollectionName));
+             
             //Readers and Managers
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();
-       
+
             services.AddScoped<IDataReader<User>, UserDataAccessor>();
             services.AddScoped<IDataManager<User>, UserDataAccessor>();
+
+            services.AddScoped<IDataReader<Role>, RoleDataAccessor>();
+            services.AddScoped<IDataManager<Role>, RoleDataAccessor>();
+
+            services.AddScoped<IDataReader<RolePrivilege>, PrivilegeDataAccessor>();
+            services.AddScoped<IDataManager<RolePrivilege>, PrivilegeDataAccessor>();
+
         }
 
         private static ICosmosDbClient<T> CreateCosmosDbClient<T>(

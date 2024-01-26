@@ -1,5 +1,5 @@
 ﻿using HN.Management.Engine.CosmosDb;
-using HN.Management.Engine.Models;
+using HN.Management.Engine.Models.Auth;
 using Newtonsoft.Json;
 
 namespace HN.ManagementEngine.Models
@@ -21,11 +21,14 @@ namespace HN.ManagementEngine.Models
         [JsonProperty("email")]
         public string Email { get; set; }
 
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
         [JsonProperty("isEmailConfirmed")]
         public bool IsEmailConfirmed { get; set; }
 
-        [JsonProperty("passwordHash")]
-        public string PasswordHash { get; set; }
+        [JsonProperty("password")]
+        public string Password { get; set; }
 
         [JsonProperty("role")]
         public Role Role { get; set; }

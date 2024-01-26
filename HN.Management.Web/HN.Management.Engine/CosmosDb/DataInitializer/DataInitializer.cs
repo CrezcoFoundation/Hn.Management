@@ -1,41 +1,30 @@
-﻿using HN.Management.Engine.Models.Auth;
-using HN.Management.Engine.Repositories;
-using HN.Management.Engine.Repositories.Auth;
+﻿using HN.Management.Engine.CosmosDb.Interfaces;
+using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Interfaces;
 using HN.ManagementEngine.Models;
 using System;
 
 namespace HN.Management.Engine.CosmosDb.DataInitializer
 {
-    public static class DataInitializer
+    public class DataInitializer : IDataInitializer
     {
+        private readonly IRoleRepository roleRepository;
+        private readonly IRolePrivilegeRepository rolePrivilegeRepository;
+        private readonly IUserRepository userRepository;
 
-        private static IRoleRepository _roleRepository;
-        private static IRolePrivilegeRepository _rolePrivilegeRepository;
-        private static IUserRepository _userRepository;
-
-        private static IRoleRepository roleRepository
+        public DataInitializer(
+            IRoleRepository roleRepository,
+            IRolePrivilegeRepository rolePrivilegeRepository,
+            IUserRepository userRepository)
         {
-            get { return _roleRepository; }
+            this.roleRepository = roleRepository ?? throw new ArgumentNullException(nameof(roleRepository));
+            this.rolePrivilegeRepository = rolePrivilegeRepository ?? throw new ArgumentNullException(nameof(rolePrivilegeRepository));
+            this.userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+
         }
 
-        private static IRolePrivilegeRepository rolePrivilegeRepository
+        public void SeedDatabase()
         {
-            get { return _rolePrivilegeRepository; }
-        }
-
-        private static IUserRepository userRepository
-        {
-            get { return _userRepository; }
-        }
-
-        public static void Run()
-        {
-
-            _roleRepository = roleRepository;
-            _rolePrivilegeRepository = rolePrivilegeRepository;
-            _userRepository = userRepository;
-
             var administratorRole = new Role
             {
                 Id = Guid.NewGuid().ToString("D"),
@@ -48,8 +37,8 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Name = "Operator"
             };
 
-            _roleRepository.InsertAsync(administratorRole);
-            _roleRepository.InsertAsync(operatorRole);
+            roleRepository.InsertAsync(administratorRole);
+            roleRepository.InsertAsync(operatorRole);
 
             // create privileges
             var readRolePrivilegeAdmin = new RolePrivilege
@@ -59,7 +48,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Privilege = PrivilegeConstants.ReadUser
             };
 
-            _rolePrivilegeRepository.InsertAsync(readRolePrivilegeAdmin);
+            rolePrivilegeRepository.InsertAsync(readRolePrivilegeAdmin);
 
             var createRolePrivilegeAdmin = new RolePrivilege
             {
@@ -68,7 +57,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Privilege = PrivilegeConstants.CreateUser
             };
 
-            _rolePrivilegeRepository.InsertAsync(createRolePrivilegeAdmin);
+            rolePrivilegeRepository.InsertAsync(createRolePrivilegeAdmin);
 
             var readRolePrivilegeOperator = new RolePrivilege
             {
@@ -77,7 +66,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Privilege = PrivilegeConstants.ReadUser
             };
 
-            _rolePrivilegeRepository.InsertAsync(readRolePrivilegeOperator);
+            rolePrivilegeRepository.InsertAsync(readRolePrivilegeOperator);
 
 
             // create user
@@ -90,7 +79,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Role = administratorRole
             };
 
-            _userRepository.InsertAsync(adminUser);
+            userRepository.InsertAsync(adminUser);
 
             var operatorUser = new User
             {
@@ -101,7 +90,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Role = operatorRole
             };
 
-            _userRepository.InsertAsync(operatorUser);
+            userRepository.InsertAsync(operatorUser);
 
         }
     }

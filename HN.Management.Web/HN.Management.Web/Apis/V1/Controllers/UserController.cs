@@ -1,7 +1,7 @@
 ﻿//using HN.Management.Engine.Models;
 using HN.Management.Manager.Enums;
+using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
-using HN.Management.Web.Exceptions.Domain;
 using HN.ManagementEngine.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;

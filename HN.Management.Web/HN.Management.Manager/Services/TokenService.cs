@@ -37,7 +37,6 @@ namespace HN.Management.Manager.Services
             await _next(context);
         }
 
-
         private (string? userId, string? roleId) ValidateAccessToken(string accessToken)
         {
             try

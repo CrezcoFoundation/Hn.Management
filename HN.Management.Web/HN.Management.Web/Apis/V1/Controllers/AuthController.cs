@@ -4,45 +4,46 @@ using System.Net;
 using HN.Management.Manager.Exceptions;
 using System.Threading.Tasks;
 using HN.Management.Engine.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HN.Management.Web.Apis.V1.Controllers
 {
     [ApiController]
-    [Route("api/login")]
-    public class LoginController : Controller
+    [Route("api/[controller]")]
+    public class AuthController : Controller
     {
         private readonly IUserService _userService;
         private readonly ITokenService _tokenService;
-        public LoginController(IUserService userService, ITokenService tokenService)
+        public AuthController(IUserService userService, ITokenService tokenService)
         {
             _userService = userService;
             _tokenService = tokenService;
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        [Route("auth")]
-        public async Task<IActionResult> AuthenticateAsync([FromBody]LoginRequest loginRequest)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if(loginRequest == null)
+            if (loginRequest == null)
             {
                 throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
             }
 
-            var result = await this._userService.GetEmail(loginRequest.Email, loginRequest.Password);
+            var user = await this._userService.GetUserAsync(loginRequest);
 
-            if(result == null)
+            if (user == null)
             {
                 throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
             }
 
-            var token = _tokenService.GenerateToken(result);
+            var token = _tokenService.GenerateToken(user);
             return Ok(token);
         }
-               
+
     }
 }

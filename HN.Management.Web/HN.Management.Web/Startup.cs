@@ -10,7 +10,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
 using HN.Management.Engine.CosmosDb.Interfaces;
-using System;
 
 namespace HN.Management.Web
 {
@@ -94,7 +93,6 @@ namespace HN.Management.Web
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
-
             }
 
             app.UseMiddleware<TokenService>();

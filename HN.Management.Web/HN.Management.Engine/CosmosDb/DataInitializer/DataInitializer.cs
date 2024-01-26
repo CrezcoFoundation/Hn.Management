@@ -3,6 +3,7 @@ using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Interfaces;
 using HN.ManagementEngine.Models;
 using System;
+using System.Linq;
 
 namespace HN.Management.Engine.CosmosDb.DataInitializer
 {
@@ -20,11 +21,11 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
             this.roleRepository = roleRepository ?? throw new ArgumentNullException(nameof(roleRepository));
             this.rolePrivilegeRepository = rolePrivilegeRepository ?? throw new ArgumentNullException(nameof(rolePrivilegeRepository));
             this.userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
-
         }
 
         public void SeedDatabase()
         {
+
             var administratorRole = new Role
             {
                 Id = Guid.NewGuid().ToString("D"),
@@ -37,8 +38,13 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Name = "Operator"
             };
 
-            roleRepository.InsertAsync(administratorRole);
-            roleRepository.InsertAsync(operatorRole);
+            var roles = this.roleRepository.GetAll().ToList();
+
+            if (!roles.Any())
+            {
+                roleRepository.InsertAsync(administratorRole);
+                roleRepository.InsertAsync(operatorRole);
+            }
 
             // create privileges
             var readRolePrivilegeAdmin = new RolePrivilege
@@ -48,16 +54,12 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Privilege = PrivilegeConstants.ReadUser
             };
 
-            rolePrivilegeRepository.InsertAsync(readRolePrivilegeAdmin);
-
             var createRolePrivilegeAdmin = new RolePrivilege
             {
                 Id = Guid.NewGuid().ToString("D"),
                 RoleId = administratorRole.Id,
                 Privilege = PrivilegeConstants.CreateUser
             };
-
-            rolePrivilegeRepository.InsertAsync(createRolePrivilegeAdmin);
 
             var readRolePrivilegeOperator = new RolePrivilege
             {
@@ -66,8 +68,14 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Privilege = PrivilegeConstants.ReadUser
             };
 
-            rolePrivilegeRepository.InsertAsync(readRolePrivilegeOperator);
+            var privileges = this.rolePrivilegeRepository.GetAll().ToList();
 
+            if (!privileges.Any())
+            {
+                rolePrivilegeRepository.InsertAsync(readRolePrivilegeAdmin);
+                rolePrivilegeRepository.InsertAsync(createRolePrivilegeAdmin);
+                rolePrivilegeRepository.InsertAsync(readRolePrivilegeOperator);
+            }
 
             // create user
             var adminUser = new User
@@ -79,8 +87,6 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Role = administratorRole
             };
 
-            userRepository.InsertAsync(adminUser);
-
             var operatorUser = new User
             {
                 Id = Guid.NewGuid().ToString("D"),
@@ -90,8 +96,12 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Role = operatorRole
             };
 
-            userRepository.InsertAsync(operatorUser);
-
+            var users = this.userRepository.GetAll().ToList();
+            if (!users.Any())
+            {
+                userRepository.InsertAsync(adminUser);
+                userRepository.InsertAsync(operatorUser);
+            }
         }
     }
 }

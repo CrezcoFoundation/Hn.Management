@@ -5,6 +5,7 @@ using HN.Management.Manager.Exceptions;
 using System.Threading.Tasks;
 using HN.Management.Engine.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using HN.Management.Manager.Services;
 
 namespace HN.Management.Web.Apis.V1.Controllers
 {
@@ -12,16 +13,16 @@ namespace HN.Management.Web.Apis.V1.Controllers
     [Route("api/[controller]")]
     public class AuthController : Controller
     {
-        private readonly IUserService _userService;
-        private readonly ITokenService _tokenService;
-        public AuthController(IUserService userService, ITokenService tokenService)
+        private readonly IUserService userService;
+        private readonly TokenService tokenService;
+        public AuthController(IUserService userService, TokenService tokenService)
         {
-            _userService = userService;
-            _tokenService = tokenService;
+            this.userService = userService;
+            this.tokenService = tokenService;
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
             if (!ModelState.IsValid)
@@ -34,16 +35,16 @@ namespace HN.Management.Web.Apis.V1.Controllers
                 throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
             }
 
-            var user = await this._userService.GetUserAsync(loginRequest);
+            var user = await this.userService.GetUserAsync(loginRequest)
+                ?? throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
 
-            if (user == null)
+            var token = tokenService.GenerateToken(user);
+
+            return Ok(new
             {
-                throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
-            }
-
-            var token = _tokenService.GenerateToken(user);
-            return Ok(token);
+                AccessToken = token,
+                User = user,
+            });
         }
-
     }
 }

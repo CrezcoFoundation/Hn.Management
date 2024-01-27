@@ -2,6 +2,7 @@
 using HN.Management.Manager.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
@@ -10,17 +11,11 @@ namespace HN.Management.Web.Attributes
     public class AuthorizeAttribute : Attribute, IAuthorizationFilter
     {
         private readonly string privilege;
-        private readonly IRolePrivilegeRepository rolePrivilegeRepository;
-        private readonly IRoleRepository roleRepository;
 
         public AuthorizeAttribute(
-            IRolePrivilegeRepository rolePrivilegeRepository,
-            IRoleRepository roleRepository,
             string privilege = "")
         {
             this.privilege = privilege;
-            this.rolePrivilegeRepository = rolePrivilegeRepository;
-            this.roleRepository = roleRepository;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
@@ -31,13 +26,19 @@ namespace HN.Management.Web.Attributes
             var roleId = context.HttpContext.Items["RoleId"];
             if (roleId == null)
                 throw new UnauthorizedException();
-             
+
             if (!ValidatePrivilege(Convert.ToString(roleId)))
                 throw new ForbiddenException();
         }
 
         private bool ValidatePrivilege(string? roleId)
         {
+            var serviceCollection = new ServiceCollection();
+            var serviceProvider = serviceCollection.BuildServiceProvider().GetRequiredService<IServiceProvider>();
+
+            var roleRepository = serviceProvider.GetService<IRoleRepository>();
+            var rolePrivilegeRepository = serviceProvider.GetService<IRolePrivilegeRepository>();
+
             var roles = roleRepository.GetAll().ToList();
             var rolePrivileges = rolePrivilegeRepository.GetAll().ToList();
 

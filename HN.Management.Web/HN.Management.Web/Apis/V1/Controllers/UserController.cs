@@ -1,7 +1,9 @@
 ﻿//using HN.Management.Engine.Models;
+using HN.Management.Engine.Models.Auth;
 using HN.Management.Manager.Enums;
 using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
+using HN.Management.Web.Attributes;
 using HN.ManagementEngine.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
@@ -27,6 +29,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
             this.userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
+        [Authorize(PrivilegeConstants.ReadUser)]
         [HttpGet("all")]
         public async Task<IActionResult> GetAllAsync()
         {

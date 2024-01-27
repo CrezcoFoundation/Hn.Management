@@ -10,6 +10,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
 using HN.Management.Engine.CosmosDb.Interfaces;
+using HN.Management.Manager.Exceptions;
+using System;
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
+using System.Text.Json;
+using Microsoft.AspNetCore.Http;
+using HN.Management.Web.Middlewares;
 
 namespace HN.Management.Web
 {
@@ -95,8 +102,6 @@ namespace HN.Management.Web
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
             }
 
-            app.UseMiddleware<TokenService>();
-
             // app.UseApiExceptionHandling();
 
             app.UseStaticFiles();
@@ -133,6 +138,38 @@ namespace HN.Management.Web
 
             var seedDatabaseService = app.ApplicationServices.GetService<IDataInitializer>();
             seedDatabaseService.SeedDatabase();
+
+
+            // global error handler
+            app.UseExceptionHandler(appBuilder =>
+            {
+                appBuilder.Run(async context =>
+                {
+                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    if (contextFeature == null) return;
+
+                    context.Response.StatusCode = contextFeature.Error switch
+                    {
+                        OperationCanceledException => (int)HttpStatusCode.ServiceUnavailable,
+                        BadRequestException => (int)HttpStatusCode.BadRequest,
+                        NotFoundException => (int)HttpStatusCode.NotFound,
+                        ApiException => (int)HttpStatusCode.InternalServerError,
+                        ForbiddenException => (int)HttpStatusCode.Forbidden,
+                        UnauthorizedException => (int)HttpStatusCode.Unauthorized,
+                        _ => (int)HttpStatusCode.InternalServerError
+                    };
+
+                    var errorResponse = new
+                    {
+                        statusCode = context.Response.StatusCode,
+                        message = contextFeature.Error.GetBaseException().Message
+                    };
+
+                    await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+                });
+            });
+
+            app.UseMiddlewareToken();
         }
     }
 }

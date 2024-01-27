@@ -36,7 +36,6 @@ namespace HN.Management.Web.Extensions
             //service.AddScoped<IStudentService, StudetService>();
             //service.AddScoped<IUserRoleService, UserRoleService>();
 
-            service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
             service.AddScoped<IEmailService, EmailService>();
             service.AddScoped<IDonationService, DonationService>();
@@ -57,6 +56,7 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IRolePrivilegeRepository, RolePrivilegeRepository>();
 
             service.AddScoped<IDataInitializer, DataInitializer>();
+            service.AddScoped<TokenService>();
         }
 
         public static void ConfigureRedis(this IServiceCollection services)
@@ -128,7 +128,7 @@ namespace HN.Management.Web.Extensions
              serviceProvider,
              Databases.CrezcoDatabaseId,
              Databases.CrezcoCollectionName));
-             
+
             //Readers and Managers
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();

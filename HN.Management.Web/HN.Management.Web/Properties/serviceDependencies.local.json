@@ -5,9 +5,11 @@
       "dynamicId": null
     },
     "compute.appService1": {
+      "secretStore": null,
       "group": "connections",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/crezco-foundation",
-      "type": "compute.appService.linux"
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/crezco",
+      "type": "compute.appService.linux",
+      "connectionId": null
     }
   }
 }

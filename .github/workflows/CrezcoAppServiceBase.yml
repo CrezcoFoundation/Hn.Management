@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile:  ${{ secrets.crezco_foundation_DAAD }}
+        publish-profile:  ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FDB4ED34D9A94C99976107197A8ADB6D }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

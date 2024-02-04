@@ -4,7 +4,7 @@ on:
     branches:
     - master
 env:
-  AZURE_WEBAPP_NAME: crezco-foundation
+  AZURE_WEBAPP_NAME: crezco
   AZURE_WEBAPP_PACKAGE_PATH: HN.Management.Web/publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile:  ${{ secrets.crezco_foundation_DAAD }}
+        publish-profile:  ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_78204D36D4FF406EBB9A83F5451E34D8 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

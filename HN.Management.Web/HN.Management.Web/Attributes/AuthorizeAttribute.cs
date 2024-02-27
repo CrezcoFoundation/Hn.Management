@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace HN.Management.Web.Attributes
 {
+    [AttributeUsage(AttributeTargets.Method)]
     public class AuthorizeAttribute : Attribute, IAuthorizationFilter
     {
         private readonly string privilege;
@@ -23,7 +24,7 @@ namespace HN.Management.Web.Attributes
             var allowAnonymous = context.ActionDescriptor.EndpointMetadata.OfType<AllowAnonymousAttribute>().Any();
             if (allowAnonymous) return;
 
-            var roleId = context.HttpContext.Items["RoleId"];
+            var roleId = context.HttpContext.Items;
             if (roleId == null)
                 throw new UnauthorizedException();
 

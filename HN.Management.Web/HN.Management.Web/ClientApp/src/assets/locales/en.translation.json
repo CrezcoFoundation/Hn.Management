@@ -1,0 +1,169 @@
+{
+  "GENERAL": {
+    "Learn_more": "Learn more",
+    "Button_contact": "Contact Us",
+    "Other_projects" : "Other Projects"
+  },
+  "NAVBAR": {
+    "Link1": "Projects",
+    "Projects": {
+      "Project_1": "University Sponsorship",
+      "Project_2": "Special Education",
+      "Project_3": "Community Support",
+      "Project_4": "Student Mission Trips",
+      "Project_5": "Medical Assistance",
+      "Project_Footer" : "Our Projects",
+      "Home" : "Home"
+    },
+    "Link2": "Crezco's Story",
+    "Link3": "Contact",
+    "Link4": "Login"
+  },
+  "PAGE_HOME": {
+    "subtitle_home": "Aims to provide resources that support growth for at-risk children by through educational opportunities, and by addressing negative family patterns.",
+    "Donate": "Donate Now",
+    "Paragraphs": {
+      "Pray_1": "Join us in praying for Crezco's ministry: our programs, program participants, the communities we work in, and our volunteers.",
+      "Button_pray": "Download Calendar",
+      "Pray_2": "Sign up for our annual newsletter with program updates and prayer requests."
+    },
+    "Administrative": {
+      "Title": "ADMINISTRATIVE SUPPORT",
+      "Subtitle": "Crezco is in need of volunteers in a variety of areas including accounting, secretary work, and travel management. Contact us for more information."
+    },
+    "Domain_Camp": {
+      "Title": "DONATION CAMPAIGNS",
+      "Subtitle": "Support our donation campaigns & special projects. Spread the word to other potential sponsors and donors. Get your church, school, or small group involved! Campaigns are both in-kind and monetary. Contact us for more information."
+    }
+  },
+  "PAGE_PROJECTS": {
+    "University_Page": {
+      "Abreviation": "Research has shown that post-secondary educational opportunities have a unique...",
+      "Paragraph_1": "Higher educational opportunities hold the key to breaking negative generational cycles.",
+      "Paragraph_2": "By providing students in Crezco's University Sponsorship Program with access to higher educational opportunities, we empower them to transcend the limitations of their past and current circumstances. These students are not only preparing for personal success but also gaining knowledge, skills, and confidence, to positively impact their future families and communities.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "EMOTIONAL HEALTH",
+          "description": "Academic success is just one aspect of a student's growth. Emotional well-being is equally crucial. Crezco fosters an environment where emotional growth is prioritized, offering counseling services, mentorship programs, and support networks that nurture both personal and academic development. This equips students to break negative cycles related to emotional intelligence, addiction, and abuse."
+        },
+        "subject_2": {
+          "title": "STUDENT SPONSORSHIP",
+          "description": "By supporting our program, you are directly contributing to the transformation of lives and the dismantling of negative cycles. Your investment in education sets in motion a chain reaction of progress, where each student's success ripples out to uplift their families, neighborhoods, and society as a whole."
+        }
+      }
+    },
+    "Special_education": {
+      "Abreviation": "At Crezco, we firmly believe that one size does not fit all when it comes to education...",
+      "Paragraph_1": "At Crezco, we firmly believe that one size does not fit all when it comes to education. We recognize that there are children within our sphere of influence who require specialized educational resources to thrive.",
+      "Paragraph_2": "These resources are not always readily available or affordable, and we are dedicated to addressing this challenge head-on.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "SUPPORT SERVICES",
+          "description": "The Special Education Program is designed to provide targeted financial assistance to individuals with special educational needs, ensuring they receive equitable access to quality education and support services. These funds can be used to cover various expenses related to the developmental and behavioral needs of each student, including specialized learning materials, therapy sessions, and transportation."
+        },
+        "subject_2": {
+          "title": "GROWTH FOR EVERY CHILD",
+          "description": "Our mission is to inspire and foster both academic and emotional growth for every child and student under our care, irrespective of their unique learning needs; and to empower students and their families, to achieve their full potential."
+        }
+      }
+    },
+    "Community_support": {
+      "Abreviation": "Attending the needs of the local community allows Crezco to be a light in the world...",
+      "Paragraph_1": "Attending the needs of the local community allows Crezco to be a light in the world around us, extending our reach and creating more opportunities for growth. From weathering the aftermath of devastating natural disasters, to providing unwavering support during personal family tragedies, and offering specialized aid for educational challenges, our purpose is clear: to break negative cycles and inspire positive progress.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "COLLABORATION",
+          "description": "By addressing these unique situations head-on, we amplify our impact and cultivate an environment where growth and hope can flourish. An integral part of supporting our local community is a collaborative effort with local community members, working alongside them, listening to their needs. The aspiration to serve as a radiant force in the midst of adversity propels us forward, urging us to not only alleviate immediate burdens but also to create opportunity for long-lasting transformations through necessary preventative measures."
+        },
+        "subject_2": {
+          "title": "COMMUNITY PROGRESS",
+          "description": "Through heartfelt compassion and a commitment to unity, we endeavor to cultivate a sense of resilience that extends beyond our community's boundaries. As we strive to be a beacon of hope, our efforts inspire positivity and progress that resonate far beyond our initial reach, contributing to the greater well-being of the world around us."
+        }
+      }
+    },
+    "Student_mission": {
+      "Abreviation": "The Crezco Student Mission Trip Program is centered on fostering a deep sense of...",
+      "Paragraph_1": "The Crezco Student Mission Trip Program is centered on fostering a deep sense of service and selflessness as foundational principles. Its core objective is to grant students the chance to make meaningful contributions to both local and global communities, all while acknowledging the generosity they themselves have received from others.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "SERVICE IN ACTION",
+          "description": "Through the Student Mission Trip program, Crezco aims to nurture Christian virtues within students by providing active platforms for them to embody these principles. By immersing themselves in unfamiliar environments, new experiences, and novel circumstances, students stand to undergo transformative growth as they dedicate their time and resources to aid families and communities in need. This opens them up to enriching experiences and personal development that is unmatched."
+        },
+        "subject_2": {
+          "title": "YOUR SUPPORT",
+          "description": "The realization of this mission heavily relies on the support of dedicated donors and advocates such as yourself. Your contribution plays a pivotal role in turning this vision into a concrete reality, one that leaves a lasting impact on the lives of students and the communities they serve."
+        }
+      }
+    },
+    "Medical_assistance": {
+      "Abreviation": "Crezco's Medical Assistance Program serves as a source of hope for families facing...",
+      "Paragraph_1": "Crezco's Medical Assistance Program serves as a source of hope for families facing medical emergencies and crises within the local community. This program recognizes the significant economic strain these situations can impose on families with limited financial resources.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "BRIDGING THE GAP",
+          "description": "When individuals are unable to access necessary medical care, their health conditions can deteriorate rapidly, leading to more complex and severe medical issues. Crezco seeks to bridge this gap and enable individuals to receive the medical care they urgently require by providing families with the necessary support, resources, and financial assistance. This support may cover a portion or the entirety of medical expenses, including surgeries, medications, and rehabilitation. In addressing medical needs promptly, small health issues are prevented from escalating into larger, more complex problems."
+        },
+        "subject_2": {
+          "title": "A STRONGER TOMORROW",
+          "description": "The ripple effect of providing medical assistance to families cannot be underestimated. When families receive the care they need, they can continue contributing to their community, pursuing their dreams, and building a brighter future for themselves and their children. This program recognizes that the well-being of a community is interlinked with the health and resilience of its individual members. Families are empowered to face challenges head-on, knowing that they have a partner in their journey towards health and recovery."
+        }
+      }
+    }
+  },
+  "PAGE_CONTACT": {
+    "Title_left": "LEARN MORE ABOUT CREZCO",
+    "Title_right": "GET IN TOUCH",
+    "Paragraph_1": "Contact us to learn more about how you can get involved in a Crezco project!",
+    "Contact_email": "info@crezcofoundation.org",
+    "Contact_phone": "33 3333 3333 333",
+    "Visit_us": "VISIT US ON SOCIAL MEDIA",
+    "Label_1": "Enter Your Name",
+    "Label_2": "Enter a Valid Email Address",
+    "Label_3": "Enter Your Message",
+    "Contact_newsletter": "I want to subscribe to the newsletter",
+    "Contact_button": "SEND MESSAGE"
+  },
+  "STORY_CREZCO": {
+    "Title_story": "CREZCO'S STORY",
+    "Paragraph_1": "Crezco is an organization that originated from a small church ministry based in the United States. This ministry began in 1996 with short-term mission trips to a Christian children's home in Honduras, Central America.",
+    "Paragraph_2": "Over the years, a strong relationship developed between the church and the children's home, leading to a realization that recent high school graduates from the home needed support to pursue higher education.",
+    "Section_2": "GROWTH THROUGH KNOWLEDGE",
+    "Subsection_2": "With the help of local church members, community members, donations, and sponsorships, the ministry worked to make the dream of a university education a reality for these young adults. The overarching goal was to equip these students with the education and skills necessary to break the cycles of poverty, lack of education, unhealthy family patterns, mental health challenges, and the circumstances that led them to the children's home in the first place. Additionally, the ministry aimed to instill a passion for serving others in the name of Jesus in these young adults",
+    "Section_3": "GROWTH THROUGH EMPOWERMENT",
+    "Subsection_3": "Funding for these efforts has always come from donations provided by individuals in various communities. These donations cover university costs, fees, transportation, and essential personal items for each student. Over the years, 26 young people have benefited from the university education aspect of the ministry, with 15 successfully graduating from Christian universities in countries such as Costa Rica, Mexico, and Peru.",
+    "Subsection_4": "These graduates have obtained degrees in diverse fields, including computer systems engineering, culinary arts, physical therapy, nursing, clinical psychology, and graphic design. Currently, there are students studying in Peru and Mexico, and new students from the children's home begin their university studies each year.",
+    "Section_4": {
+      "Line_1": "University Program Graduates*",
+      "Line_2": "MORE THAN",
+      "Line_3": "10 GRADUATES",
+      "Line_4": "*NOT ALL ARE IN PICTURES"
+    },
+    "Section_5": "GROWTH THROUGH INFLUENCE",
+    "Subsection_5": "As the ministry continued to expand its influence beyond its initial purpose, the decision was made to establish Crezco as a formal organization. In addition to the university program, Crezco's work also includes ongoing support for the children's home and the local community. This support ranges from addressing emergency situations and providing medical care resources to coordinating donations of clothing and educational supplies, organizing special celebrations, and participating in disaster relief efforts. The collaboration between Crezco and the small community in Honduras has grown far beyond what we ever imagined.",
+    "Section_banner1": "Crezco attributes its growth of influence and the success of our community members to the continuous support and opportunities that God has blessed us with, and we anticipate many more years of support and collaboration.",
+    "Section_banner2": "Crezco remains committed to its mission of transforming the lives of young adults and the community it serves through education, faith, and service.",
+    "Section_6": {
+      "Title_admin": "ADMINISTRATION & BOARD OFFICERS"
+    }
+  }
+}

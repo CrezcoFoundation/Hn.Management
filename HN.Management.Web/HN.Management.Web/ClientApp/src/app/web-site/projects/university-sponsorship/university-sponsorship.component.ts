@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-university-sponsorship',
   templateUrl: './university-sponsorship.component.html',
   styleUrls: ['./university-sponsorship.component.scss'],
 })
-export class UniversitySponsorshipComponent {}
+export class UniversitySponsorshipComponent {
+}

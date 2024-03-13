@@ -2,7 +2,7 @@
 <!-- Projects Section Start -->
 <section class="container-fluid p-0 section-projects_card">
   <div class="text-center title-box my-5">
-    <h3 class="text-center">Our Projects</h3>
+    <h3 class="text-center">{{ 'NAVBAR.Projects.Project_Footer' | translate }}</h3>
   </div>
   <div
     class="container-fluid d-flex flex-row flex-lg-column align-items-center justify-content-start justify-content-lg-center mb-5 gap-4 cards-container"
@@ -11,7 +11,7 @@
       class="d-flex align-items-center justify-content-start justify-content-lg-center gap-4"
     >
       <a
-        [routerLink]="['/projects/special-education']"
+        [routerLink]="['/projects/university']"
         class="text-decoration-none ps-3 ps-lg-0"
       >
         <div
@@ -24,16 +24,15 @@
             alt="img-project"
           />
           <div class="card-body">
-            <h4 class="card-title text-white">University<br />Sponsorship</h4>
+            <h4 class="card-title text-white">{{ 'NAVBAR.Projects.Project_1' | translate }}</h4>
             <p class="card-text text-white fs-5">
-              Cycles of poverty are broken through higher educational
-              opportunities. Students in our...
+              {{ 'PAGE_PROJECTS.University_Page.Abreviation' | translate }}
             </p>
             <a
-              [routerLink]="['/projects/special-education']"
+              [routerLink]="['/projects/university']"
               class="text-white text-decoration-none link-card"
             >
-              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+              {{ 'GENERAL.Learn_more' | translate }} <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
             </a>
           </div>
         </div>
@@ -52,16 +51,15 @@
             alt="img-project"
           />
           <div class="card-body">
-            <h4 class="card-title text-white">Special<br />Education</h4>
+            <h4 class="card-title text-white">{{ 'NAVBAR.Projects.Project_2' | translate }}</h4>
             <p class="card-text text-white fs-5">
-              At Crezco, we firmly believe that one size does not fit all when
-              it comes to education...
+              {{ 'PAGE_PROJECTS.Special_education.Abreviation' | translate }}
             </p>
             <a
               [routerLink]="['/projects/special-education']"
               class="text-white text-decoration-none link-card"
             >
-              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+              {{ 'GENERAL.Learn_more' | translate }} <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
             </a>
           </div>
         </div>
@@ -80,16 +78,15 @@
             alt="img-project"
           />
           <div class="card-body">
-            <h4 class="card-title text-white">Community<br />Support</h4>
+            <h4 class="card-title text-white">{{ 'NAVBAR.Projects.Project_3' | translate }}</h4>
             <p class="card-text text-white fs-5">
-              Attending the needs of the local community allows Crezco to be a
-              light in the world...
+              {{ 'PAGE_PROJECTS.Community_support.Abreviation' | translate }}
             </p>
             <a
               [routerLink]="['/projects/community-support']"
               class="text-white text-decoration-none link-card"
             >
-              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+              {{ 'GENERAL.Learn_more' | translate }} <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
             </a>
           </div>
         </div>
@@ -109,16 +106,15 @@
             alt="img-project"
           />
           <div class="card-body">
-            <h4 class="card-title text-white">Student<br />Mission Trips</h4>
+            <h4 class="card-title text-white">{{ 'NAVBAR.Projects.Project_4' | translate }}</h4>
             <p class="card-text text-white fs-5">
-              The Crezco Student Mission Trip Program is centered on fostering a
-              deep sense of...
+              {{ 'PAGE_PROJECTS.Student_mission.Abreviation' | translate }}
             </p>
             <a
               [routerLink]="['/projects/mission-trip']"
               class="text-white text-decoration-none link-card"
             >
-              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+              {{ 'GENERAL.Learn_more' | translate }} <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
             </a>
           </div>
         </div>
@@ -137,16 +133,15 @@
             alt="img-project"
           />
           <div class="card-body">
-            <h4 class="card-title text-white">Medical<br />Assistance</h4>
+            <h4 class="card-title text-white">{{ 'NAVBAR.Projects.Project_5' | translate }}</h4>
             <p class="card-text text-white fs-5">
-              Crezco's Medical Assistance Program serves as a source of hope for
-              families facing...
+              {{ 'PAGE_PROJECTS.Medical_assistance.Abreviation' | translate }}
             </p>
             <a
               [routerLink]="['/projects/medical-assistance']"
               class="text-white text-decoration-none link-card"
             >
-              Learn More <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
+              {{ 'GENERAL.Learn_more' | translate }} <i class="ms-1 fa-solid fa-arrow-right text-white"></i>
             </a>
           </div>
         </div>
@@ -179,20 +174,18 @@
           class="text-center text-lg-start col-12 col-lg-4 d-flex flex-column gap-3 justify-content-center align-items-lg-start align-items-center fs-5"
         >
           <p>
-            Join us in praying for Crezco's ministry: our programs, program
-            participants, the communities we work in, and our volunteers.
+            {{ 'PAGE_HOME.Paragraphs.Pray_1' | translate }}
           </p>
           <a
             [routerLink]="['/']"
             routerLinkActive="router-link-active"
             class="donate-btn"
             ><button class="btn btn-primary py-2 px-3 mb-3">
-              DOWNLOAD CALENDAR
+              {{ 'PAGE_HOME.Paragraphs.Button_pray' | translate }}
             </button></a
           >
           <p>
-            Sign up for our annual newsletter with program updates and prayer
-            requests.
+            {{ 'PAGE_HOME.Paragraphs.Pray_2' | translate }}
           </p>
           <form
             [formGroup]="newsletterForm"
@@ -229,22 +222,17 @@
           data-aos="fade-up"
           class="text-center text-lg-start col-12 col-lg-4 d-flex flex-column gap-3 justify-content-center align-items-lg-start align-items-center fs-5"
         >
-          <h3 class="volunteers-title">ADMINISTRATIVE SUPPORT</h3>
+          <h3 class="volunteers-title">{{ 'PAGE_HOME.Administrative.Title' | translate }}</h3>
           <p>
-            Crezco is in need of volunteers in a variety of areas including
-            accounting, secretary work, and travel management. Contact us for
-            more information.
+            {{ 'PAGE_HOME.Administrative.Subtitle' | translate }}
           </p>
-          <h3 class="volunteers-title">DONATION CAMPAIGNS</h3>
+          <h3 class="volunteers-title">{{ 'PAGE_HOME.Domain_Camp.Title' | translate }}</h3>
           <p>
-            Support our donation campaigns & special projects. Spread the word
-            to other potential sponsors and donors. Get your church, school, or
-            small group involved! Campaigns are both in-kind and monetary.
-            Contact us for more information.
+            {{ 'PAGE_HOME.Domain_Camp.Subtitle' | translate }}
           </p>
           <a [routerLink]="['/contact-us']" class="donate-btn"
             ><button class="btn btn-primary py-2 px-5 py-lg-2 px-lg-3 mb-3">
-              CONTACT US
+              {{ 'GENERAL.Button_contact' | translate }}
             </button></a
           >
         </div>

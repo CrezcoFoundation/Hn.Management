@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import Aos from 'aos';
 
 @Component({
@@ -8,7 +10,10 @@ import Aos from 'aos';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+
+  constructor(
+    private router: Router,
+    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService) {}
 
   title = 'crezco-foundation';
 

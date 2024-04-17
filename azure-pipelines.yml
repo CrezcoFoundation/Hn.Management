@@ -32,3 +32,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Microsoft Azure Sponsorship(2eaf9de7-75b0-4756-b35a-7dbb18083436)'
+    appType: 'webAppLinux'
+    WebAppName: 'crezco'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

@@ -16,29 +16,37 @@
       "Home" : "Home"
     },
     "Link2": "Crezco's Story",
-    "Link3": "Contact",
-    "Link4": "Login"
+    "Link3": "Contact Us",
+    "Link4": "Login",
+    "Link5": "Donate Support"
   },
   "PAGE_HOME": {
     "subtitle_home": "PROVIDING ACCESS TO ENHANCE GROWTH",
     "Donate": "Donate Now",
+    "Section_2": {
+      "title": "Get to know crezco",
+      "description": "Crezco provides resources that create growth opportunities for at-risk Honduran youth to address and improve negative family patterns for the next generation."
+    },
     "Paragraphs": {
-      "Pray_1": "Join us in praying for Crezco's ministry: our programs, program participants, the communities we work in, and our volunteers.",
-      "Button_pray": "Download Calendar",
-      "Pray_2": "Sign up for our annual newsletter with program updates and prayer requests."
+      "Title": "HOW CAN YOU HELP?",
+      "Pray_1": "Pray with us for Crezco's ministry: our programs, program participants, the communities we work in, and our volunteers.",
+      "Button_pray": "Dowload Prayer Calendar",
+      "Pray_2": "Sign up for our annual newsletter with program updates and prayer requests.",
+      "btn-send-email": "Sign Up"
     },
     "Administrative": {
       "Title": "ADMINISTRATIVE SUPPORT",
-      "Subtitle": "Crezco is in need of volunteers in a variety of areas including accounting, secretary work, and travel management. Contact us for more information."
+      "Subtitle": "Crezco needs volunteers in a variety of areas including accounting, secretary work, and travel management."
     },
     "Domain_Camp": {
       "Title": "DONATION CAMPAIGNS",
-      "Subtitle": "Support our donation campaigns & special projects. Spread the word to other potential sponsors and donors. Get your church, school, or small group involved! Campaigns are both in-kind and monetary. Contact us for more information."
+      "Subtitle": "Support our donation campaigns & special projects. Spread the word to other potential sponsors and donors. Get your church, school, or small group involved! Campaigns are both in-kind and monetary."
     }
   },
   "PAGE_PROJECTS": {
     "University_Page": {
-      "Abreviation": "Research has shown that post-secondary educational opportunities have a unique...",
+      "Abreviation-desktop": "Higher educational opportunities hold the key to breaking negative generational cycles. By providing students  educational opportunities, we...",
+      "Abreviation-mobile": "Higher educational opportunities hold the key to breaking negative...",
       "Paragraph_1": "Higher educational opportunities hold the key to breaking negative generational cycles.",
       "Paragraph_2": "By providing students in Crezco's University Sponsorship Program with access to higher educational opportunities, we empower them to transcend the limitations of their past and current circumstances. These students are not only preparing for personal success but also gaining knowledge, skills, and confidence, to positively impact their future families and communities.",
       "Quote": {
@@ -57,7 +65,8 @@
       }
     },
     "Special_education": {
-      "Abreviation": "At Crezco, we firmly believe that one size does not fit all when it comes to education...",
+      "Abreviation-desktop": "One size does not fit all when it comes to education, there are children within our sphere of influence who require specialized educational...",
+      "Abreviation-mobile": "One size does not fit all when it comes to education, there are children...",
       "Paragraph_1": "At Crezco, we firmly believe that one size does not fit all when it comes to education. We recognize that there are children within our sphere of influence who require specialized educational resources to thrive.",
       "Paragraph_2": "These resources are not always readily available or affordable, and we are dedicated to addressing this challenge head-on.",
       "Quote": {
@@ -76,7 +85,8 @@
       }
     },
     "Community_support": {
-      "Abreviation": "Attending the needs of the local community allows Crezco to be a light in the world...",
+      "Abreviation-desktop": "Crezco seeks be a light in difficult world, finding ways to create more opportunities for growth in the surrounding community...",
+      "Abreviation-mobile": "Crezco seeks be a light in difficult world, finding ways to create more...",
       "Paragraph_1": "Attending the needs of the local community allows Crezco to be a light in the world around us, extending our reach and creating more opportunities for growth. From weathering the aftermath of devastating natural disasters, to providing unwavering support during personal family tragedies, and offering specialized aid for educational challenges, our purpose is clear: to break negative cycles and inspire positive progress.",
       "Quote": {
         "quote_phrase": "",
@@ -94,7 +104,8 @@
       }
     },
     "Student_mission": {
-      "Abreviation": "The Crezco Student Mission Trip Program is centered on fostering a deep sense of...",
+      "Abreviation-desktop": "The purpose of this program is to foster a deep sense of service and selflessness as foundational principles in each student by...",
+      "Abreviation-mobile": "The purpose of this program is to foster a deep sense of service and...",
       "Paragraph_1": "The Crezco Student Mission Trip Program is centered on fostering a deep sense of service and selflessness as foundational principles. Its core objective is to grant students the chance to make meaningful contributions to both local and global communities, all while acknowledging the generosity they themselves have received from others.",
       "Quote": {
         "quote_phrase": "",
@@ -131,37 +142,43 @@
     }
   },
   "PAGE_CONTACT": {
-    "Title_left": "LEARN MORE ABOUT CREZCO",
+    "Title_left": "GROW WITH CREZCO",
     "Title_right": "GET IN TOUCH",
     "Paragraph_1": "Contact us to learn more about how you can get involved in a Crezco project!",
     "Contact_email": "info@crezcofoundation.org",
     "Contact_phone": "33 3333 3333 333",
-    "Visit_us": "VISIT US ON SOCIAL MEDIA",
+    "Visit_us": "Visit us on social media",
     "Label_1": "Enter Your Name",
     "Label_2": "Enter a Valid Email Address",
     "Label_3": "Enter Your Message",
     "Contact_newsletter": "I want to subscribe to the newsletter",
-    "Contact_button": "SEND MESSAGE"
+    "Contact_button": "Send Message"
+  },
+  "SHARED_BANNER": {
+    "Title": "Crezco is successful because of your continuous support and collaboration.",
+    "Description": "Crezco remains committed to its mission of transforming the lives of those it serves."
   },
   "STORY_CREZCO": {
-    "Title_story": "CREZCO'S STORY",
-    "Paragraph_1": "Crezco is an organization that originated from a small church ministry based in the United States. This ministry began in 1996 with short-term mission trips to a Christian children's home in Honduras, Central America.",
+    "Title_story": "Becoming Crezco",
+    "Paragraph_1": "Crezco is an organization that originated from a small church ministry that began with a short-term mission trip in 1996 to a Christian children's home in Honduras.",
     "Paragraph_2": "Over the years, a strong relationship developed between the church and the children's home, leading to a realization that recent high school graduates from the home needed support to pursue higher education.",
     "Section_2": "GROWTH THROUGH KNOWLEDGE",
-    "Subsection_2": "With the help of local church members, community members, donations, and sponsorships, the ministry worked to make the dream of a university education a reality for these young adults. The overarching goal was to equip these students with the education and skills necessary to break the cycles of poverty, lack of education, unhealthy family patterns, mental health challenges, and the circumstances that led them to the children's home in the first place. Additionally, the ministry aimed to instill a passion for serving others in the name of Jesus in these young adults",
+    "Subsection_2": "Over time, a strong relationship developed between the church and the children's home, leading to the realization that recent high school graduates from the home needed support to pursue higher education.",
+    "Subsection_2-1": "The goal was to equip students with the education and skills necessary to break the cycles of poverty, lack of education, unhealthy family patterns, mental health challenges, and the very circumstances that led them to the home. The ministry also aimed to instill in students a passion for serving others in Jesus.",
     "Section_3": "GROWTH THROUGH EMPOWERMENT",
-    "Subsection_3": "Funding for these efforts has always come from donations provided by individuals in various communities. These donations cover university costs, fees, transportation, and essential personal items for each student. Over the years, 26 young people have benefited from the university education aspect of the ministry, with 15 successfully graduating from Christian universities in countries such as Costa Rica, Mexico, and Peru.",
-    "Subsection_4": "These graduates have obtained degrees in diverse fields, including computer systems engineering, culinary arts, physical therapy, nursing, clinical psychology, and graphic design. Currently, there are students studying in Peru and Mexico, and new students from the children's home begin their university studies each year.",
+    "Subsection_3": "Funding for these efforts come from donors like you. Donations cover academic, medical, and personal expenses for each student. To date, 26 young people have benefited from the university program, with 15* successfully graduating from Christian universities throughout Latin America.",
+    "Subsection_3-1": "Graduates have obtained degrees in diverse fields including computer systems engineering, culinary arts, physical therapy, nursing, clinical psychology, and graphic design. Each year new students from the children's home begin their university studies.",
     "Section_4": {
       "Line_1": "University Program Graduates*",
-      "Line_2": "MORE THAN",
-      "Line_3": "10 GRADUATES",
-      "Line_4": "*NOT ALL ARE IN PICTURES"
+      "Updated": "*Updated 1/2024"
     },
-    "Section_5": "GROWTH THROUGH INFLUENCE",
-    "Subsection_5": "As the ministry continued to expand its influence beyond its initial purpose, the decision was made to establish Crezco as a formal organization. In addition to the university program, Crezco's work also includes ongoing support for the children's home and the local community. This support ranges from addressing emergency situations and providing medical care resources to coordinating donations of clothing and educational supplies, organizing special celebrations, and participating in disaster relief efforts. The collaboration between Crezco and the small community in Honduras has grown far beyond what we ever imagined.",
-    "Section_banner1": "Crezco attributes its growth of influence and the success of our community members to the continuous support and opportunities that God has blessed us with, and we anticipate many more years of support and collaboration.",
-    "Section_banner2": "Crezco remains committed to its mission of transforming the lives of young adults and the community it serves through education, faith, and service.",
+    "Section_5": "Growth through influence",
+    "Subsection_5": "As the ministry continued to expand, the decision was made to establish Crezco as a formal organization. In addition to the university program, Crezco's work also includes ongoing support for the local community.",
+    "Subsection_5-1": "This support ranges from addressing emergency situations and providing medical care resources, to coordinating donations of clothing and educational supplies, organizing special celebrations, and disaster relief efforts.",
+    "Section_banner": {
+      "Title": "Dreams can Come True, Thanks to You",
+      "Description": "Many young adults have been able ato graduate and achieve their goals of becoming professionals capable of contributing to their local communities."
+    },
     "Section_6": {
       "Title_admin": "ADMINISTRATION & BOARD OFFICERS"
     }

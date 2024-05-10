@@ -1,30 +1,31 @@
 :root {
-  --colorsgree-icon-university: rgba(124, 206, 37, 1);
-  --colorsyellow-icon-special: rgba(244, 204, 37, 1);
-  --colorsorange-icon-orange-community: rgba(242, 126, 48, 1);
-  --colorsgreen-icon-students-mission: rgba(59, 196, 147, 1);
-  --colorsbule-buttom: rgba(97, 61, 244, 1);
-  --colorspurpple-lenguage-buttom: rgba(214, 205, 249, 1);
-  --colorsblack-text: rgba(0, 0, 0, 1);
-  --colors-bggray-bg: rgba(243, 243, 243, 1);
-  --basic-colorswhite: rgba(255, 255, 255, 1);
-  --basic-colorsblack: rgba(0, 0, 0, 1);
-  --basic-colorsgreen: rgba(0, 191, 27, 1);
-  --desktop-text-copy-right-medium-18pt-font-family: "Inter", Helvetica;
-  --desktop-text-copy-right-medium-18pt-font-weight: 500;
-  --desktop-text-copy-right-medium-18pt-font-size: 18px;
-  --desktop-text-copy-right-medium-18pt-letter-spacing: 0px;
-  --desktop-text-copy-right-medium-18pt-line-height: normal;
-  --desktop-text-copy-right-medium-18pt-font-style: normal;
-  --desktop-text-body-small-bold-26pt-45-font-family: "Oswald", Helvetica;
-  --desktop-text-body-small-bold-26pt-45-font-weight: 700;
-  --desktop-text-body-small-bold-26pt-45-font-size: 26px;
-  --desktop-text-body-small-bold-26pt-45-letter-spacing: 0px;
-  --desktop-text-body-small-bold-26pt-45-line-height: 45px;
-  --desktop-text-body-small-bold-26pt-45-font-style: normal;
+  --green-colors-icon-university: rgba(124, 206, 37, 1);
+  --yellow-colors-icon-special: rgba(244, 204, 37, 1);
+  --orange-color-icon-community: rgba(242, 126, 48, 1);
+  --green-colors-icon-students-mission: rgba(59, 196, 147, 1);
+  --blue-colors-buttom: rgba(97, 61, 244, 1);
+  --blueviolet-colors-oficial: #613DF4;
+  --blueviolet-colors-pastel: #8E7BFF;
+  --language-colors-buttom: rgba(214, 205, 249, 1);
+  --black-colors-text: rgba(0, 0, 0, 1);
+  --colors-gray-bg: rgba(243, 243, 243, 1);
+  --basic-colors-white: rgba(255, 255, 255, 1);
+  --basic-colors-black: rgba(0, 0, 0, 1);
+  --basic-colors-green: rgba(0, 191, 27, 1);
+  /* Root Fonts */
+  --Inter-text-body-font-family: "Inter", Helvetica;
+  --Inter-text-body-font-weight: 500;
+  --Inter-text-body-font-size: 18px;
+  --Inter-text-body-letter-spacing: 0px;
+  --Inter-text-body-line-height: normal;
+  --Inter-text-body-font-style: normal;
+  --Oswald-text-body-font-family: "Oswald", Helvetica;
+  --Oswald-text-body-font-weight: 700;
+  --Oswald-text-body-font-size: 26px;
+  --Oswald-text-body-letter-spacing: 0px;
+  --Oswald-text-body-line-height: 45px;
+  --Oswald-text-body-font-style: normal;
 }
-
-
 
 /* ========= Oswald Font Family ========= */
 @font-face {
@@ -120,9 +121,3 @@
 /* FontAwsome Styles Import */
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
-/* Btn Site Style */
-.btn:hover,
-a .btn:hover,
-.btn-primary:hover {
-  background-color: #08d123 !important;
-}

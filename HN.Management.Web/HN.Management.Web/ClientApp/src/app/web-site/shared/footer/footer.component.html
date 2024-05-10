@@ -1,135 +1,95 @@
-<div class="fluid-container">
-  <footer
-    class="d-flex flex-column justify-content-between align-items-center py-3"
-  >
-    <div
-      class="content-footer d-flex flex-lg-row flex-column align-items-center justify-content-between my-5 my-lg-4"
-    >
-      <!-- Logo and social media container -->
-      <div
-        class="d-flex flex-column align-items-center justify-content-center row"
-      >
+<!-- <div class="fluid-container">
+  <footer class="d-flex flex-column justify-content-between align-items-center py-3">
+    <div class="content-footer d-flex flex-lg-row flex-column align-items-center justify-content-between my-5 my-lg-4">
+      <div class="d-flex flex-column align-items-center justify-content-center row">
         <div class="logo-footer mb-3 text-center">
-          <a [routerLink]="['/']"
-            ><img
-              src="assets/Image/Logo/crezco-logo-footer.svg"
-              alt="Logo Crezco"
-          /></a>
+          <a [routerLink]="['/']"><img src="assets/Image/Logo/crezco-logo-footer.svg" alt="Logo Crezco" /></a>
         </div>
         <div class="d-flex align-items-center justify-content-around gap-3">
-          <a [routerLink]="['/']" target="_blank"
-            ><img
-              class="social-icon"
-              src="assets/Image/footer-social-networks/Facebook-icon.png"
-              alt="Logo Crezco"
-            />
+          <a [routerLink]="['/']" target="_blank"><img class="social-icon"
+              src="assets/Image/footer-social-networks/Facebook-icon.png" alt="Logo Crezco" />
           </a>
-          <a href="https://www.instagram.com/crezcofoundation/" target="_blank"
-            ><img
-              class="social-icon"
-              src="assets/Image/footer-social-networks/Instagram-icon.png"
-              alt="Logo Crezco"
-            />
+          <a href="https://www.instagram.com/crezcofoundation/" target="_blank"><img class="social-icon"
+              src="assets/Image/footer-social-networks/Instagram-icon.png" alt="Logo Crezco" />
           </a>
-          <a [routerLink]="['/']" target="_blank"
-            ><img
-              class="social-icon"
-              src="assets/Image/footer-social-networks/LinkedIn-icon.png"
-              alt="Logo Crezco"
-            />
+          <a [routerLink]="['/']" target="_blank"><img class="social-icon"
+              src="assets/Image/footer-social-networks/LinkedIn-icon.png" alt="Logo Crezco" />
           </a>
         </div>
       </div>
-      <!-- Project links of Foundation -->
       <div class="project-links text-white mt-4 mt-lg-0">
         <h5>{{ 'NAVBAR.Projects.Project_Footer' | translate }}</h5>
-        <ul
-          class="nav d-flex flex-column align-items-start justify-content-start"
-        >
+        <ul class="nav d-flex flex-column align-items-start justify-content-start">
           <li class="nav-item">
-            <a
-              [routerLink]="['/projects/university']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Projects.Project_1' | translate }}</a
-            >
+            <a [routerLink]="['/projects/university']" class="nav-link px-0 text-white link-footer">{{
+              'NAVBAR.Projects.Project_1' | translate }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/projects/special-education']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Projects.Project_2' | translate }}</a
-            >
+            <a [routerLink]="['/projects/special-education']" class="nav-link px-0 text-white link-footer">{{
+              'NAVBAR.Projects.Project_2' | translate }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/projects/community-support']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Projects.Project_3' | translate }}</a
-            >
+            <a [routerLink]="['/projects/community-support']" class="nav-link px-0 text-white link-footer">{{
+              'NAVBAR.Projects.Project_3' | translate }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/projects/mission-trip']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Projects.Project_4' | translate }}</a
-            >
+            <a [routerLink]="['/projects/mission-trip']" class="nav-link px-0 text-white link-footer">{{
+              'NAVBAR.Projects.Project_4' | translate }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/projects/medical-assistance']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Projects.Project_5' | translate }}</a
-            >
+            <a [routerLink]="['/projects/medical-assistance']" class="nav-link px-0 text-white link-footer">{{
+              'NAVBAR.Projects.Project_5' | translate }}</a>
           </li>
         </ul>
       </div>
-      <!-- Sepatator -->
-      <!-- <hr class="d-block d-lg-none" /> -->
-      <!-- Page Links -->
+
       <div class="page-links">
-        <ul
-          class="nav d-flex flex-column align-items-start justify-content-start"
-        >
+        <ul class="nav d-flex flex-column align-items-start justify-content-start">
           <li class="nav-item">
-            <a [routerLink]="['/']" class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Projects.Home' | translate }}</a
-            >
+            <a [routerLink]="['/']" class="nav-link px-0 text-white link-footer">{{ 'NAVBAR.Projects.Home' | translate
+              }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/give']"
-              class="nav-link px-0 text-white link-footer disabled-item_navbar"
-              >{{ 'PAGE_HOME.Donate' | translate }}</a
-            >
+            <a [routerLink]="['/give']" class="nav-link px-0 text-white link-footer disabled-item_navbar">{{
+              'PAGE_HOME.Donate' | translate }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/crezco-story']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Link2' | translate }}</a
-            >
+            <a [routerLink]="['/crezco-story']" class="nav-link px-0 text-white link-footer">{{ 'NAVBAR.Link2' |
+              translate }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['/contact-us']"
-              class="nav-link px-0 text-white link-footer"
-              >{{ 'NAVBAR.Link3' | translate }}</a
-            >
+            <a [routerLink]="['/contact-us']" class="nav-link px-0 text-white link-footer">{{ 'NAVBAR.Link3' | translate
+              }}</a>
           </li>
           <li class="nav-item">
-            <a
-              [routerLink]="['auth/login']"
-              class="nav-link px-0 text-white link-footer disabled-item_navbar"
-              >{{ 'NAVBAR.Link4' | translate }}</a
-            >
+            <a [routerLink]="['auth/login']" class="nav-link px-0 text-white link-footer disabled-item_navbar">{{
+              'NAVBAR.Link4' | translate }}</a>
           </li>
         </ul>
       </div>
     </div>
   </footer>
-</div>
-<div class="content-footer_foundation">
-  <p class="col-12 py-3 mb-0 text-white text-center signature-crezco">
-    © 2023 Crezco Foundation Inc.
-  </p>
+</div> -->
+<div class="content-footer_foundation text-center d-flex justify-content-center">
+  <div class="col-lg-9 col-md-10 text-center d-flex flex-column-reverse flex-md-row align-items-center justify-content-between my-4 my-lg-0 my-md-2 gap-3 gap-lg-0">
+    <div>
+      <p class="col-12 py-3 mb-0 text-white signature-crezco">
+        © {{ crezcoYear }} Crezco Foundation Inc.
+      </p>
+    </div>
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-4">
+      <div class="mx-3">
+        <a class="extra-link-footer text-decoration-none text-white" [routerLink]="['/']">
+          Privacy Policy
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="ms-lg-3">
+        <a class="extra-link-footer text-decoration-none text-white" [routerLink]="['/']">
+          Terms of Use
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

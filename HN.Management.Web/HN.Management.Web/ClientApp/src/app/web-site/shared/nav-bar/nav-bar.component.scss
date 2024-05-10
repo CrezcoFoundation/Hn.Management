@@ -1,7 +1,9 @@
+@import url(../../../../styles.scss);
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 .navbar {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 999;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -14,13 +16,18 @@
   box-shadow: none !important;
 }
 
+nav > div {
+  margin: .25em auto;
+}
+
 .nav-item a {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #2b2b2b;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
 }
 .nav-item a:hover {
-  color: #6f00aa;
+  color: var(--blueviolet-colors-oficial);
 }
 
 .navbar-nav .dropdown:hover .dropdown-menu {
@@ -31,6 +38,11 @@
 /* .dropdown-menu[data-bs-popper] {
   left: -70px !important;
 } */
+
+.icon-menu {
+  color: var(--blueviolet-colors-oficial);
+  font-size: 2rem;
+}
 
 .link-submenu {
   cursor: pointer;
@@ -48,23 +60,23 @@
 
 li .item-university:hover {
   color: white;
-  background-color: #00bf1b;
+  background-color: var(--green-colors-icon-university);
 }
 li .item-special:hover {
   color: white;
-  background-color: #6f00aa;
+  background-color: var(--yellow-colors-icon-special);
 }
 li .item-community:hover {
   color: white;
-  background-color: #f48e08;
+  background-color: var(--orange-color-icon-community);
 }
 li .item-student:hover {
   color: white;
-  background-color: #00bf1b;
+  background-color: var(--green-colors-icon-students-mission);
 }
 li .item-medical:hover {
   color: white;
-  background-color: #6f00aa;
+  background-color: var(--blueviolet-colors-oficial);
 }
 
 .modal {
@@ -84,44 +96,25 @@ li .item-medical:hover {
 
 .btn-login:hover {
   color: white;
-  background-color: #6f00aa;
-  border: 1px solid #6f00aa;
+  background-color: var(--blueviolet-colors-oficial);
+  border: 1px solid var(--blueviolet-colors-oficial);
 }
 
 .btn,
-.btn-primary {
-  color: white;
-  background-color: #00bf1b;
-  border: none;
+.donate-btn .btn-primary {
+  font-family: var(--Inter-text-body-font-family);
+  background-color: var(--blue-colors-buttom);
   text-transform: capitalize;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
-}
-
-.btn:hover,
-.btn-primary:hover {
-  color: white;
-  background-color: #08d123;
+  border-radius: 50px;
+  border: none;
 }
 
 .disabled-item_navbar {
   pointer-events: none;
   color: #c9c9c9;
   opacity: 30%;
-}
-
-/* Mobile Styles */
-
-@media (max-width: 575.98px) {
-  .btn-login {
-    color: white;
-    background-color: transparent;
-    border: 0.2px solid white;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    font-weight: 600;
-  }
 }
 
 .item-project {
@@ -132,8 +125,77 @@ li .item-medical:hover {
   color: #00bf1b;
 }
 
+/* OffCanvas Mobile Start */
+div#offcanvasResponsive {
+  max-width: 85vw;
+}
+
+.offcanvas-header {
+  display: block;
+}
+
+.offcanvas-header > div {
+  gap: 2.2rem;
+}
+
+.offcanvas-body {
+  overflow-x: hidden;
+}
+
+a.icons-contact {
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.icons-contact svg {
+  width: 20px;
+  transition: .2s ease all;
+  circle {
+    fill: var(--blueviolet-colors-oficial);
+  }
+}
+
+.content-social-icons {
+  border: 2px solid var(--blueviolet-colors-oficial);
+  border-radius: 50px;
+  padding: .5px 12px;
+}
+
+.separator-mobile {
+  position: relative;
+  right: -25px;
+  width: 322px;
+  border: 1.2px solid black;
+}
+
+a.nav-link.active {
+  color: var(--blue-colors-buttom);
+}
+
+.donate-container {
+  background-color: var(--language-colors-buttom);
+  height: 90px;
+  /* padding-left: 2.5rem; */
+}
+
+.list-group-item {
+  margin: 1.5rem 0;
+}
+.list-group-item > a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #2b2b2b;
+}
+
+.offcanvas-backdrop.show {
+  opacity: .1 !important;
+}
+
+/* OffCanvas Mobile End */
+
 .navbar-mobile {
-  background-color: #6f00aa;
+  background-color: var(--blueviolet-colors-oficial);
   height: 100vh;
 }
 
@@ -147,17 +209,10 @@ li .item-medical:hover {
   color: white;
 }
 
-/* .hr-line {
-  background-color: white;
-  height: 3.5px;
-  opacity: 1;
-  width: 80%;
-  border: none;
-} */
-
 .logo-footer > a > img {
   width: 120px;
   height: auto;
+  filter: invert(1);
 }
 
 .project-links > h5 {
@@ -176,7 +231,90 @@ li .item-medical:hover {
   min-height: calc(2rem + calc(var(--bs-border-width) * 2));
 }
 
+select#floatingSelectGrid {
+  font-weight: 500;
+}
+
+.form-select {
+  background-color: var(--language-colors-buttom);
+  border-radius: 50px;
+}
+
 .form-select:focus {
-  border-color: #c2c2c2;
-  box-shadow: 0 0 0 0.25rem rgba(49, 164, 83, 0.25);
+  border-color: none;
+  box-shadow: none;
+}
+
+.option-lang {
+  padding: .5em 1em;
+}
+
+
+/* Heart Animation Start */
+
+.heart-vector {
+  transition: ease all;
+}
+.heart-vector:hover {
+  animation-name: pulseHeart;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Heart Animation End */
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .offcanvas-header > div {
+    gap: 6rem;
+  }
+
+  .separator-mobile {
+    width: 360px;
+  }
+}
+
+/* Mobile Styles */
+
+@media (max-width: 575.98px) {
+  .btn-login {
+    color: white;
+    background-color: transparent;
+    border: 0.2px solid white;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  a.nav-link.active::before {
+    content: '';
+    background: var(--blueviolet-colors-oficial);
+    height: 30px;
+    width: 5.5px;
+    position: absolute;
+    left: -40px;
+  }
+}
+
+a.nav-link.active {
+  color: var(--blueviolet-colors-oficial) !important;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
 }

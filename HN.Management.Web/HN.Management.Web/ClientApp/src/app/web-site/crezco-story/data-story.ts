@@ -19,9 +19,9 @@ export function getStoryInfoObject(): StoryInformationInterface[] {
         tagChildren: 'card-grad_img',
         tagBrother: 'card-grad_content',
       },
-      sInfoUrl: 'grad-1_story.webp',
-      sInfoDegree: 'BS Clinical Psychology',
-      sInfoDate: '2023',
+      sInfoUrl: 'grad-13.png',
+      sInfoDegree: 'BS Computer Engineering',
+      sInfoDate: '2013',
     },
     {
       sInfoId: 2,
@@ -30,67 +30,12 @@ export function getStoryInfoObject(): StoryInformationInterface[] {
         tagChildren: 'card-grad_img',
         tagBrother: 'card-grad_content',
       },
-      sInfoUrl: 'grad-2_story.webp',
-      sInfoDegree: 'BS Educational Psychology',
-      sInfoDate: '2019',
-    },
-    /* {    
-        sInfoId: 3,
-        sInfoTags: {
-            tagParent: 'card-grad',
-            tagChildren: 'card-grad_img',
-            tagBrother: 'card-grad_content',
-        },
-        sInfoUrl: 'grad-3_story.webp',
-        sInfoDegree: 'BA Graphic Design',
-        sInfoDate: '2020',
-    }, */
-    {
-      sInfoId: 4,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-4_story.webp',
-      sInfoDegree: 'BA Graphic Design',
-      sInfoDate: '2019',
-    },
-    {
-      sInfoId: 5,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-5_story.webp',
+      sInfoUrl: 'grad-9_story.webp',
       sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2018',
+      sInfoDate: '2013',
     },
     {
-      sInfoId: 6,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-6_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2018',
-    },
-    {
-      sInfoId: 7,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-7_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2018',
-    },
-    {
-      sInfoId: 8,
+      sInfoId: 3,
       sInfoTags: {
         tagParent: 'card-grad',
         tagChildren: 'card-grad_img',
@@ -101,15 +46,103 @@ export function getStoryInfoObject(): StoryInformationInterface[] {
       sInfoDate: '2017',
     },
     {
+      sInfoId: 4,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-7_story.webp',
+      sInfoDegree: 'BS Computer Engineering',
+      sInfoDate: '2018',
+    },
+    {
+      sInfoId: 5,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-6_story.webp',
+      sInfoDegree: 'BS Computer Engineering',
+      sInfoDate: '2018',
+    },
+    {
+      sInfoId: 6,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-5_story.webp',
+      sInfoDegree: 'BS Computer Engineering',
+      sInfoDate: '2018',
+    },
+    {
+      sInfoId: 7,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-4_story.webp',
+      sInfoDegree: 'BA Graphic Design',
+      sInfoDate: '2019',
+    },
+    {
+      sInfoId: 8,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-2_story.webp',
+      sInfoDegree: 'BS Educational Psychology',
+      sInfoDate: '2019',
+    },
+    {
       sInfoId: 9,
       sInfoTags: {
         tagParent: 'card-grad',
         tagChildren: 'card-grad_img',
         tagBrother: 'card-grad_content',
       },
-      sInfoUrl: 'grad-9_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2013',
+      sInfoUrl: 'grad-1_story.webp',
+      sInfoDegree: 'BS Clinical Psychology',
+      sInfoDate: '2023',
+    },
+    {
+      sInfoId: 10,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-12.webp',
+      sInfoDegree: 'BS Education',
+      sInfoDate: '2023',
+    },
+    {
+      sInfoId: 11,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-11.webp',
+      sInfoDegree: 'BS Education',
+      sInfoDate: '2023',
+    },
+    {
+      sInfoId: 12,
+      sInfoTags: {
+        tagParent: 'card-grad',
+        tagChildren: 'card-grad_img',
+        tagBrother: 'card-grad_content',
+      },
+      sInfoUrl: 'grad-10.webp',
+      sInfoDegree: 'BS Nursing',
+      sInfoDate: '2023',
     },
   ];
 }
@@ -149,13 +182,13 @@ export function getInfoAdminObject(): StoryAdminInterface[] {
       },
       sInfoAdminUrl: 'founder-3_story.webp',
     },
-    {
+    /* {
       sAdminId: 4,
       sInfoAdmin: {
         sAdminName: 'Erica Russell',
         sAdminDesc: 'Board Treasurer',
       },
       sInfoAdminUrl: 'founder-4_story.webp',
-    },
+    }, */
   ];
 }

@@ -1,0 +1,23 @@
+<section class="shared-banner">
+  <div class="container py-0 py-lg-5">
+    <div class="d-flex flex-lg-row flex-column-reverse align-items-center justify-content-center py-5 px-lg-2 gap-3 gap-lg-5">
+      <div class="d-flex flex-column gap-2 col-11 col-lg-5">
+        <div class="content-banner">
+          <h2 class="text-white text-center text-lg-start">{{ 'SHARED_BANNER.Title' | translate }}</h2>
+        </div>
+        <div class="content-banner">
+          <p class="text-white text-center text-lg-start">{{ 'SHARED_BANNER.Description' | translate }}
+          </p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+          <button class="btn btn-learn col-12 col-md-10 col-lg-5">
+            <a [routerLink]="['/']" >{{ 'GENERAL.Learn_more' | translate }}</a>
+          </button>
+        </div>
+      </div>
+      <div class="image-banner col-12 col-lg-5 text-center text-lg-end mb-4 mb-lg-0">
+        <img src="assets/Image/home-page/image-banner.webp" alt="Image shared banner">
+      </div>
+    </div>
+  </div>
+</section>

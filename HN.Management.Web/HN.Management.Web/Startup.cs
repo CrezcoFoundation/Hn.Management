@@ -134,6 +134,9 @@ namespace HN.Management.Web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                                           name: default,
+                                           pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllers();
             });
 
@@ -142,7 +145,7 @@ namespace HN.Management.Web
                 spa.Options.SourcePath = "ClientApp";
                 if (env.IsDevelopment())
                 {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:44395");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
 

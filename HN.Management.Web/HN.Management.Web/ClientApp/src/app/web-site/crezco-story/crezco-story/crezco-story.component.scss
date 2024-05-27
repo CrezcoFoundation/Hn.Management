@@ -1,5 +1,12 @@
+@import url(../../../../styles.scss);
+
 .banner-story {
   max-width: 100%;
+  /* background-image: url(../../../../assets/Image/Story/banner.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 325px; */
 }
 
 .title-project h2 {
@@ -7,7 +14,7 @@
   font-family: "Oswald", sans-serif !important;
   text-transform: uppercase;
   font-weight: bold;
-  color: #6f00aa;
+  color: var(--basic-colors-black);
 }
 
 .title-project_section h2 {
@@ -22,16 +29,11 @@
   font-size: 1.3rem;
   font-style: normal;
   line-height: 1.5em;
-  max-width: 70%;
+  max-width: 800px;
 }
 
 .section-knoledge {
-  background: rgb(0, 191, 27);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 191, 27, 1) 32%,
-    rgba(232, 255, 230, 1) 32%
-  );
+  background: var(--colors-gray-bg);
 }
 .section-influence {
   background: rgb(245, 225, 255);
@@ -44,24 +46,27 @@
 
 .knoledge-image img,
 .influence-image img {
-  /* width: 80%; */
+  width: 480px;
   max-width: 100%;
 }
 
 .knoledge-content h3,
 .influence-content h3 {
-  font-size: 45px;
-  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  font-family: var(--Inter-text-body-font-family);
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
 }
 
 .knoledge-content p,
 .influence-content p {
-  line-height: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  font-style: normal;
   text-align: left;
+  /* max-width: 450px; */
 }
 
 .section-empowerment {
@@ -81,6 +86,16 @@
   }
 }
 
+.carousel-indicators {
+  position: relative !important;
+  button {
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 100%;
+    background-color: var(--blueviolet-colors-oficial);
+  }
+}
+
 div > .text-graylight {
   font-family: "Oswald", sans-serif;
   font-size: 28px;
@@ -92,25 +107,58 @@ div > .text-graylight {
 .grads {
   .card-grad {
     display: flex;
+    background: var(--language-colors-buttom);
+    padding: 1.5rem;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    /* justify-content: start; */
     gap: 1em;
+    border-radius: 350px;
+    height: 500px;
+    transition: .3s all ease;
     .card-grad_img img {
+      width: 250px;
       max-width: 100%;
+      border-radius: 100%;
+      border: 2px solid white;
       transition: all 0.3s ease;
+      filter: grayscale(1);
     }
-    .card-grad_img img:hover {
+    /* .card-grad_img img:hover {
       transform: scale(1.02);
-    }
-    .card-grad_content p {
-      color: #9e9e9e;
+    } */
+    .card-grad_content {
+      max-width: 200px;
+      text-align: center;
+      h5 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      p {
+        color: var(--blueviolet-colors-oficial);
+        font-size: 20px;
+      }
     }
   }
 }
 
+.title-project_width {
+  max-width: 350px;
+}
+.desc-project_width {
+  max-width: 650px;
+}
+
+.btn-learn_more {
+  background: var(--blueviolet-colors-oficial);
+  font-size: 20px;
+  color: white;
+  border-radius: 100px;
+  padding: .8rem 2.5rem;
+  font-weight: 600;
+}
+
 .paragraph-section {
-  background-color: #00bf1b;
+  background-color: var(--blueviolet-colors-pastel);
   p {
     font-family: Inter;
     font-size: 1.4rem;
@@ -119,22 +167,45 @@ div > .text-graylight {
   }
 }
 
+.title-founders {
+  font-family: var(--Oswald-text-body-font-family);
+  font-size: 42px;
+}
+
 .founders {
   .card-founder {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 2.5em;
     .founder-photo {
       img {
-        max-width: 80%;
+        width: 250px;
+        max-width: 100%;
         transition: all 0.3s ease;
       }
       img:hover {
         transform: scale(1.03);
       }
     }
+  }
+}
+
+.line_founders {
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 130px;
+}
+
+.founder-content {
+  padding-left: 5rem;
+  h3 {
+    font-size: 1.3rem;
+  }
+  p {
+    font-size: 1.3rem;
+    max-width: 170px;
   }
 }
 
@@ -154,20 +225,29 @@ section {
     max-width: 80%;
   }
 
-  .knoledge-content-mobile {
-    background-color: rgba(232, 255, 230, 1);
+  .knoledge-image img,
+  .influence-image img {
+    width: 280px;
+    max-width: 100%;
   }
 
-  .knoledge-content-mobile h3 {
-    font-size: 25px;
-    font-family: "Oswald", sans-serif;
+  .knoledge-content h3,
+  .influence-content h3 {
+    font-size: 21px;
+    font-family: var(--Inter-text-body-font-family);
     text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
+    font-weight: 600;
+    text-align: left;
   }
 
-  .knoledge-content-mobile p {
-    font-size: 1.15rem;
+  .knoledge-content p,
+  .influence-content p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 2rem;
+    font-style: normal;
+    text-align: left;
+    /* max-width: 450px; */
   }
 
   .title-project_section h2 {
@@ -197,6 +277,34 @@ section {
     }
   }
 
+  .btn-learn_more {
+    font-size: 16px;
+  }
+
+  .grads {
+    .card-grad {
+      gap: 1em;
+      height: 280px;
+      .card-grad_img img {
+        width: 250px;
+        max-width: 100%;
+        border-radius: 100%;
+        border: 2px solid white;
+        transition: all 0.3s ease;
+        filter: grayscale(1);
+      }
+      .card-grad_content {
+        max-width: 200px;
+        h5 {
+          font-size: 13px;
+        }
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
   .founders {
     .card-founder {
       .founder-photo {
@@ -207,4 +315,18 @@ section {
       }
     }
   }
+  .title-founders {
+    font-family: var(--Oswald-text-body-font-family);
+    font-size: 42px;
+  }
+
+  .line_founders {
+    margin-left: 50px;
+    margin-top: 130px;
+  }
+
+  .founder-content {
+    padding-left: 5.5rem;
+  }
+
 }

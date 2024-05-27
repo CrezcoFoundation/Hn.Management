@@ -18,6 +18,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         #region Customers 
+        [HttpPost("customer")]
         public async Task<ActionResult<CustomerResource>> CreateCustomer([FromBody] CreateCustomerResource resource,
                CancellationToken cancellationToken)
         {
@@ -26,7 +27,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpPut("customer/{id}")]
-        public async Task<ActionResult<Invoice>> UpdateCustomer([FromBody] string id, CustomerUpdateOptions resource, CancellationToken cancellationToken)
+        public async Task<ActionResult<Invoice>> UpdateCustomer([FromRoute] string id, [FromBody] CustomerUpdateOptions resource, CancellationToken cancellationToken)
         {
             var response = await _stripeService.UpdateCustomer(id, resource, cancellationToken);
             return Ok(response);

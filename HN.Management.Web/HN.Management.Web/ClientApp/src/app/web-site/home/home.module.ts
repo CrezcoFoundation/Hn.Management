@@ -12,30 +12,32 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from 'src/app/web-site/shared/shared.module';
 //Sweet alert
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ContactUsModule } from "../contact-us/contact-us.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
 }
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    SharedModule,
-    RouterModule,
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    SweetAlert2Module,
-  ],
-  exports: [HomeComponent],
+    declarations: [HomeComponent],
+    exports: [HomeComponent],
+    imports: [
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        SharedModule,
+        RouterModule,
+        CommonModule,
+        ReactiveFormsModule,
+        FormsModule,
+        SweetAlert2Module,
+        ContactUsModule
+    ]
 })
 
 export class HomeModule {

@@ -1,21 +1,19 @@
-import { Title } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER, LOCALE_ID  } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
-
-// bootstrap components
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { FullPageCarouselComponent } from './full-page-carousel/full-page-carousel.component';
-import { MultipleItemsSliderComponent } from './multiple-items-slider/multiple-items-slider.component';
-import { FooterComponent } from './footer/footer.component';
+import { NgModule, APP_INITIALIZER, LOCALE_ID  } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+// shared components
+import { FooterComponent } from './footer/footer.component';
+import { MultipleItemsSliderComponent } from './multiple-items-slider/multiple-items-slider.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PaypalComponent } from './donation-options/paypal/paypal.component';
+import { SharedBannerComponent } from './shared-banner/shared-banner.component';
 
 // Translate imports
 import Backend from 'i18next-chained-backend';
@@ -96,10 +94,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     NavBarComponent,
-    FullPageCarouselComponent,
     MultipleItemsSliderComponent,
     FooterComponent,
     PaypalComponent,
+    SharedBannerComponent,
   ],
   imports: [
     NgOptimizedImage,
@@ -119,9 +117,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   exports: [
     PaypalComponent,
     MultipleItemsSliderComponent,
-    FullPageCarouselComponent,
     FooterComponent,
     NavBarComponent,
+    SharedBannerComponent
   ],
   providers: [I18N_PROVIDERS],
   bootstrap: [NavBarComponent]

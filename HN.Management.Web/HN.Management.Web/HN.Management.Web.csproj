@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Infrastructure\**" />
+    <Content Remove="Infrastructure\**" />
+    <EmbeddedResource Remove="Infrastructure\**" />
+    <None Remove="Infrastructure\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Apis\V1\Controllers\UserRoleController.cs" />
   </ItemGroup>
 
@@ -48,10 +55,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HN.Management.Manager\HN.Management.Manager.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
   <ItemGroup>

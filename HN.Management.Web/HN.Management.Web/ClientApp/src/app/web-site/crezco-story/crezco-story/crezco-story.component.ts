@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   StoryAdminInterface,
-  StoryInformationInterface,
+  StoryInformation,
   getInfoAdminObject,
   getStoryInfoObject,
 } from '../data-story';
@@ -15,7 +15,7 @@ export class CrezcoStoryComponent implements OnInit {
 
   showCarousel: boolean = false;
 
-  storyInfo: StoryInformationInterface[];
+  storyInfo: StoryInformation[];
   storyInfoAdmin: StoryAdminInterface[];
   constructor() {
     this.storyInfo = getStoryInfoObject().reverse();

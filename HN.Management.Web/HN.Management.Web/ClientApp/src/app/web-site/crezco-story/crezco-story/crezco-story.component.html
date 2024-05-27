@@ -90,16 +90,18 @@
       <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div  class="carousel-item active">
         <div
           class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(0, 6)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+          <div *ngFor="let info of storyInfo.slice(0, 6)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
+            <div class="card-grad_content mt-3">
+              <h5 *ngIf="info.degree == 'TI'" >{{ 'GRADUATES.TI' | translate}}</h5>
+              <h5 *ngIf="info.degree == 'PS'" >{{ 'GRADUATES.PS' | translate}}</h5>
+              <h5 *ngIf="info.degree == 'GD'" >{{ 'GRADUATES.GD' | translate}}</h5>
+              <p class="mb-0 text-center">{{ info.date }}</p>
             </div>
           </div>
         </div>
@@ -107,13 +109,15 @@
       <div class="carousel-item">
         <div
           class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(6, 12)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+          <div *ngFor="let info of storyInfo.slice(6, 12)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
+            <div class="card-grad_content mt-3">
+              <h5 *ngIf="info.degree == 'TI'" >{{ 'GRADUATES.TI' | translate}}</h5>
+              <h5 *ngIf="info.degree == 'PS'" >{{ 'GRADUATES.PS' | translate}}</h5>
+              <h5 *ngIf="info.degree == 'GD'" >{{ 'GRADUATES.GD' | translate}}</h5>
+              <p class="mb-0 text-center">{{ info.date }}</p>
             </div>
           </div>
         </div>
@@ -131,11 +135,25 @@
       <div class="carousel-item active">
         <div
           class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(0, 4)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
+          <div *ngFor="let info of storyInfo.slice(0, 4)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
               <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
+            <div class="card-grad_content mt-3">
+              <h5>{{ info.sInfoDegree | translate }}</h5>
+              <p class="mb-0 text-center">{{ info.sInfoDate | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div
+          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of storyInfo.slice(4, 8)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
               <h5>{{ info.sInfoDegree }}</h5>
               <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
             </div>
@@ -145,25 +163,11 @@
       <div class="carousel-item">
         <div
           class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(4, 8)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
+          <div *ngFor="let info of storyInfo.slice(8, 12)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
               <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div
-          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(8, 12)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
-            </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
+            <div class="card-grad_content mt-3">
               <h5>{{ info.sInfoDegree }}</h5>
               <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
             </div>
@@ -176,11 +180,11 @@
 
   <!-- <div
     class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-    <div *ngFor="let info of storyInfo" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-      <div class="{{ info.sInfoTags.tagChildren }}">
+    <div *ngFor="let info of storyInfo" class="card-grad col-lg-3 col-5 align-items-center">
+      <div class="card-grad_img">
         <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
       </div>
-      <div class="{{ info.sInfoTags.tagBrother }} mt-3">
+      <div class="card-grad_content mt-3">
         <h5>{{ info.sInfoDegree }}</h5>
         <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
       </div>

@@ -10,7 +10,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
 using HN.Management.Engine.CosmosDb.Interfaces;
-using System;
+using Services = HN.Management.Manager.Services;
+using Stripe;
 
 namespace HN.Management.Web
 {
@@ -44,6 +45,15 @@ namespace HN.Management.Web
             services.AddAutoMapper(typeof(AutoMapping));
 
             services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));
+            services.Configure<StripeSetting>(Configuration.GetSection("StripeSetting"));
+
+            // Stripe Configurations
+            services.AddScoped<PriceService>();
+            services.AddScoped<CustomerService>();
+            services.AddScoped<PaymentIntentService>();
+            services.AddScoped<InvoiceService>();
+            services.AddScoped<SubscriptionService>();
+            StripeConfiguration.ApiKey = Configuration.GetValue<string>("StripeSetting:ApiKey");
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             //{
@@ -74,6 +84,9 @@ namespace HN.Management.Web
             services.Configure<EmailOptions>(Configuration.GetSection(
                                 EmailOptions.EmailSettings));
 
+            services.Configure<StripeSetting>(Configuration.GetSection(
+                        "StripeSetting"));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HN.Management", Version = "v1" });
@@ -97,7 +110,7 @@ namespace HN.Management.Web
 
             }
 
-            app.UseMiddleware<TokenService>();
+            app.UseMiddleware<Services.TokenService>();
 
             // app.UseApiExceptionHandling();
 
@@ -129,7 +142,7 @@ namespace HN.Management.Web
                 spa.Options.SourcePath = "ClientApp";
                 if (env.IsDevelopment())
                 {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:44395");
                 }
             });
 

@@ -1,4 +1,7 @@
 {
+  "MAIN": {
+    "Title": "Fundación Crezco"
+  },
   "GENERAL": {
     "Learn_more": "Leer más",
     "Button_contact": "Contáctanos",
@@ -183,5 +186,18 @@
       "Section_6": {
         "Title_admin": "JUNTA Y FUNCIONARIOS DE ADMINISTRACIÓN"
       }
+    },
+    "GRADUATES": {
+      "TI": "Ingeniería en Sistemas",
+      "PS": "Lic. Psicología Educacional",
+      "GD": "Lic. Diseño Gráfico",
+      "PSC": "Lic. Psicología Clínica",
+      "NS": "Lic. Enfermería",
+      "ED": "Lic. Educación"
+    },
+    "ADMIN_STORY": {
+      "FE": "Fundadora y Directora Ejecutiva",
+      "BC": "Presidenta Junta Directiva",
+      "BS": "Secretaria Junta Directiva"
     }
   }

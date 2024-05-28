@@ -1,4 +1,7 @@
 {
+  "MAIN": {
+    "Title": "Crezco Foundation"
+  },
   "GENERAL": {
     "Learn_more": "Learn more",
     "Button_contact": "Contact Us",
@@ -187,5 +190,18 @@
     "Section_6": {
       "Title_admin": "ADMINISTRATION & BOARD OFFICERS"
     }
+  },
+  "GRADUATES": {
+    "TI": "BS Computer Engineering",
+    "PS": "BS Educational Psychology",
+    "GD": "BA Graphic Design",
+    "PSC": "BS Clinical Psychology",
+    "NS": "BS Nursing",
+    "ED": "BS Education"
+  },
+  "ADMIN_STORY": {
+    "FE": "Founder & Executive Director",
+    "BC": "Board Chair",
+    "BS": "Board Secretary"
   }
 }

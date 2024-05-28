@@ -38,7 +38,7 @@
       <div class="offcanvas d-lg-none offcanvas-end" tabindex="-1" id="offcanvasResponsive"
         aria-labelledby="offcanvasResponsiveLabel">
         <div class="offcanvas-header align-items-center justify-content-center py-3">
-          <div class="d-flex flex-row align-items-center justify-content-center gap-4">
+          <div class="d-flex flex-row align-items-center justify-content-start ms-4 gap-4">
             <div>
               <a [routerLink]="['/']" class="text-decoration-none" data-bs-dismiss="offcanvas">
                 <img src="../../assets/Image/Logo/color_logo-crezco-mobile.svg" alt="Logo Crezco Mobile">
@@ -86,7 +86,7 @@
         </div>
 
         <div class="donate-container d-flex align-items-center justify-content-start my-2">
-          <a [routerLink]="['/']" class="nav-link ms-5" aria-current="page" data-bs-dismiss="offcanvas">
+          <a [routerLink]="['/']" class="nav-link col-md-6 ms-4" aria-current="page" data-bs-dismiss="offcanvas">
             <button class="btn btn-primary donate-btn px-4 py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
               {{ 'PAGE_HOME.Donate' | translate }}
               <img class="ms-1 heart-vector" src="../../../assets/Image/home-page/heart-vector.svg" alt="heart-vector">

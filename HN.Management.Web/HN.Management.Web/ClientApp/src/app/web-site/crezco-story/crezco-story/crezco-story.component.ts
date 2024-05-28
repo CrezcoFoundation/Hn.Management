@@ -15,11 +15,11 @@ export class CrezcoStoryComponent implements OnInit {
 
   showCarousel: boolean = false;
 
-  storyInfo: StoryInformation[];
-  storyInfoAdmin: StoryAdminInterface[];
+  infoGraduates: StoryInformation[];
+  infoAdmin: StoryAdminInterface[];
   constructor() {
-    this.storyInfo = getStoryInfoObject().reverse();
-    this.storyInfoAdmin = getInfoAdminObject();
+    this.infoGraduates = getStoryInfoObject().reverse();
+    this.infoAdmin = getInfoAdminObject();
   }
 
   ngOnInit(): void {

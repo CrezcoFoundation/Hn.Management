@@ -1,4 +1,7 @@
 {
+  "MAIN": {
+    "Title": "Fundación Crezco"
+  },
   "GENERAL": {
     "Learn_more": "Leer más",
     "Button_contact": "Contáctanos",
@@ -185,8 +188,16 @@
       }
     },
     "GRADUATES": {
-      "TI": "BS progra",
-      "PS": "BS Sico",
-      "GD": "BS diseñador de macdonalds"
+      "TI": "Ingeniería en Sistemas",
+      "PS": "Lic. Psicología Educacional",
+      "GD": "Lic. Diseño Gráfico",
+      "PSC": "Lic. Psicología Clínica",
+      "NS": "Lic. Enfermería",
+      "ED": "Lic. Educación"
+    },
+    "ADMIN_STORY": {
+      "FE": "Fundadora y Directora Ejecutiva",
+      "BC": "Presidenta Junta Directiva",
+      "BS": "Secretaria Junta Directiva"
     }
   }

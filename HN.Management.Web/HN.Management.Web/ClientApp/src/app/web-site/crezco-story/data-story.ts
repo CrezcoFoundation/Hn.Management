@@ -58,72 +58,72 @@ export function getStoryInfoObject(): StoryInformation[] {
     {
       id: 9,
       url: 'grad-1_story.webp',
-      degree: 'BS Clinical Psychology',
+      degree: 'PSC',
       date: '2023',
     },
     {
       id: 10,
       url: 'grad-12.webp',
-      degree: 'BS Education',
+      degree: 'ED',
       date: '2023',
     },
     {
       id: 11,
       url: 'grad-11.webp',
-      degree: 'BS Education',
+      degree: 'ED',
       date: '2023',
     },
     {
       id: 12,
       url: 'grad-10.webp',
-      degree: 'BS Nursing',
+      degree: 'NS',
       date: '2023',
     },
   ];
 }
 
 export interface StoryAdminInterface {
-  sAdminId: number;
-  sInfoAdmin: {
-    sAdminName: string;
-    sAdminDesc: string;
+  id: number;
+  adminInfo: {
+    name: string;
+    role: string;
   };
-  sInfoAdminUrl: string;
+  url: string;
 }
 
 export function getInfoAdminObject(): StoryAdminInterface[] {
   return [
     {
-      sAdminId: 1,
-      sInfoAdmin: {
-        sAdminName: 'Amanda Corea',
-        sAdminDesc: 'Founder & Executive Director',
+      id: 1,
+      adminInfo: {
+        name: 'Amanda Corea',
+        role: 'FE',
       },
-      sInfoAdminUrl: 'founder-1_story.webp',
+      url: 'founder-1_story.webp',
     },
     {
-      sAdminId: 2,
-      sInfoAdmin: {
-        sAdminName: 'Ashley McMullen',
-        sAdminDesc: 'Board Chair',
+      id: 2,
+      adminInfo: {
+        name: 'Ashley McMullen',
+        role: 'BC',
       },
-      sInfoAdminUrl: 'founder-2_story.webp',
+      url: 'founder-2_story.webp',
     },
     {
-      sAdminId: 3,
-      sInfoAdmin: {
-        sAdminName: 'Marci Corea',
-        sAdminDesc: 'Board Secretary',
+      id: 3,
+      adminInfo: {
+        name: 'Marci Corea',
+        role: 'BS',
       },
-      sInfoAdminUrl: 'founder-3_story.webp',
+      url: 'founder-3_story.webp',
     },
     /* {
-      sAdminId: 4,
-      sInfoAdmin: {
-        sAdminName: 'Erica Russell',
-        sAdminDesc: 'Board Treasurer',
+      id: 4,
+      admin: {
+        name: 'Erica Russell',
+        role: 'BT',
       },
-      sInfoAdminUrl: 'founder-4_story.webp',
+      url: 'founder-4_story.webp',
     }, */
   ];
 }

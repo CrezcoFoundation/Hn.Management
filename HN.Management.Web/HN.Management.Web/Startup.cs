@@ -53,6 +53,7 @@ namespace HN.Management.Web
             services.AddScoped<PaymentIntentService>();
             services.AddScoped<InvoiceService>();
             services.AddScoped<SubscriptionService>();
+            services.AddScoped<SetupIntentService>();
             StripeConfiguration.ApiKey = Configuration.GetValue<string>("StripeSetting:ApiKey");
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>

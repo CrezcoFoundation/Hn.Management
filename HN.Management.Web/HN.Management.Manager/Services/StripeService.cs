@@ -13,18 +13,21 @@ namespace HN.Management.Manager.Services
         private readonly PaymentIntentService _paymentIntentService;
         private readonly InvoiceService _invoiceService;
         private readonly SubscriptionService _subscriptionService;
-
+        private readonly SetupIntentService _setupIntentService;
+        
         public StripeService(CustomerService customerService,
                             PriceService priceService,
                             PaymentIntentService paymentIntentService,
                             InvoiceService invoiceService,
-                            SubscriptionService subscriptionService)
+                            SubscriptionService subscriptionService,
+                            SetupIntentService setupIntentService)
         {
             _customerService = customerService;
             _priceService = priceService;
             _paymentIntentService = paymentIntentService;
             _invoiceService = invoiceService;
             _subscriptionService = subscriptionService;
+            _setupIntentService = setupIntentService;
         }
 
         public async Task<CustomerResource> CreateCustomer(CreateCustomerResource resource, CancellationToken cancellationToken)
@@ -58,6 +61,11 @@ namespace HN.Management.Manager.Services
                 price.Created,
                 price.Currency,
                 price.Metadata);
+        }
+
+        public async Task<SetupIntent> CreateSetupIntent(SetupIntentCreateOptions resource, CancellationToken cancellationToken)
+        {
+            return await _setupIntentService.CreateAsync(resource, null, cancellationToken);
         }
 
         public async Task<PaymentIntentResponse> CreatePaymentIntent(PaymentIntentCreateOptions resource, CancellationToken cancellationToken)

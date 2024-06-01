@@ -41,6 +41,13 @@ namespace HN.Management.Web.Apis.V1.Controllers
             return Ok(response);
         }
 
+        [HttpPost("setupIntent")]
+        public async Task<ActionResult<PaymentIntentResponse>> CreateSetupIntent([FromBody] SetupIntentCreateOptions resource, CancellationToken cancellationToken)
+        {
+            var response = await _stripeService.CreateSetupIntent(resource, cancellationToken);
+            return Ok(response);
+        }
+
         [HttpPost("paymentIntent")]
         public async Task<ActionResult<PaymentIntentResponse>> CreatePaymentIntent([FromBody] PaymentIntentCreateOptions resource, CancellationToken cancellationToken)
         {

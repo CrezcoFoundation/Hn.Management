@@ -12,5 +12,6 @@ namespace HN.Management.Manager.Services.Interfaces
         Task<PaymentIntentResponse> CreatePaymentIntent(PaymentIntentCreateOptions resource, CancellationToken cancellationToken);
         Task<Invoice> CreateInvoice(InvoiceCreateOptions resource, CancellationToken cancellationToken);
         Task<Subscription> CreateSubscription(SubscriptionCreateOptions resource, CancellationToken cancellationToken);
+        Task<SetupIntent> CreateSetupIntent(SetupIntentCreateOptions resource, CancellationToken cancellationToken);
     }
 }

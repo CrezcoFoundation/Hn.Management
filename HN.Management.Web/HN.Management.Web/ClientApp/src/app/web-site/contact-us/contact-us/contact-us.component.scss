@@ -1,7 +1,8 @@
+@import url(../../../../styles.scss);
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 
 .bg-contact {
-  background-color: #f1f1f1;
+  background-color: transparent;
   /* margin: 0; padding: 0; */
 }
 
@@ -10,43 +11,66 @@
 }
 
 .card-contact {
-  padding: 7rem 6rem 5rem 6rem;
+  padding: 0 6rem 5rem 6rem;
+  margin-top: 4rem;
 }
 
 .contact-title {
-  font-size: 35px;
+  font-size: 42px;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+}
+.contact-subtitle {
+  font-size: 24px;
   font-family: "Oswald", sans-serif;
   font-weight: bold;
 }
 
+.desc_contact-block {
+  font-size: 20px;
+  /* max-width: 300px; */
+}
+
 .social-media_title {
-  font-size: 25px;
-  font-family: "Oswald", sans-serif;
+  font-size: 17px;
+  font-family: var(--Inter-text-body-font-family);
+  text-transform: capitalize;
   font-weight: 500;
 }
 
-.icons-contact {
-  max-width: 40px;
-  width: 100%;
-  transition: 0.3s ease all;
+.icons-contact svg {
+  width: 40px;
+  transition: .2s ease all;
+  fill: #00bf1b;
+  /* circle {
+    fill: var(--blueviolet-colors-oficial);
+  } */
 }
 
-a .icons-contact:hover {
+.icons-contact svg:hover {
   transform: translateY(-5px);
 }
 
+.content-social-icons {
+  border: 2px solid var(--blueviolet-colors-oficial);
+  border-radius: 50px;
+  padding: 2px 12px;
+}
+
 .bg-violet {
-  background-color: #6f00aa;
+  /* background-color: #6f00aa; */
   border-radius: 15px;
 }
 
 .btn,
-.btn-primary {
-  background-color: #00bf1b;
-  text-transform: uppercase;
+.donate-btn .btn-primary {
+  font-family: var(--Inter-text-body-font-family);
+  background-color: var(--blueviolet-colors-oficial);
+  text-transform: capitalize;
   font-size: 1.2rem;
   font-weight: 500;
-  border: none;
+  border-radius: 50px;
+  border: 2px solid white;
 }
 
 .message-btn {
@@ -65,7 +89,11 @@ a .icons-contact:hover {
 input#userName,
 input#userEmail,
 textarea#messageTextArea {
+  border-radius: 50px;
   border: 1px solid #c9c9c9;
+}
+textarea#messageTextArea{
+  border-radius: 30px;
 }
 .form-control:focus {
   box-shadow: 0 0 0 0.25rem rgb(125 13 253 / 26%);
@@ -82,12 +110,12 @@ textarea.form-control::placeholder {
 }
 
 .form-check-input {
-  border: 1px solid #6f00aa;
+  border: 1px solid var(--blueviolet-colors-oficial);
   width: 1.5em;
   height: 1.5em;
 }
 .form-check-input:checked {
-  background-color: #6f00aa;
+  background-color: var(--blueviolet-colors-oficial);
 }
 .form-check-input:focus {
   box-shadow: none !important;
@@ -97,13 +125,39 @@ textarea.form-control::placeholder {
   color: #db190c;
 }
 
+.link-email {
+  text-decoration: underline;
+  color: var(--blueviolet-colors-oficial);
+  font-size: 1.2rem;
+}
+
+.link-number {
+  font-size: 1.2rem;
+}
+
 /* Mobile Styles */
 @media (max-width: 576px) {
   .card-contact {
-    padding: 3rem 1rem;
+    padding: 1rem 1rem;
+    margin-top: 0em;
   }
+
+  .desc_contact-block {
+    font-size: 1.1rem;
+  }
+
   textarea.form-control {
     max-height: 240px !important;
-    min-height: 230px !important;
+    min-height: 200px !important;
+  }
+
+  .link-email {
+    text-decoration: underline;
+    color: var(--blueviolet-colors-oficial);
+    font-size: 1.2rem;
+  }
+
+  .link-number {
+    font-size: 1.2rem;
   }
 }

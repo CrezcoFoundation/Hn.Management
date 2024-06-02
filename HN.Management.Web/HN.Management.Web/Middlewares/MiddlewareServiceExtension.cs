@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using HN.Management.Engine.Repositories;
 using HN.Management.Engine.Repositories.Interfaces;
 using HN.Management.Manager.Services;
@@ -28,27 +28,13 @@ namespace HN.Management.Web.Extensions
     {
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
         {
-            //Services
-            //service.AddScoped<IExpenseService, ExpenseService>();
-            //service.AddScoped<IDonorService, DonorService>();
-            //service.AddScoped<IEvidenceService, EvidenceService>();
-            //service.AddScoped<IProjectService, ProjectService>();
-            //service.AddScoped<IStudentService, StudetService>();
-            //service.AddScoped<IUserRoleService, UserRoleService>();
-
+            service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IPaypalService, PaypalService>();
             service.AddScoped<IEmailService, EmailService>();
             service.AddScoped<IDonationService, DonationService>();
             service.AddScoped<IUserService, UserService>();
-
-            //Repositories
-            //service.AddScoped<IExpenseRepository, ExpenseRepository>();
-            //service.AddScoped<IDonorRepository, DonorRepository>();
-            //service.AddScoped<IEvidenceRepository, EvidenceRepository>();
-            //service.AddScoped<IProjectRepository, ProjectRepository>();
-            //service.AddScoped<IStudentRepository, StudentRepository>();
-            //service.AddScoped<IUserRoleRepository, UserRoleRepository>();
-
+            service.AddScoped<IStripeService, StripeService>();
+  
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();

@@ -7,7 +7,7 @@ footer {
 }
 
 .content-footer_foundation {
-  background-color: #6f00aa;
+  background-color: var(--blueviolet-colors-oficial);
   p {
     text-transform: uppercase;
   }
@@ -35,8 +35,9 @@ footer {
   color: #c19fd1 !important;
 }
 
-.signature-crezco {
-  font-size: 13px;
+.signature-crezco,
+.extra-link-footer {
+  font-size: 16px;
 }
 
 hr {
@@ -58,6 +59,10 @@ hr {
 @media (min-width: 992px) {
   .content-footer {
     gap: 16em;
+  }
+  .signature-crezco,
+  .extra-link-footer {
+    font-size: 13px;
   }
 }
 

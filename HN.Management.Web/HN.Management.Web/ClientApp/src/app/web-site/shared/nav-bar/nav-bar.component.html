@@ -1,319 +1,270 @@
 <!-- Navbar Container Start -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 pb-lg-2 pb-0">
-  <div
-    class="container align-items-center justify-content-around col-lg-9 px-0"
-  >
+  <div class="container align-items-center justify-content-between justify-content-md-between justify-content-lg-around col-lg-10 col-12 px-3 px-md-0 px-lg-5 pb-2 pb-lg-0">
     <a class="navbar-brand" [routerLink]="['/']">
-      <img
-        src="assets/Image/Logo/Logo2.png"
-        alt="Logo site Foundation"
-        width="140"
-        height="auto"
-        class="p-0 d-none d-lg-block"
-      />
-      <img
-        src="assets/Image/Logo/Crezco-iso.svg"
-        alt="Logo site Foundation"
-        width="50"
-        height="auto"
-        class="p-0 d-block d-lg-none"
-      />
+      <img src="assets/Image/Logo/color_logo-crezco-mobile.svg" alt="Logo site Foundation" width="115" height="auto"
+        class="p-0 d-none d-lg-block" />
+      <img src="assets/Image/Logo/color_logo-crezco-mobile.svg" alt="Logo site Foundation" width="100" height="auto"
+        class="p-0 d-block d-lg-none" />
     </a>
-    <a class="nav-link d-block d-lg-none">
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Donate Now
+    <!-- <a class="nav-link d-block d-lg-none">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        {{ 'PAGE_HOME.Donate' | translate }}
       </button>
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      (click)="toggleMenu()"
-    >
-      <!-- <span class="navbar-toggler-icon"></span> -->
-      <i
-        class="fa-solid fa-lg"
-        [ngClass]="{
-          'fa-bars-staggered': !isMenuOpen,
-          'fa-xmark fa-xl': isMenuOpen
-        }"
-      ></i>
-    </button>
+    </a> -->
+    <!-- Language Selector -->
+    <div class="d-flex flex-row gap-4 align-items-center">
+      <div class="form-floating d-lg-none d-block">
+        <select [(ngModel)]="selectedLanguage" (change)="changeLanguage()" class="form-select pb-0 pt-0"
+          id="floatingSelectGrid">
+          <option value="en" selected>En</option>
+          <option value="es">Es</option>
+        </select>
+      </div>
 
-    <div
-      class="collapse navbar-collapse justify-content-end"
-      id="navbarNavDropdown"
-      [ngClass]="{
+      <div class="d-block d-lg-none">
+        <a class="nav-link disabled" [routerLink]="['/auth/login']">
+          <img class="ms-1" style="width: 35px;" src="../../../assets/Image/home-page/Login-btn-icon.svg"
+            alt="login-vector">
+        </a>
+      </div>
+
+      <button class="btn d-lg-none bg-transparent" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+        <i class="fa-solid fa-bars icon-menu"></i>
+      </button>
+
+      <div class="offcanvas d-lg-none offcanvas-end" tabindex="-1" id="offcanvasResponsive"
+        aria-labelledby="offcanvasResponsiveLabel">
+        <div class="offcanvas-header align-items-center justify-content-center py-3">
+          <div class="d-flex flex-row align-items-center justify-content-start ms-4 gap-4">
+            <div>
+              <a [routerLink]="['/']" class="text-decoration-none" data-bs-dismiss="offcanvas">
+                <img src="../../assets/Image/Logo/color_logo-crezco-mobile.svg" alt="Logo Crezco Mobile">
+              </a>
+            </div>
+            <div class="content-social-icons d-flex align-items-center justify-content-around gap-3">
+              <a href="" target="_blank" class="icons-contact" data-bs-dismiss="offcanvas">
+                <svg width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24.404" cy="24.904" r="24.404" fill="black"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7762 11.5293C22.2664 10.012 24.2876 9.15967 26.3951 9.15967H30.6739C31.124 9.15967 31.4889 9.53117 31.4889 9.98945V15.7979C31.4889 16.2562 31.124 16.6277 30.6739 16.6277H26.3951C26.233 16.6277 26.0775 16.6933 25.9629 16.81C25.8482 16.9267 25.7838 17.085 25.7838 17.25V20.7766H30.6739C30.9249 20.7766 31.1618 20.8943 31.3163 21.0957C31.4707 21.2971 31.5254 21.5597 31.4646 21.8076L30.0383 27.6161C29.9476 27.9855 29.6216 28.2446 29.2476 28.2446H25.7838V39.0317C25.7838 39.49 25.4189 39.8615 24.9688 39.8615H19.2637C18.8136 39.8615 18.4487 39.49 18.4487 39.0317V28.2446H14.9849C14.5348 28.2446 14.1699 27.8731 14.1699 27.4148V21.6064C14.1699 21.1481 14.5348 20.7766 14.9849 20.7766H18.4487V17.25C18.4487 15.1043 19.2859 13.0465 20.7762 11.5293ZM26.3951 10.8192C24.7199 10.8192 23.1133 11.4968 21.9288 12.7028C20.7442 13.9088 20.0788 15.5445 20.0788 17.25V21.6064C20.0788 22.0646 19.7139 22.4361 19.2637 22.4361H15.7999V26.585H19.2637C19.7139 26.585 20.0788 26.9566 20.0788 27.4148V38.202H24.1538V27.4148C24.1538 26.9566 24.5187 26.585 24.9688 26.585H28.6113L29.6301 22.4361H24.9688C24.5187 22.4361 24.1538 22.0646 24.1538 21.6064V17.25C24.1538 16.6448 24.3899 16.0644 24.8103 15.6365C25.2306 15.2085 25.8007 14.9681 26.3951 14.9681H29.8589V10.8192H26.3951Z" fill="white"/>
+                </svg>
+              </a>
+              <a href="" target="_blank" class="icons-contact" data-bs-dismiss="offcanvas">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="25.2126" cy="24.904" r="24.404" fill="black"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1713 13.7684C16.3572 13.7684 14.076 16.0496 14.076 18.8637V31.602C14.076 34.4161 16.3572 36.6974 19.1713 36.6974H31.9097C34.7237 36.6974 37.005 34.4161 37.005 31.602V18.8637C37.005 16.0496 34.7237 13.7684 31.9097 13.7684H19.1713ZM11.5283 18.8637C11.5283 14.6426 14.9502 11.2207 19.1713 11.2207H31.9097C36.1308 11.2207 39.5527 14.6426 39.5527 18.8637V31.602C39.5527 35.8232 36.1308 39.2451 31.9097 39.2451H19.1713C14.9502 39.2451 11.5283 35.8232 11.5283 31.602V18.8637Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M26.1563 21.3976C25.3612 21.2797 24.5491 21.4155 23.8357 21.7857C23.1222 22.1559 22.5436 22.7417 22.1822 23.4597C21.8209 24.1776 21.6951 24.9913 21.8228 25.7849C21.9505 26.5785 22.3252 27.3116 22.8935 27.88C23.4619 28.4484 24.195 28.823 24.9886 28.9507C25.7822 29.0784 26.5959 28.9527 27.3138 28.5913C28.0318 28.2299 28.6176 27.6513 28.9878 26.9378C29.358 26.2244 29.4938 25.4123 29.3759 24.6172C29.2556 23.8062 28.8777 23.0553 28.298 22.4756C27.7182 21.8958 26.9673 21.5179 26.1563 21.3976ZM22.6623 19.5243C23.8514 18.9073 25.2048 18.681 26.53 18.8775C27.8817 19.0779 29.1332 19.7078 30.0994 20.6741C31.0657 21.6404 31.6956 22.8918 31.896 24.2435C32.0925 25.5687 31.8662 26.9221 31.2492 28.1112C30.6322 29.3003 29.6559 30.2646 28.4593 30.8669C27.2626 31.4692 25.9065 31.6789 24.5839 31.4661C23.2612 31.2532 22.0393 30.6287 21.0921 29.6815C20.1448 28.7342 19.5203 27.5123 19.3075 26.1896C19.0946 24.867 19.3043 23.5109 19.9066 22.3143C20.5089 21.1176 21.4732 20.1414 22.6623 19.5243Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M31.2734 18.2267C31.2734 17.5232 31.8438 16.9529 32.5473 16.9529H32.56C33.2635 16.9529 33.8338 17.5232 33.8338 18.2267C33.8338 18.9302 33.2635 19.5005 32.56 19.5005H32.5473C31.8438 19.5005 31.2734 18.9302 31.2734 18.2267Z" fill="white"/>
+                </svg>
+              </a>
+              <a href="" target="_blank" class="icons-contact" data-bs-dismiss="offcanvas">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="25.0203" cy="24.904" r="24.404" fill="black"/>
+                  <g clip-path="url(#clip0_296_704)">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M31.2376 21.0838C29.4415 21.0838 27.7189 21.7973 26.4488 23.0674C25.1787 24.3375 24.4652 26.0601 24.4652 27.8563V35.908H27.7762V27.8563C27.7762 26.9382 28.1408 26.0578 28.79 25.4087C29.4392 24.7595 30.3196 24.3948 31.2376 24.3948C32.1557 24.3948 33.0361 24.7595 33.6853 25.4087C34.3344 26.0578 34.6991 26.9382 34.6991 27.8563V35.908H38.0101V27.8563C38.0101 26.0601 37.2966 24.3375 36.0265 23.0674C34.7564 21.7973 33.0338 21.0838 31.2376 21.0838ZM25.1718 21.7904C26.7805 20.1816 28.9625 19.2778 31.2376 19.2778C33.5128 19.2778 35.6948 20.1816 37.3035 21.7904C38.9123 23.3992 39.8161 25.5811 39.8161 27.8563V36.811C39.8161 37.3097 39.4118 37.714 38.9131 37.714H33.7961C33.2974 37.714 32.8931 37.3097 32.8931 36.811V27.8563C32.8931 27.4172 32.7187 26.9961 32.4082 26.6857C32.0978 26.3752 31.6767 26.2008 31.2376 26.2008C30.7986 26.2008 30.3775 26.3752 30.067 26.6857C29.7566 26.9961 29.5821 27.4172 29.5821 27.8563V36.811C29.5821 37.3097 29.1779 37.714 28.6792 37.714H23.5622C23.0635 37.714 22.6592 37.3097 22.6592 36.811V27.8563C22.6592 25.5811 23.563 23.3992 25.1718 21.7904Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4248 21.4599C12.4248 20.9612 12.8291 20.5569 13.3278 20.5569H18.4448C18.9435 20.5569 19.3478 20.9612 19.3478 21.4599V36.8108C19.3478 37.3095 18.9435 37.7138 18.4448 37.7138H13.3278C12.8291 37.7138 12.4248 37.3095 12.4248 36.8108V21.4599ZM14.2308 22.3629V35.9078H17.5418V22.3629H14.2308Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8863 13.4083C14.972 13.4083 14.2308 14.1495 14.2308 15.0638C14.2308 15.9781 14.972 16.7193 15.8863 16.7193C16.8006 16.7193 17.5418 15.9781 17.5418 15.0638C17.5418 14.1495 16.8006 13.4083 15.8863 13.4083ZM12.4248 15.0638C12.4248 13.1521 13.9746 11.6023 15.8863 11.6023C17.798 11.6023 19.3478 13.1521 19.3478 15.0638C19.3478 16.9755 17.798 18.5253 15.8863 18.5253C13.9746 18.5253 12.4248 16.9755 12.4248 15.0638Z" fill="white"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_296_704">
+                  <rect width="30.7019" height="30.7019" fill="white" transform="translate(12.4248 9.94678)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <!-- <div>
+              <button type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"
+                aria-label="Close"></button>
+            </div> -->
+          </div>
+          <div class="d-flex justify-content-end">
+            <hr class="separator-mobile mb-0">
+          </div>
+        </div>
+
+        <div class="donate-container d-flex align-items-center justify-content-start my-2">
+          <a [routerLink]="['/']" class="nav-link col-md-6 ms-4" aria-current="page" data-bs-dismiss="offcanvas">
+            <button class="btn btn-primary donate-btn px-4 py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              {{ 'PAGE_HOME.Donate' | translate }}
+              <img class="ms-1 heart-vector" src="../../../assets/Image/home-page/heart-vector.svg" alt="heart-vector">
+            </button>
+          </a>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column align-items-stretch cols">
+          <!-- List of Projects -->
+          <div>
+            <h4 class="ms-4">{{ 'NAVBAR.Link1' | translate }}</h4>
+            <hr class="separator-mobile">
+            <ul class="ps-4">
+              <li class="list-group-item">
+                <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/projects/university']" data-bs-dismiss="offcanvas">
+                  {{ 'NAVBAR.Projects.Project_1' | translate }}</a>
+              </li>
+              <li class="list-group-item">
+                <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/projects/special-education']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_2' | translate }}</a>
+              </li>
+              <li class="list-group-item">
+                <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/projects/community-support']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_3' | translate }}</a>
+              </li>
+              <li class="list-group-item">
+                <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/projects/mission-trip']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_4' | translate }}</a>
+              </li>
+            </ul>
+            <hr class="separator-mobile mb-0">
+          </div>
+
+          <div>
+            <ul class="ps-4">
+              <li class="list-group-item">
+                <a class="nav-link" [routerLink]="['/crezco-story']" aria-current="page" [routerLinkActive]="['active']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link2' | translate }}</a>
+              </li>
+              <li class="list-group-item">
+                <a class="nav-link" [routerLink]="['/contact-us']" aria-current="page" [routerLinkActive]="['active']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link3' | translate }}</a>
+              </li>
+              <li class="list-group-item">
+                <a class="nav-link" [routerLink]="['/donate-support']" aria-current="page" [routerLinkActive]="['active']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link5' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+            <!-- <div class="d-flex justify-content-start">
+              <h4 class="ms-5 ps-4">{{ 'NAVBAR.Link1' | translate }}</h4>
+            </div>
+            <div class="d-flex justify-content-end">
+              <hr class="separator-mobile">
+            </div>
+            <div class="d-flex flex-column align-items-start">
+              <ul class="ms-5 ps-4">
+                <li class="list-group-item">
+                  <a class="nav-link active" [routerLink]="['/projects/university']" data-bs-dismiss="offcanvas">
+                    {{ 'NAVBAR.Projects.Project_1' | translate }}</a>
+                </li>
+                <li class="list-group-item">
+                  <a class="nav-link active" [routerLink]="['/projects/special-education']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_2' | translate }}</a>
+                </li>
+                <li class="list-group-item">
+                  <a class="nav-link active" [routerLink]="['/projects/community-support']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_3' | translate }}</a>
+                </li>
+                <li class="list-group-item">
+                  <a class="nav-link active" [routerLink]="['/projects/mission-trip']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_4' | translate }}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="d-flex justify-content-end">
+              <hr class="separator-mobile">
+            </div>
+
+            <div class="d-flex justify-content-start">
+              <ul class="ms-5 ps-4">
+                <li class="list-group-item">
+                  <a [routerLink]="['/crezco-story']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link2' | translate }}</a>
+                </li>
+                <li class="list-group-item">
+                  <a [routerLink]="['/contact-us']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link3' | translate }}</a>
+                </li>
+                <li class="list-group-item">
+                  <a [routerLink]="['/']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link5' | translate }}</a>
+                </li>
+              </ul>
+            </div> -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end mt-3 mt-lg-0" id="navbarNavDropdown" [ngClass]="{
         '': !isMenuOpen,
         show: isMenuOpen
-      }"
-    >
+      }">
       <!-- [ngClass]="{'show': isNavbarVisible}" -->
       <!-- Desktop version menu start -->
-      <ul
-        class="navbar-nav align-items-center me-lg-4 gap-4 py-4 py-lg-0 my-3 my-lg-0 d-none d-lg-flex"
-      >
+      <ul class="navbar-nav align-items-center me-lg-4 gap-2 py-4 py-lg-0 my-3 my-lg-0 d-none d-lg-flex">
         <li class="nav-item dropdown">
-          <a
-            class="nav-link text-center"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Projects
+          <a class="nav-link text-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{ 'NAVBAR.Link1' | translate }}
+            <i class="fa-solid fa-arrow-down"></i>
           </a>
-          <ul
-            class="dropdown-menu px-2"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
+          <ul class="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
             <li>
-              <a
-                class="dropdown-item item-university"
-                [routerLink]="['/projects/university']"
-                >University Sponsorship</a
-              >
+              <a class="dropdown-item item-university" [routerLink]="['/projects/university']">{{
+                'NAVBAR.Projects.Project_1' | translate }}</a>
             </li>
-            <hr class="m-1" />
             <li>
-              <a
-                class="dropdown-item item-special"
-                [routerLink]="['/projects/special-education']"
-                >Special Education</a
-              >
+              <a class="dropdown-item item-special" [routerLink]="['/projects/special-education']">{{
+                'NAVBAR.Projects.Project_2' | translate }}</a>
             </li>
-            <hr class="m-1" />
             <li>
-              <a
-                class="dropdown-item item-community"
-                [routerLink]="['/projects/community-support']"
-                >Community Support</a
-              >
+              <a class="dropdown-item item-community" [routerLink]="['/projects/community-support']">{{
+                'NAVBAR.Projects.Project_3' | translate }}</a>
             </li>
-            <hr class="m-1" />
             <li>
-              <a
-                class="dropdown-item item-student"
-                [routerLink]="['/projects/mission-trip']"
-                >Student Mission Trips</a
-              >
+              <a class="dropdown-item item-student" [routerLink]="['/projects/mission-trip']">{{
+                'NAVBAR.Projects.Project_4' | translate }}</a>
             </li>
-            <hr class="m-1" />
-            <li>
-              <a
-                class="dropdown-item item-medical"
-                [routerLink]="['/projects/medical-assistance']"
-                >Medical Assistance</a
-              >
-            </li>
+            <!-- <li>
+              <a class="dropdown-item item-medical" [routerLink]="['/projects/medical-assistance']">{{
+                'NAVBAR.Projects.Project_5' | translate }}</a>
+            </li> -->
           </ul>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            [routerLink]="['/crezco-story']"
-            >Crezco's Story</a
-          >
+          <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/crezco-story']">{{ 'NAVBAR.Link2' | translate
+            }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/contact-us']">Contact</a>
+          <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/contact-us']">{{ 'NAVBAR.Link3' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/auth/login']">
-            <button class="btn-login py-1 px-3">Login</button>
-          </a>
+          <a class="nav-link" aria-current="page" [routerLinkActive]="['active']" [routerLink]="['/donate-support']">{{ 'NAVBAR.Link5' | translate }}</a>
         </li>
       </ul>
       <!-- Desktop version menu end -->
 
-      <!-- Mobile version menu start -->
-      <ul
-        class="navbar-nav navbar-mobile align-items-center d-lg-none d-flex pt-4 pb-5"
-      >
-        <li class="nav-item">
-          <a
-            class="nav-link disabled"
-            [routerLink]="['/auth/login']"
-            (click)="toggleMenu()"
-          >
-            <button class="btn-login py-1 px-3">Login</button>
-          </a>
-        </li>
-        <li class="nav-item item-project my-2">Our Projects</li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            [routerLink]="['/projects/university']"
-            (click)="toggleMenu()"
-          >
-            University Sponsorship</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            [routerLink]="['/projects/special-education']"
-            (click)="toggleMenu()"
-          >
-            Special Education</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            [routerLink]="['/projects/community-support']"
-            (click)="toggleMenu()"
-          >
-            Community Support</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            [routerLink]="['/projects/mission-trip']"
-            (click)="toggleMenu()"
-          >
-            Student Mission Trips</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            [routerLink]="['/projects/medical-assistance']"
-            (click)="toggleMenu()"
-          >
-            Medical Assistance</a
-          >
-        </li>
-
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            [routerLink]="['/']"
-            (click)="toggleMenu()"
-          >
-            Home</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active disabled-item_navbar"
-            aria-current="page"
-            [routerLink]="['/give']"
-            (click)="toggleMenu()"
-          >
-            Donate Now</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            [routerLink]="['/crezco-story']"
-            (click)="toggleMenu()"
-          >
-            Crezco's Story</a
-          >
-        </li>
-        <li class="nav-item item-mobile">
-          <a
-            class="nav-link"
-            [routerLink]="['/contact-us']"
-            (click)="toggleMenu()"
-          >
-            Contact</a
-          >
-        </li>
-
-        <!-- Logo and Social Media Links -->
-        <div
-          class="d-flex flex-column align-items-center justify-content-center row mt-3"
-        >
-          <div class="logo-footer mb-3 text-center">
-            <a [routerLink]="['/']"
-              ><img
-                src="../../assets/Image/Logo/crezco-logo-footer.svg"
-                alt="Logo Crezco"
-            /></a>
-          </div>
-          <div class="d-flex align-items-center justify-content-around gap-3">
-            <a href="#" target="_blank"
-              ><img
-                class="social-icon"
-                src="../../assets/Image/Social-networks_icons/Facebook-icon.png"
-                alt="Logo Crezco"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/crezcofoundation/"
-              target="_blank"
-              ><img
-                class="social-icon"
-                src="../../assets/Image/Social-networks_icons/Instagram-icon.png"
-                alt="Logo Crezco"
-              />
-            </a>
-            <a href="#" target="_blank"
-              ><img
-                class="social-icon"
-                src="../../assets/Image/Social-networks_icons/LinkedIn-icon.png"
-                alt="Logo Crezco"
-              />
-            </a>
-          </div>
-        </div>
-      </ul>
-
       <!-- Mobile version menu end -->
     </div>
     <!-- id="navbarNavDropdown" -->
-    <a class="nav-link d-none d-lg-block">
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Donate Now
-      </button>
-    </a>
+    <!-- Languages options -->
+    <div class="row g-4 d-none d-lg-block">
+      <div class="col-md d-flex flex-row gap-4">
+        <a class="nav-link d-none d-lg-block" id="hover-link">
+          <button class="btn btn-primary donate-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {{ 'PAGE_HOME.Donate' | translate }}
+            <img class="ms-1 heart-vector" src="../../../assets/Image/home-page/heart-vector.svg" alt="heart-vector">
+          </button>
+        </a>
+
+        <!-- Language Selector -->
+        <div class="form-floating d-lg-flex flex-lg-row align-items-center justify-content-center d-none">
+          <select [(ngModel)]="selectedLanguage" (change)="changeLanguage()" class="form-select pb-0 pt-0"
+            id="floatingSelectGrid">
+            <option value="en" selected>EN</option>
+            <option value="es">ES</option>
+          </select>
+        </div>
+
+        <a class="nav-link disabled" [routerLink]="['/auth/login']">
+          <img class="ms-1" style="width: 35px;" src="../../../assets/Image/home-page/Login-btn-icon.svg"
+            alt="login-vector">
+        </a>
+
+      </div>
+    </div>
   </div>
 </nav>
 
 <!-- Modal Donation Option -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
-  data-bs-backdrop="true"
->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  data-bs-backdrop="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div
-        class="modal-body d-flex align-items-start justify-content-center pt-0"
-      >
+      <div class="modal-body d-flex align-items-start justify-content-center pt-0">
         <app-paypal></app-paypal>
       </div>
     </div>

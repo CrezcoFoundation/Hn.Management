@@ -1,161 +1,129 @@
-export interface StoryInformationInterface {
-  sInfoId: number;
-  sInfoTags: {
-    tagParent: string;
-    tagChildren: string;
-    tagBrother: string;
-  };
-  sInfoUrl: string;
-  sInfoDegree: string;
-  sInfoDate: string;
+export interface StoryInformation {
+  id: number;
+  url: string;
+  degree: string;
+  date: string;
 }
 
-export function getStoryInfoObject(): StoryInformationInterface[] {
+export function getStoryInfoObject(): StoryInformation[] {
   return [
     {
-      sInfoId: 1,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-1_story.webp',
-      sInfoDegree: 'BS Clinical Psychology',
-      sInfoDate: '2023',
+      id: 1,
+      url: 'grad-13.png',
+      degree: 'TI',
+      date: '2013',
     },
     {
-      sInfoId: 2,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-2_story.webp',
-      sInfoDegree: 'BS Educational Psychology',
-      sInfoDate: '2019',
-    },
-    /* {    
-        sInfoId: 3,
-        sInfoTags: {
-            tagParent: 'card-grad',
-            tagChildren: 'card-grad_img',
-            tagBrother: 'card-grad_content',
-        },
-        sInfoUrl: 'grad-3_story.webp',
-        sInfoDegree: 'BA Graphic Design',
-        sInfoDate: '2020',
-    }, */
-    {
-      sInfoId: 4,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-4_story.webp',
-      sInfoDegree: 'BA Graphic Design',
-      sInfoDate: '2019',
+      id: 2,
+      url: 'grad-9_story.webp',
+      degree: 'TI',
+      date: '2013',
     },
     {
-      sInfoId: 5,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-5_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2018',
+      id: 3,
+      url: 'grad-8_story.webp',
+      degree: 'PS',
+      date: '2017',
     },
     {
-      sInfoId: 6,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-6_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2018',
+      id: 4,
+      url: 'grad-7_story.webp',
+      degree: 'TI',
+      date: '2018',
     },
     {
-      sInfoId: 7,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-7_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2018',
+      id: 5,
+      url: 'grad-6_story.webp',
+      degree: 'TI',
+      date: '2018',
     },
     {
-      sInfoId: 8,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-8_story.webp',
-      sInfoDegree: 'BS Educational Psychology',
-      sInfoDate: '2017',
+      id: 6,
+      url: 'grad-5_story.webp',
+      degree: 'TI',
+      date: '2018',
     },
     {
-      sInfoId: 9,
-      sInfoTags: {
-        tagParent: 'card-grad',
-        tagChildren: 'card-grad_img',
-        tagBrother: 'card-grad_content',
-      },
-      sInfoUrl: 'grad-9_story.webp',
-      sInfoDegree: 'BS Computer Engineering',
-      sInfoDate: '2013',
+      id: 7,
+      url: 'grad-4_story.webp',
+      degree: 'GD',
+      date: '2019',
+    },
+    {
+      id: 8,
+      url: 'grad-2_story.webp',
+      degree: 'PS',
+      date: '2019',
+    },
+    {
+      id: 9,
+      url: 'grad-1_story.webp',
+      degree: 'PSC',
+      date: '2023',
+    },
+    {
+      id: 10,
+      url: 'grad-12.webp',
+      degree: 'ED',
+      date: '2023',
+    },
+    {
+      id: 11,
+      url: 'grad-11.webp',
+      degree: 'ED',
+      date: '2023',
+    },
+    {
+      id: 12,
+      url: 'grad-10.webp',
+      degree: 'NS',
+      date: '2023',
     },
   ];
 }
 
 export interface StoryAdminInterface {
-  sAdminId: number;
-  sInfoAdmin: {
-    sAdminName: string;
-    sAdminDesc: string;
+  id: number;
+  adminInfo: {
+    name: string;
+    role: string;
   };
-  sInfoAdminUrl: string;
+  url: string;
 }
 
 export function getInfoAdminObject(): StoryAdminInterface[] {
   return [
     {
-      sAdminId: 1,
-      sInfoAdmin: {
-        sAdminName: 'Amanda Corea',
-        sAdminDesc: 'Founder & Executive Director',
+      id: 1,
+      adminInfo: {
+        name: 'Amanda Corea',
+        role: 'FE',
       },
-      sInfoAdminUrl: 'founder-1_story.webp',
+      url: 'founder-1_story.webp',
     },
     {
-      sAdminId: 2,
-      sInfoAdmin: {
-        sAdminName: 'Ashley McMullen',
-        sAdminDesc: 'Board Chair',
+      id: 2,
+      adminInfo: {
+        name: 'Ashley McMullen',
+        role: 'BC',
       },
-      sInfoAdminUrl: 'founder-2_story.webp',
+      url: 'founder-2_story.webp',
     },
     {
-      sAdminId: 3,
-      sInfoAdmin: {
-        sAdminName: 'Marci Corea',
-        sAdminDesc: 'Board Secretary',
+      id: 3,
+      adminInfo: {
+        name: 'Marci Corea',
+        role: 'BS',
       },
-      sInfoAdminUrl: 'founder-3_story.webp',
+      url: 'founder-3_story.webp',
     },
-    {
-      sAdminId: 4,
-      sInfoAdmin: {
-        sAdminName: 'Erica Russell',
-        sAdminDesc: 'Board Treasurer',
+    /* {
+      id: 4,
+      admin: {
+        name: 'Erica Russell',
+        role: 'BT',
       },
-      sInfoAdminUrl: 'founder-4_story.webp',
-    },
+      url: 'founder-4_story.webp',
+    }, */
   ];
 }

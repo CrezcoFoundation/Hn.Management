@@ -1,15 +1,10 @@
+<!-- Image banner section start -->
 <section class="container-fluid p-0">
-  <div class="pt-3 mt-lg-5 mt-4">
-    <img
-      class="banner-story d-lg-block d-none"
-      src="../../assets/Image/Story/hero-banner_story.webp"
-      alt="Story Image Banner"
-    />
-    <img
-      class="banner-story d-block d-lg-none"
-      src="../../assets/Image/Story/hero-banner_story-mobile.webp"
-      alt="Story Image Banner"
-    />
+  <div class="pt-3 mt-lg-5 mt-5">
+    <img class="banner-story d-lg-block d-none" src="../../assets/Image/Story/banner.webp"
+      alt="Story Image Banner" loading="lazy" />
+    <img class="banner-story d-block d-lg-none" src="../../assets/Image/Story/banner-mobile.webp"
+      alt="Story Image Banner" loading="lazy"/>
   </div>
 </section>
 <!-- Image banner section end -->
@@ -17,220 +12,262 @@
 <!-- Description section start -->
 <section class="container p-0 my-5 py-lg-3">
   <div class="title-project">
-    <h2 class="text-center">Crezco's Story</h2>
+    <h2 class="text-center">{{ 'STORY_CREZCO.Title_story' | translate }}</h2>
   </div>
-  <div
-    class="d-flex flex-column align-items-center justify-content-center mt-4"
-  >
+  <div class="d-flex flex-column align-items-center justify-content-center mt-4">
     <p class="text-center description-project">
-      Crezco is an organization that originated from a small church ministry
-      based in the United States. This ministry began in 1996 with short-term
-      mission trips to a Christian children's home in Honduras, Central America.
-    </p>
-    <p class="text-center description-project">
-      Over the years, a strong relationship developed between the church and the
-      children's home, leading to a realization that recent high school
-      graduates from the home needed support to pursue higher education.
+      {{ 'STORY_CREZCO.Paragraph_1' | translate }}
     </p>
   </div>
 </section>
 <!-- Description section end -->
 
-<!-- Section Knoledge Start -->
-<section class="section-knoledge">
-  <div class="container-fluid">
-    <div
-      class="container d-flex flex-column flex-lg-row align-items-center justify-content-center gap-4 my-5"
-    >
-      <div
-        class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center"
-      >
-        <img
-          src="../../assets/Image/Story/section2_story.webp"
-          alt="section 2 Image"
-        />
-      </div>
-      <div class="d-none d-lg-block knoledge-content col-lg-6 px-4">
-        <h3>Growth through knowledge</h3>
-        <p>
-          With the help of local church members, community members, donations,
-          and sponsorships, the ministry worked to make the dream of a
-          university education a reality for these young adults. The overarching
-          goal was to equip these students with the education and skills
-          necessary to break the cycles of poverty, lack of education, unhealthy
-          family patterns, mental health challenges, and the circumstances that
-          led them to the children's home in the first place. Additionally, the
-          ministry aimed to instill a passion for serving others in the name of
-          Jesus in these young adults
-        </p>
-      </div>
+<!-- Growth Trought section start -->
+<section class="section-knoledge py-5">
+  <div class="container d-flex flex-column-reverse gap-5 gap-lg-0 flex-lg-row align-items-center justify-content-around my-5 pt-lg-4 col-lg-10 gap-lg-5">
+    <div class="knoledge-content col-lg-5">
+      <h3 class="text-center text-lg-start">{{ 'STORY_CREZCO.Section_2' | translate }}</h3>
+      <p class="text-center text-lg-start">
+        {{ 'STORY_CREZCO.Subsection_2' | translate }}
+      </p>
+      <p class="text-center text-lg-start">
+        {{ 'STORY_CREZCO.Subsection_2-1' | translate }}
+      </p>
+    </div>
+    <div data-aos="fade-up"
+      class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
+      <img src="../../assets/Image/Story/story-circles/growth_through-knowledge.svg" alt="Growth Knoledge Image" />
     </div>
   </div>
-</section>
 
-<div class="knoledge-content-mobile d-block d-lg-none p-3">
-  <h3 class="my-3">Growth through knowledge</h3>
-  <p class="text-center">
-    With the help of local church members, community members, donations, and
-    sponsorships, the ministry worked to make the dream of a university
-    education a reality for these young adults. The overarching goal was to
-    equip these students with the education and skills necessary to break the
-    cycles of poverty, lack of education, unhealthy family patterns, mental
-    health challenges, and the circumstances that led them to the children's
-    home in the first place. Additionally, the ministry aimed to instill a
-    passion for serving others in the name of Jesus in these young adults
-  </p>
-</div>
-<!-- Section Knoledge End -->
+  <div class="container d-flex flex-column-reverse gap-5 gap-lg-0 flex-lg-row-reverse align-items-center justify-content-around my-5 pt-lg-4 col-lg-10 gap-lg-5">
+    <div class="knoledge-content col-lg-5">
+      <h3 class="text-center text-lg-start">{{ 'STORY_CREZCO.Section_5' | translate }}</h3>
+      <p class="text-center text-lg-start">
+        {{ 'STORY_CREZCO.Subsection_5' | translate }}
+      </p>
+      <p class="text-center text-lg-start">
+        {{ 'STORY_CREZCO.Subsection_5-1' | translate }}
+      </p>
+    </div>
+    <div data-aos="fade-up" class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
+      <img src="../../assets/Image/Story/story-circles/growth_through-influence.svg" alt="Growth Influence Image" />
+    </div>
+  </div>
 
-<!-- Section Empowerment Start -->
-<section class="container-fluid section-empowerment py-4 py-lg-5">
-  <div class="title-project_section mt-1 mt-lg-4">
-    <h2 class="text-center">Growth through Empowerment</h2>
+  <div class="container d-flex flex-column-reverse gap-5 gap-lg-0 flex-lg-row align-items-center justify-content-around my-5 pt-lg-4 col-lg-10 gap-lg-5">
+    <div class="knoledge-content col-lg-5">
+      <h3 class="text-center text-lg-start">{{ 'STORY_CREZCO.Section_3' | translate }}</h3>
+      <p class="text-center text-lg-start">
+        {{ 'STORY_CREZCO.Subsection_3' | translate }}
+      </p>
+      <p class="text-center text-lg-start">
+        {{ 'STORY_CREZCO.Subsection_3-1' | translate }}
+      </p>
+    </div>
+    <div data-aos="fade-up" class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
+      <img src="../../assets/Image/Story/story-circles/growth_through-Empowerment.svg" alt="Growth Empowerment Image" />
+    </div>
   </div>
-  <div
-    class="d-flex flex-column align-items-center justify-content-center mt-4 my-lg-4"
-  >
-    <p class="text-center description-project">
-      Funding for these efforts has always come from donations provided by
-      individuals in various communities. These donations cover university
-      costs, fees, transportation, and essential personal items for each
-      student. Over the years, 26 young people have benefited from the
-      university education aspect of the ministry, with 15 successfully
-      graduating from Christian universities in countries such as Costa Rica,
-      Mexico, and Peru.
-    </p>
-    <p class="text-center description-project">
-      These graduates have obtained degrees in diverse fields, including
-      computer systems engineering, culinary arts, physical therapy, nursing,
-      clinical psychology, and graphic design. Currently, there are students
-      studying in Peru and Mexico, and new students from the children's home
-      begin their university studies each year.
-    </p>
-  </div>
+
 </section>
-<!-- Section Empowerment End -->
+<!-- Growth Trought section end -->
 
 <!-- Grads Section Start -->
 <section class="container">
   <div class="title-grads mt-5">
-    <div class="text-center">
-      <h3 class="fs-2 mb-0">University Program Graduates*</h3>
-      <h3 class="mb-0">
-        <span class="title-thin">More than</span> 10 Graduates
-      </h3>
-      <h5 class="text-graylight mb-0">*Not all are in pictures</h5>
+    <div class="text-center pt-3">
+      <h3 class="fs-2 mb-0">{{ 'STORY_CREZCO.Section_4.Line_1' | translate }}</h3>
+      <p class="mt-3">{{ 'STORY_CREZCO.Section_4.Updated' | translate }}</p>
     </div>
   </div>
-  <div
-    class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-4 flex-wrap"
-  >
-    <div
-      *ngFor="let info of storyInfo"
-      class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5"
-    >
-      <div class="{{ info.sInfoTags.tagChildren }}">
-        <img
-          src="../../assets/Image/Story/{{ info.sInfoUrl }}"
-          alt="Grad photo"
-        />
+
+
+  <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column-reverse" *ngIf="showCarousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+    </div>
+    <div class="carousel-inner">
+      <div  class="carousel-item active">
+        <div
+          class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of infoGraduates.slice(0, 6)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="{{ info.sInfoTags.tagBrother }}">
+      <div class="carousel-item">
+        <div
+          class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of infoGraduates.slice(6, 12)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Carousell -->
+  <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column-reverse d-lg-none overflow-x-visible">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner overflow-x-visible">
+      <div class="carousel-item active">
+        <div
+          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of infoGraduates.slice(0, 4)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div
+          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of infoGraduates.slice(4, 8)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div
+          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of infoGraduates.slice(8, 12)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div
+    class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+    <div *ngFor="let info of infoGraduates" class="card-grad col-lg-3 col-5 align-items-center">
+      <div class="card-grad_img">
+        <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+      </div>
+      <div class="card-grad_content mt-3">
         <h5>{{ info.sInfoDegree }}</h5>
-        <p class="mb-0">{{ info.sInfoDate }}</p>
+        <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
       </div>
     </div>
+  </div> -->
+
+  <div class="title-grads mb-5 mt-3">
+    <div class="title-project d-flex flex-column align-items-center   justify-content-center text-center pt-3">
+      <h2 class="fs-2 mb-0 text-center title-project_width">{{ 'STORY_CREZCO.Section_banner.Title' | translate }}</h2>
+      <p class="mt-3 desc-project_width fs-5">{{ 'STORY_CREZCO.Section_banner.Description' | translate }}</p>
+      <button class="btn btn-learn_more">
+        <a routerLink="['/']" >{{ 'GENERAL.Learn_more' | translate }}</a>
+      </button>
+    </div>
   </div>
+
+
 </section>
 <!-- Grads Section Start -->
 
-<!-- Section Incluece Start -->
-<section class="section-influence">
-  <div class="container-fluid">
-    <div
-      class="container d-flex flex-column flex-lg-row-reverse align-items-center justify-content-center gap-4 my-5"
-    >
-      <div
-        class="influence-image col-12 col-lg-5 d-flex align-items-center justify-content-center"
-      >
-        <img
-          src="../../assets/Image/Story/section5_story.webp"
-          alt="section 2 Image"
-        />
-      </div>
-      <div class="influence-content d-none d-lg-block col-lg-6 px-4">
-        <h3>Growth through Influence</h3>
-        <p>
-          As the ministry continued to expand its influence beyond its initial
-          purpose, the decision was made to establish Crezco as a formal
-          organization. In addition to the university program, Crezco's work
-          also includes ongoing support for the children's home and the local
-          community. This support ranges from addressing emergency situations
-          and providing medical care resources to coordinating donations of
-          clothing and educational supplies, organizing special celebrations,
-          and participating in disaster relief efforts. The collaboration
-          between Crezco and the small community in Honduras has grown far
-          beyond what we ever imagined.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="d-block d-lg-none influence-content-mobile col-lg-6 p-4">
-  <h3 class="text-center">Growth through Influence</h3>
-  <p class="text-center mt-3">
-    As the ministry continued to expand its influence beyond its initial
-    purpose, the decision was made to establish Crezco as a formal organization.
-    In addition to the university program, Crezco's work also includes ongoing
-    support for the children's home and the local community. This support ranges
-    from addressing emergency situations and providing medical care resources to
-    coordinating donations of clothing and educational supplies, organizing
-    special celebrations, and participating in disaster relief efforts. The
-    collaboration between Crezco and the small community in Honduras has grown
-    far beyond what we ever imagined.
-  </p>
-</div>
-<!-- Section Incluece End -->
-
 <!-- Paragraph Section Start -->
-<section class="container-fluid paragraph-section">
-  <div class="container my-5 d-flex align-items-center justify-content-center">
-    <p class="col-12 col-lg-6 text-center text-white my-0 my-lg-3">
-      Crezco attributes its growth of influence and the success of our community
-      members to the continuous support and opportunities that God has blessed
-      us with, and we anticipate many more years of support and collaboration.
-      <br />Crezco remains committed to its mission of transforming the lives of
-      young adults and the community it serves through education, faith, and
-      service.
-    </p>
-  </div>
-</section>
+
+<shared-banner></shared-banner>
+
 <!-- Paragraph Section End -->
 
 <!-- Founders Section Start -->
-<section class="container p-4">
-  <div class="knoledge-content my-4">
-    <h3 class="text-center fs-1 mb-0">Administration & Board Officers</h3>
+<section class="container p-4 col-lg-10">
+  <div class="my-4">
+    <h3 class="text-center fs-1 my-5 title-founders">{{ 'STORY_CREZCO.Section_6.Title_admin' | translate }}</h3>
   </div>
   <div
-    class="founders mt-5 mt-lg-0 my-lg-5 d-flex flex-lg-row align-items-around gap-4 gap-lg-0 align-items-lg-center justify-content-center flex-wrap"
-  >
-    <div
-      *ngFor="let admin of storyInfoAdmin"
-      class="card-founder col-5 col-lg-3"
-    >
+    class="founders mt-5 mt-lg-0 my-lg-5 d-flex flex-column flex-lg-row align-items-around gap-4 gap-lg-5 align-items-lg-start justify-content-center flex-wrap">
+    <div *ngFor="let admin of infoAdmin" class="card-founder col-12 col-lg-3">
       <div class="founder-photo text-center">
-        <img
-          src="../../assets/Image/Story/{{ admin.sInfoAdminUrl }}"
-          alt="Founder Photo"
-        />
+        <img src="../../assets/Image/Story/{{ admin.url }}" alt="Founder Photo" />
       </div>
-      <div class="founder-content text-center">
-        <h5 class="fw-bold">{{ admin.sInfoAdmin.sAdminName }}</h5>
-        <p>{{ admin.sInfoAdmin.sAdminDesc }}</p>
+      <div class="line_founders">
+        <img src="../../assets/Image/Story/founder_line.svg" alt="separator">
+      </div>
+      <div class="founder-content text-start">
+        <h3 class="fw-bold">{{ admin.adminInfo.name }}</h3>
+        <ng-container [ngSwitch]="admin.adminInfo.role">
+          <p *ngSwitchCase="'FE'">{{ 'ADMIN_STORY.FE' | translate }}</p>
+          <p *ngSwitchCase="'BC'">{{ 'ADMIN_STORY.BC' | translate }}</p>
+          <p *ngSwitchCase="'BS'">{{ 'ADMIN_STORY.BS' | translate }}</p>
+        </ng-container>
       </div>
     </div>
   </div>
 </section>
 <!-- Founders Section End -->
+
+<app-contact-us></app-contact-us>

@@ -1,0 +1,203 @@
+{
+  "MAIN": {
+    "Title": "Fundación Crezco"
+  },
+  "GENERAL": {
+    "Learn_more": "Leer más",
+    "Button_contact": "Contáctanos",
+    "Other_projects" : "Otros Proyectos"
+  },
+  "NAVBAR": {
+    "Link1": "Proyectos",
+    "Projects": {
+      "Project_1": "Patrocinio Universitario",
+      "Project_2": "Educación Especial",
+      "Project_3": "Soporte Comunitario",
+      "Project_4": "Viajes Misioneros",
+      "Project_5": "Asistencia Médica",
+      "Project_Footer" : "Nuestros Proyectos",
+      "Home" : "Inicio"
+    },
+    "Link2": "Historia Crezco",
+    "Link3": "Contacto",
+    "Link4": "Entrar"
+  },
+  "PAGE_HOME": {
+    "subtitle_home": "BRINDANDO ACCESO PARA MEJORAR EL CRECIMIENTO",
+    "Donate": "Donar ahora",
+    "Section_2": {
+      "title": "Conozca a crezco",
+      "description": "Crezco proporciona recursos que crean oportunidades de crecimiento para que los jóvenes hondureños en riesgo aborden y mejoren los patrones familiares negativos para la próxima generación."
+    },
+    "Paragraphs": {
+      "Title": "¿CÓMO PUEDE AYUDAR?",
+      "Pray_1": "Ore con nosotros por el ministerio de Crezco: nuestros programas, los participantes de los programas, las comunidades en las que trabajamos y nuestros voluntarios.",
+      "Button_pray": "Descargar Calendario de Oración",
+      "Pray_2": "Suscríbase a nuestro boletín anual con actualizaciones del programa y solicitudes de oración.",
+      "btn-send-email": "Suscribirme"
+    },
+    "Administrative": {
+      "Title": "SOPORTE ADMINISTRATIVO",
+      "Subtitle": "Crezco necesita voluntarios en una variedad de áreas que incluyen contabilidad, secretariado y gestión de viajes."
+    },
+    "Domain_Camp": {
+      "Title": "CAMPAÑAS DE DONACIÓN",
+      "Subtitle": "Apoye nuestras campañas de donación y proyectos especiales. Haga correr la voz a otros patrocinadores y donantes potenciales. ¡Involucre a su iglesia, escuela o grupo pequeño! Las campañas son tanto en especie como monetarias."
+    }
+  },
+  "PAGE_PROJECTS": {
+    "University_Page": {
+      "Abreviation-desktop": "Las investigaciones han demostrado que las oportunidades de educación...",
+      "Abreviation-mobile": "Las investigaciones han demostrado que las...",
+      "Paragraph_1": "Las mayores oportunidades de educación son la clave para romper los ciclos generacionales negativos. Al brindarles a los estudiantes acceso a oportunidades de educación superior, los capacitamos para trascender las limitaciones de sus circunstancias pasadas y actuales. Los estudiantes se preparan para el éxito personal y obtienen conocimientos, habilidades y confianza para impactar positivamente a sus futuras familias y comunidades.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "SALUD EMOCIONAL",
+          "description": "El éxito académico es sólo un aspecto del crecimiento de un estudiante. El bienestar emocional es igualmente crucial. Crezco fomenta un entorno donde se prioriza el crecimiento emocional, ofreciendo servicios de asesoramiento, programas de mentoría y redes de apoyo que fomentan el desarrollo personal y académico. Esto capacita a los estudiantes para mejorar su inteligencia emocional y romper los ciclos negativos de adicción y abuso."
+        },
+        "subject_2": {
+          "title": "PATROCINIO ESTUDIANTIL",
+          "description": "Al apoyar nuestro programa, estás contribuyendo directamente a la transformación de vidas y al desmantelamiento de ciclos negativos. Tu inversión en educación pone en marcha una reacción en cadena de progreso donde el éxito de cada estudiante se extiende para elevar a sus familias, vecindarios y a la sociedad en su conjunto. Siempre estamos buscando donantes comprometidos que estén dispuestos a hacer donaciones regularmente de forma mensual o patrocinar la experiencia educativa o vocacional de un estudiante."
+        }
+      }
+    },
+    "Special_education": {
+      "Abreviation-desktop": "En Crezco, creemos firmemente que no hay una solución única para todos cuando se trata de...",
+      "Abreviation-mobile": "En Crezco, creemos firmemente que no hay una solución única para...",
+      "Paragraph_1": "No hay una solución única para todos cuando se trata de educación, hay niños dentro de nuestra esfera de influencia que requieren recursos educativos especializados para prosperar. Dichos recursos no siempre están fácilmente disponibles o son asequibles en la comunidad local, por lo que estamos dedicados a abordar este desafío de frente.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "SERVICIOS DE APOYO",
+          "description_1": "Este programa está diseñado para brindar asistencia financiera específica a personas con necesidades educativas especiales, garantizando que reciban acceso equitativo a educación de calidad y servicios de apoyo.",
+          "description_2": "Los fondos se utilizan para cubrir diversos gastos relacionados con las necesidades de desarrollo y comportamiento de cada estudiante, incluidos materiales de aprendizaje especializados, sesiones de terapia y transporte."
+        },
+        "subject_2": {
+          "title": "CRECIMIENTO PARA CADA NIÑO",
+          "description_1": "Nuestra misión es inspirar y fomentar el crecimiento académico y emocional de cada niño y estudiante bajo nuestro cuidado, independientemente de sus necesidades de aprendizaje únicas; y empoderar a los estudiantes y sus familias para que alcancen su máximo potencial."
+        }
+      }
+    },
+    "Community_support": {
+      "Abreviation-desktop": "Atender las necesidades de la comunidad local permite a Crezco ser una luz en...",
+      "Abreviation-mobile": "Atender las necesidades de la comunidad local permite a Crezco ser una luz en...",
+      "Paragraph_1": "Crezco busca ser una luz en un mundo difícil, encontrando maneras de crear más oportunidades de crecimiento en la comunidad circundante. Desde afrontar las consecuencias de desastres naturales devastadores hasta brindar apoyo inquebrantable durante tragedias familiares personales y ofrecer ayuda especializada para desafíos educativos, nuestro propósito es claro: romper ciclos negativos e inspirar un progreso positivo.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "COLABORACIÓN",
+          "description_1": "Amplificamos nuestro impacto y cultivamos un entorno donde el crecimiento y la esperanza pueden florecer al abordar las circunstancias difíciles de frente.",
+          "description_2": "La colaboración con miembros de la comunidad local nos permite trabajar para aliviar las cargas inmediatas y crear oportunidades para transformaciones duraderas a través de las medidas preventivas necesarias."
+        },
+        "subject_2": {
+          "title": "PROGRESO COMUNITARIO",
+          "description_1": "A través de una compasión sincera y un compromiso con la unidad, nos esforzamos por ser un faro de esperanza para que nuestros esfuerzos inspiren positividad, resiliencia y progreso.",
+          "description_2": "Nuestro objetivo es que nuestros esfuerzos resuenen mucho más allá de nuestro alcance inicial, contribuyendo a un mayor bienestar del mundo que nos rodea."
+        }
+      }
+    },
+    "Student_mission": {
+      "Abreviation-desktop": "El programa de viaje misionero estudiantil de Crezco se centra en fomentar un profundo...",
+      "Abreviation-mobile": "El programa de viaje misionero estudiantil de Crezco se centra en fomentar...",
+      "Paragraph_1": "El propósito de este programa es fomentar un profundo sentido de servicio y altruismo como principios fundamentales en cada estudiante brindándoles la oportunidad de hacer contribuciones significativas a las comunidades locales y globales. Todo ello reconociendo la generosidad que también han recibido de los demás.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "SERVICIO EN ACCIÓN",
+          "description_1": "Crezco tiene como objetivo nutrir las virtudes cristianas entre los estudiantes proporcionándoles plataformas activas para que encarnen estos principios.",
+          "description_2": "Al sumergirse en entornos desconocidos, nuevas experiencias y circunstancias novedosas, los estudiantes pueden experimentar un crecimiento transformador a medida que dedican su tiempo y recursos para ayudar a familias y comunidades necesitadas."
+        },
+        "subject_2": {
+          "title": "TU APOYO",
+          "description_1": "La realización de esta misión depende en gran medida del apoyo de donantes y defensores dedicados como usted.",
+          "description_2": "Su contribución juega un papel fundamental para convertir esta visión en una realidad concreta, que deje un impacto duradero en las vidas de los estudiantes y las comunidades a las que sirven."
+        }
+      }
+    },
+    "Medical_assistance": {
+      "Abreviation": "El Programa de Asistencia Médica de Crezco sirve como fuente de esperanza para las...",
+      "Paragraph_1": "El Programa de Asistencia Médica de Crezco se presenta como una fuente de esperanza para las familias que enfrentan emergencias médicas y crisis dentro de la comunidad local. Este programa reconoce la carga económica significativa que estas situaciones pueden imponer en las familias con recursos financieros limitados.",
+      "Quote": {
+        "quote_phrase": "",
+        "quote_autor": ""
+      },
+      "Subjects": {
+        "subject_1": {
+          "title": "CERRANDO LA BRECHA",
+          "description": "Cuando las personas no pueden acceder a la atención médica necesaria, sus condiciones de salud pueden deteriorarse rápidamente, lo que lleva a problemas médicos más complejos y graves. Crezco busca cerrar esta brecha y permitir que las personas reciban la atención médica que necesitan urgentemente, proporcionando a las familias el apoyo, los recursos y la asistencia financiera necesaria. Este apoyo puede cubrir una parte o la totalidad de los gastos médicos, incluyendo cirugías, medicamentos y rehabilitación. Al abordar las necesidades médicas de manera oportuna, se evita que problemas de salud pequeños se conviertan en problemas más grandes y complejos."
+        },
+        "subject_2": {
+          "title": "UN FUTURO MÁS FUERTE",
+          "description": "El efecto dominó de proporcionar asistencia médica a las familias no puede subestimarse. Cuando las familias reciben la atención que necesitan, pueden seguir contribuyendo a su comunidad, persiguiendo sus sueños y construyendo un futuro más brillante para ellos y sus hijos. Este programa reconoce que el bienestar de una comunidad está interconectado con la salud y la resiliencia de sus miembros individuales. Las familias están capacitadas para enfrentar los desafíos de frente, sabiendo que tienen un compañero en su viaje hacia la salud y la recuperación."
+        }
+      }
+    }
+  },
+    "PAGE_CONTACT": {
+      "Title_left": "CRECE CON CREZCO",
+      "Title_right": "CONTÁCTANOS",
+      "Paragraph_1": "Contáctanos para aprender más sobre cómo ¡Puedes involucrarte en un proyecto Crezco!",
+      "Contact_email": "info@crezcofoundation.org",
+      "Contact_phone": "33 3333 3333 333",
+      "Visit_us": "Visítanos en redes Sociales",
+      "Label_1": "Ingrese su nombre",
+      "Label_2": "Ingrese su correo electrónico",
+      "Label_3": "Ingrese su mensaje",
+      "Contact_newsletter": "Quiero suscribirme al boletín de noticias",
+      "Contact_button": "Enviar Mensaje"
+    },
+    "SHARED_BANNER": {
+      "Title": "Crezco tiene éxito gracias a su continuo apoyo y colaboración.",
+      "Description": "Crezco sigue comprometido con su misión de transformar las vidas de aquellos a quienes sirve."
+    },
+    "STORY_CREZCO": {
+      "Title_story": "SE PARTE DE CREZCO",
+      "Paragraph_1": "Crezco es una organización que se originó a partir de un pequeño ministerio de iglesia que comenzó con un viaje misionero de corto plazo en 1996 a un hogar de niños cristianos en Honduras.",
+      "Paragraph_2": "A lo largo de los años, se desarrolló una fuerte relación entre la iglesia y el hogar de niños, lo que llevó a darse cuenta de que los recién graduados de la escuela secundaria del hogar necesitaban apoyo para continuar con su educación superior.",
+      "Section_2": "CRECIMIENTO A TRAVÉS DEL CONOCIMIENTO",
+        "Subsection_2": "Con el tiempo, se desarrolló una fuerte relación entre la iglesia y el hogar de niños, lo que llevó a la comprensión de que los recién graduados de la escuela secundaria del hogar necesitaban apoyo para continuar con su educación superior.",
+        "Subsection_2-1": "El objetivo era dotar a los estudiantes de la educación y las habilidades necesarias para romper los ciclos de pobreza, falta de educación, patrones familiares poco saludables, problemas de salud mental y las mismas circunstancias que los llevaron al hogar. El ministerio también tuvo como objetivo inculcar en los estudiantes la pasión por servir a los demás en Jesús.",
+      "Section_3": "CRECIMIENTO POR EL EMPODERAMIENTO",
+      "Subsection_3": "La financiación de estos esfuerzos siempre ha provenido de donaciones proporcionadas por personas de diversas comunidades. Estas donaciones cubren costos universitarios, matrículas, transporte y artículos personales esenciales para cada estudiante. A lo largo de los años, 26 jóvenes se han beneficiado del aspecto de educación universitaria del ministerio, y 15 se graduaron exitosamente de universidades cristianas en países como Costa Rica, México y Perú.",
+      "Section_4": {
+        "Line_1": "Graduados del Programa Universitario*",
+        "Updated": "*Actualizado 1/2024"
+      },
+      "Section_5": "Crecimiento a través de la influencia",
+      "Subsection_5": "A medida que el ministerio continuó expandiéndose, se tomó la decisión de establecer Crezco como una organización formal. Además del programa universitario, el trabajo de Crezco también incluye el apoyo continuo a la comunidad local.",
+      "Subsection_5-1": "Este apoyo abarca desde abordar situaciones de emergencia y proporcionar recursos de atención médica, hasta coordinar donaciones de ropa y suministros educativos, organizar celebraciones especiales y esfuerzos de ayuda en casos de desastre.",
+      "Section_banner": {
+        "Title": "Los sueños pueden hacerse realidad gracias a ti",
+        "Description": "Muchos adultos jóvenes han podido graduarse y lograr sus objetivos de convertirse en profesionales capaces de contribuir a sus comunidades locales."
+      },
+      "Section_6": {
+        "Title_admin": "JUNTA Y FUNCIONARIOS DE ADMINISTRACIÓN"
+      }
+    },
+    "GRADUATES": {
+      "TI": "Ingeniería en Sistemas",
+      "PS": "Lic. Psicología Educacional",
+      "GD": "Lic. Diseño Gráfico",
+      "PSC": "Lic. Psicología Clínica",
+      "NS": "Lic. Enfermería",
+      "ED": "Lic. Educación"
+    },
+    "ADMIN_STORY": {
+      "FE": "Fundadora y Directora Ejecutiva",
+      "BC": "Presidenta Junta Directiva",
+      "BS": "Secretaria Junta Directiva"
+    }
+  }

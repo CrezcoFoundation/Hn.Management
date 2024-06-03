@@ -3,7 +3,6 @@ using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Attributes;
 using HN.ManagementEngine.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
 using System;
 using System.Threading.Tasks;
 
@@ -13,11 +12,9 @@ namespace HN.Management.Web.Apis.V1.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        private readonly IDistributedCache distributedCache;
         private readonly IUserService userService;
-        public UserController(IDistributedCache distributedCache, IUserService userService)
+        public UserController(IUserService userService)
         {
-            this.distributedCache = distributedCache;
             this.userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 

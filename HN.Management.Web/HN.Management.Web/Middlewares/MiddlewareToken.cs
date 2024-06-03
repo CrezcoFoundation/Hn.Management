@@ -57,8 +57,8 @@ namespace HN.Management.Web.Middlewares
 
                 var jwtToken = validatedToken as JwtSecurityToken;
 
-                var userId = jwtToken?.Claims.FirstOrDefault(x => x.Type == "uid")?.Value;
-                var roleId = jwtToken?.Claims.FirstOrDefault(x => x.Type == "rid")?.Value;
+                var userId = jwtToken?.Claims.FirstOrDefault(x => x.Type == "UserId")?.Value;
+                var roleId = jwtToken?.Claims.FirstOrDefault(x => x.Type == "RoleId")?.Value;
 
                 return (userId, roleId);
             }

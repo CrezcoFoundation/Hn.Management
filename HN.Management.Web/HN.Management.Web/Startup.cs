@@ -12,6 +12,14 @@ using HN.Management.Engine.ViewModels;
 using HN.Management.Engine.CosmosDb.Interfaces;
 using Services = HN.Management.Manager.Services;
 using Stripe;
+using Microsoft.AspNetCore.Diagnostics;
+using System;
+using System.Net;
+using HN.Management.Manager.Exceptions;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using HN.Management.Web.Middlewares;
+using HN.Management.Engine.Models;
 
 namespace HN.Management.Web
 {
@@ -44,6 +52,7 @@ namespace HN.Management.Web
             services.ConfigureClassesWithInterfaces();
             services.AddAutoMapper(typeof(AutoMapping));
 
+            services.Configure<AppSetting>(Configuration.GetSection("AppSettings"));
             services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));
             services.Configure<StripeSetting>(Configuration.GetSection("StripeSetting"));
 
@@ -110,8 +119,6 @@ namespace HN.Management.Web
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
             }
 
-            app.UseMiddleware<Services.TokenService>();
-
             // app.UseApiExceptionHandling();
 
             app.UseStaticFiles();
@@ -131,6 +138,8 @@ namespace HN.Management.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddlewareToken();
 
             app.UseEndpoints(endpoints =>
             {
@@ -182,7 +191,6 @@ namespace HN.Management.Web
                 });
             });
 
-            app.UseMiddlewareToken();
         }
     }
 }

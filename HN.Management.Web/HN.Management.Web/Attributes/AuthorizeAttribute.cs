@@ -1,8 +1,8 @@
-﻿using HN.Management.Engine.Repositories.Interfaces;
-using HN.Management.Manager.Exceptions;
+﻿using HN.Management.Manager.Exceptions;
+using HN.Management.Manager.Services.Auth;
+using HN.Management.Manager.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
@@ -13,8 +13,7 @@ namespace HN.Management.Web.Attributes
     {
         private readonly string privilege;
 
-        public AuthorizeAttribute(
-            string privilege = "")
+        public AuthorizeAttribute(string privilege = "")
         {
             this.privilege = privilege;
         }
@@ -24,24 +23,22 @@ namespace HN.Management.Web.Attributes
             var allowAnonymous = context.ActionDescriptor.EndpointMetadata.OfType<AllowAnonymousAttribute>().Any();
             if (allowAnonymous) return;
 
-            var roleId = context.HttpContext.Items;
-            if (roleId == null)
+            var roleId = context.HttpContext.Items["RoleId"];
+            var userId = context.HttpContext.Items["UserId"];
+            if (roleId is null || userId is null)
                 throw new UnauthorizedException();
 
-            if (!ValidatePrivilege(Convert.ToString(roleId)))
+            if (!ValidatePrivilege(Convert.ToString(roleId), context))
                 throw new ForbiddenException();
         }
 
-        private bool ValidatePrivilege(string? roleId)
+        private bool ValidatePrivilege(string? roleId, AuthorizationFilterContext context)
         {
-            var serviceCollection = new ServiceCollection();
-            var serviceProvider = serviceCollection.BuildServiceProvider().GetRequiredService<IServiceProvider>();
+            var roleService = context.HttpContext.RequestServices.GetService(typeof(IRoleService)) as RoleService;
+            var rolePrivilegeService = context.HttpContext.RequestServices.GetService(typeof(IRolePrivilegeService)) as RolePrivilegeService;
 
-            var roleRepository = serviceProvider.GetService<IRoleRepository>();
-            var rolePrivilegeRepository = serviceProvider.GetService<IRolePrivilegeRepository>();
-
-            var roles = roleRepository.GetAll().ToList();
-            var rolePrivileges = rolePrivilegeRepository.GetAll().ToList();
+            var roles = roleService.GetAll().ToList();
+            var rolePrivileges = rolePrivilegeService.GetAll().ToList();
 
             if (roleId == null || roles == null) return false;
 

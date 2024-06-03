@@ -16,8 +16,8 @@ namespace HN.Management.Manager.Services
         public TokenService(IOptions<AppSetting> appSetting)
         {
             this.appSetting = appSetting.Value;
-
         } 
+
         public string GenerateToken(User user)
         {
             var key = Encoding.ASCII.GetBytes("OLAh6Yh5KwNFvOqgltw7");

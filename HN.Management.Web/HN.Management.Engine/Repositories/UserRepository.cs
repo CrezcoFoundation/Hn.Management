@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HN.Management.Engine.CosmosDb.Interfaces;
 using HN.Management.Engine.Repositories.Interfaces;
 using User = HN.ManagementEngine.Models.User;
+using HN.Management.Engine.ViewModels;
 
 namespace HN.Management.Engine.Repositories
 {
@@ -33,6 +34,17 @@ namespace HN.Management.Engine.Repositories
             filter = filter.Where(matchPartitionKey);
 
             return filter.AsEnumerable();
+        }
+
+        public async Task<User> GetUserAsync(LoginRequest loginRequest)
+        {
+
+            var users = await this.dataManager.GetAllItemsByExpressionAsync(user =>
+            user.Email == loginRequest.Email
+            && user.Password == loginRequest.Password);
+
+
+            return users.ToList().FirstOrDefault();
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()

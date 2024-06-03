@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using HN.Management.Engine.Repositories;
 using HN.Management.Engine.Repositories.Interfaces;
 using HN.Management.Manager.Services;
@@ -21,20 +21,14 @@ using User = HN.ManagementEngine.Models.User;
 using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Auth;
 using HN.Management.Engine.CosmosDb.DataInitializer;
+using HN.Management.Manager.Services.Auth;
 
 namespace HN.Management.Web.Extensions
 {
     public static class MiddlewareServiceExtension
     {
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
-        {
-            service.AddScoped<ITokenService, TokenService>();
-            service.AddScoped<IPaypalService, PaypalService>();
-            service.AddScoped<IEmailService, EmailService>();
-            service.AddScoped<IDonationService, DonationService>();
-            service.AddScoped<IUserService, UserService>();
-            service.AddScoped<IStripeService, StripeService>();
-  
+        { 
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
@@ -42,6 +36,17 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IRolePrivilegeRepository, RolePrivilegeRepository>();
 
             service.AddScoped<IDataInitializer, DataInitializer>();
+
+            service.AddHttpContextAccessor();
+            service.AddScoped<Manager.Services.TokenService>();
+
+            service.AddScoped<IPaypalService, PaypalService>();
+            service.AddScoped<IEmailService, EmailService>();
+            service.AddScoped<IDonationService, DonationService>();
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IStripeService, StripeService>();
+            service.AddScoped<IRolePrivilegeService, RolePrivilegeService>();
+            service.AddScoped<IRoleService, RoleService>();
         }
 
         public static void ConfigureRedis(this IServiceCollection services)
@@ -113,7 +118,7 @@ namespace HN.Management.Web.Extensions
              serviceProvider,
              Databases.CrezcoDatabaseId,
              Databases.CrezcoCollectionName));
-             
+
             //Readers and Managers
             services.AddScoped<IDataReader<Donation>, DonationDataAccessor>();
             services.AddScoped<IDataManager<Donation>, DonationDataAccessor>();

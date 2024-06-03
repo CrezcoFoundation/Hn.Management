@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using HN.Management.Engine.Repositories.Interfaces;
+using HN.Management.Engine.ViewModels;
+using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
 using HN.ManagementEngine.Models;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace HN.Management.Manager.Services
@@ -26,27 +28,10 @@ namespace HN.Management.Manager.Services
             return await this.userRepository.GetAsync(id);
         }
 
-        public async Task<User> GetEmail(string email, string password)
+        public async Task<User> GetUserAsync(LoginRequest loginRequest)
         {
-            var query = new List<User>() ;
-            var user = query.FirstOrDefault();
-
-            var result = new User();
-
-            if (user == null)
-            {
-                return null;
-            }
-            else if (user != null)
-            {
-                result = new User
-                {
-                    Email = user.Email,
-                    Password = user.Password
-                };
-            }
-
-            return result;
+            return await this.userRepository.GetUserAsync(loginRequest)
+                 ?? throw new ApiException("Invalid Credentials", HttpStatusCode.Unauthorized);
         }
 
         public async Task<User> CreateUserAsync(User user)
@@ -55,7 +40,7 @@ namespace HN.Management.Manager.Services
         }
 
         public async Task<User> UpdateAsync(User user)
-        { 
+        {
             await userRepository.UpdateAsync(user);
 
             return user;

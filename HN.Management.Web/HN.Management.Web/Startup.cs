@@ -12,6 +12,14 @@ using HN.Management.Engine.ViewModels;
 using HN.Management.Engine.CosmosDb.Interfaces;
 using Services = HN.Management.Manager.Services;
 using Stripe;
+using Microsoft.AspNetCore.Diagnostics;
+using System;
+using System.Net;
+using HN.Management.Manager.Exceptions;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using HN.Management.Web.Middlewares;
+using HN.Management.Engine.Models;
 
 namespace HN.Management.Web
 {
@@ -44,6 +52,7 @@ namespace HN.Management.Web
             services.ConfigureClassesWithInterfaces();
             services.AddAutoMapper(typeof(AutoMapping));
 
+            services.Configure<AppSetting>(Configuration.GetSection("AppSettings"));
             services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));
             services.Configure<StripeSetting>(Configuration.GetSection("StripeSetting"));
 
@@ -108,10 +117,7 @@ namespace HN.Management.Web
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "HN.Management"));
-
             }
-
-            app.UseMiddleware<Services.TokenService>();
 
             // app.UseApiExceptionHandling();
 
@@ -133,6 +139,8 @@ namespace HN.Management.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseMiddlewareToken();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -152,6 +160,37 @@ namespace HN.Management.Web
 
             var seedDatabaseService = app.ApplicationServices.GetService<IDataInitializer>();
             seedDatabaseService.SeedDatabase();
+
+
+            // global error handler
+            app.UseExceptionHandler(appBuilder =>
+            {
+                appBuilder.Run(async context =>
+                {
+                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    if (contextFeature == null) return;
+
+                    context.Response.StatusCode = contextFeature.Error switch
+                    {
+                        OperationCanceledException => (int)HttpStatusCode.ServiceUnavailable,
+                        BadRequestException => (int)HttpStatusCode.BadRequest,
+                        NotFoundException => (int)HttpStatusCode.NotFound,
+                        ApiException => (int)HttpStatusCode.InternalServerError,
+                        ForbiddenException => (int)HttpStatusCode.Forbidden,
+                        UnauthorizedException => (int)HttpStatusCode.Unauthorized,
+                        _ => (int)HttpStatusCode.InternalServerError
+                    };
+
+                    var errorResponse = new
+                    {
+                        statusCode = context.Response.StatusCode,
+                        message = contextFeature.Error.GetBaseException().Message
+                    };
+
+                    await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+                });
+            });
+
         }
     }
 }

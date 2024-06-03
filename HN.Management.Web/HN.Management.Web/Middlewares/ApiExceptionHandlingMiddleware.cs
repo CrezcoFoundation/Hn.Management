@@ -1,4 +1,4 @@
-﻿using HN.Management.Web.Exceptions.Domain;
+﻿using HN.Management.Manager.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

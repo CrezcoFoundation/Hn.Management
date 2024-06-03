@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 
-namespace HN.Management.Web.Exceptions.Domain
+namespace HN.Management.Manager.Exceptions
 {
     public class DomainException : Exception
     {

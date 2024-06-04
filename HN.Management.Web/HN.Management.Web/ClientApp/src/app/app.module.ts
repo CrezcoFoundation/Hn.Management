@@ -1,22 +1,20 @@
-import { NgModule, isDevMode,  APP_INITIALIZER, LOCALE_ID } from '@angular/core';
-import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { crezcoReducers, metaReducers } from './reducers';
+import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
+import { NgModule, isDevMode,  APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 // custom
-import { SharedModule } from 'src/app/web-site/shared/shared.module';
-import { HomeModule } from 'src/app/web-site/home/home.module';
-import { GiveModule } from 'src/app/web-site/give/give.module';
-import { CrezcoStoryModule } from 'src/app/web-site/crezco-story/crezco-story.module';
-import { ContactUsModule } from 'src/app/web-site/contact-us/contact-us.module';
-import { StoreModule } from '@ngrx/store';
-import { crezcoReducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ContactUsModule } from './web-site/contact-us/contact-us.module';
+import { CrezcoStoryModule } from './web-site/crezco-story/crezco-story.module';
+import { GiveModule } from './web-site/give/give.module';
+import { HomeModule } from './web-site/home/home.module';
+import { SharedModule } from './shared/shared.module';
 import { WebSiteModule } from './web-site/web-site.module';
-
 
 // i18n Translate
 import Backend from 'i18next-chained-backend';
@@ -25,6 +23,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // Translation files
 import en from '../assets/locales/en.translation.json';
 import es from '../assets/locales/es.translation.json';
+
 
 const resources = {
   en: {

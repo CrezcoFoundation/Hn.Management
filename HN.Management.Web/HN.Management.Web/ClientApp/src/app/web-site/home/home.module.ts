@@ -9,7 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Custom imports from Projects Folder
 import { HomeComponent } from './home.component';
-import { SharedModule } from 'src/app/web-site/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 //Sweet alert
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ContactUsModule } from "../contact-us/contact-us.module";

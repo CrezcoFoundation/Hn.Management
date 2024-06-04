@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule,  NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
@@ -9,9 +9,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 // shared components
-import { FooterComponent } from './footer/footer.component';
-import { MultipleItemsSliderComponent } from './multiple-items-slider/multiple-items-slider.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from '../core/layout/footer/footer.component';
+import { NavBarComponent } from '../core/layout/nav-bar/nav-bar.component';
 import { PaypalComponent } from './donation-options/paypal/paypal.component';
 import { SharedBannerComponent } from './shared-banner/shared-banner.component';
 
@@ -20,8 +19,9 @@ import Backend from 'i18next-chained-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // translation files
-import en from '../../../assets/locales/en.translation.json';
-import es from '../../../assets/locales/es.translation.json';
+import en from '../../assets/locales/en.translation.json';
+import es from '../../assets/locales/es.translation.json';
+import { from } from 'rxjs';
 
 const resources = {
   en: {
@@ -94,7 +94,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     NavBarComponent,
-    MultipleItemsSliderComponent,
     FooterComponent,
     PaypalComponent,
     SharedBannerComponent,
@@ -116,7 +115,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     I18NextModule.forRoot()],
   exports: [
     PaypalComponent,
-    MultipleItemsSliderComponent,
     FooterComponent,
     NavBarComponent,
     SharedBannerComponent

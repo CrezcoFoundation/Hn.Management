@@ -8,7 +8,7 @@ import { ContactUsModule } from 'src/app/web-site/contact-us/contact-us.module';
 import { CrezcoStoryModule } from 'src/app/web-site/crezco-story/crezco-story.module';
 import { GiveModule } from 'src/app/web-site/give/give.module';
 import { HomeModule } from 'src/app/web-site/home/home.module';
-import { SharedModule } from 'src/app/web-site/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';

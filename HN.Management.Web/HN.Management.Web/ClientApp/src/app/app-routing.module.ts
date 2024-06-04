@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'give', component: GiveComponent },
   {
     path: 'auth',
-    loadChildren: () => import('../app/web-site/auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('../app/core/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'projects',

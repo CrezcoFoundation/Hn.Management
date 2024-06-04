@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'give', component: GiveComponent },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('../core/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'projects',

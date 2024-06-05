@@ -1,4 +1,5 @@
-﻿using HN.ManagementEngine.Models;
+﻿using HN.Management.Engine.ViewModels;
+using HN.ManagementEngine.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,6 @@ namespace HN.Management.Engine.Repositories.Interfaces
         Task<User> InsertAsync(User item);
         Task<User> UpdateAsync(User item);
         Task Delete(string id);
+        Task<User> GetUserAsync(LoginRequest loginRequest);
     }
 }

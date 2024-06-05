@@ -27,8 +27,10 @@ export class AppComponent implements OnInit {
 
     Aos.init({
       once: false,
-      duration: 800,
+      duration: 500,
       easing: 'ease',
     });
+
+    window.addEventListener('load', Aos.refresh);
   }
 }

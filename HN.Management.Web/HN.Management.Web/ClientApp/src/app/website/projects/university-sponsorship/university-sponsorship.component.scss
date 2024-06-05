@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"); */
+@import url(../../../../styles.scss);
 
 .banner-university {
   width: 100%;
@@ -9,7 +10,14 @@
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
-  color: #6f00aa;
+  color: var(--basic-colors-black);
+}
+.title-project h3 {
+  font-size: 42px;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--basic-colors-black);
 }
 
 .description-project {
@@ -21,48 +29,53 @@
 }
 
 .btn,
-.btn-primary {
-  background-color: #00bf1b;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  border: none;
+.donate-btn .btn-primary {
+  font-family: var(--Inter-text-body-font-family);
+  background-color: var(--blue-colors-buttom);
+  text-transform: capitalize;
+  font-size: 1rem;
   font-weight: 500;
+  border-radius: 50px;
+  border: none;
 }
 
-.btn-primary:focus,
-.btn-primary:hover {
-  background-color: #00ce1b;
-}
-
-.collage-photo img {
+.image-box img {
+  width: 450px;
   max-width: 100%;
 }
 
-.collage-photo_file2 img {
-  max-width: 100%;
+/* Heart Animation Start */
+
+.heart-vector {
+  transition: ease all;
 }
 
-.paragraph-section {
-  /* height: 471px; */
-  background-color: #00bf1b;
-  /* margin: 7em 0; */
-  div > p {
-    font-family: Oswald;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.4em;
-    text-transform: uppercase;
+#hover-link:hover .heart-vector {
+  animation: pulseHeart 1.5s ease-in-out;
+}
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
-  .thin-font {
-    font-family: Oswald;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 1.4em;
-    text-transform: uppercase;
+  20% {
+    transform: rotate(-25deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(45deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
 }
+
+/* Heart Animation End */
 
 div > .author-font span {
   font-family: Inter;
@@ -74,10 +87,10 @@ div > .author-font span {
 .text-box {
   /* padding: 10em; */
   .title-box h3 {
-    font-size: 45px;
-    font-family: "Oswald", sans-serif;
+    font-size: 35px;
+    font-family: var(--Inter-text-body-font-family);
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
     text-align: left;
   }
   .description-box p {
@@ -91,45 +104,79 @@ section {
   overflow-x: hidden;
 }
 
-.section-projects_card {
-  background-color: #f1f1f1;
+/* Paragraph Section Start */
+.section-paragraph {
+  background-color: var(--colors-gray-bg);
 }
-
-.title-box h3 {
-  font-size: 45px;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.image-box img {
+.img-quote {
+  width: 1700px;
   max-width: 100%;
 }
-
-.card-title {
-  font-size: 30px;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-weight: bold;
+.img-gallery {
+  width: 1200px;
+  max-width: 100%;
 }
+/* Paragraph Section End */
 
+/* Cards Projects Styles Start */
 .card {
   transition: ease 0.3s all;
   border: none;
 }
 
-.card:hover {
-  box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+.card-body {
+  border: 1px solid #9E9E9E;
+  border-radius: 90px 24.45px 24.45px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: .2s ease all;
 }
 
-.link-card:hover {
-  filter: opacity(0.5);
+.card-body:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
+
+.card-body-content {
+  width: 160px;
+  padding: .5em 0;
+}
+
+.card-title {
+  font-size: 24px;
+  color: var(--basic-colors-black);
+  font-family: var(--Inter-text-body-font-family);
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-bottom: .5em;
+  max-width: 200px;
+}
+
+.card-text {
+  font-size: 17px;
+  font-weight: normal;
+  color: var(--basic-colors-black);
+  height: 100px;
+}
+
+.link-card {
+  color: var(--blue-colors-buttom);
+}
+
+.card-img-top {
+  width: 150px;
+  /* position: absolute;
+  z-index: 5; */
+  /* left: 400px; */
+}
+
 
 .cards-container {
   overflow: visible;
 }
+
+/* Cards Projects Styles End */
 
 .rounded-3 {
   border-radius: 20px !important;
@@ -141,30 +188,36 @@ section {
   .title-project h2 {
     font-size: 45px;
   }
+  .title-project h3 {
+    font-size: 32px;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--basic-colors-black);
+  }
   .description-project {
     max-width: 90%;
     font-size: 1.15rem;
   }
-  .collage-photo img {
-    max-width: 180px;
-  }
-  .collage-photo_file2 img {
-    max-width: 100%;
-  }
-  .paragraph-section {
-    /* height: 270px; */
-    /* margin: 3em 0 0 0; */
-    div > p {
-      /* max-width: 90%; */
-      font-size: 1.2rem;
-    }
-    .thin-font {
-      font-size: 1.2rem;
-      font-style: normal;
-      font-weight: 300;
-      line-height: 1.2em;
-    }
-  }
+
+  .btn,
+.donate-btn .btn-primary {
+  padding: 1em 6em !important;
+}
+
+/* Paragraph Section Start */
+.section-paragraph {
+  background-color: var(--colors-gray-bg);
+}
+.img-quote {
+  width: 1700px;
+  max-width: 200%;
+}
+.img-gallery {
+  width: 1200px;
+  max-width: 100%;
+}
+/* Paragraph Section End */
 
   div > .author-font span {
     font-size: 1.1rem;
@@ -181,16 +234,9 @@ section {
     }
   }
 
-  .card:hover {
-    box-shadow: none;
-    transform: none;
-  }
-
   .image-box img {
+    width: 250px;
     max-width: 100%;
-  }
-  .cards-container {
-    overflow: scroll;
   }
 
   .rounded-3 {
@@ -198,18 +244,5 @@ section {
   }
 }
 
-.image-example img {
-  max-width: 100%;
-}
-.modal-image img {
-  max-width: 100%;
-}
-
 @media only screen and (max-width: 768px) {
-  .image-example img {
-    max-width: 100%;
-  }
-  .modal-image img {
-    max-width: 100%;
-  }
 }

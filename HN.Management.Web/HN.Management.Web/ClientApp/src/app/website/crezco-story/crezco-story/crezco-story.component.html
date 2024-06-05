@@ -1,3 +1,4 @@
+<!-- Image banner section start -->
 <section class="container-fluid p-0">
   <div class="pt-3 mt-lg-5 mt-5">
     <img class="banner-story d-lg-block d-none" src="../../assets/Image/Story/banner.webp"
@@ -33,8 +34,9 @@
         {{ 'STORY_CREZCO.Subsection_2-1' | translate }}
       </p>
     </div>
-    <div class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
-      <img src="../../assets/Image/Story/story-circles/knoledge.webp" alt="section 2 Image" />
+    <div data-aos="fade-up"
+      class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
+      <img src="../../assets/Image/Story/story-circles/growth_through-knowledge.svg" alt="Growth Knoledge Image" />
     </div>
   </div>
 
@@ -48,8 +50,8 @@
         {{ 'STORY_CREZCO.Subsection_5-1' | translate }}
       </p>
     </div>
-    <div class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
-      <img src="../../assets/Image/Story/story-circles/influence.webp" alt="section 2 Image" />
+    <div data-aos="fade-up" class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
+      <img src="../../assets/Image/Story/story-circles/growth_through-influence.svg" alt="Growth Influence Image" />
     </div>
   </div>
 
@@ -63,8 +65,8 @@
         {{ 'STORY_CREZCO.Subsection_3-1' | translate }}
       </p>
     </div>
-    <div class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
-      <img src="../../assets/Image/Story/story-circles/empowerment.webp" alt="section 2 Image" />
+    <div data-aos="fade-up" class="knoledge-image col-12 col-lg-5 d-flex align-items-center justify-content-center">
+      <img src="../../assets/Image/Story/story-circles/growth_through-Empowerment.svg" alt="Growth Empowerment Image" />
     </div>
   </div>
 
@@ -88,16 +90,23 @@
       <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div  class="carousel-item active">
         <div
           class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(0, 6)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+          <div *ngFor="let info of infoGraduates.slice(0, 6)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
             </div>
           </div>
         </div>
@@ -105,13 +114,20 @@
       <div class="carousel-item">
         <div
           class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(6, 12)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+          <div *ngFor="let info of infoGraduates.slice(6, 12)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
             </div>
           </div>
         </div>
@@ -119,6 +135,7 @@
     </div>
   </div>
 
+  <!-- Mobile Carousell -->
   <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column-reverse d-lg-none overflow-x-visible">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -129,27 +146,20 @@
       <div class="carousel-item active">
         <div
           class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(0, 4)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+          <div *ngFor="let info of infoGraduates.slice(0, 4)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div
-          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(4, 8)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
-            </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
             </div>
           </div>
         </div>
@@ -157,13 +167,41 @@
       <div class="carousel-item">
         <div
           class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-          <div *ngFor="let info of storyInfo.slice(8, 12)" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-            <div class="{{ info.sInfoTags.tagChildren }}">
-              <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
+          <div *ngFor="let info of infoGraduates.slice(4, 8)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
             </div>
-            <div class="{{ info.sInfoTags.tagBrother }} mt-3">
-              <h5>{{ info.sInfoDegree }}</h5>
-              <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div
+          class="grads my-2 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
+          <div *ngFor="let info of infoGraduates.slice(8, 12)" class="card-grad col-lg-3 col-5 align-items-center">
+            <div class="card-grad_img">
+              <img src="../../assets/Image/Story/{{ info.url }}" alt="Grad photo" />
+            </div>
+            <div class="card-grad_content mt-3">
+              <ng-container [ngSwitch]="info.degree">
+                <h5 *ngSwitchCase="'TI'">{{ 'GRADUATES.TI' | translate }}</h5>
+                <h5 *ngSwitchCase="'PS'">{{ 'GRADUATES.PS' | translate }}</h5>
+                <h5 *ngSwitchCase="'GD'">{{ 'GRADUATES.GD' | translate }}</h5>
+                <h5 *ngSwitchCase="'PSC'">{{ 'GRADUATES.PSC' | translate }}</h5>
+                <h5 *ngSwitchCase="'NS'">{{ 'GRADUATES.NS' | translate }}</h5>
+                <h5 *ngSwitchCase="'ED'">{{ 'GRADUATES.ED' | translate }}</h5>
+              </ng-container>
+              <p class="mb-0 text-center">{{ info.date }}</p>
             </div>
           </div>
         </div>
@@ -174,11 +212,11 @@
 
   <!-- <div
     class="grads my-5 d-flex flex-lg-row align-items-center justify-content-around justify-content-lg-center gap-3 gap-lg-5 flex-wrap">
-    <div *ngFor="let info of storyInfo" class="{{ info.sInfoTags.tagParent }} col-lg-3 col-5 align-items-center">
-      <div class="{{ info.sInfoTags.tagChildren }}">
+    <div *ngFor="let info of infoGraduates" class="card-grad col-lg-3 col-5 align-items-center">
+      <div class="card-grad_img">
         <img src="../../assets/Image/Story/{{ info.sInfoUrl }}" alt="Grad photo" />
       </div>
-      <div class="{{ info.sInfoTags.tagBrother }} mt-3">
+      <div class="card-grad_content mt-3">
         <h5>{{ info.sInfoDegree }}</h5>
         <p class="mb-0 text-center">{{ info.sInfoDate }}</p>
       </div>
@@ -212,16 +250,20 @@
   </div>
   <div
     class="founders mt-5 mt-lg-0 my-lg-5 d-flex flex-column flex-lg-row align-items-around gap-4 gap-lg-5 align-items-lg-start justify-content-center flex-wrap">
-    <div *ngFor="let admin of storyInfoAdmin" class="card-founder col-12 col-lg-3">
+    <div *ngFor="let admin of infoAdmin" class="card-founder col-12 col-lg-3">
       <div class="founder-photo text-center">
-        <img src="../../assets/Image/Story/{{ admin.sInfoAdminUrl }}" alt="Founder Photo" />
+        <img src="../../assets/Image/Story/{{ admin.url }}" alt="Founder Photo" />
       </div>
       <div class="line_founders">
         <img src="../../assets/Image/Story/founder_line.svg" alt="separator">
       </div>
       <div class="founder-content text-start">
-        <h3 class="fw-bold">{{ admin.sInfoAdmin.sAdminName }}</h3>
-        <p>{{ admin.sInfoAdmin.sAdminDesc }}</p>
+        <h3 class="fw-bold">{{ admin.adminInfo.name }}</h3>
+        <ng-container [ngSwitch]="admin.adminInfo.role">
+          <p *ngSwitchCase="'FE'">{{ 'ADMIN_STORY.FE' | translate }}</p>
+          <p *ngSwitchCase="'BC'">{{ 'ADMIN_STORY.BC' | translate }}</p>
+          <p *ngSwitchCase="'BS'">{{ 'ADMIN_STORY.BS' | translate }}</p>
+        </ng-container>
       </div>
     </div>
   </div>

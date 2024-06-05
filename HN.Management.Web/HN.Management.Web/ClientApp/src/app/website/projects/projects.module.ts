@@ -9,7 +9,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { CommunitySupportComponent } from './community-support/community-support.component';
-import { MedicalAssistanceComponent } from './medical-assistance/medical-assistance.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -27,7 +26,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,
     SpecialEducationComponent,
-    MedicalAssistanceComponent,
     CommunitySupportComponent,
     ProjectsComponent,
   ],
@@ -52,14 +50,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,
     SpecialEducationComponent,
-    MedicalAssistanceComponent,
     CommunitySupportComponent,
   ],
   bootstrap: [
     UniversitySponsorshipComponent,
     StudentMissionTripComponent,
     SpecialEducationComponent,
-    MedicalAssistanceComponent,
     CommunitySupportComponent,
   ],
   providers: [],

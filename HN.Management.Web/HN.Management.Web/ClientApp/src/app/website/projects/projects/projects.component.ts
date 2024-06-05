@@ -10,8 +10,11 @@ import Aos from 'aos';
 })
 export class ProjectsComponent implements OnInit {
 
+  constructor(
+    private translate: TranslateService,
+  ) {}
 
-  /* selectedLanguage = 'es';
+  selectedLanguage = 'en';
 
   changeLanguage() {
     this.translate.use(this.selectedLanguage);
@@ -21,12 +24,9 @@ export class ProjectsComponent implements OnInit {
     language: new FormControl('', Validators.required)
   });
 
-  constructor(
-    private translate: TranslateService,
-  ) {} */
 
   ngOnInit() {
-    /* this.changeLanguage(); */
+    this.changeLanguage();
 
     Aos.init({
       once: false,

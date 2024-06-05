@@ -255,24 +255,28 @@ select#floatingSelectGrid {
 .heart-vector {
   transition: ease all;
 }
-.heart-vector:hover {
-  animation-name: pulseHeart;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+
+#hover-link:hover .heart-vector {
+  animation: pulseHeart 1.5s ease-in-out;
 }
 
 @keyframes pulseHeart {
   0% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
     opacity: 1;
   }
+  20% {
+    transform: rotate(-25deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.5) rotate(45deg);
     opacity: 0.7;
   }
   100% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
     opacity: 1;
   }
 }

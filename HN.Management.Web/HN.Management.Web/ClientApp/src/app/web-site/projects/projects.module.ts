@@ -12,7 +12,7 @@ import { CommunitySupportComponent } from './community-support/community-support
 import { MedicalAssistanceComponent } from './medical-assistance/medical-assistance.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { SpecialEducationComponent } from './special-education/special-education.component';
 import { StudentMissionTripComponent } from './student-mission-trip/student-mission-trip.component';
 import { UniversitySponsorshipComponent } from './university-sponsorship/university-sponsorship.component';

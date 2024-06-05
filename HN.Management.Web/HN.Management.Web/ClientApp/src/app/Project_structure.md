@@ -63,9 +63,23 @@
                 └── nav-bar.component.scss
                 └── nav-bar.component.spec.ts
                 └── nav-bar.component.ts
-    └── Project-estructura.md
     └── 📁reducers
         └── index.ts
+    └── 📁shared
+        └── 📁data
+            └── crezco-information.ts
+        └── 📁donation-options
+            └── 📁paypal
+                └── paypal.component.html
+                └── paypal.component.scss
+                └── paypal.component.spec.ts
+                └── paypal.component.ts
+        └── 📁shared-banner
+            └── shared-banner.component.html
+            └── shared-banner.component.scss
+            └── shared-banner.component.spec.ts
+            └── shared-banner.component.ts
+        └── shared.module.ts
     └── 📁web-site
         └── 📁contact-us
             └── contact-emails.service.spec.ts
@@ -139,21 +153,6 @@
                 └── university-sponsorship.component.scss
                 └── university-sponsorship.component.spec.ts
                 └── university-sponsorship.component.ts
-        └── 📁shared
-            └── 📁data
-                └── crezco-information.ts
-            └── 📁donation-options
-                └── 📁paypal
-                    └── paypal.component.html
-                    └── paypal.component.scss
-                    └── paypal.component.spec.ts
-                    └── paypal.component.ts
-            └── 📁shared-banner
-                └── shared-banner.component.html
-                └── shared-banner.component.scss
-                └── shared-banner.component.spec.ts
-                └── shared-banner.component.ts
-            └── shared.module.ts
         └── web-site-routing.module.ts
         └── web-site.component.html
         └── web-site.component.scss

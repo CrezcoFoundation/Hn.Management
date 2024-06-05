@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../../../environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-paypal',
@@ -15,7 +15,7 @@ export class PaypalComponent implements OnInit {
       business: environment.paypal.business,
       image: {
         //src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-        src: '../../../../../assets/Image/payment-logos/Yellow_PayPal_Button.png',
+        src: '/assets/Image/payment-logos/Yellow_PayPal_Button.png',
         title: 'PayPal - The safer, easier way to pay online!',
         alt: 'Donate with PayPal button',
       },

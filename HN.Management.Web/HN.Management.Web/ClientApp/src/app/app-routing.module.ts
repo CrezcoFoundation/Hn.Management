@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactUsComponent } from 'src/app/web-site/contact-us/contact-us/contact-us.component';
-import { CrezcoStoryComponent } from 'src/app/web-site/crezco-story/crezco-story/crezco-story.component';
-import { GiveComponent } from 'src/app/web-site/give/give/give.component';
-import { HomeComponent } from 'src/app/web-site/home/home.component';
+import { ContactUsComponent } from 'src/app/website/contact-us/contact-us/contact-us.component';
+import { CrezcoStoryComponent } from 'src/app/website/crezco-story/crezco-story/crezco-story.component';
+import { GiveComponent } from 'src/app/website/give/give/give.component';
+import { HomeComponent } from 'src/app/website/home/home.component';
 
 import {
   LocationStrategy,
@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () =>
-      import('../app/web-site/projects/projects.module').then((m) => m.ProjectsModule),
+      import('../app/website/projects/projects.module').then((m) => m.ProjectsModule),
   },
   { path: '', component: HomeComponent },
 ];

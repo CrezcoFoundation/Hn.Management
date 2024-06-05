@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { crezcoReducers, metaReducers } from './reducers';
 import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
 import { NgModule, isDevMode,  APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,12 +8,12 @@ import { StoreModule } from '@ngrx/store';
 // custom
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ContactUsModule } from './web-site/contact-us/contact-us.module';
-import { CrezcoStoryModule } from './web-site/crezco-story/crezco-story.module';
-import { GiveModule } from './web-site/give/give.module';
-import { HomeModule } from './web-site/home/home.module';
+import { ContactUsModule } from './website/contact-us/contact-us.module';
+import { CrezcoStoryModule } from './website/crezco-story/crezco-story.module';
+import { GiveModule } from './website/give/give.module';
+import { HomeModule } from './website/home/home.module';
 import { SharedModule } from './shared/shared.module';
-import { WebSiteModule } from './web-site/web-site.module';
+import { WebSiteModule } from './website/website.module';
 
 // i18n Translate
 import Backend from 'i18next-chained-backend';
@@ -102,9 +101,6 @@ export const I18N_PROVIDERS = [
     SharedModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(crezcoReducers, {
-      metaReducers,
-    }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ReactiveFormsModule,
     I18NextModule.forRoot()

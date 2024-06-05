@@ -1,26 +1,5 @@
 ```
 └── 📁app
-    └── 📁admin
-        └── admin-routing.module.ts
-        └── admin.component.html
-        └── admin.component.scss
-        └── admin.component.spec.ts
-        └── admin.component.ts
-        └── admin.module.ts
-        └── 📁auth
-            └── auth-routing.module.ts
-            └── auth.component.html
-            └── auth.component.scss
-            └── auth.component.spec.ts
-            └── auth.component.ts
-            └── auth.module.ts
-            └── 📁login
-                └── login-routing.module.ts
-                └── login.component.html
-                └── login.component.scss
-                └── login.component.spec.ts
-                └── login.component.ts
-                └── login.module.ts
     └── app-routing.module.ts
     └── app.component.html
     └── app.component.scss
@@ -63,8 +42,6 @@
                 └── nav-bar.component.scss
                 └── nav-bar.component.spec.ts
                 └── nav-bar.component.ts
-    └── 📁reducers
-        └── index.ts
     └── 📁shared
         └── 📁data
             └── crezco-information.ts
@@ -80,7 +57,7 @@
             └── shared-banner.component.spec.ts
             └── shared-banner.component.ts
         └── shared.module.ts
-    └── 📁web-site
+    └── 📁website
         └── 📁contact-us
             └── contact-emails.service.spec.ts
             └── contact-emails.service.ts
@@ -153,10 +130,10 @@
                 └── university-sponsorship.component.scss
                 └── university-sponsorship.component.spec.ts
                 └── university-sponsorship.component.ts
-        └── web-site-routing.module.ts
-        └── web-site.component.html
-        └── web-site.component.scss
-        └── web-site.component.spec.ts
-        └── web-site.component.ts
-        └── web-site.module.ts
+        └── website-routing.module.ts
+        └── website.component.html
+        └── website.component.scss
+        └── website.component.spec.ts
+        └── website.component.ts
+        └── website.module.ts
 ```

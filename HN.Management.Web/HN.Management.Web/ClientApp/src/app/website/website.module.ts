@@ -2,12 +2,12 @@ import { NgModule,  APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
-import { WebSiteRoutingModule } from './web-site-routing.module';
-import { WebSiteComponent } from './web-site.component';
-import { ContactUsModule } from 'src/app/web-site/contact-us/contact-us.module';
-import { CrezcoStoryModule } from 'src/app/web-site/crezco-story/crezco-story.module';
-import { GiveModule } from 'src/app/web-site/give/give.module';
-import { HomeModule } from 'src/app/web-site/home/home.module';
+import { WebSiteRoutingModule } from './website-routing.module';
+import { WebSiteComponent } from './website.component';
+import { ContactUsModule } from 'src/app/website/contact-us/contact-us.module';
+import { CrezcoStoryModule } from 'src/app/website/crezco-story/crezco-story.module';
+import { GiveModule } from 'src/app/website/give/give.module';
+import { HomeModule } from 'src/app/website/home/home.module';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 

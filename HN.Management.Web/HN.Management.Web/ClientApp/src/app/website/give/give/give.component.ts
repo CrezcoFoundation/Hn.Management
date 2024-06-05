@@ -8,7 +8,6 @@ import {
   DonatationAreasInterface,
   DonationInterface,
 } from '../interfaces/donation.interface';
-import { CrezcoState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-give',
@@ -41,19 +40,14 @@ export class GiveComponent implements OnInit {
     generalDonation: null,
   };
 
-  constructor(private fb: FormBuilder, private store: Store<CrezcoState>) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.store
-      .select('donationReducer')
-      .subscribe(({ donationAreas }) => (this.donationAreas = donationAreas));
+
   }
 
   getDonateAreas() {
-    this.store.dispatch(
-      // @ts-ignore
-      fillDonationAreas({ donationAreas: { ...this.donationAreasForm.value } })
-    );
+
   }
   get collegeScholariships(): FormControl {
     // @ts-ignore

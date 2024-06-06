@@ -1,0 +1,80 @@
+@import url(../../../styles.scss);
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.shared-banner {
+  background: rgb(78,55,211);
+  background: linear-gradient(90deg, rgba(78,55,211,1) 0%, rgba(142,123,255,1) 100%);
+}
+
+.content-banner {
+  h2 {
+    font-size: 34px;
+    font-family: var(--Oswald-text-body-font-family);
+    text-transform: uppercase;
+    line-height: 1.2em;
+  }
+  p {
+    font-size: 22px;
+    font-family: var(--Inter-text-body-font-family);
+    /* width: 600px; */
+  }
+}
+
+.btn-learn {
+  border-radius: 50px;
+  padding: 13px 28px;
+  background: var(--language-colors-buttom);
+  a {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--blueviolet-colors-oficial);
+  }
+}
+
+.image-banner img {
+  max-width: 500px;
+  width: 100%;
+}
+
+.card-contact {
+  margin-top: 0 !important;
+}
+
+/* Mobile Styles Start */
+  @media (min-width: 340px) and (max-width: 767.98px) {
+    .content-banner {
+      h2 {
+        font-size: 22px;
+        font-family: var(--Oswald-text-body-font-family);
+        text-transform: uppercase;
+        line-height: 1.2em;
+      }
+      p {
+        font-size: 15px;
+        font-family: var(--Inter-text-body-font-family);
+        /* width: 600px; */
+      }
+    }
+
+    .btn-learn {
+      a {
+        font-size: 16.5px;
+      }
+    }
+
+    .image-banner img {
+      max-width: 350px;
+      width: 100%;
+    }
+  }

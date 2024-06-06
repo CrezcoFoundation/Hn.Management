@@ -1,37 +1,43 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
-import { NgModule, isDevMode,  APP_INITIALIZER, LOCALE_ID } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreModule } from '@ngrx/store';
+import { NgModule,  APP_INITIALIZER, LOCALE_ID } from '@angular/core';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-// custom
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ContactUsModule } from './website/contact-us/contact-us.module';
-import { CrezcoStoryModule } from './website/crezco-story/crezco-story.module';
-import { GiveModule } from './website/give/give.module';
-import { HomeModule } from './website/home/home.module';
-import { SharedModule } from './shared/shared.module';
-import { WebSiteModule } from './website/website.module';
+import { WebSiteRoutingModule } from './website-routing.module';
+import { WebSiteComponent } from './website.component';
+import { ContactUsModule } from 'src/app/website/contact-us/contact-us.module';
+import { CrezcoStoryModule } from 'src/app/website/crezco-story/crezco-story.module';
+import { GiveModule } from 'src/app/website/give/give.module';
+import { HomeModule } from 'src/app/website/home/home.module';
+import { SharedModule } from '../shared/shared.module';
+import { AppRoutingModule } from '../app-routing.module';
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
 
 // i18n Translate
 import Backend from 'i18next-chained-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Translation files
-import en from '../assets/locales/en.translation.json';
-import es from '../assets/locales/es.translation.json';
-
+import en from '../../assets/locales/en.translation.json';
+import el from '../../assets/locales/es.translation.json';
 
 const resources = {
   en: {
     translation: en
   },
-  es: {
-    translation: es
+  el: {
+    translation: el
   }
 };
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
+}
 
 export function appInit(i18next: ITranslationService) {
   return () =>
@@ -40,7 +46,7 @@ export function appInit(i18next: ITranslationService) {
       .use(LanguageDetector)
       .init({
       resources,
-      supportedLngs: ['en', 'es'],
+      supportedLngs: ['en', 'el'],
       fallbackLng: 'en',
       debug: true,
       returnEmptyString: false,
@@ -79,7 +85,7 @@ export const I18N_PROVIDERS = [
   multi: true
 },
 {
-  /* provide: Title, */
+  provide: Title,
   useClass: I18NextTitle
 },
 {
@@ -89,21 +95,35 @@ export const I18N_PROVIDERS = [
 }];
 
 @NgModule({
-  declarations: [AppComponent],
-  providers: [I18N_PROVIDERS],
-  bootstrap: [AppComponent],
+  declarations: [
+    WebSiteComponent
+  ],
   imports: [
-    WebSiteModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ContactUsModule,
     CrezcoStoryModule,
     GiveModule,
     HomeModule,
     SharedModule,
+    CommonModule,
+    WebSiteRoutingModule,
+    FormsModule,
     BrowserModule,
-    AppRoutingModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ReactiveFormsModule,
+    AppRoutingModule,
     I18NextModule.forRoot()
   ],
+  exports: [
+    WebSiteComponent
+  ],
+  providers: [I18N_PROVIDERS],
+  bootstrap: [WebSiteComponent]
 })
-export class AppModule {}
+export class WebSiteModule { }

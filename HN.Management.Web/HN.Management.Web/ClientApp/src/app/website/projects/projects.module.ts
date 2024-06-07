@@ -1,13 +1,9 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { I18NextModule, ITranslationService, I18NEXT_SERVICE, I18NextTitle, defaultInterpolationFormat } from 'angular-i18next';
-import { NgModule, APP_INITIALIZER, LOCALE_ID  } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
+// Custom imports
 import { CommunitySupportComponent } from './community-support/community-support.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
@@ -15,7 +11,9 @@ import { SharedModule } from '../../shared/shared.module';
 import { SpecialEducationComponent } from './special-education/special-education.component';
 import { StudentMissionTripComponent } from './student-mission-trip/student-mission-trip.component';
 import { UniversitySponsorshipComponent } from './university-sponsorship/university-sponsorship.component';
-
+// Language imports
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');

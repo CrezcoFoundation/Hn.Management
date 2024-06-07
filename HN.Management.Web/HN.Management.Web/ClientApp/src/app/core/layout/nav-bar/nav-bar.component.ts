@@ -1,7 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 
 @Component({
   standalone: false,
@@ -12,29 +11,24 @@ import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 
 export class NavBarComponent implements OnInit  {
 
+  form = new FormGroup({
+    language: new FormControl('', Validators.required)
+  });
+
   selectedLanguage = 'en';
+
+  constructor( private translate: TranslateService ){
+    translate.setDefaultLang('en');
+
+    translate.use('en');
+  }
 
   changeLanguage() {
     this.translate.use(this.selectedLanguage);
   }
 
-  form = new FormGroup({
-    language: new FormControl('', Validators.required)
-  });
-
-  constructor(
-    private translate: TranslateService,
-    /* @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService */
-  ) {}
-
   ngOnInit(): void {
-
     this.changeLanguage();
-    /* this.i18NextService.events.initialized.subscribe((e) => {
-      if (e) {
-        this.updateState(this.i18NextService.language);
-      }
-    }); */
   }
 
   get f(){

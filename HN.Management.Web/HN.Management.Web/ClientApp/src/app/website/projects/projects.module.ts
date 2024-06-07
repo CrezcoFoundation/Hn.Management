@@ -21,11 +21,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    UniversitySponsorshipComponent,
-    StudentMissionTripComponent,
-    SpecialEducationComponent,
-    CommunitySupportComponent,
-    ProjectsComponent,
   ],
   imports: [
     NgOptimizedImage,
@@ -45,16 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectsRoutingModule,
   ],
   exports: [
-    UniversitySponsorshipComponent,
-    StudentMissionTripComponent,
-    SpecialEducationComponent,
-    CommunitySupportComponent,
   ],
   bootstrap: [
-    UniversitySponsorshipComponent,
-    StudentMissionTripComponent,
-    SpecialEducationComponent,
-    CommunitySupportComponent,
   ],
   providers: [],
 })

@@ -18,10 +18,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    NavBarComponent,
-    FooterComponent,
-    PaypalComponent,
-    SharedBannerComponent,
   ],
   imports: [
     NgOptimizedImage,
@@ -39,11 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   exports: [
-    PaypalComponent,
-    FooterComponent,
-    NavBarComponent,
-    SharedBannerComponent
   ],
-  bootstrap: [NavBarComponent]
+  bootstrap: []
 })
 export class SharedModule {}

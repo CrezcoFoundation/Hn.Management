@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+/* import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -47,3 +47,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
 })
 export class AppModule {}
+ */

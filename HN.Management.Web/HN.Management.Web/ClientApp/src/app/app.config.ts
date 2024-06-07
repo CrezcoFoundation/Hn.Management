@@ -10,7 +10,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
 }
 
-export const appConfig: ApplicationConfig = {
+export const AppConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
     importProvidersFrom(HttpClientModule, TranslateModule.forRoot({
       defaultLanguage: 'en',

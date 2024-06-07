@@ -1,15 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 // Custom imports
-import { AppRoutingModule } from '../app-routing.module';
 import { ContactUsModule } from 'src/app/website/contact-us/contact-us.module';
 import { CrezcoStoryModule } from 'src/app/website/crezco-story/crezco-story.module';
-import { GiveModule } from 'src/app/website/give/give.module';
 import { HomeModule } from 'src/app/website/home/home.module';
 import { SharedModule } from '../shared/shared.module';
-import { WebSiteComponent } from './website.component';
 import { WebSiteRoutingModule } from './website-routing.module';
 // Language imports
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -21,33 +17,26 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    WebSiteComponent
-  ],
+  declarations: [],
   imports: [
     HttpClientModule,
-    TranslateModule.forRoot({
+    CommonModule,
+    ContactUsModule,
+    CrezcoStoryModule,
+    FormsModule,
+    HomeModule,
+    ReactiveFormsModule,
+    SharedModule,
+    WebSiteRoutingModule,
+    TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
     }),
-    AppRoutingModule,
-    BrowserModule,
-    CommonModule,
-    ContactUsModule,
-    CrezcoStoryModule,
-    FormsModule,
-    GiveModule,
-    HomeModule,
-    ReactiveFormsModule,
-    SharedModule,
-    WebSiteRoutingModule,
   ],
-  exports: [
-    WebSiteComponent
-  ],
-  bootstrap: [WebSiteComponent]
+  exports: [],
+  bootstrap: []
 })
 export class WebSiteModule { }

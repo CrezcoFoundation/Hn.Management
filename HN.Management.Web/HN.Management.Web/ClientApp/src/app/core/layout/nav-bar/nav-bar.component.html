@@ -16,7 +16,7 @@
     <!-- Language Selector -->
     <div class="d-flex flex-row gap-4 align-items-center">
       <div class="form-floating d-lg-none d-block">
-        <select [(ngModel)]="selectedLanguage" (change)="changeLanguage()" class="form-select pb-0 pt-0"
+        <select (ngModel)="selectedLanguage" (change)="changeLanguage()" class="form-select pb-0 pt-0"
           id="floatingSelectGrid">
           <option value="en" selected>En</option>
           <option value="es">Es</option>
@@ -239,7 +239,7 @@
 
         <!-- Language Selector -->
         <div class="form-floating d-lg-flex flex-lg-row align-items-center justify-content-center d-none">
-          <select [(ngModel)]="selectedLanguage" (change)="changeLanguage()" class="form-select pb-0 pt-0"
+          <select (ngModel)="selectedLanguage" (change)="changeLanguage()" class="form-select pb-0 pt-0"
             id="floatingSelectGrid">
             <option value="en" selected>EN</option>
             <option value="es">ES</option>

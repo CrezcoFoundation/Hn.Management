@@ -1,12 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { PaypalComponent } from "../../../shared/donation-options/paypal/paypal.component";
+import { HomeComponent } from 'src/app/website/home/home.component';
+import { SharedBannerComponent } from 'src/app/shared/shared-banner/shared-banner.component';
+import { ContactUsComponent } from 'src/app/website/contact-us/contact-us/contact-us.component';
+import { WebSiteComponent } from 'src/app/website/website.component';
 
 @Component({
-  standalone: false,
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss'],
+    standalone: true,
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.scss'],
+    imports: [
+        RouterModule,
+        CommonModule,
+        HttpClientModule,
+        TranslateModule,
+        PaypalComponent,
+        HomeComponent,
+        SharedBannerComponent,
+        ContactUsComponent,
+        WebSiteComponent
+    ]
 })
 
 export class NavBarComponent implements OnInit  {
@@ -18,9 +37,9 @@ export class NavBarComponent implements OnInit  {
   selectedLanguage = 'en';
 
   constructor( private translate: TranslateService ){
-    translate.setDefaultLang('en');
+    /* translate.setDefaultLang('en');
 
-    translate.use('en');
+    translate.use('en'); */
   }
 
   changeLanguage() {

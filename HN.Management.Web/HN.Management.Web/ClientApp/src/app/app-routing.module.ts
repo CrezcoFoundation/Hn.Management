@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/* import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactUsComponent } from 'src/app/website/contact-us/contact-us/contact-us.component';
 import { CrezcoStoryComponent } from 'src/app/website/crezco-story/crezco-story/crezco-story.component';
@@ -36,3 +36,4 @@ const routes: Routes = [
   ],
 })
 export class AppRoutingModule {}
+ */

@@ -13,14 +13,15 @@ import { SharedModule } from '../../shared/shared.module';
 //Sweet alert
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ContactUsModule } from "../contact-us/contact-us.module";
+import { ContactUsComponent } from "../contact-us/contact-us/contact-us.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
 }
 
 @NgModule({
-    declarations: [HomeComponent],
-    exports: [HomeComponent],
+    declarations: [],
+    exports: [],
     imports: [
         HttpClientModule,
         TranslateModule.forRoot({
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         ReactiveFormsModule,
         FormsModule,
         SweetAlert2Module,
-        ContactUsModule
+        ContactUsModule,
+        ContactUsComponent
     ]
 })
 

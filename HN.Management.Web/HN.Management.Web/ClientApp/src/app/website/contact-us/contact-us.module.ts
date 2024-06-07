@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -14,13 +13,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.translation.json');
 }
 @NgModule({
-  declarations: [ContactUsComponent],
+  declarations: [],
   imports: [
     ReactiveFormsModule,
     CommonModule,
     SharedModule,
     FormsModule,
-    BrowserModule,
     SweetAlert2Module,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -31,6 +29,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
   ],
-  exports: [ContactUsComponent],
+  exports: [],
 })
 export class ContactUsModule {}

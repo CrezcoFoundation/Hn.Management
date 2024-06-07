@@ -13,7 +13,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [CrezcoStoryComponent],
+  declarations: [],
   imports: [
     CommonModule,
     SharedModule,
@@ -28,6 +28,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ContactUsModule
   ],
-  exports: [CrezcoStoryComponent],
+  exports: [],
 })
 export class CrezcoStoryModule {}

@@ -1,21 +1,48 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormsModule} from '@angular/forms';
 import Aos from 'aos';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from "./core/layout/footer/footer.component";
+import { NavBarComponent } from "./core/layout/nav-bar/nav-bar.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    standalone: true,
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [
+      CommonModule,
+      RouterOutlet,
+      TranslateModule,
+      FormsModule,
+      FooterComponent,
+      NavBarComponent]
 })
 export class AppComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService) {}
-
   title = 'crezco-foundation';
+
+  form = new FormGroup({
+    language: new FormControl('', Validators.required)
+  });
+
+  selectedLanguage = 'en';
+
+  constructor( private router: Router, private translate: TranslateService ){
+    translate.setDefaultLang('en');
+
+    translate.use('en');
+  }
+
+  changeLanguage() {
+    this.translate.use(this.selectedLanguage);
+  }
+
+  get f(){
+    return this.form.controls;
+  }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {

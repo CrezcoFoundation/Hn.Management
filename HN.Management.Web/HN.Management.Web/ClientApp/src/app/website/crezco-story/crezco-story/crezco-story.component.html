@@ -244,26 +244,28 @@
 <!-- Paragraph Section End -->
 
 <!-- Founders Section Start -->
-<section class="container p-4 col-lg-10">
-  <div class="my-4">
-    <h3 class="text-center fs-1 my-5 title-founders">{{ 'STORY_CREZCO.Section_6.Title_admin' | translate }}</h3>
-  </div>
-  <div
-    class="founders mt-5 mt-lg-0 my-lg-5 d-flex flex-column flex-lg-row align-items-around gap-4 gap-lg-5 align-items-lg-start justify-content-center flex-wrap">
-    <div *ngFor="let admin of infoAdmin" class="card-founder col-12 col-lg-3">
-      <div class="founder-photo text-center">
-        <img src="../../assets/Image/Story/{{ admin.url }}" alt="Founder Photo" />
-      </div>
-      <div class="line_founders">
-        <img src="../../assets/Image/Story/founder_line.svg" alt="separator">
-      </div>
-      <div class="founder-content text-start">
-        <h3 class="fw-bold">{{ admin.adminInfo.name }}</h3>
-        <ng-container [ngSwitch]="admin.adminInfo.role">
-          <p *ngSwitchCase="'FE'">{{ 'ADMIN_STORY.FE' | translate }}</p>
-          <p *ngSwitchCase="'BC'">{{ 'ADMIN_STORY.BC' | translate }}</p>
-          <p *ngSwitchCase="'BS'">{{ 'ADMIN_STORY.BS' | translate }}</p>
-        </ng-container>
+<section class="p-4 admin-section">
+  <div class="container">
+    <div class="my-4">
+      <h3 class="text-center fs-1 my-5 title-founders">{{ 'STORY_CREZCO.Section_6.Title_admin' | translate }}</h3>
+    </div>
+    <div
+      class="founders mt-5 mt-lg-0 my-lg-5 d-flex flex-column flex-lg-row align-items-around gap-4 gap-lg-5 align-items-lg-start justify-content-center flex-wrap">
+      <div *ngFor="let admin of infoAdmin" class="card-founder col-12 col-lg-3">
+        <div class="founder-photo text-center">
+          <img src="../../assets/Image/Story/{{ admin.url }}" alt="Founder Photo" />
+        </div>
+        <div class="line_founders">
+          <img src="../../assets/Image/Story/founder_line.svg" alt="separator">
+        </div>
+        <div class="founder-content text-start">
+          <h3 class="fw-bold">{{ admin.adminInfo.name }}</h3>
+          <ng-container [ngSwitch]="admin.adminInfo.role">
+            <p *ngSwitchCase="'FE'">{{ 'ADMIN_STORY.FE' | translate }}</p>
+            <p *ngSwitchCase="'BC'">{{ 'ADMIN_STORY.BC' | translate }}</p>
+            <p *ngSwitchCase="'BS'">{{ 'ADMIN_STORY.BS' | translate }}</p>
+          </ng-container>
+        </div>
       </div>
     </div>
   </div>

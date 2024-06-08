@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   standalone: true,
@@ -17,7 +16,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    SharedModule,
     FormsModule,
     SweetAlert2Module,
     HttpClientModule,

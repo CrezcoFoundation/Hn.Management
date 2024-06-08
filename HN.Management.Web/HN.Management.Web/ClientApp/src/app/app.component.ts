@@ -1,11 +1,12 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { FormGroup, FormControl, Validators, FormsModule} from '@angular/forms';
-import Aos from 'aos';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from "./core/layout/footer/footer.component";
+import { FormGroup, FormControl, Validators, FormsModule} from '@angular/forms';
 import { NavBarComponent } from "./core/layout/nav-bar/nav-bar.component";
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import Aos from 'aos';
+import { HomeComponent } from './website/home/home.component';
 
 @Component({
     standalone: true,
@@ -13,6 +14,7 @@ import { NavBarComponent } from "./core/layout/nav-bar/nav-bar.component";
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     imports: [
+      HomeComponent,
       CommonModule,
       RouterOutlet,
       TranslateModule,
@@ -24,24 +26,7 @@ export class AppComponent implements OnInit {
 
   title = 'crezco-foundation';
 
-  form = new FormGroup({
-    language: new FormControl('', Validators.required)
-  });
-
-  selectedLanguage = 'en';
-
-  constructor( private router: Router, private translate: TranslateService ){
-    translate.setDefaultLang('en');
-
-    translate.use('en');
-  }
-
-  changeLanguage() {
-    this.translate.use(this.selectedLanguage);
-  }
-
-  get f(){
-    return this.form.controls;
+  constructor( private router: Router ){
   }
 
   ngOnInit() {

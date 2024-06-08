@@ -8,7 +8,6 @@ import {
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ContactUsComponent } from '../../contact-us/contact-us/contact-us.component';
 import { SharedBannerComponent } from "../../../shared/shared-banner/shared-banner.component";
 
@@ -19,7 +18,6 @@ import { SharedBannerComponent } from "../../../shared/shared-banner/shared-bann
     styleUrls: ['./crezco-story.component.scss'],
     imports: [
         CommonModule,
-        SharedModule,
         NgOptimizedImage,
         HttpClientModule,
         TranslateModule,

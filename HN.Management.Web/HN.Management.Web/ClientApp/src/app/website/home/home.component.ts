@@ -1,12 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ContactEmailsService } from 'src/app/website/contact-us/contact-emails.service';
 import Swal from 'sweetalert2';
-import { ContactUsModule } from '../contact-us/contact-us.module';
 import { ContactUsComponent } from '../contact-us/contact-us/contact-us.component';
 import { SharedBannerComponent } from "../../shared/shared-banner/shared-banner.component";
 
@@ -19,8 +17,6 @@ import { SharedBannerComponent } from "../../shared/shared-banner/shared-banner.
         CommonModule,
         TranslateModule,
         RouterModule,
-        SharedModule,
-        ContactUsModule,
         ContactUsComponent,
         ReactiveFormsModule,
         SharedBannerComponent,

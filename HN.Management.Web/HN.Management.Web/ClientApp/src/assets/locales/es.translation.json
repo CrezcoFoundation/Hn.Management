@@ -199,5 +199,9 @@
       "FE": "Fundadora y Directora Ejecutiva",
       "BC": "Presidenta Junta Directiva",
       "BS": "Secretaria Junta Directiva"
+    },
+    "_languages": {
+      "en": "English",
+      "es": "Español"
     }
   }

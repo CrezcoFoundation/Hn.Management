@@ -5,11 +5,25 @@ import {
   getInfoAdminObject,
   getStoryInfoObject,
 } from '../data-story';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { ContactUsComponent } from '../../contact-us/contact-us/contact-us.component';
+import { SharedBannerComponent } from "../../../shared/shared-banner/shared-banner.component";
 
 @Component({
-  selector: 'app-crezco-story',
-  templateUrl: './crezco-story.component.html',
-  styleUrls: ['./crezco-story.component.scss'],
+    standalone: true,
+    selector: 'app-crezco-story',
+    templateUrl: './crezco-story.component.html',
+    styleUrls: ['./crezco-story.component.scss'],
+    imports: [
+        CommonModule,
+        NgOptimizedImage,
+        HttpClientModule,
+        TranslateModule,
+        ContactUsComponent,
+        SharedBannerComponent
+    ]
 })
 export class CrezcoStoryComponent implements OnInit {
 

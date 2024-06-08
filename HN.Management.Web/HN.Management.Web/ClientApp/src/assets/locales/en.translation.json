@@ -203,5 +203,10 @@
     "FE": "Founder & Executive Director",
     "BC": "Board Chair",
     "BS": "Board Secretary"
+  },
+  "_languages": {
+    "en": "English",
+    "es": "Español"
   }
 }
+

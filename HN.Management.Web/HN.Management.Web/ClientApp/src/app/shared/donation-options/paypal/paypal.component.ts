@@ -1,7 +1,18 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
+  standalone: true,
+  imports: [
+    RouterModule,
+    CommonModule,
+    HttpClientModule,
+    TranslateModule
+  ],
   selector: 'app-paypal',
   templateUrl: './paypal.component.html',
   styleUrls: ['./paypal.component.scss'],

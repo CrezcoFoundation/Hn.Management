@@ -4,10 +4,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Aos from 'aos';
+import { ContactUsComponent } from '../../contact-us/contact-us/contact-us.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TranslateModule, RouterModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    ContactUsComponent,
+    RouterModule],
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],

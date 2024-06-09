@@ -10,9 +10,13 @@ export class UserService {
 
   baseUrl = environment.api_url;
   userBase = '/api/User/';
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient ) { }
 
   getAll() {
     return this.http.get<User[]>(`${this.baseUrl}${this.userBase}all`);
+  }
+
+  createUser( user: User ){
+    return this.http.post<any>(`${this.baseUrl}${this.userBase}create`, user);
   }
 }

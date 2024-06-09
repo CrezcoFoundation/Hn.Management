@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
+    this.authService.setIsNavFooter(false);
+    this.authService.getIsNavFooter;
+
     // logout the person when he opens the app for the first time
     this.authService.logout();
 
@@ -66,8 +69,8 @@ export class LoginComponent implements OnInit {
       _data => {
         this.router.navigate([this.returnUrl]);
       },
-      error => {
-        this.error = error;
+      _error => {
+        this.error = _error;
         this.loading = false;
       }
     )

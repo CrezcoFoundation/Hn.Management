@@ -6,7 +6,7 @@
     >
       <div class="col-10">
         <h2 class="text-center py-3 title-login">Create an Account</h2>
-        <form [formGroup]="registerForm" (Submit)="onRegister()">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
           <div class="d-flex flex-column gap-3 gap-lg-4">
             <div class="form-group d-flex flex-column gap-2 row">
               <div>
@@ -144,12 +144,12 @@
                 </div>
                 <input
                   type="password"
-                  id="password"
+                  id="confirmPassword"
                   [type]="fieldTextType ? 'text' : 'password'"
                   class="form-control py-2 py-lg-3"
                   placeholder="Confirm Your Password"
                   formControlName="confirmPassword"
-                  name="password"
+                  name="confirmPassword"
                   required
                 />
               </div>
@@ -173,7 +173,7 @@
                 routerLinkActive="router-link-active"
                 class="donate-btn row"
               >
-                <button type="submit" class="btn btn-disabled p-3 col">
+                <button class="btn btn-disabled p-3 col">
                   Continue as Guest
                 </button>
               </a>

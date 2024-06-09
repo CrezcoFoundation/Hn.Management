@@ -1,9 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
-import { AuthService } from 'src/app/admin/services/auth.service';
-import { Observable } from 'rxjs';
 
 @Component({
   standalone: false,
@@ -24,10 +21,10 @@ export class NavBarComponent implements OnInit  {
     language: new FormControl('', Validators.required)
   });
 
-  isLoggedIn$: Observable<boolean> | undefined;
+  
 
   constructor(
-    private translate: TranslateService, private authService: AuthService
+    private translate: TranslateService
     /* @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService */
   ) {}
 
@@ -39,7 +36,6 @@ export class NavBarComponent implements OnInit  {
         this.updateState(this.i18NextService.language);
       }
     }); */
-    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
   get f(){

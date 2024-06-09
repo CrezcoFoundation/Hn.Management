@@ -3,6 +3,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import Aos from 'aos';
+import { User } from './admin/models/user';
+import { AuthService } from './admin/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +13,23 @@ import Aos from 'aos';
 })
 export class AppComponent implements OnInit {
 
+  isNavFooter! : boolean;
+  
   constructor(
     private router: Router,
-    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService) {}
+    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService,
+    private authService: AuthService
+  ) 
+  {
+    
+  }
 
   title = 'crezco-foundation';
 
   ngOnInit() {
+
+    this.isNavFooter = this.authService.getIsNavFooter;
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Cuando se completa una navegación, lleva la página al principio.

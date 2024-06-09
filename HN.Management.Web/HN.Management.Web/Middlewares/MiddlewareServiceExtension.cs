@@ -20,33 +20,41 @@ using HN.Management.Engine.CosmosDb.Base;
 using User = HN.ManagementEngine.Models.User;
 using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Auth;
-using HN.Management.Engine.CosmosDb.DataInitializer;
 using HN.Management.Manager.Services.Auth;
+using HN.Management.Manager.Services.Wrappers;
+using HN.Management.Manager.Services.DataInitializer;
 
 namespace HN.Management.Web.Extensions
 {
     public static class MiddlewareServiceExtension
     {
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
-        { 
-            service.AddScoped<IUserRepository, UserRepository>();
-            service.AddScoped<IDonationRepository, DonationRepository>();
-            service.AddScoped<IPaypalRepository, PaypalRepository>();
-            service.AddScoped<IRoleRepository, RoleRepository>();
-            service.AddScoped<IRolePrivilegeRepository, RolePrivilegeRepository>();
-
-            service.AddScoped<IDataInitializer, DataInitializer>();
-
-            service.AddHttpContextAccessor();
-            service.AddScoped<Manager.Services.TokenService>();
-
+        {
+            /// Services
             service.AddScoped<IPaypalService, PaypalService>();
             service.AddScoped<IEmailService, EmailService>();
             service.AddScoped<IDonationService, DonationService>();
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<IStripeService, StripeService>();
-            service.AddScoped<IRolePrivilegeService, RolePrivilegeService>();
             service.AddScoped<IRoleService, RoleService>();
+            service.AddScoped<IPrivilegeService, PrivilegeService>();
+            service.AddScoped<IRolePrivilegeService, RolePrivilegeService>();
+            service.AddScoped<TokenService>();
+
+            /// Repositories
+            service.AddScoped<IUserRepository, UserRepository>();
+            service.AddScoped<IDonationRepository, DonationRepository>();
+            service.AddScoped<IPaypalRepository, PaypalRepository>();
+            service.AddScoped<IRoleRepository, RoleRepository>();
+            service.AddScoped<IPrivilegeRepository, PrivilegeRepository>();
+            service.AddScoped<IRolePrivilegeRepository, RolePrivilegeRepository>();
+
+            // Wrappers
+            service.AddScoped<IIdentityWrapperService, IdentityWrapperService>();
+
+            // Seed Database
+            service.AddScoped<IDataInitializerService, DataInitializerService>();
+            service.AddHttpContextAccessor();
         }
 
         public static void ConfigureRedis(this IServiceCollection services)
@@ -114,6 +122,11 @@ namespace HN.Management.Web.Extensions
                 Databases.CrezcoDatabaseId,
                 Databases.CrezcoCollectionName));
 
+            services.AddSingleton(serviceProvider => CreateCosmosDbClient<Privilege>(
+             serviceProvider,
+             Databases.CrezcoDatabaseId,
+             Databases.CrezcoCollectionName));
+
             services.AddSingleton(serviceProvider => CreateCosmosDbClient<RolePrivilege>(
              serviceProvider,
              Databases.CrezcoDatabaseId,
@@ -129,9 +142,11 @@ namespace HN.Management.Web.Extensions
             services.AddScoped<IDataReader<Role>, RoleDataAccessor>();
             services.AddScoped<IDataManager<Role>, RoleDataAccessor>();
 
-            services.AddScoped<IDataReader<RolePrivilege>, PrivilegeDataAccessor>();
-            services.AddScoped<IDataManager<RolePrivilege>, PrivilegeDataAccessor>();
+            services.AddScoped<IDataReader<Privilege>, PrivilegeDataAccessor>();
+            services.AddScoped<IDataManager<Privilege>, PrivilegeDataAccessor>();
 
+            services.AddScoped<IDataReader<RolePrivilege>, RolePrivilegeDataAccessor>();
+            services.AddScoped<IDataManager<RolePrivilege>, RolePrivilegeDataAccessor>();
         }
 
         private static ICosmosDbClient<T> CreateCosmosDbClient<T>(

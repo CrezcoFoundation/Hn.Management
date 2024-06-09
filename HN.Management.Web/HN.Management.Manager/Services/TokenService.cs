@@ -6,6 +6,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using HN.ManagementEngine.Models;
+using System.Collections.Generic;
+using HN.Management.Engine.Util;
 
 namespace HN.Management.Manager.Services
 {
@@ -16,9 +18,9 @@ namespace HN.Management.Manager.Services
         public TokenService(IOptions<AppSetting> appSetting)
         {
             this.appSetting = appSetting.Value;
-        } 
+        }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User user, List<string> privileges)
         {
             var key = Encoding.ASCII.GetBytes("OLAh6Yh5KwNFvOqgltw7");
             var expireTime = appSetting.ExpireTime;
@@ -31,12 +33,15 @@ namespace HN.Management.Manager.Services
                     {
                         new Claim("UserId", user.Id),
                         new Claim("RoleId", user.Role.Id),
+                        new Claim("RoleName", user.Role.Name),
+                        new Claim("Privileges", BaseUtility.ToJsonString(privileges)),
                         new Claim(ClaimTypes.Email, user.Email),
-                        new Claim("Role", user.Role.Name.ToString())
+                        new Claim(ClaimTypes.UserData, BaseUtility.ToJsonString(user))
                     }),
+
                 Issuer = appSetting.ValidIssuer,
                 Audience = appSetting.ValidAudience,
-                Expires = DateTime.UtcNow.AddMinutes(0.5),
+                Expires = DateTime.UtcNow.AddMinutes(expireTime),
                 SigningCredentials = credential
             };
 

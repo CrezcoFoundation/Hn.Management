@@ -8,34 +8,34 @@ using System;
 
 namespace HN.Management.Engine.CosmosDb.Accessors
 {
-    public class PrivilegeDataAccessor : BaseDataAccessor<Privilege>
+    public class RolePrivilegeDataAccessor : BaseDataAccessor<RolePrivilege>
     {
-        public PrivilegeDataAccessor(ICosmosDbClient<Privilege> cosmosDbClient)
+        public RolePrivilegeDataAccessor(ICosmosDbClient<RolePrivilege> cosmosDbClient)
             : base(cosmosDbClient)
         { 
         }
          
-        public override IQueryable<Privilege> GetAllAccessibleItemsAsQueryable()
+        public override IQueryable<RolePrivilege> GetAllAccessibleItemsAsQueryable()
         {
             return this.GetAllItems();
         }
 
-        public override Task<IList<Privilege>> GetAllAccessibleItemsAsync()
+        public override Task<IList<RolePrivilege>> GetAllAccessibleItemsAsync()
         {
             return this.GetAllItemsAsync();
         }
 
-        protected override IQueryable<Privilege> FilterAccessibleItems(IQueryable<Privilege> query)
+        protected override IQueryable<RolePrivilege> FilterAccessibleItems(IQueryable<RolePrivilege> query)
         {
             return query;
         }
 
-        protected override bool IsItemAccessible(Privilege item)
+        protected override bool IsItemAccessible(RolePrivilege item)
         {
             if (item == null)
             {
                 // TODO pass the loggeer instead console writeline
-                Console.WriteLine($"Privilege object its inaccessible, MessageId: {item.Id}");
+                Console.WriteLine($"RolePrivilege object its inaccessible, MessageId: {item.Id}");
                 return false;
             }
 

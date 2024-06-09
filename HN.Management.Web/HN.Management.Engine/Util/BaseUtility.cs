@@ -47,5 +47,14 @@ namespace HN.Management.Engine.Util
 
             return DateTime.Parse(date);
         }
+
+        public static string HashPassword(this string password)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.HMACSHA256().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            return hash;
+        }
     }
 }

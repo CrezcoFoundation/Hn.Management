@@ -1,6 +1,7 @@
-﻿using HN.Management.Manager.Exceptions;
-using HN.Management.Manager.Services.Auth;
+﻿using HN.Management.Engine.Models.Auth;
+using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
+using HN.Management.Manager.Services.Wrappers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -11,11 +12,11 @@ namespace HN.Management.Web.Attributes
     [AttributeUsage(AttributeTargets.Method)]
     public class AuthorizeAttribute : Attribute, IAuthorizationFilter
     {
-        private readonly string privilege;
+        private readonly string privilegeName;
 
         public AuthorizeAttribute(string privilege = "")
         {
-            this.privilege = privilege;
+            this.privilegeName = privilege;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
@@ -34,23 +35,28 @@ namespace HN.Management.Web.Attributes
 
         private bool ValidatePrivilege(string? roleId, AuthorizationFilterContext context)
         {
-            var roleService = context.HttpContext.RequestServices.GetService(typeof(IRoleService)) as RoleService;
-            var rolePrivilegeService = context.HttpContext.RequestServices.GetService(typeof(IRolePrivilegeService)) as RolePrivilegeService;
+            var identityWrapperService = context.HttpContext.RequestServices
+                                        .GetService(typeof(IIdentityWrapperService)) as IdentityWrapperService;
 
-            var roles = roleService.GetAll().ToList();
-            var rolePrivileges = rolePrivilegeService.GetAll().ToList();
+            var fullAccessPrevilege = identityWrapperService.GetPrivilegeByName(PrivilegeConstants.FullAccess);
 
-            if (roleId == null || roles == null) return false;
+            var roles = identityWrapperService.GetRoles().ToList();
+            var privilege = identityWrapperService.GetPrivilegeByName(privilegeName);
+            var rolePrivileges = identityWrapperService.GetRolePrivilegeList().ToList();
+
+            if (roleId is null || roles is null || privilege is null || rolePrivileges is null) return false;
 
             // Validate Roles
-            var roleExist = roles.Any(x => x.Id == roleId);
+            var roleExist = roles.Any(role => role.Id == roleId);
             if (!roleExist) return false;
 
-            if (string.IsNullOrWhiteSpace(privilege)) return true;
+            if (string.IsNullOrWhiteSpace(privilegeName)) return true;
 
             // Check match roles and previleges
             return rolePrivileges
-                .Any(x => x.RoleId == roleId && x.Privilege == privilege);
+                .Any(rp => rp.RoleId == roleId &&
+                (rp.PrivilegeId == privilege.Id ||
+                 rp.PrivilegeId == fullAccessPrevilege.Id));
         }
     }
 }

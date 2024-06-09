@@ -1,63 +1,65 @@
 ﻿using HN.Management.Engine.CosmosDb.Interfaces;
 using HN.Management.Engine.Models.Auth;
-using HN.Management.Engine.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using HN.Management.Engine.Repositories.Interfaces;
 
 namespace HN.Management.Engine.Repositories.Auth
 {
-    public class RolePrivilegeRepository : IRolePrivilegeRepository
+    public class PrivilegeRepository : IPrivilegeRepository
     {
-        internal const string UserPartition = "RolePrivilege";
-        private readonly IDataManager<RolePrivilege> dataManager;
+        internal const string UserPartition = "Privilege";
+        private readonly IDataManager<Privilege> dataManager;
 
-        public RolePrivilegeRepository(IDataManager<RolePrivilege> dataManager)
+        public PrivilegeRepository(IDataManager<Privilege> dataManager)
         {
             this.dataManager = dataManager;
         }
 
-        public IQueryable<RolePrivilege> GetAllQueryable()
+        public IQueryable<Privilege> GetAllQueryable()
         {
             return this.dataManager.GetAllAccessibleItemsAsQueryable();
         }
 
-        public IEnumerable<RolePrivilege> GetAll()
+        public IEnumerable<Privilege> GetAll()
         {
             var filter = this.GetAllQueryable();
 
-            Expression<Func<RolePrivilege, bool>> matchPartitionKey = x => x.PartitionKey ==
+            Expression<Func<Privilege, bool>> matchPartitionKey = x => x.PartitionKey ==
             UserPartition;
             filter = filter.Where(matchPartitionKey);
 
             return filter.AsEnumerable();
         }
 
-        public List<RolePrivilege> GetRolePrivilegesByRoleId(string roleId)
+        public Privilege GetPrivilegeByName(string privilegeName)
         {
-            return this.dataManager
-              .GetAllItemsByExpression(rp => rp
-              .Where(x => x.RoleId == roleId && x.PartitionKey == UserPartition))
-              .ToList();
+            var privileges = this.dataManager
+                .GetAllItemsByExpression(privileges => privileges
+                .Where(x => x.Name == privilegeName && x.PartitionKey == UserPartition))
+                .ToList();
+
+            return privileges.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<RolePrivilege>> GetAllAsync()
+        public async Task<IEnumerable<Privilege>> GetAllAsync()
         {
             return await this.dataManager.GetAllAccessibleItemsAsync();
         }
 
-        public async Task<RolePrivilege> GetAsync(string id)
+        public async Task<Privilege> GetAsync(string id)
         {
             return await this.dataManager.GetItemByIdAsync(id, UserPartition);
         }
 
-        public async Task<RolePrivilege> InsertAsync(RolePrivilege item)
+        public async Task<Privilege> InsertAsync(Privilege item)
         {
             if (item == null)
             {
-                throw new ArgumentException("One or more of the required properities its missing or has null value");
+                throw new ArgumentException("One or more of the required properties its missing or has null value");
             }
 
             if (string.IsNullOrEmpty(item.Id))
@@ -68,7 +70,7 @@ namespace HN.Management.Engine.Repositories.Auth
             return await this.dataManager.CreateItemAsync(item);
         }
 
-        public async Task<RolePrivilege> UpdateAsync(RolePrivilege item)
+        public async Task<Privilege> UpdateAsync(Privilege item)
         {
             item.LastUpdatedAt = DateTime.UtcNow;
             //TODO: we really need log the session name of the user (username, email, userId), for now I let "System", but this must change.
@@ -80,6 +82,16 @@ namespace HN.Management.Engine.Repositories.Auth
         public async Task Delete(string id)
         {
             await this.dataManager.DeleteItemAsync(id, UserPartition);
+        }
+
+        public List<Privilege> GetPrivilegesByIds(List<string> ids)
+        {
+            var privileges = this.dataManager
+               .GetAllItemsByExpression(privileges => privileges
+               .Where(x => ids.Contains(x.Id) && x.PartitionKey == UserPartition))
+               .ToList();
+
+            return privileges;
         }
     }
 }

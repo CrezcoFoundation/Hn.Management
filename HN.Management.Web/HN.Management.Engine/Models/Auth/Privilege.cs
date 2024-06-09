@@ -1,19 +1,18 @@
 ﻿using HN.Management.Engine.CosmosDb;
 using Newtonsoft.Json;
-using System;
 
 namespace HN.Management.Engine.Models.Auth
 {
-    public class RolePrivilege : CosmosEntity
+    public class Privilege : CosmosEntity
     {
-        public const string UserSchema = "RolePrivilege";
+        public const string UserSchema = "Privilege";
         public override string PartitionKey { get; set; } = UserSchema;
 
         [JsonProperty("schemaName")]
         public string SchemaName { get; set; } = UserSchema;
 
-        public string RoleId { get; set; }
+        public string Name { get; set; }
 
-        public string PrivilegeId { get; set; }
+        public bool IsDeleted { get; set; } 
     }
 }

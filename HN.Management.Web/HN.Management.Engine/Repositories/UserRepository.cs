@@ -7,6 +7,7 @@ using HN.Management.Engine.CosmosDb.Interfaces;
 using HN.Management.Engine.Repositories.Interfaces;
 using User = HN.ManagementEngine.Models.User;
 using HN.Management.Engine.ViewModels;
+using HN.Management.Engine.Util;
 
 namespace HN.Management.Engine.Repositories
 {
@@ -41,8 +42,7 @@ namespace HN.Management.Engine.Repositories
 
             var users = await this.dataManager.GetAllItemsByExpressionAsync(user =>
             user.Email == loginRequest.Email
-            && user.Password == loginRequest.Password);
-
+            && user.Password ==loginRequest.Password);
 
             return users.ToList().FirstOrDefault();
         }

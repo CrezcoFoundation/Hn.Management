@@ -52,5 +52,10 @@ namespace HN.Management.Manager.Services
 
             return true;
         }
+
+        public IEnumerable<User> GetAll()
+        {
+           return userRepository.GetAll();
+        }
     }
 }

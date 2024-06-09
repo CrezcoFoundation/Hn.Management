@@ -9,8 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
-using HN.Management.Engine.CosmosDb.Interfaces;
-using Services = HN.Management.Manager.Services;
 using Stripe;
 using Microsoft.AspNetCore.Diagnostics;
 using System;
@@ -158,9 +156,8 @@ namespace HN.Management.Web
                 }
             });
 
-            var seedDatabaseService = app.ApplicationServices.GetService<IDataInitializer>();
+            var seedDatabaseService = app.ApplicationServices.GetService<IDataInitializerService>();
             seedDatabaseService.SeedDatabase();
-
 
             // global error handler
             app.UseExceptionHandler(appBuilder =>

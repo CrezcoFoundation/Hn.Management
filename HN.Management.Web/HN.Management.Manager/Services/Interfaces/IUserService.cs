@@ -7,6 +7,7 @@ namespace HN.Management.Manager.Services.Interfaces
 {
     public interface IUserService
     {
+        IEnumerable<User> GetAll();
         Task<IEnumerable<User>> GetAllAsync();
         Task<User> GetByIdAsync(string id);
         Task<User> GetUserAsync(LoginRequest loginRequest);

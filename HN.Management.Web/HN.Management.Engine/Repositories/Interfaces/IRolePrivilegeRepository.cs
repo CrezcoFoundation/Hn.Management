@@ -14,5 +14,6 @@ namespace HN.Management.Engine.Repositories.Interfaces
         Task<RolePrivilege> InsertAsync(RolePrivilege item);
         Task<RolePrivilege> UpdateAsync(RolePrivilege item);
         Task Delete(string id);
+        List<RolePrivilege> GetRolePrivilegesByRoleId(string roleId);
     }
 }

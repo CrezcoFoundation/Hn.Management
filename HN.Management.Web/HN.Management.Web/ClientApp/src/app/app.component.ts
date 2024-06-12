@@ -3,8 +3,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import Aos from 'aos';
-import { User } from './admin/models/user';
 import { AuthService } from './admin/services/auth.service';
+import { HomeComponent } from './website/home/home.component';
 
 @Component({
   selector: 'app-root',

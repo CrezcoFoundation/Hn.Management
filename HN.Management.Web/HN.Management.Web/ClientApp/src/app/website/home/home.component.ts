@@ -1,23 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/admin/services/auth.service';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactEmailsService } from 'src/app/website/contact-us/contact-emails.service';
 import Swal from 'sweetalert2';
+import { ContactUsComponent } from '../contact-us/contact-us/contact-us.component';
+import { SharedBannerComponent } from "../../shared/shared-banner/shared-banner.component";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+    standalone: true,
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        RouterModule,
+        ContactUsComponent,
+        ReactiveFormsModule,
+        SharedBannerComponent,
+    ]
 })
 export class HomeComponent implements OnInit {
   // @ts-ignoretypes
   newsletterForm: FormGroup;
 
   constructor(
+    private translate: TranslateService,
     private formBuilder: FormBuilder,
-    private contactEmailService: ContactEmailsService,
-    private authService: AuthService
-  ) {}
+    private contactEmailService: ContactEmailsService,){ }
 
   ngOnInit() {
     this.authService.setIsNavFooter(true);

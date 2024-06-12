@@ -32,8 +32,6 @@ export class HomeComponent implements OnInit {
     private contactEmailService: ContactEmailsService,){ }
 
   ngOnInit() {
-    this.authService.setIsNavFooter(true);
-    this.authService.getIsNavFooter;
     this.newsletterForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
     });

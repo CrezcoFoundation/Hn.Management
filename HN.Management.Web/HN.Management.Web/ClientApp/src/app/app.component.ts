@@ -6,8 +6,8 @@ import { NavBarComponent } from "./core/layout/nav-bar/nav-bar.component";
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Aos from 'aos';
-import { User } from './admin/models/user';
 import { AuthService } from './admin/services/auth.service';
+import { HomeComponent } from './website/home/home.component';
 
 @Component({
     standalone: true,

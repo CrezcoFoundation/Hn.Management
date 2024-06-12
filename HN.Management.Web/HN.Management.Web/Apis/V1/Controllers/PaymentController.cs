@@ -35,7 +35,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         #endregion
 
         [HttpPost("price")]
-        public async Task<ActionResult<PriceResource>> CreatePrice([FromBody] PriceCreateOptions resource, CancellationToken cancellationToken)
+        public async Task<ActionResult<Price>> CreatePrice([FromBody] PriceCreateOptions resource, CancellationToken cancellationToken)
         {
             var response = await _stripeService.CreatePrice(resource, cancellationToken);
             return Ok(response);

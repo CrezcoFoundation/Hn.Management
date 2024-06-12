@@ -8,7 +8,7 @@ namespace HN.Management.Manager.Services.Interfaces
     {
         Task<CustomerResource> CreateCustomer(CreateCustomerResource resource, CancellationToken cancellationToken);
         Task<CustomerResource> UpdateCustomer(string id, CustomerUpdateOptions resource, CancellationToken cancellationToken);
-        Task<PriceResource> CreatePrice(PriceCreateOptions resource, CancellationToken cancellationToken);
+        Task<Price> CreatePrice(PriceCreateOptions resource, CancellationToken cancellationToken);
         Task<PaymentIntentResponse> CreatePaymentIntent(PaymentIntentCreateOptions resource, CancellationToken cancellationToken);
         Task<Invoice> CreateInvoice(InvoiceCreateOptions resource, CancellationToken cancellationToken);
         Task<Subscription> CreateSubscription(SubscriptionCreateOptions resource, CancellationToken cancellationToken);

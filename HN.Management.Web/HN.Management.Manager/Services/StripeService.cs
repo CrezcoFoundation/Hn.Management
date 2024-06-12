@@ -50,17 +50,9 @@ namespace HN.Management.Manager.Services
             return new CustomerResource(customer.Id, customer.Email, customer.Name);
         }
 
-        public async Task<PriceResource> CreatePrice(PriceCreateOptions resource, CancellationToken cancellationToken)
+        public async Task<Price> CreatePrice(PriceCreateOptions resource, CancellationToken cancellationToken)
         {
-            var price = await _priceService.CreateAsync(resource, null, cancellationToken);
-
-            return new PriceResource(
-                price.Id,
-                price.Object,
-                price.Active,
-                price.Created,
-                price.Currency,
-                price.Metadata);
+          return await _priceService.CreateAsync(resource, null, cancellationToken); 
         }
 
         public async Task<SetupIntent> CreateSetupIntent(SetupIntentCreateOptions resource, CancellationToken cancellationToken)

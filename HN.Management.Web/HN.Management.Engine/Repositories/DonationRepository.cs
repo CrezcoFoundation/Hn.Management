@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HN.Management.Engine.Repositories
 {
-    public class DonationRepository: IDonationRepository
+    public class DonationRepository : IDonationRepository
     {
         internal const string DonationPartition = "Donation";
         private readonly IDataManager<Donation> dataManager;
@@ -37,7 +37,7 @@ namespace HN.Management.Engine.Repositories
 
         public async Task<IEnumerable<Donation>> GetAllAsync()
         {
-            return await this.dataManager.GetAllAccessibleItemsAsync();
+            return await this.dataManager.GetAllItemsByExpressionAsync(donation => donation.PartitionKey == DonationPartition);
         }
 
         public async Task<Donation> GetAsync(string id)

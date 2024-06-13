@@ -11,7 +11,7 @@ namespace HN.Management.Engine.Repositories.Auth
 {
     public class RoleRepository : IRoleRepository
     {
-        internal const string UserPartition = "Role";
+        internal const string RolePartition = "Role";
         private readonly IDataManager<Role> dataManager;
 
         public RoleRepository(IDataManager<Role> dataManager)
@@ -29,7 +29,7 @@ namespace HN.Management.Engine.Repositories.Auth
             var filter = this.GetAllQueryable();
 
             Expression<Func<Role, bool>> matchPartitionKey = x => x.PartitionKey ==
-            UserPartition;
+            RolePartition;
             filter = filter.Where(matchPartitionKey);
 
             return filter.AsEnumerable();
@@ -37,12 +37,12 @@ namespace HN.Management.Engine.Repositories.Auth
 
         public async Task<IEnumerable<Role>> GetAllAsync()
         {
-            return await this.dataManager.GetAllAccessibleItemsAsync();
+            return await this.dataManager.GetAllItemsByExpressionAsync(role => role.PartitionKey == RolePartition);
         }
 
         public async Task<Role> GetAsync(string id)
         {
-            return await this.dataManager.GetItemByIdAsync(id, UserPartition);
+            return await this.dataManager.GetItemByIdAsync(id, RolePartition);
         }
 
         public async Task<Role> InsertAsync(Role item)
@@ -72,7 +72,7 @@ namespace HN.Management.Engine.Repositories.Auth
 
         public async Task Delete(string id)
         {
-            await this.dataManager.DeleteItemAsync(id, UserPartition);
+            await this.dataManager.DeleteItemAsync(id, RolePartition);
         }
     }
 }

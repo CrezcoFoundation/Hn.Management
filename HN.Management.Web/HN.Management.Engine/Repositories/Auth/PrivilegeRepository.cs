@@ -11,7 +11,7 @@ namespace HN.Management.Engine.Repositories.Auth
 {
     public class PrivilegeRepository : IPrivilegeRepository
     {
-        internal const string UserPartition = "Privilege";
+        internal const string PrivilegePartition = "Privilege";
         private readonly IDataManager<Privilege> dataManager;
 
         public PrivilegeRepository(IDataManager<Privilege> dataManager)
@@ -29,7 +29,7 @@ namespace HN.Management.Engine.Repositories.Auth
             var filter = this.GetAllQueryable();
 
             Expression<Func<Privilege, bool>> matchPartitionKey = x => x.PartitionKey ==
-            UserPartition;
+            PrivilegePartition;
             filter = filter.Where(matchPartitionKey);
 
             return filter.AsEnumerable();
@@ -39,7 +39,7 @@ namespace HN.Management.Engine.Repositories.Auth
         {
             var privileges = this.dataManager
                 .GetAllItemsByExpression(privileges => privileges
-                .Where(x => x.Name == privilegeName && x.PartitionKey == UserPartition))
+                .Where(x => x.Name == privilegeName && x.PartitionKey == PrivilegePartition))
                 .ToList();
 
             return privileges.FirstOrDefault();
@@ -47,12 +47,12 @@ namespace HN.Management.Engine.Repositories.Auth
 
         public async Task<IEnumerable<Privilege>> GetAllAsync()
         {
-            return await this.dataManager.GetAllAccessibleItemsAsync();
+            return await this.dataManager.GetAllItemsByExpressionAsync(donation => donation.PartitionKey == PrivilegePartition);
         }
 
         public async Task<Privilege> GetAsync(string id)
         {
-            return await this.dataManager.GetItemByIdAsync(id, UserPartition);
+            return await this.dataManager.GetItemByIdAsync(id, PrivilegePartition);
         }
 
         public async Task<Privilege> InsertAsync(Privilege item)
@@ -81,14 +81,14 @@ namespace HN.Management.Engine.Repositories.Auth
 
         public async Task Delete(string id)
         {
-            await this.dataManager.DeleteItemAsync(id, UserPartition);
+            await this.dataManager.DeleteItemAsync(id, PrivilegePartition);
         }
 
         public List<Privilege> GetPrivilegesByIds(List<string> ids)
         {
             var privileges = this.dataManager
                .GetAllItemsByExpression(privileges => privileges
-               .Where(x => ids.Contains(x.Id) && x.PartitionKey == UserPartition))
+               .Where(x => ids.Contains(x.Id) && x.PartitionKey == PrivilegePartition))
                .ToList();
 
             return privileges;

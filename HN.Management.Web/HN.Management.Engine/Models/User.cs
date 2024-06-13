@@ -33,8 +33,5 @@ namespace HN.ManagementEngine.Models
 
         [JsonProperty("role")]
         public Role Role { get; set; }
-
-        [JsonProperty("privileges")]
-        public List<Privilege> Privileges { get; set; }
     }
 }

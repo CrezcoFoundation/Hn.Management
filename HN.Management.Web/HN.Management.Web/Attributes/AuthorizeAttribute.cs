@@ -29,7 +29,7 @@ namespace HN.Management.Web.Attributes
             if (roleId is null || userId is null)
                 throw new UnauthorizedException();
 
-            if (!ValidatePrivilege(Convert.ToString(roleId), context))
+            if (! ValidatePrivilege(Convert.ToString(roleId), context))
                 throw new ForbiddenException();
         }
 
@@ -40,9 +40,9 @@ namespace HN.Management.Web.Attributes
 
             var fullAccessPrevilege = identityWrapperService.GetPrivilegeByName(PrivilegeConstants.FullAccess);
 
-            var roles = identityWrapperService.GetRoles().ToList();
+            var roles = identityWrapperService.GetRolesAsync().Result;
             var privilege = identityWrapperService.GetPrivilegeByName(privilegeName);
-            var rolePrivileges = identityWrapperService.GetRolePrivilegeList().ToList();
+            var rolePrivileges = identityWrapperService.GetRolePrivilegeListAsync().Result;
 
             if (roleId is null || roles is null || privilege is null || rolePrivileges is null) return false;
 

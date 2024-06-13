@@ -11,7 +11,7 @@ namespace HN.Management.Engine.Repositories.Auth
 {
     public class RolePrivilegeRepository : IRolePrivilegeRepository
     {
-        internal const string UserPartition = "RolePrivilege";
+        internal const string RolePrivilegePartition = "RolePrivilege";
         private readonly IDataManager<RolePrivilege> dataManager;
 
         public RolePrivilegeRepository(IDataManager<RolePrivilege> dataManager)
@@ -29,7 +29,7 @@ namespace HN.Management.Engine.Repositories.Auth
             var filter = this.GetAllQueryable();
 
             Expression<Func<RolePrivilege, bool>> matchPartitionKey = x => x.PartitionKey ==
-            UserPartition;
+            RolePrivilegePartition;
             filter = filter.Where(matchPartitionKey);
 
             return filter.AsEnumerable();
@@ -39,18 +39,18 @@ namespace HN.Management.Engine.Repositories.Auth
         {
             return this.dataManager
               .GetAllItemsByExpression(rp => rp
-              .Where(x => x.RoleId == roleId && x.PartitionKey == UserPartition))
+              .Where(x => x.RoleId == roleId && x.PartitionKey == RolePrivilegePartition))
               .ToList();
         }
 
         public async Task<IEnumerable<RolePrivilege>> GetAllAsync()
         {
-            return await this.dataManager.GetAllAccessibleItemsAsync();
+            return await this.dataManager.GetAllItemsByExpressionAsync(rolePrivilege => rolePrivilege.PartitionKey == RolePrivilegePartition);
         }
 
         public async Task<RolePrivilege> GetAsync(string id)
         {
-            return await this.dataManager.GetItemByIdAsync(id, UserPartition);
+            return await this.dataManager.GetItemByIdAsync(id, RolePrivilegePartition);
         }
 
         public async Task<RolePrivilege> InsertAsync(RolePrivilege item)
@@ -79,7 +79,7 @@ namespace HN.Management.Engine.Repositories.Auth
 
         public async Task Delete(string id)
         {
-            await this.dataManager.DeleteItemAsync(id, UserPartition);
+            await this.dataManager.DeleteItemAsync(id, RolePrivilegePartition);
         }
     }
 }

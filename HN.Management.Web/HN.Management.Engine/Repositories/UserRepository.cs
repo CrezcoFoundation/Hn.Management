@@ -49,7 +49,7 @@ namespace HN.Management.Engine.Repositories
 
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await this.dataManager.GetAllAccessibleItemsAsync();
+            return await this.dataManager.GetAllItemsByExpressionAsync(user=>user.PartitionKey == UserPartition);
         }
 
         public async Task<User> GetAsync(string id)

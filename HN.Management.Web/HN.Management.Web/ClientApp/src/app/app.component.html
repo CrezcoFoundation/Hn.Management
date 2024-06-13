@@ -1,3 +1,4 @@
 <app-nav-bar *ngIf="isNavFooter"></app-nav-bar>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<!-- {{ 'HOME.donate' | i18next }} -->
+<app-footer *ngIf="isNavFooter"></app-footer>

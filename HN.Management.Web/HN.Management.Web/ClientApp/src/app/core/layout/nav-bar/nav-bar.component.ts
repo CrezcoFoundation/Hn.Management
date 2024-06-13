@@ -1,6 +1,7 @@
+
 import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -35,6 +36,10 @@ export class NavBarComponent  {
     translate.use('en');
   }
 
+  form = new FormGroup({
+    language: new FormControl('', Validators.required)
+  });
+ 
   changeLanguage( lang: string ) {
     this.translate.use( lang )
   }

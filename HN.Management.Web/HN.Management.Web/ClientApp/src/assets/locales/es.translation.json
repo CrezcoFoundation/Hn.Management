@@ -57,11 +57,13 @@
       "Subjects": {
         "subject_1": {
           "title": "SALUD EMOCIONAL",
-          "description": "El éxito académico es sólo un aspecto del crecimiento de un estudiante. El bienestar emocional es igualmente crucial. Crezco fomenta un entorno donde se prioriza el crecimiento emocional, ofreciendo servicios de asesoramiento, programas de mentoría y redes de apoyo que fomentan el desarrollo personal y académico. Esto capacita a los estudiantes para mejorar su inteligencia emocional y romper los ciclos negativos de adicción y abuso."
+          "description_1": "El éxito académico es sólo un aspecto del crecimiento de un estudiante. El bienestar emocional es igualmente crucial.",
+          "description_2": "Crezco fomenta un entorno donde se prioriza el crecimiento emocional, ofreciendo servicios de asesoramiento, programas de tutoría y redes de apoyo que fomentan el desarrollo tanto personal como académico. Esto prepara a los estudiantes para romper ciclos negativos relacionados con la inteligencia emocional, la adicción y el abuso."
         },
         "subject_2": {
-          "title": "PATROCINIO ESTUDIANTIL",
-          "description": "Al apoyar nuestro programa, estás contribuyendo directamente a la transformación de vidas y al desmantelamiento de ciclos negativos. Tu inversión en educación pone en marcha una reacción en cadena de progreso donde el éxito de cada estudiante se extiende para elevar a sus familias, vecindarios y a la sociedad en su conjunto. Siempre estamos buscando donantes comprometidos que estén dispuestos a hacer donaciones regularmente de forma mensual o patrocinar la experiencia educativa o vocacional de un estudiante."
+          "title": "PATROCINIO DE ESTUDIANTES",
+          "description_1": "Al apoyar nuestro programa, estás contribuyendo directamente a la transformación de vidas y al desmantelamiento de ciclos negativos.",
+          "description_2": "Su inversión en educación pone en marcha una reacción en cadena de progreso, donde el éxito de cada estudiante se propaga para mejorar a sus familias, vecindarios y a la sociedad en su conjunto."
         }
       }
     },
@@ -172,6 +174,7 @@
         "Subsection_2-1": "El objetivo era dotar a los estudiantes de la educación y las habilidades necesarias para romper los ciclos de pobreza, falta de educación, patrones familiares poco saludables, problemas de salud mental y las mismas circunstancias que los llevaron al hogar. El ministerio también tuvo como objetivo inculcar en los estudiantes la pasión por servir a los demás en Jesús.",
       "Section_3": "CRECIMIENTO POR EL EMPODERAMIENTO",
       "Subsection_3": "La financiación de estos esfuerzos siempre ha provenido de donaciones proporcionadas por personas de diversas comunidades. Estas donaciones cubren costos universitarios, matrículas, transporte y artículos personales esenciales para cada estudiante. A lo largo de los años, 26 jóvenes se han beneficiado del aspecto de educación universitaria del ministerio, y 15 se graduaron exitosamente de universidades cristianas en países como Costa Rica, México y Perú.",
+      "Subsection_3-1": "Los graduados han obtenido títulos en diversos campos que incluyen ingeniería de sistemas informáticos, artes culinarias, fisioterapia, enfermería, psicología clínica y diseño gráfico. Cada año nuevos alumnos del hogar infantil inician sus estudios universitarios.",
       "Section_4": {
         "Line_1": "Graduados del Programa Universitario*",
         "Updated": "*Actualizado 1/2024"
@@ -199,5 +202,9 @@
       "FE": "Fundadora y Directora Ejecutiva",
       "BC": "Presidenta Junta Directiva",
       "BS": "Secretaria Junta Directiva"
+    },
+    "_languages": {
+      "en": "English",
+      "es": "Español"
     }
   }

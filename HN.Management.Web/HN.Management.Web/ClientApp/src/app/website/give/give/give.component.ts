@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
@@ -8,8 +8,23 @@ import {
   DonatationAreasInterface,
   DonationInterface,
 } from '../interfaces/donation.interface';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    SweetAlert2Module,
+    HttpClientModule,
+    TranslateModule
+  ],
   selector: 'app-give',
   templateUrl: './give.component.html',
   styleUrls: ['./give.component.scss'],

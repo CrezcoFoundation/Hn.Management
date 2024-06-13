@@ -1,19 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ContactEmailsService } from '../contact-emails.service';
 import { EmailInterface } from '../email-interface';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
+  standalone: true,
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss'],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    SweetAlert2Module,
+    HttpClientModule,
+    TranslateModule
+  ]
 })
 export class ContactUsComponent implements OnInit {
 
   emailCrezco: string = 'info@crezcofoundation.org';
   numberCrezco: string = '33 3333 3333 333';
-  
+
   // @ts-ignoretypes
   contactForm: FormGroup;
 
@@ -55,7 +68,7 @@ export class ContactUsComponent implements OnInit {
     this.contactForm.reset({});
     this.charCount = 0;
   }
-  
+
   showAlertError() {
     Swal.fire({
       position: 'center',

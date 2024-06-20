@@ -34,9 +34,9 @@ namespace HN.Management.Manager.Services
                         new Claim("UserId", user.Id),
                         new Claim("RoleId", user.Role.Id),
                         new Claim("RoleName", user.Role.Name),
+                        new Claim("UserName", $"{user.Username}"),
                         new Claim("Privileges", BaseUtility.ToJsonString(privileges)),
                         new Claim(ClaimTypes.Email, user.Email),
-                        new Claim(ClaimTypes.UserData, BaseUtility.ToJsonString(user))
                     }),
 
                 Issuer = appSetting.ValidIssuer,

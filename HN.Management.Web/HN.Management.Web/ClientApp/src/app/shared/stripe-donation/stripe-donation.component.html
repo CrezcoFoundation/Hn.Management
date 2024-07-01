@@ -1,63 +1,95 @@
-<section id="section-donation">
-  <div class="container d-flex flex-column align-items-center justify-content-center">
-    <div class="card" style="width: 28rem;">
-      <img src="https://assets-global.website-files.com/5a1030a3808a3a000115faf0/63c7a78f11d6b5bd80ad6fd4_how-to-connect-stripe-and-receive-payments-05.webp" class="card-img-top" alt="...">
-      <div class="card-body">
-        <div class="container mt-5">
-          <div *ngIf="currentStep === 1">
-            <form [formGroup]="donorFormGroup" (ngSubmit)="donorOnSubmit()">
-               <h2 class="text-center">{{ paso1 }}</h2>
-               <div class="mb-3">
-                 <label for="name" class="form-label">Nombre</label>
-                 <input type="text" id="name" class="form-control" formControlName="name">
-               </div>
-               <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" id="email" class="form-control" formControlName="email">
+<section id="section-donation" class="mb-5">
+  <div class="container col-9">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-5">
+        <div class="card" style="width: 28rem;">
+          <img src="https://images.unsplash.com/photo-1505455184862-554165e5f6ba?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGFuZCUyMGZsb3dlcnN8ZW58MHx8MHx8fDA%3D" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="container mt-5">
+              <div *ngIf="currentStep === 1">
+                <form [formGroup]="donorFormGroup" (ngSubmit)="donorOnSubmit()">
+                   <h2 class="text-center">{{ paso1 }}</h2>
+                   <div class="mb-3">
+                     <label for="name" class="form-label">Nombre</label>
+                     <input type="text" id="name" class="form-control" formControlName="name">
+                   </div>
+                   <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" id="email" class="form-control" formControlName="email">
+                  </div>
+                  <label for="">{{ donorFormGroup.valid }}</label>
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                   <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+                </form>
               </div>
-              <label for="">{{ donorFormGroup.valid }}</label>
-              <button type="submit" class="btn btn-success">Guardar</button>
-               <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
-            </form>
+
+              <div *ngIf="currentStep === 2">
+                <form [formGroup]="donationDetailsFormGroup" (ngSubmit)="onPriceSubmit()">
+                   <h2 class="text-center">{{ paso2 }}</h2>
+                   <div class="mb-3">
+                    <div>
+                      <label for="donationType" class="form-label">Tipo de donacion: </label>
+                      <select #selectedDonationType id="donationType" (change)="changeDonationType(selectedDonationType.value)" formControlName="donationType">
+                       <option *ngFor="let donationtype of donationTypes" value="{{donationtype}}">{{donationtype}}</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="amount" class="form-label">Monto</label>
+                      <input  type="number" id="amount" class="form-control" formControlName="price">
+
+                      <label for="currency" class="form-label">Moneda: </label>
+                      <select name="currency" id="currency" formControlName="currency">
+                       <option *ngFor="let currency of currencyTypes" value="currency">{{currency}}</option>
+                      </select>
+                    </div>
+                     <div *ngIf="donationDetailsFormGroup.controls['recurring']">
+                       <label for="recurring" class="form-label">Intervalo de: </label>
+                       <select id="recurring" formControlName="recurring">
+                        <option *ngFor="let interval of recurringTypes" value="{{interval}}">{{interval}}</option>
+                       </select>
+                     </div>
+
+                   </div>
+                  <button type="button" class="btn btn-secondary" (click)="previousStep()">Anterior</button>
+                  <button type="submit" [disabled]="!donationDetailsFormGroup.valid" class="btn btn-success">Guardar price</button>
+                  <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+                </form>
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="d-grid place-items-center text-center">
+          <div class="form-check form-check-inline mt-3 d-flex gap-2">
+            <input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off" checked>
+            <label class="btn" for="option1">Project 1</label>
+
+            <input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
+            <label class="btn" for="option2">Project 2</label>
+
+            <input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
+            <label class="btn" for="option3">Project 3</label>
+
+            <input type="radio" class="btn-check" name="options-base" id="option4" autocomplete="off">
+            <label class="btn" for="option4">Project 4</label>
           </div>
 
-          <div *ngIf="currentStep === 2">
-            <form [formGroup]="donationDetailsFormGroup" (ngSubmit)="donationDetailsOnSubmit()">
-               <h2 class="text-center">{{ paso2 }}</h2>
-               <div class="mb-3">
-                <div>
-                  <label for="donationType" class="form-label">Tipo de donacion: </label>
-                  <select #selectedDonationType id="donationType" (change)="changeDonationType(selectedDonationType.value)" formControlName="donationType">
-                   <option *ngFor="let donationtype of donationTypes" value="{{donationtype}}">{{donationtype}}</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="amount" class="form-label">Monto</label>
-                  <input  type="number" id="amount" class="form-control" formControlName="price">
+          <div class="form-check form-check-inline mt-3 d-flex gap-2">
+            <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
+            <label class="btn" for="btn-check">Project 1</label>
 
-                  <label for="currency" class="form-label">Moneda: </label>
-                  <select name="currency" id="currency" formControlName="currency">
-                   <option *ngFor="let currency of currencyTypes" value="currency">{{currency}}</option>
-                   <option value="usd">USD</option>
-                   <option value="crc">CRC</option>
-                  </select>
-                </div>
-                 <div *ngIf="donationDetailsFormGroup.controls['recurring']">
-                   <label for="recurring" class="form-label">Intervalo de: </label>
-                   <select id="recurring" formControlName="recurring">
-                    <option *ngFor="let interval of recurringTypes" value="{{interval}}">{{interval}}</option>
-                   </select>
-                 </div>
+            <input type="checkbox" class="btn-check" id="btn-check-2" autocomplete="off">
+            <label class="btn" for="btn-check-2">Project 2</label>
 
-               </div>
-              <button type="button" class="btn btn-secondary" (click)="previousStep()">Anterior</button>
-              <button type="submit" [disabled]="!donationDetailsFormGroup.valid" class="btn btn-success">Guardar price</button>
-              <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
-            </form>
+            <input type="checkbox" class="btn-check" id="btn-check-3" autocomplete="off">
+            <label class="btn" for="btn-check-3">Project 3</label>
+
+            <input type="checkbox" class="btn-check" id="btn-check-4" autocomplete="off">
+            <label class="btn" for="btn-check-4">Project 4</label>
           </div>
-         </div>
+        </div>
       </div>
     </div>
-    <a [routerLink]="['/']" class="mt-4">Home</a>
   </div>
 </section>

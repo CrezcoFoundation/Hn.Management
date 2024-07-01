@@ -1,7 +1,8 @@
-import { donationDetails } from './../intefaces/donationDetails';
+import { donationDetails } from '../interfaces/donationDetails';
+import { donationModel } from '../interfaces/donationModel';
+import { Donor } from '../interfaces/donor.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Donor } from '../intefaces/donor';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,27 +10,28 @@ import { Observable } from 'rxjs';
 })
 export class StripeDonationService {
 
-  baseURL = 'https://crezcofoundation.org/api';
+  baseURL = '/api';
 
   constructor(private httpClient: HttpClient) { }
 
   createDonor(donor: Donor): Observable<Donor> {
     return this.httpClient.post<Donor>(`${this.baseURL}/Payment/customer`, donor)
   }
-//
-  createPrice(price: donationDetails): Observable<donationDetails> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    });
-    const options = {headers}
-    return this.httpClient.post<donationDetails>(`${this.baseURL}/Payment/price`, price, options
+
+  createPriceOneTime(price: donationDetails): Observable<donationDetails> {
+    return this.httpClient.post<donationDetails>(`${this.baseURL}/Payment/price`, price,
+    )
+  }
+
+  createPriceRecurring(prices: donationModel): Observable<donationModel> {
+    return this.httpClient.post<donationModel>(`${this.baseURL}/Payment/price`, prices,
     )
   }
 
 
-  testtingService(price: donationDetails){
+  testtingService(price: donationDetails, prices: donationModel){
     console.log(price);
+    console.log(prices);
     return 'price';
   }
 }

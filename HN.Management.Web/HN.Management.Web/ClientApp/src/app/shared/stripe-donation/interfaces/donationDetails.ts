@@ -1,7 +1,7 @@
 export interface donationDetails {
   currency: string;
-  // type: 'one_time' | 'recurring';
-  recurring: Recurring;
+  type: 'one-time' | 'recurring';
+  recurring?: Recurring;
   productData: ProductData;
   unit_amount: number;
   UnitAmountDecimal: number;

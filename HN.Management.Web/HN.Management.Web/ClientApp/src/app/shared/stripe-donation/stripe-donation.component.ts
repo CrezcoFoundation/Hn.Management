@@ -1,10 +1,11 @@
-import { Donor } from './intefaces/donor';
+import { Donor } from './interfaces/donor.interface';
 import { StripeDonationService } from './services/stripe-donation.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { donationDetails } from './intefaces/donationDetails';
+import { donationDetails } from './interfaces/donationDetails';
+import { donationModel } from './interfaces/donationModel';
 
 @Component({
   selector: 'app-stripe-donation',
@@ -24,8 +25,10 @@ export class StripeDonationComponent {
   productDataInfo!: string|undefined;
 
   currencyTypes = ['mxn', 'crc', 'usd'];
-  donationTypes = ['puntual', 'recurring'];
-  recurringTypes = ['diaria', 'semanal', 'mensual', 'trimensual', 'sixmensual', 'anual'];
+  donationTypes = ['one-time', 'recurring'];
+  recurringTypes = ['Bi-weekly',
+    'Monthly',
+    'Annually',];
 
   constructor(
     private fb: FormBuilder,
@@ -45,7 +48,7 @@ export class StripeDonationComponent {
   }
 
   changeDonationType(selectedDonationType: string){
-    const recurring: FormControl = new FormControl(this.recurringTypes[0], Validators.required);
+    var recurring: FormControl = new FormControl(this.recurringTypes[0], Validators.required);
     if (selectedDonationType === 'recurring') {
       this.donationDetailsFormGroup.addControl('recurring', recurring,)
     } else {
@@ -61,7 +64,7 @@ export class StripeDonationComponent {
   }
 
   previousStep() {
-    console.log(this.currentStep, 'inside previos');
+    console.log(this.currentStep, 'inside previous');
     if (this.currentStep > 1) {
       this.currentStep--;
     }
@@ -89,23 +92,53 @@ export class StripeDonationComponent {
     );
   }
 
-  donationDetailsOnSubmit() {
-    const donationDetails: donationDetails = {
+  onPriceSubmit(){
+    if ( this.donationDetailsFormGroup.value.donationType === 'one-time' ) {
+      this.donationOneTimeOnSubmit()
+    } else {
+      this.donationRecurringOnSubmit()
+    }
+  }
+
+  donationRecurringOnSubmit() {
+    const donationRecurringDetails: donationModel = {
           currency: this.donationDetailsFormGroup.controls['currency'].value,
-          unit_amount: this.donationDetailsFormGroup.controls['price'].value,
           recurring: {
             interval: this.donationDetailsFormGroup.controls['recurring'].value,
           },
-          productData:{
-            name:`${this.productDataInfo} donó ${this.donationDetailsFormGroup.controls['price'].value} con una recurrencia de ${this.donationDetailsFormGroup.controls['recurring'].value}`},
-            UnitAmountDecimal: 43243
-      };
+          unitAmount: this.donationDetailsFormGroup.controls['price'].value,
+          metadata: {
+            name:`${this.productDataInfo} donó ${this.donationDetailsFormGroup.controls['price'].value} en ${this.donationDetailsFormGroup.controls['currency'].value} con una recurrencia por ${this.donationDetailsFormGroup.controls['recurring'].value}`},
+          };
 
-    this.StripeDonationService.createPrice(donationDetails)
+          /* currency: this.donationDetailsFormGroup.controls['currency'].value,
+          unit_amount: this.donationDetailsFormGroup.controls['price'].value,
+          recurring: {
+            interval: this.donationDetailsFormGroup.controls['recurring'].value,
+          } */
+
+      this.StripeDonationService.createPriceRecurring(donationRecurringDetails)
       .subscribe(
         () => this.nextStep()
       )
   }
 
+  donationOneTimeOnSubmit() {
+    const oneTimedonationDetails: donationDetails = {
+          type: this.donationDetailsFormGroup.controls['donationType'].value,
+          currency: this.donationDetailsFormGroup.controls['currency'].value,
+          unit_amount: this.donationDetailsFormGroup.controls['price'].value,
+          recurring: {
+            interval: this.donationTypes[0],
+          },
+          productData:{
+            name:`${this.productDataInfo} donó ${this.donationDetailsFormGroup.controls['price'].value} en ${this.donationDetailsFormGroup.controls['currency'].value}`},
+            UnitAmountDecimal: 43243
+      };
 
+    this.StripeDonationService.createPriceOneTime(oneTimedonationDetails)
+      .subscribe(
+        () => this.nextStep()
+      )
+  };
 }

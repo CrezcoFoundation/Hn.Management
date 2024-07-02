@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.isNavFooter = this.authService.getIsNavFooter; 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Cuando se completa una navegación, lleva la página al principio.

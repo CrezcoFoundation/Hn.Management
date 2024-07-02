@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent, canActivate: [authGuard]
   },
+  {
+    path: 'users',
+    loadChildren: () => import('./modules/users/users.module').then((m) => m.UsersModule),
+  },
 ];
 
 @NgModule({

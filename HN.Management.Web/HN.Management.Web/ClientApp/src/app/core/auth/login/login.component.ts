@@ -31,9 +31,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
-    this.authService.setIsNavFooter(false);
-    this.authService.getIsNavFooter;
-
     // logout the person when he opens the app for the first time
     this.authService.logout();
 

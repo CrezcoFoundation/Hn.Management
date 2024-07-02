@@ -5,7 +5,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { first } from 'rxjs';
-import { User } from 'src/app/admin/models/user';
+import { User } from 'src/app/admin/interfaces/user';
 import { UserService } from 'src/app/admin/services/user.service';
 
 @Component({
@@ -20,14 +20,14 @@ export class RegisterComponent {
   router: any;
   error: any;
   user: User = {
-    IsDeleted: false,
-    Email: '',
-    Username: '',
-    IsEmailConfirmed: false,
-    Password: '',
-    Role: {
-      Name: '',
-      IsDeleted: false,
+    isDeleted: false,
+    email: '',
+    username: '',
+    isEmailConfirmed: false,
+    password: '',
+    role: {
+      name: '',
+      isDeleted: false,
     }
   };
 
@@ -61,11 +61,11 @@ export class RegisterComponent {
 
     // assign values from registerForm to user
     //this.user.IsDeleted = false;
-    this.user.Email = this.f['userEmail'].value;
-    this.user.Username = `${this.f['userName'].value} ${this.f['userLastName'].value}`;
+    this.user.email = this.f['userEmail'].value;
+    this.user.username = `${this.f['userName'].value} ${this.f['userLastName'].value}`;
     //this.user.IsEmailConfirmed = false;
-    this.user.Password = this.f['password'].value;
-    this.user.Role.Name = 'Donor';
+    this.user.password = this.f['password'].value;
+    this.user.role.name = 'Donor';
     //this.user.Role.IsDeleted = false;
 
     this.userService.createUser(this.user)

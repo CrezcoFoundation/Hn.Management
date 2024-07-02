@@ -33,4 +33,8 @@ export const routes: Routes = [
   { path: '',
     loadComponent: () => import('./website/home/home.component').then(c => c.HomeComponent)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('../app/admin/admin.module').then((m) => m.AdminModule),
+  },
 ];

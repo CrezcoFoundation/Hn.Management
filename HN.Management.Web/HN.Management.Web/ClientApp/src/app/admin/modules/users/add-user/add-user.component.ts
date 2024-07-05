@@ -79,7 +79,7 @@ export class AddUserComponent {
     this.user.email = this.f['userEmail'].value;
     this.user.username = `${this.f['userFirstName'].value} ${this.f['userLastName'].value}`;
     this.user.password = 'donordonor';
-    this.user.role.name = this.f['userRole'].value;
+    this.user.role!.name = this.f['userRole'].value;
 
     this.userService.createUser(this.user)
     .pipe(first())

@@ -65,7 +65,7 @@ export class RegisterComponent {
     this.user.username = `${this.f['userName'].value} ${this.f['userLastName'].value}`;
     //this.user.IsEmailConfirmed = false;
     this.user.password = this.f['password'].value;
-    this.user.role.name = 'Donor';
+    this.user.role!.name = 'role';
     //this.user.Role.IsDeleted = false;
 
     this.userService.createUser(this.user)

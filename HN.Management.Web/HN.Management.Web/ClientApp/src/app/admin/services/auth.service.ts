@@ -11,6 +11,7 @@ import { User } from '../interfaces/user';
 })
 export class AuthService {
 
+  private inAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private userSubject: BehaviorSubject<User | null>;
   public user: Observable<User | null>;
 
@@ -29,13 +30,27 @@ export class AuthService {
   public get userValue(){
     return this.userSubject.value;
   }
+  
+  public setInAdminIn(value: boolean){
+    this.inAdmin.next(value);
+    return this.userValue;
+  }
+
+  public get getInAdminIn():Observable<boolean>{
+    console.log(`In ADMIN?: ${this.inAdmin.value}`);
+    return this.inAdmin.asObservable();
+  }
 
   login(email: string, password: string){
     return this.http.post<any>(`${this.baseUrl}${this.loginBase}login`, {email,password})
     .pipe(
       map(user => {
-        console.log(user, 'user');
           if (user) {
+            this.inAdmin.next(true);
+            this.userSubject.next(user);
+            this.startRefreshTokenTimer();
+            console.log(this.userSubject.value);
+            
             // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
             user.authdata = window.btoa(`${email} : ${password}`);
             localStorage.setItem('currentUser', user.accessToken);
@@ -46,9 +61,39 @@ export class AuthService {
   }
 
   // logout
-    logout(){
-        // remove user from local storage
-        localStorage.removeItem('currentUser');
-        this.router.navigate(['auth/login']);
+ logout(){
+      // remove user from local storage
+      this.inAdmin.next(false);
+      localStorage.removeItem('currentUser');
+      this.stopRefreshTokenTimer();
+      this.router.navigate(['auth/login']);
+  }
+
+  refreshToken() {
+    return this.http.post<any>(`${this.baseUrl}${this.loginBase}refresh-token`, {}, { withCredentials: true })
+        .pipe(map((user) => {
+            this.userSubject.next(user);
+            this.startRefreshTokenTimer();
+            return user;
+        }));
+  }
+
+    // helper methods
+
+    private refreshTokenTimeout?: NodeJS.Timeout;
+
+    private startRefreshTokenTimer(){
+      // parse json object from base64 encoded jwt token
+      const jwtBase64 = this.userValue!.jwtToken!.split('.')[1];
+      const jwtToken = JSON.parse(atob(jwtBase64));
+
+      // set a timeout to refresh the token a minute before it expires
+      const expires = new Date(jwtToken.exp * 1000);
+      const timeout = expires.getTime() - Date.now() - (60 * 1000);
+      this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout);
     }
+
+    private stopRefreshTokenTimer() {
+      clearTimeout(this.refreshTokenTimeout);
+  }
 }

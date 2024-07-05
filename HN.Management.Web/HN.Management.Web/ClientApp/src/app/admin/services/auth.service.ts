@@ -5,13 +5,13 @@ import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
+import * as functions from "src/app/jsScripts/functions"
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private inAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private userSubject: BehaviorSubject<User | null>;
   public user: Observable<User | null>;
 
@@ -30,23 +30,21 @@ export class AuthService {
   public get userValue(){
     return this.userSubject.value;
   }
+
+  public hideWebSiteMenus(){
+    functions.hideWebSiteNavBar();
+    functions.hideWebsiteFooter();
+  }
+  public showWebSiteMenus(){
+    functions.showWebSiteNavBar();
+    functions.showWebsiteFooter();
+  }
   
-  public setInAdminIn(value: boolean){
-    this.inAdmin.next(value);
-    return this.userValue;
-  }
-
-  public get getInAdminIn():Observable<boolean>{
-    console.log(`In ADMIN?: ${this.inAdmin.value}`);
-    return this.inAdmin.asObservable();
-  }
-
   login(email: string, password: string){
     return this.http.post<any>(`${this.baseUrl}${this.loginBase}login`, {email,password})
     .pipe(
       map(user => {
           if (user) {
-            this.inAdmin.next(true);
             this.userSubject.next(user);
             this.startRefreshTokenTimer();
             console.log(this.userSubject.value);
@@ -63,7 +61,6 @@ export class AuthService {
   // logout
  logout(){
       // remove user from local storage
-      this.inAdmin.next(false);
       localStorage.removeItem('currentUser');
       this.stopRefreshTokenTimer();
       this.router.navigate(['auth/login']);

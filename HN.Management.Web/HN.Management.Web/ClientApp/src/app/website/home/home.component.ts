@@ -7,6 +7,7 @@ import { ContactEmailsService } from 'src/app/website/contact-us/contact-emails.
 import Swal from 'sweetalert2';
 import { ContactUsComponent } from '../contact-us/contact-us/contact-us.component';
 import { SharedBannerComponent } from "../../shared/shared-banner/shared-banner.component";
+import { AuthService } from 'src/app/admin/services/auth.service';
 
 @Component({
     standalone: true,
@@ -29,9 +30,11 @@ export class HomeComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private contactEmailService: ContactEmailsService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
+    this.authService.showWebSiteMenus();
     this.newsletterForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
     });

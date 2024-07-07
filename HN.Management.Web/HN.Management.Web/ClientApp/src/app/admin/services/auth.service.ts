@@ -43,12 +43,9 @@ export class AuthService {
   login(email: string, password: string){
     return this.http.post<any>(`${this.baseUrl}${this.loginBase}login`, {email,password})
     .pipe(
-      map(user => {
+      map(user => {        
           if (user) {
-            this.userSubject.next(user);
-            this.startRefreshTokenTimer();
-            console.log(this.userSubject.value);
-            
+            //this.startRefreshTokenTimer();
             // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
             user.authdata = window.btoa(`${email} : ${password}`);
             localStorage.setItem('currentUser', user.accessToken);

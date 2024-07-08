@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
 import { first } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -18,7 +19,7 @@ export class UsersComponent {
   timeLeft: number = 5;
   interval: any;
 
-  constructor( private userService: UserService ) {
+  constructor( private userService: UserService, private router: Router ) {
   }
 
   ngOnInit() {
@@ -39,5 +40,9 @@ export class UsersComponent {
         this.loading = false;
       }
     }, 1000)
+  }
+
+  onNewUser(){
+    this.router.navigate(['/admin/users/new-user']);
   }
 }

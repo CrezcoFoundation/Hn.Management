@@ -6,6 +6,7 @@ import { Role } from 'src/app/admin/interfaces/role';
 import { UserService } from 'src/app/admin/services/user.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { first } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -17,12 +18,14 @@ import { first } from 'rxjs';
 })
 export class AddUserComponent {
   role:Role= {
+    id: '',
     name: '',
     isDeleted: false,
   };
-  addUserForm!: FormGroup;
+  form!: FormGroup;
+  id: string = '';
+  isAddMode: boolean = false;
   fieldTextType: boolean = false;
-  router: any;
   error: any;
   user: User = {
     isDeleted: false,
@@ -33,28 +36,39 @@ export class AddUserComponent {
     role: this.role
   }
   roles?: Role[];
+  loading = false;
+  submitted = false;
+  roleSelected?: Role[];
   
   constructor( 
     private formBuilder: FormBuilder, 
     private userService: UserService, 
-    private roleService: RoleService 
+    private roleService: RoleService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
-
+    this.id = this.route.snapshot.params['id'];
+    this.isAddMode = !this.id;
     this.getRoles();
 
-    this.addUserForm = this.formBuilder.group({
-      userFirstName: ['', Validators.required],
-      userLastName: ['', Validators.required],
-      userEmail: ['', Validators.required],
-      userRoleId: ['', Validators.required],
-      userRole: ['', Validators.required],
+    this.form = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      role: ['', Validators.required],
     });
+
+    if(!this.isAddMode){
+      this.userService.getById(this.id)
+      .pipe(first())
+      .subscribe(x => this.form.patchValue(x))
+    }
   }
 
   get f(){
-    return this.addUserForm!.controls;
+    return this.form!.controls;
   }
 
   toggleFieldTextType(): void {
@@ -67,21 +81,83 @@ export class AddUserComponent {
     });
   }
   
+  getRoleById(id: string){
+    this.roleService.getById(id).pipe(first()).subscribe( roles => {
+      this.roleSelected = roles;
+      console.log(`roles: ${roles}`);
+      console.log(`roleSelected: ${this.roleSelected}`);
+      
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.form.invalid) {
+        return;
+    }
+
+    this.getRoleById(this.f['role'].value);
+    console.log(`Este es el rol: ${this.role}`);
+
+    this.loading = true;
+    if (this.isAddMode) {
+        this.createUser();
+    } else {
+        this.updateUser();
+    }
+}
+
+private createUser() {
+  // stop if form is invalid
+  if(this.form!.invalid){
+    return;
+  }
+
+  
+  
+  // assign values from registerForm to user
+  this.user.email = this.f['email'].value;
+  this.user.username = `${this.f['firstName'].value} ${this.f['lastName'].value}`;
+  this.user.password = 'donordonor';
+  this.user.role!.id = this.f['role'].value;
+  this.user.role!.name = this.role.name;
+
+    this.userService.create(this.user)
+        .pipe(first())
+        .subscribe({
+            next: () => {
+                this.router.navigate(['../'], { relativeTo: this.route });
+            }
+        });
+}
+
+private updateUser() {
+    this.userService.update(this.user)
+        .pipe(first())
+        .subscribe({
+            next: () => {
+                this.router.navigate(['../../'], { relativeTo: this.route });
+            }
+        });
+}
+
 
   onAddUser() {
     
     // stop if form is invalid
-    if(this.addUserForm!.invalid){
+    if(this.form!.invalid){
       return;
     }
 
     // assign values from registerForm to user
-    this.user.email = this.f['userEmail'].value;
-    this.user.username = `${this.f['userFirstName'].value} ${this.f['userLastName'].value}`;
+    this.user.email = this.f['email'].value;
+    this.user.username = `${this.f['firstName'].value} ${this.f['lastName'].value}`;
     this.user.password = 'donordonor';
-    this.user.role!.name = this.f['userRole'].value;
+    this.user.role!.id = this.f['role'].value;
 
-    this.userService.createUser(this.user)
+    this.userService.create(this.user)
     .pipe(first())
     .subscribe(
       _data => {

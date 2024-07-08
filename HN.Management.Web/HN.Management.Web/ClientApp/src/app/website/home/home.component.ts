@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.showWebSiteMenus();
+    this.authService.ShowWebSiteMenus();
     this.newsletterForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
     });

@@ -26,6 +26,7 @@ export class RegisterComponent {
     isEmailConfirmed: false,
     password: '',
     role: {
+      id: '',
       name: '',
       isDeleted: false,
     }
@@ -68,7 +69,7 @@ export class RegisterComponent {
     this.user.role!.name = 'role';
     //this.user.Role.IsDeleted = false;
 
-    this.userService.createUser(this.user)
+    this.userService.create(this.user)
     .pipe(first())
     .subscribe(
       _data => {

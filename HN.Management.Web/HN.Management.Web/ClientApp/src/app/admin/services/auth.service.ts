@@ -5,6 +5,8 @@ import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import * as jwt_decode from 'jwt-decode';
 import * as functions from "src/app/jsScripts/functions"
 
 @Injectable({
@@ -12,8 +14,9 @@ import * as functions from "src/app/jsScripts/functions"
 })
 export class AuthService {
 
-  private userSubject: BehaviorSubject<User | null>;
-  public user: Observable<User | null>;
+  private userSubject: BehaviorSubject<User | null> | undefined;
+  public user: Observable<User | null> | undefined;
+  public accessToken: string = ''
 
   baseUrl = environment.api_url;
   loginBase = '/api/Auth/';
@@ -23,19 +26,27 @@ export class AuthService {
     private router: Router
   ) 
   { 
-    this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')!));
-    this.user = this.userSubject.asObservable();
+    
   }
 
   public get userValue(){
-    return this.userSubject.value;
+    return this.userSubject!.value;
   }
 
-  public hideWebSiteMenus(){
+  public get GetAccessToken(){
+    return this.accessToken;
+  }
+  
+  private SetAccessToken( _accessToken: string ){
+    this.accessToken = _accessToken;
+    return this.accessToken;
+  }
+
+  public HideWebSiteMenus(){
     functions.hideWebSiteNavBar();
     functions.hideWebsiteFooter();
   }
-  public showWebSiteMenus(){
+  public ShowWebSiteMenus(){
     functions.showWebSiteNavBar();
     functions.showWebsiteFooter();
   }
@@ -49,6 +60,12 @@ export class AuthService {
             // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
             user.authdata = window.btoa(`${email} : ${password}`);
             localStorage.setItem('currentUser', user.accessToken);
+            this.SetAccessToken(user.accessToken);
+            const helper = new JwtHelperService();
+            const decoded = helper.decodeToken(user.accessToken);
+            this.userSubject = new BehaviorSubject(decoded);
+            this.user = this.userSubject.asObservable();
+            console.log(`decoded: ${decoded}`);
           }
           return user;
       })
@@ -66,7 +83,7 @@ export class AuthService {
   refreshToken() {
     return this.http.post<any>(`${this.baseUrl}${this.loginBase}refresh-token`, {}, { withCredentials: true })
         .pipe(map((user) => {
-            this.userSubject.next(user);
+            this.userSubject!.next(user);
             this.startRefreshTokenTimer();
             return user;
         }));

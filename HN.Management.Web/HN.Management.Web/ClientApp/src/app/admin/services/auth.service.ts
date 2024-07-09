@@ -65,7 +65,7 @@ export class AuthService {
             const decoded = helper.decodeToken(user.accessToken);
             this.userSubject = new BehaviorSubject(decoded);
             this.user = this.userSubject.asObservable();
-            console.log(`decoded: ${decoded}`);
+            console.log(`decoded: ${decoded.value}`);
           }
           return user;
       })

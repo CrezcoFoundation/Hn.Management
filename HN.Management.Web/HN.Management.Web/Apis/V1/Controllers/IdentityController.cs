@@ -28,7 +28,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpGet("roles/{id}")]
-        public async Task<IActionResult> GetRoleAsync([FromQuery] string id)
+        public async Task<IActionResult> GetRoleAsync(string id)
         {
             var role = await _identityWrapperService.GetRoleAsync(id)
                 ?? throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);

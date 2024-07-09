@@ -86,7 +86,6 @@ export class AddUserComponent {
       this.roleSelected = roles;
       console.log(`roles: ${roles}`);
       console.log(`roleSelected: ${this.roleSelected}`);
-      
     });
   }
 
@@ -99,7 +98,7 @@ export class AddUserComponent {
     }
 
     this.getRoleById(this.f['role'].value);
-    console.log(`Este es el rol: ${this.role}`);
+    console.log(`Este es el rol: ${this.roleSelected}`);
 
     this.loading = true;
     if (this.isAddMode) {
@@ -122,7 +121,7 @@ private createUser() {
   this.user.username = `${this.f['firstName'].value} ${this.f['lastName'].value}`;
   this.user.password = 'donordonor';
   this.user.role!.id = this.f['role'].value;
-  this.user.role!.name = this.role.name;
+  //this.user.role!.name = this.roleSelected!.;
 
     this.userService.create(this.user)
         .pipe(first())

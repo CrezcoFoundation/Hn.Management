@@ -12,6 +12,7 @@
   font-weight: bold;
   color: var(--basic-colors-black);
 }
+
 .title-project h3 {
   font-size: 42px;
   font-family: "Oswald", sans-serif;
@@ -59,16 +60,20 @@
     transform: scale(1) rotate(0deg);
     opacity: 1;
   }
+
   20% {
     transform: rotate(-25deg);
   }
+
   30% {
     transform: rotate(20deg);
   }
+
   50% {
     transform: scale(1.5) rotate(45deg);
     opacity: 0.7;
   }
+
   100% {
     transform: scale(1) rotate(0deg);
     opacity: 1;
@@ -77,7 +82,7 @@
 
 /* Heart Animation End */
 
-div > .author-font span {
+div>.author-font span {
   font-family: Inter;
   font-size: 1.5rem;
   font-style: normal;
@@ -85,6 +90,7 @@ div > .author-font span {
 }
 
 .text-box {
+
   /* padding: 10em; */
   .title-box h3 {
     font-size: 35px;
@@ -93,6 +99,7 @@ div > .author-font span {
     font-weight: 600;
     text-align: left;
   }
+
   .description-box p {
     line-height: 1.8rem;
     font-size: 1.3rem;
@@ -108,14 +115,17 @@ section {
 .section-paragraph {
   background-color: var(--colors-gray-bg);
 }
+
 .img-quote {
   width: 1700px;
   max-width: 100%;
 }
+
 .img-gallery {
   width: 1200px;
   max-width: 100%;
 }
+
 /* Paragraph Section End */
 
 /* Cards Projects Styles Start */
@@ -135,7 +145,7 @@ section {
 
 .card-body:hover {
   transform: scale(1.03);
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .card-body-content {
@@ -188,6 +198,7 @@ section {
   .title-project h2 {
     font-size: 45px;
   }
+
   .title-project h3 {
     font-size: 32px;
     font-family: "Oswald", sans-serif;
@@ -195,39 +206,54 @@ section {
     font-weight: bold;
     color: var(--basic-colors-black);
   }
+
   .description-project {
     max-width: 90%;
     font-size: 1.15rem;
   }
 
   .btn,
-.donate-btn .btn-primary {
-  padding: 1em 6em !important;
-}
+  .donate-btn .btn-primary {
+    padding: 1em 8em !important;
+  }
 
-/* Paragraph Section Start */
-.section-paragraph {
-  background-color: var(--colors-gray-bg);
-}
-.img-quote {
-  width: 1700px;
-  max-width: 200%;
-}
-.img-gallery {
-  width: 1200px;
-  max-width: 100%;
-}
-/* Paragraph Section End */
+  /* Paragraph Section Start */
+  .section-paragraph {
+    background-color: var(--colors-gray-bg);
+  }
 
-  div > .author-font span {
+  .img-quote {
+    width: 1700px;
+    max-width: 200%;
+  }
+
+  .img-gallery {
+    width: 1200px;
+    max-width: 100%;
+  }
+
+  /* Paragraph Section End */
+
+  .card-body-content {
+    width: 160px;
+    padding: .5em 0;
+  }
+
+  /* .card-text {
+    height: 80px;
+  } */
+
+  div>.author-font span {
     font-size: 1.1rem;
   }
 
   .text-box {
+
     /* padding: 2em; */
     .title-box h3 {
       text-align: center;
     }
+
     .description-box p {
       text-align: center;
       font-size: 1.15rem;
@@ -244,5 +270,4 @@ section {
   }
 }
 
-@media only screen and (max-width: 768px) {
-}
+@media only screen and (max-width: 768px) {}

@@ -1,16 +1,72 @@
+@import url(../../../../styles.scss);
+
 img#donate-button {
   width: 100%;
   max-width: 120px;
 }
+
+/* .title-modal {
+  font-family: var(--Inter-text-body-font-family);
+  letter-spacing: 0px;
+} */
+
 .payment-option .stripe-logo {
   width: 100%;
-  max-width: 80px;
+  max-width: 100px;
+  filter: opacity(0.2);
 }
 .payment-option .cashapp-logo {
   width: 100%;
-  max-width: 30px;
+  max-width: 170px;
 }
-.payment-option .venmo-logo {
+.payment-option .zelle-logo {
   width: 100%;
-  max-width: 90px;
+  max-width: 75px;
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+
+/* Modales */
+.modalqr-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: .2s ease all;
+}
+
+.modalqr {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: .2s ease all;
+}
+
+.qr-image {
+  max-width: 100%;
+  width: 300px;
+}
+
+.modalqr-header,
+.modalqr-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.modalqr-body {
+  margin: 1rem 0;
 }

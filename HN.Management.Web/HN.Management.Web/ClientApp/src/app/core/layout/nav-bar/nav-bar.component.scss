@@ -322,3 +322,16 @@ a.nav-link.active {
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
 }
+
+/* iPad Styles */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  a.nav-link.active::before {
+    content: '';
+    background: var(--blueviolet-colors-oficial);
+    height: 30px;
+    width: 5.5px;
+    position: absolute;
+    left: -40px;
+  }
+
+}

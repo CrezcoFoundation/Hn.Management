@@ -11,9 +11,13 @@
   @import url(../../../../styles.scss);
   @import url(../university-sponsorship/university-sponsorship.component.scss);
 
+  .title-project h2 {
+    font-size: 45px;
+  }
+
   .btn,
   .donate-btn .btn-primary {
-    padding: 1em 6em !important;
+    padding: 1em 8em !important;
   }
 
   .img-quote {
@@ -22,6 +26,6 @@
   }
   .description-project {
     font-size: 1.15rem;
-    max-width: 84%;
+    max-width: 90%;
   }
 }

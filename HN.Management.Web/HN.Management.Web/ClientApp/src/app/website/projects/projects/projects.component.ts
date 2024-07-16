@@ -5,17 +5,20 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Aos from 'aos';
 import { ContactUsComponent } from '../../contact-us/contact-us/contact-us.component';
+import { CommunitySupportComponent } from "../community-support/community-support.component";
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ContactUsComponent,
-    RouterModule],
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
+    standalone: true,
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.scss'],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        ContactUsComponent,
+        RouterModule,
+        CommunitySupportComponent
+    ]
 })
 export class ProjectsComponent implements OnInit {
 

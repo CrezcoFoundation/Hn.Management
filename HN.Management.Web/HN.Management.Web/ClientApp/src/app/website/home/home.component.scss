@@ -58,12 +58,11 @@ p {
     font-family: "Oswald", sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    text-align: left;
   }
   p {
     font-size: 22px;
     font-family: "Inter", sans-serif;
-    font-weight: normal;
+    /* font-weight: normal; */
   }
 }
 
@@ -110,7 +109,7 @@ p {
   font-size: 17px;
   font-weight: normal;
   color: var(--basic-colors-black);
-  height: 122px;
+  /* height: 122px; */
 }
 
 .link-card {
@@ -280,35 +279,34 @@ input.input-email:focus-visible {
       text-transform: capitalize;
     }
     .text-content_hero {
-      font-size: 32px;
-      width: auto;
+      font-size: 40px;
+      width: 400px;
     }
   }
 
   .title-box {
     h3 {
-      font-size: 40px;
+      font-size: 30px;
       font-family: "Oswald", sans-serif;
       text-transform: uppercase;
       font-weight: bold;
-      text-align: left;
       padding: 0 24px;
     }
     p {
       font-size: 20px;
       font-family: "Inter", sans-serif;
-      font-weight: normal;
+      /* font-weight: normal; */
       padding: 0 24px;
     }
   }
 
   .card-body-content {
-    width: 150px;
+    width: 175px;
   }
 
-  .card-link {
+  /* .card-link {
     width: 330px !important;
-  }
+  } */
 
   .card-body {
     border-radius: 92px 24.45px 24.45px 92px;
@@ -329,7 +327,7 @@ input.input-email:focus-visible {
     font-weight: 300;
     font-style: normal;
     color: var(--basic-colors-black);
-    height: 98px;
+    height: 68px;
     overflow-y: hidden;
   }
 

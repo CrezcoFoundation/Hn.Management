@@ -15,11 +15,11 @@
 
 <!-- Description section start -->
 <section class="container p-0 my-5 py-lg-3">
-  <div class="title-project">
-    <h2 class="text-center">{{ 'NAVBAR.Projects.Project_3' | translate }}</h2>
+  <div class="title-project px-3 px-lg-0">
+    <h2 class="text-start text-lg-center">{{ 'NAVBAR.Projects.Project_3' | translate }}</h2>
   </div>
-  <div class="d-flex flex-column align-items-center justify-content-center my-4 row">
-    <p class="text-center description-project">
+  <div class="d-flex flex-column align-items-center justify-content-center my-4">
+    <p class="text-start text-lg-center description-project">
       {{ 'PAGE_PROJECTS.Community_support.Paragraph_1' | translate }}
     </p>
   </div>
@@ -36,18 +36,18 @@
 <!-- Description section end -->
 
 <!-- Boxes section start -->
-<section class="container-fluid p-0 my-lg-5">
-  <div class="d-flex flex-column-reverse flex-lg-row container my-4">
-    <div class="d-flex flex-column align-items-center justify-content-center gap-3 p-4 col">
+<section class="container p-0 my-lg-5">
+  <div class="d-flex flex-column-reverse flex-lg-row container my-4 col-11 gap-4 gap-lg-0">
+    <div class="d-flex flex-column align-items-center justify-content-center gap-3">
       <div class="col-lg-10 col-12 text-box">
         <div class="title-box mb-4">
-          <h3 class="text-center text-lg-start">{{ 'PAGE_PROJECTS.Community_support.Subjects.subject_1.title' | translate }}</h3>
+          <h3 class="text-start tex-lg-center">{{ 'PAGE_PROJECTS.Community_support.Subjects.subject_1.title' | translate }}</h3>
         </div>
         <div class="description-box">
-          <p class="text-center text-lg-start">
+          <p class="text-start">
             {{ 'PAGE_PROJECTS.Community_support.Subjects.subject_1.description_1' | translate }}
           </p>
-          <p class="text-center text-lg-start">
+          <p class="text-start">
             {{ 'PAGE_PROJECTS.Community_support.Subjects.subject_1.description_2' | translate }}
           </p>
         </div>
@@ -58,17 +58,17 @@
     </div>
   </div>
 
-  <div class="d-flex flex-column-reverse flex-lg-row-reverse container my-4">
-    <div class="d-flex flex-column align-items-center justify-content-center gap-3 p-4 col">
+  <div class="d-flex flex-column-reverse flex-lg-row-reverse container my-4 col-11 gap-4 gap-lg-0">
+    <div class="d-flex flex-column align-items-center justify-content-center gap-3">
       <div class="col-lg-10 col-12 text-box">
         <div class="title-box mb-4">
-          <h3 class="text-center text-lg-start">{{ 'PAGE_PROJECTS.Community_support.Subjects.subject_2.title' | translate }}</h3>
+          <h3 class="text-start tex-lg-center">{{ 'PAGE_PROJECTS.Community_support.Subjects.subject_2.title' | translate }}</h3>
         </div>
         <div class="description-box">
-          <p class="text-center text-lg-start">
+          <p class="text-start">
             {{ 'PAGE_PROJECTS.Community_support.Subjects.subject_2.description_1' | translate }}
           </p>
-          <p class="text-center text-lg-start">
+          <p class="text-start">
             {{ 'PAGE_PROJECTS.Community_support.Subjects.subject_2.description_2' | translate }}
           </p>
         </div>
@@ -116,8 +116,8 @@
   </div>
 
   <div
-    class="container col-lg-10 card-project d-flex flex-column justify-content-between align-items-center gap-3 gap-lg-5">
-    <div class="d-flex flex-column flex-lg-row justify-content-evenly gap-3 mb-5">
+    class="container col-lg-10 card-project d-flex flex-column justify-content-between align-items-center">
+    <div class="d-flex flex-column flex-lg-row justify-content-evenly gap-4 gap-lg-3 mb-5">
       <a [routerLink]="['/projects/university']" class="text-decoration-none card-link">
         <div
           class="d-flex flex-row justify-content-center justify-content-lg-between align-items-center card-body gap-3 pe-3 pe-md-4">
@@ -125,10 +125,10 @@
             <img src="../../../assets/Image/home-page/Cards-images/card-image-university.webp"
               class="card-img-top" alt="card-image-university" />
           </div>
-          <div class="card-body-content d-flex flex-column align-items-start justify-content-center">
-            <h4 class="card-title">{{ 'NAVBAR.Projects.Project_1' | translate }}</h4>
-            <p class="card-text">
-              {{ 'PAGE_PROJECTS.Special_education.Abreviation-mobile' | translate }}
+          <div class="card-body-content d-flex flex-column align-items-start justify-content-center gap-2">
+            <h4 class="card-title mb-0">{{ 'NAVBAR.Projects.Project_1' | translate }}</h4>
+            <p class="card-text mb-0">
+              {{ 'PAGE_PROJECTS.University_Page.Abreviation-desktop' | translate }}
             </p>
             <a [routerLink]="['/projects/university']" class="text-decoration-none link-card">
               {{ 'GENERAL.Learn_more' | translate }}
@@ -145,10 +145,10 @@
             <img src="../../../assets/Image/home-page/Cards-images/card-image-special-education.webp" class="card-img-top"
               alt="card-image-special-education" />
           </div>
-          <div class="card-body-content d-flex flex-column align-items-start justify-content-center">
-            <h4 class="card-title">{{ 'NAVBAR.Projects.Project_2' | translate }}</h4>
-            <p class="card-text">
-              {{ 'PAGE_PROJECTS.Special_education.Abreviation-mobile' | translate }}
+          <div class="card-body-content d-flex flex-column align-items-start justify-content-center gap-2">
+            <h4 class="card-title mb-0">{{ 'NAVBAR.Projects.Project_2' | translate }}</h4>
+            <p class="card-text mb-0">
+              {{ 'PAGE_PROJECTS.Special_education.Abreviation-desktop' | translate }}
             </p>
             <a [routerLink]="['/projects/special-education']" class="text-decoration-none link-card">
               {{ 'GENERAL.Learn_more' | translate }}
@@ -165,10 +165,10 @@
             <img src="../../../assets/Image/home-page/Cards-images/card-image-mission-trip.webp" class="card-img-top"
               alt="card-image-mission-trip" />
           </div>
-          <div class="card-body-content d-flex flex-column align-items-start justify-content-center">
-            <h4 class="card-title">{{ 'NAVBAR.Projects.Project_4' | translate }}</h4>
-            <p class="card-text">
-              {{ 'PAGE_PROJECTS.Student_mission.Abreviation-mobile' | translate }}
+          <div class="card-body-content d-flex flex-column align-items-start justify-content-center gap-2">
+            <h4 class="card-title mb-0">{{ 'NAVBAR.Projects.Project_4' | translate }}</h4>
+            <p class="card-text mb-0">
+              {{ 'PAGE_PROJECTS.Student_mission.Abreviation-desktop' | translate }}
             </p>
             <a [routerLink]="['/projects/mission-trip']" class="text-decoration-none link-card">
               {{ 'GENERAL.Learn_more' | translate }}

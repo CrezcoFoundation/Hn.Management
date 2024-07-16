@@ -137,6 +137,10 @@ textarea.form-control::placeholder {
 
 /* Mobile Styles */
 @media (max-width: 576px) {
+  .contact-title {
+    font-size: 30px;
+  }
+
   .card-contact {
     padding: 1rem 1rem;
     margin-top: 0em;

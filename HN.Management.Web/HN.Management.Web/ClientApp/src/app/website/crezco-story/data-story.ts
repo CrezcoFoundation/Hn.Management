@@ -99,7 +99,7 @@ export function getInfoAdminObject(): StoryAdminInterface[] {
         name: 'Amanda Corea',
         role: 'FE',
       },
-      url: 'founder-1_story.webp',
+      url: 'admin1.webp',
     },
     {
       id: 2,
@@ -107,7 +107,7 @@ export function getInfoAdminObject(): StoryAdminInterface[] {
         name: 'Ashley McMullen',
         role: 'BC',
       },
-      url: 'founder-2_story.webp',
+      url: 'admin2.webp',
     },
     {
       id: 3,
@@ -115,7 +115,7 @@ export function getInfoAdminObject(): StoryAdminInterface[] {
         name: 'Marci Corea',
         role: 'BS',
       },
-      url: 'founder-3_story.webp',
+      url: 'admin3.webp',
     },
     /* {
       id: 4,

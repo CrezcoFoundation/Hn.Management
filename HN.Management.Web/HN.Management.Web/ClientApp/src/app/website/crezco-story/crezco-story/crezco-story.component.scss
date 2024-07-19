@@ -144,6 +144,7 @@ div > .text-graylight {
 .title-project_width {
   max-width: 350px;
 }
+
 .desc-project_width {
   max-width: 650px;
 }
@@ -177,16 +178,13 @@ div > .text-graylight {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: flex-start;
-    gap: 2.5em;
+    justify-content: flex-end;
+    /* gap: 2.5em; */
     .founder-photo {
       img {
         width: 250px;
         max-width: 100%;
         transition: all 0.3s ease;
-      }
-      img:hover {
-        transform: scale(1.03);
       }
     }
   }
@@ -200,6 +198,7 @@ div > .text-graylight {
 
 .founder-content {
   padding-left: 5rem;
+  position: absolute;
   h3 {
     font-size: 1.3rem;
   }
@@ -221,12 +220,12 @@ section {
 
 @media only screen and (max-width: 768px) {
   .title-project h2 {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .description-project {
-    font-size: 1.15rem;
-    max-width: 80%;
+    font-size: 20px;
+    max-width: 100%;
   }
 
   .knoledge-image img,
@@ -283,6 +282,7 @@ section {
 
   .btn-learn_more {
     font-size: 16px;
+    padding: .8rem 7.2rem;
   }
 
   .grads {
@@ -311,6 +311,7 @@ section {
 
   .founders {
     .card-founder {
+      align-items: center;
       .founder-photo {
         img {
           max-width: 100%;
@@ -330,7 +331,19 @@ section {
   }
 
   .founder-content {
-    padding-left: 5.5rem;
+    padding-left: 1rem;
   }
 
+}
+
+/* iPad Styles */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .title-project_width {
+    max-width: 550px;
+  }
+
+  .btn-learn_more {
+    font-size: 16px;
+    padding: 1rem 17.8rem;
+  }
 }

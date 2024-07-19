@@ -10,13 +10,41 @@
   max-width: 63%;
 }
 
+.title-project h2 {
+  font-size: 56px;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--basic-colors-black);
+}
+
+.title-project h3 {
+  font-size: 42px;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--basic-colors-black);
+}
+
 @media only screen and (max-width: 768px) {
   @import url(../../../../styles.scss);
   @import url(../university-sponsorship/university-sponsorship.component.scss);
 
+  .title-project h2 {
+    font-size: 45px;
+  }
+
+  .title-project h3 {
+    font-size: 32px;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--basic-colors-black);
+  }
+
   .btn,
   .donate-btn .btn-primary {
-    padding: 1em 6em !important;
+    padding: 1em 8em !important;
   }
 
   .img-quote {
@@ -25,6 +53,6 @@
   }
   .description-project {
     font-size: 1.15rem;
-    max-width: 84%;
+    max-width: 90%;
   }
 }

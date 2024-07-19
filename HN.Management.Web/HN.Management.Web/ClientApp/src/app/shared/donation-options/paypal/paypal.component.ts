@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./paypal.component.scss'],
 })
 export class PaypalComponent implements OnInit {
+
   ngOnInit(): void {
     // @ts-ignore
     window.PayPal.Donation.Button({
@@ -35,4 +36,25 @@ export class PaypalComponent implements OnInit {
       },
     }).render('#paypal-donate-button-container');
   }
+
+  isModalCashAppOpen = false;
+  isModalZelleOpen = false;
+
+  openModalCashApp() {
+    this.isModalCashAppOpen = true;
+  }
+
+  closeModalCashApp() {
+    this.isModalCashAppOpen = false;
+  }
+
+  openModalZelle() {
+    this.isModalZelleOpen = true;
+  }
+
+  closeModalZelle() {
+    this.isModalZelleOpen = false;
+  }
+
+
 }

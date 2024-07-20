@@ -1,10 +1,10 @@
 export interface donationDetails {
   currency: string;
-  type: 'one-time' | 'recurring';
+  type?: 'one-time' | 'recurring';
   recurring?: Recurring;
   productData: ProductData;
-  unit_amount: number;
-  UnitAmountDecimal: number;
+  unitAmount?: number;
+  UnitAmountDecimal?: number;
 }
 
 interface ProductData {

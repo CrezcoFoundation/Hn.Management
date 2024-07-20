@@ -17,7 +17,6 @@
                     <label for="email" class="form-label">Correo Electrónico</label>
                     <input type="email" id="email" class="form-control" formControlName="email">
                   </div>
-                  <label for="">{{ donorFormGroup.valid }}</label>
                   <button type="submit" class="btn btn-success">Guardar</button>
                    <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
                 </form>
@@ -27,6 +26,12 @@
                 <form [formGroup]="donationDetailsFormGroup" (ngSubmit)="onPriceSubmit()">
                    <h2 class="text-center">{{ paso2 }}</h2>
                    <div class="mb-3">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">{{donorCustomer.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{donorCustomer.email }}</h6>
+                      </div>
+                    </div>
                     <div>
                       <label for="donationType" class="form-label">Tipo de donacion: </label>
                       <select #selectedDonationType id="donationType" (change)="changeDonationType(selectedDonationType.value)" formControlName="donationType">
@@ -55,38 +60,32 @@
                   <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
                 </form>
               </div>
+
+              <div *ngIf="currentStep === 3">
+                   <h2 class="text-center">{{ paso3 }}</h2>
+
+                   <h2 class="text-center">Resumen</h2>
+
+                   <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      {{donorCustomer | json }}
+                      <h5 class="card-title">{{donorCustomer.name }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{donorCustomer.email }}</h6>
+                    </div>
+                  </div>
+
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{donationSummary.type }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{donationSummary.unitAmount }}</h6>
+                      <h6 class="card-subtitle mb-2 text-muted">{{donationSummary.currency }}</h6>
+                    </div>
+                  </div>
+
+                  <button type="button" (click)="paymentIntent()" class="btn btn-success">Proceder a donar</button>
+                   <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+              </div>
              </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-5">
-        <div class="d-grid place-items-center text-center">
-          <div class="form-check form-check-inline mt-3 d-flex gap-2">
-            <input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off" checked>
-            <label class="btn" for="option1">Project 1</label>
-
-            <input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
-            <label class="btn" for="option2">Project 2</label>
-
-            <input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
-            <label class="btn" for="option3">Project 3</label>
-
-            <input type="radio" class="btn-check" name="options-base" id="option4" autocomplete="off">
-            <label class="btn" for="option4">Project 4</label>
-          </div>
-
-          <div class="form-check form-check-inline mt-3 d-flex gap-2">
-            <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
-            <label class="btn" for="btn-check">Project 1</label>
-
-            <input type="checkbox" class="btn-check" id="btn-check-2" autocomplete="off">
-            <label class="btn" for="btn-check-2">Project 2</label>
-
-            <input type="checkbox" class="btn-check" id="btn-check-3" autocomplete="off">
-            <label class="btn" for="btn-check-3">Project 3</label>
-
-            <input type="checkbox" class="btn-check" id="btn-check-4" autocomplete="off">
-            <label class="btn" for="btn-check-4">Project 4</label>
           </div>
         </div>
       </div>

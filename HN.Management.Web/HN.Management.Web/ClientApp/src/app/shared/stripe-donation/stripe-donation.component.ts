@@ -1,3 +1,4 @@
+import { DonationPaymentInterface } from './interfaces/donationPayment.interface';
 import { Donor } from './interfaces/donor.interface';
 import { StripeDonationService } from './services/stripe-donation.service';
 import { Component } from '@angular/core';
@@ -30,6 +31,10 @@ export class StripeDonationComponent {
     'Monthly',
     'Annually',];
 
+  // stripe retriever
+  donorCustomer!: Donor;
+  donationSummary!: donationDetails;
+
   constructor(
     private fb: FormBuilder,
     private StripeDonationService: StripeDonationService,
@@ -58,7 +63,7 @@ export class StripeDonationComponent {
 
   nextStep() {
     console.log(this.currentStep, 'insede nextStep');
-    if (this.currentStep < 2) {
+    if (this.currentStep < 3) {
       this.currentStep++;
     }
   }
@@ -87,6 +92,7 @@ export class StripeDonationComponent {
      this.StripeDonationService.createDonor(this.donorFormGroup.value).subscribe(
       (donador: Donor) => {
         this.productDataInfo = donador.name;
+        this.donorCustomer = donador;
         this.nextStep()
       }
     );
@@ -123,22 +129,38 @@ export class StripeDonationComponent {
       )
   }
 
+  paymentIntent(){
+    const donationPaymentIntent: DonationPaymentInterface = {
+      Amount: this.donationSummary.unitAmount,
+      Currency: this.donationSummary.currency,
+      AutomaticPaymentMethods: {
+        Enabled: true
+      },
+      Customer: this.donorCustomer.customerId
+    }
+    this.StripeDonationService.donationPaymentIntent(donationPaymentIntent)
+    .subscribe(
+      (intent) => {
+        console.log(intent)
+      }
+    )
+  }
+
   donationOneTimeOnSubmit() {
     const oneTimedonationDetails: donationDetails = {
-          type: this.donationDetailsFormGroup.controls['donationType'].value,
           currency: this.donationDetailsFormGroup.controls['currency'].value,
-          unit_amount: this.donationDetailsFormGroup.controls['price'].value,
-          recurring: {
-            interval: this.donationTypes[0],
-          },
+          unitAmount : this.donationDetailsFormGroup.controls['price'].value,
           productData:{
             name:`${this.productDataInfo} donó ${this.donationDetailsFormGroup.controls['price'].value} en ${this.donationDetailsFormGroup.controls['currency'].value}`},
-            UnitAmountDecimal: 43243
       };
 
     this.StripeDonationService.createPriceOneTime(oneTimedonationDetails)
       .subscribe(
-        () => this.nextStep()
+        (donationDetials) => {
+          console.log(donationDetials, 'donation details log')
+          this.donationSummary = donationDetials;
+          this.nextStep()
+        }
       )
   };
 }

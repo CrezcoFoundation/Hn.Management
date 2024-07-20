@@ -1,6 +1,7 @@
 export interface Donor {
   id?: string;
-  Email: string;
-  Name: string;
-  name?: string;
+  customerId?: string;
+  email: string;
+  name: string;
+  phone?: string;
 }

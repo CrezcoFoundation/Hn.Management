@@ -1,3 +1,4 @@
+import { DonationPaymentInterface } from './../interfaces/donationPayment.interface';
 import { donationDetails } from '../interfaces/donationDetails';
 import { donationModel } from '../interfaces/donationModel';
 import { Donor } from '../interfaces/donor.interface';
@@ -16,6 +17,10 @@ export class StripeDonationService {
 
   createDonor(donor: Donor): Observable<Donor> {
     return this.httpClient.post<Donor>(`${this.baseURL}/Payment/customer`, donor)
+  }
+
+  donationPaymentIntent(donationSummary: DonationPaymentInterface): Observable<DonationPaymentInterface>{
+    return this.httpClient.post<DonationPaymentInterface>(`${this.baseURL}/Payment/paymentIntent`, donationSummary)
   }
 
   createPriceOneTime(price: donationDetails): Observable<donationDetails> {

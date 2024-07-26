@@ -1,8 +1,9 @@
 export interface DonationPaymentInterface {
-  Amount: number | undefined,
-  Currency: string,
+  Amount: number | undefined;
+  Currency: string;
   AutomaticPaymentMethods:{
     Enabled: boolean
-  },
-  Customer: string | undefined
+  };
+  Customer: string | undefined;
+  clientSecret?: string;
 }

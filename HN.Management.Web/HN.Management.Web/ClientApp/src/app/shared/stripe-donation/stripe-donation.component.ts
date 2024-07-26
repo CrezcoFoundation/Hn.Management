@@ -8,6 +8,9 @@ import { RouterLink } from '@angular/router';
 import { donationDetails } from './interfaces/donationDetails';
 import { donationModel } from './interfaces/donationModel';
 
+// stripe modules
+import { Stripe, StripeElements, StripePaymentElement, loadStripe } from '@stripe/stripe-js';
+
 @Component({
   selector: 'app-stripe-donation',
   standalone: true,
@@ -34,6 +37,10 @@ export class StripeDonationComponent {
   // stripe retriever
   donorCustomer!: Donor;
   donationSummary!: donationDetails;
+
+  stripe!: Stripe | null;
+  stripeElement!: StripeElements;
+  paymentElement!: StripePaymentElement;
 
   constructor(
     private fb: FormBuilder,
@@ -63,7 +70,7 @@ export class StripeDonationComponent {
 
   nextStep() {
     console.log(this.currentStep, 'insede nextStep');
-    if (this.currentStep < 3) {
+    if (this.currentStep < 4) {
       this.currentStep++;
     }
   }
@@ -93,7 +100,7 @@ export class StripeDonationComponent {
       (donador: Donor) => {
         this.productDataInfo = donador.name;
         this.donorCustomer = donador;
-        this.nextStep()
+        this.nextStep();
       }
     );
   }
@@ -140,10 +147,32 @@ export class StripeDonationComponent {
     }
     this.StripeDonationService.donationPaymentIntent(donationPaymentIntent)
     .subscribe(
-      (intent) => {
-        console.log(intent)
+      async (intent) => {
+        console.log(intent);
+        // stripe elements
+        // Stripe.js will not be loaded until `loadStripe` is called
+        this.stripe = await loadStripe('pk_test_51OcYzaCpxR0GNX12axWTlzV1yBfZkfpnmFXhcNnF8FsEwipD0J8Anp47FU9ZkuCwZ7gq2YQCjnB4Iy6lK92ZQbBj007PWvDlLx');
+
+        if (this.stripe) {
+          const appearance = { /* appearance */ };
+          const options = { /* options */ };
+          this.stripeElement = this.stripe.elements({
+            clientSecret: intent.clientSecret,
+            appearance,
+          });
+
+          // https://docs.stripe.com/js/elements_object
+          this.paymentElement = this.stripeElement.create('payment', options);
+          this.nextStep()
+        }
       }
     )
+  }
+
+  confirmOneTimeDonationAndComplete(){
+    console.log('listo ya pra donar mi apa')
+    this.paymentElement.mount('#donation-element');
+
   }
 
   donationOneTimeOnSubmit() {

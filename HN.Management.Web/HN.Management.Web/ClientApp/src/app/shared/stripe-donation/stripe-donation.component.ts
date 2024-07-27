@@ -1,7 +1,7 @@
 import { DonationPaymentInterface } from './interfaces/donationPayment.interface';
 import { Donor } from './interfaces/donor.interface';
 import { StripeDonationService } from './services/stripe-donation.service';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, afterRender } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -38,6 +38,9 @@ export class StripeDonationComponent {
   donorCustomer!: Donor;
   donationSummary!: donationDetails;
 
+  @ViewChild
+  ('donationConainer') donationContainerRef!: ElementRef;
+
   stripe!: Stripe | null;
   stripeElement!: StripeElements;
   paymentElement!: StripePaymentElement;
@@ -56,7 +59,12 @@ export class StripeDonationComponent {
       donationType: [this.donationTypes[0], Validators.required],
       price: [0, Validators.required],
       currency: [this.currencyTypes[0], Validators.required],
-    })
+    });
+
+    afterRender(() => {
+      if(this.donationContainerRef)
+        this.paymentElement.mount('#donation-element')
+    });
   }
 
   changeDonationType(selectedDonationType: string){
@@ -170,9 +178,20 @@ export class StripeDonationComponent {
   }
 
   confirmOneTimeDonationAndComplete(){
-    console.log('listo ya pra donar mi apa')
-    this.paymentElement.mount('#donation-element');
-
+    if (this.stripe) {
+      this.stripe.confirmPayment({
+        elements: this.stripeElement,
+        confirmParams: {
+          // Return URL where the customer should be redirected after the PaymentIntent is confirmed.
+          return_url: 'https://example.com',
+        },
+      })
+      .then(function(result) {
+        if (result.error) {
+          console.error(result.error);
+        }
+      });
+    }
   }
 
   donationOneTimeOnSubmit() {

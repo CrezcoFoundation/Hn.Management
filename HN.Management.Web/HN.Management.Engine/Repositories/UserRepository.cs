@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using HN.Management.Engine.CosmosDb.Interfaces;
 using HN.Management.Engine.Repositories.Interfaces;
 using User = HN.ManagementEngine.Models.User;
-using HN.Management.Engine.ViewModels;
 
 namespace HN.Management.Engine.Repositories
 {
@@ -36,15 +35,24 @@ namespace HN.Management.Engine.Repositories
             return filter.AsEnumerable();
         }
 
-        public async Task<User> GetUserAsync(LoginRequest loginRequest)
+        public async Task<User> GetUserByEmailAsync(string email)
         {
-
             var users = await this.dataManager.GetAllItemsByExpressionAsync(user =>
-            user.Email == loginRequest.Email
-            && user.Password == loginRequest.Password);
+            user.Email == email);
 
+            var user = users.ToList().FirstOrDefault() ?? throw new Exception("User not found");
 
-            return users.ToList().FirstOrDefault();
+            return user;
+        }
+
+        public async Task<bool> UserExistsAsync(string email)
+        {
+            var users = await this.dataManager
+                .GetAllItemsByExpressionAsync(user => user.Email == email);
+
+            var user = users.ToList().FirstOrDefault();
+
+            return user != null;
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()

@@ -15,6 +15,7 @@ namespace HN.Management.Engine.Repositories.Interfaces
         Task<User> InsertAsync(User item);
         Task<User> UpdateAsync(User item);
         Task Delete(string id);
-        Task<User> GetUserAsync(LoginRequest loginRequest);
+        Task<User> GetUserByEmailAsync(string email);
+        Task<bool> UserExistsAsync(string email);
     }
 }

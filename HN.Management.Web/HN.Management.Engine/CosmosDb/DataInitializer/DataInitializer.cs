@@ -1,6 +1,8 @@
 ﻿using HN.Management.Engine.CosmosDb.Interfaces;
 using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Interfaces;
+using HN.Management.Engine.Util;
+using HN.Management.Engine.ViewModels;
 using HN.ManagementEngine.Models;
 using System;
 using System.Linq;
@@ -83,7 +85,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Id = Guid.NewGuid().ToString("D"),
                 Email = "jearsoft@gmail.com",
                 Username = "admin",
-                Password = "CrezcoCrece@1",
+                PasswordHash = PasswordHelper.HashPassword("CrezcoCrece@1"),
                 Role = administratorRole
             };
 
@@ -92,7 +94,7 @@ namespace HN.Management.Engine.CosmosDb.DataInitializer
                 Id = Guid.NewGuid().ToString("D"),
                 Email = "anaeltrabajo@gmail.com",
                 Username = "operator",
-                Password = "operator",
+                PasswordHash = PasswordHelper.HashPassword("CrezcoCrece@1"),
                 Role = operatorRole
             };
 

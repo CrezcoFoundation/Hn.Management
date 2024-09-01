@@ -24,6 +24,9 @@ namespace HN.ManagementEngine.Models
         [JsonProperty("username")]
         public string Username { get; set; }
 
+        [JsonProperty("fullname")]
+        public string FullName { get; set; }
+
         [JsonProperty("isEmailConfirmed")]
         public bool IsEmailConfirmed { get; set; }
 
@@ -32,5 +35,7 @@ namespace HN.ManagementEngine.Models
 
         [JsonProperty("role")]
         public Role Role { get; set; }
+        public string BlobName { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

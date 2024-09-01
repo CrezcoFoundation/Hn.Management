@@ -1,4 +1,5 @@
 ﻿using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Services.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -120,7 +121,7 @@ namespace HN.Management.Manager.Services.Wrappers
             return await _rolePrivilegeService.GetAsync(id);
         }
 
-        public async Task<RolePrivilege> InsertRolePrivilegeAsync(RolePrivilege item)
+        public async Task<List<RolePrivilege>> InsertRolePrivilegeAsync(RolePrivilegeRequest item)
         {
             return await _rolePrivilegeService.InsertAsync(item);
         }

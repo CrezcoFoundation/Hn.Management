@@ -1,6 +1,5 @@
 ﻿using HN.Management.Engine.Models.Auth;
-using HN.Management.Engine.Repositories;
-using HN.Management.Engine.Util;
+using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
 using HN.ManagementEngine.Models;
@@ -175,18 +174,13 @@ namespace HN.Management.Manager.Services.DataInitializer
 
         private async Task CreateRolePrivileges(string roleId, List<string> privilegesIds)
         {
-            foreach (var id in privilegesIds)
+            var rolePrivilegeRequest = new RolePrivilegeRequest()
             {
-                var rolePrivilege = new RolePrivilege
-                {
-                    Id = Guid.NewGuid().ToString("D"),
-                    PrivilegeId = id,
-                    RoleId = roleId,
-                    CreatedByName = createdByName,
-                };
+                RoleId = roleId,
+                PrivilegesIds = privilegesIds
+            };
 
-                _ = await _identityWrapperService.InsertRolePrivilegeAsync(rolePrivilege);
-            }
+            _ = await _identityWrapperService.InsertRolePrivilegeAsync(rolePrivilegeRequest);
         }
 
         private async Task CreateUsers(List<Role> roles)

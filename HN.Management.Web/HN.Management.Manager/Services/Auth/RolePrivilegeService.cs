@@ -1,7 +1,9 @@
 ﻿
 using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Interfaces;
+using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -35,9 +37,23 @@ namespace HN.Management.Manager.Services.Auth
             return await _rolePrivilegeRepository.GetAsync(id);
         }
 
-        public async Task<RolePrivilege> InsertAsync(RolePrivilege item)
+        public async Task<List<RolePrivilege>> InsertAsync(RolePrivilegeRequest item)
         {
-            return await _rolePrivilegeRepository.InsertAsync(item);
+            var rolePrivileges = new List<RolePrivilege>();
+            foreach (var privilegesId in item.PrivilegesIds)
+            {
+                var rolePrivilege = new RolePrivilege
+                {
+                    RoleId = item.RoleId,
+                    PrivilegeId = privilegesId,
+                    Id = Guid.NewGuid().ToString("D")
+                };
+
+                var result = await _rolePrivilegeRepository.InsertAsync(rolePrivilege);
+                rolePrivileges.Add(result);
+            }
+
+            return rolePrivileges;
         }
 
         public async Task<RolePrivilege> UpdateAsync(RolePrivilege item)

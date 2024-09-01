@@ -1,4 +1,5 @@
 ﻿using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -126,7 +127,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpPost("role-privileges")]
-        public async Task<IActionResult> InsertRolePrivilegeAsync([FromBody] RolePrivilege item)
+        public async Task<IActionResult> InsertRolePrivilegeAsync([FromBody] RolePrivilegeRequest item)
         {
             var rolePrivilege = await _identityWrapperService.InsertRolePrivilegeAsync(item)
                 ?? throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);

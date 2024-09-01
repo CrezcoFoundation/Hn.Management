@@ -1,4 +1,5 @@
 ﻿using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -27,7 +28,7 @@ namespace HN.Management.Manager.Services.Interfaces
         // RolePrivilege
         Task<IEnumerable<RolePrivilege>> GetRolePrivilegeListAsync();
         Task<RolePrivilege> GetRolePrivilegeAsync(string id);
-        Task<RolePrivilege> InsertRolePrivilegeAsync(RolePrivilege item);
+        Task<List<RolePrivilege>> InsertRolePrivilegeAsync(RolePrivilegeRequest item);
         Task<RolePrivilege> UpdateRolePrivilegeAsync(RolePrivilege item);
         Task DeleteRolePrivilege(string id);
         IEnumerable<RolePrivilege> GetRolePrivilegeList();

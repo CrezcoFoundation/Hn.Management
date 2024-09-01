@@ -30,8 +30,8 @@ namespace HN.ManagementEngine.Models
         [JsonProperty("isEmailConfirmed")]
         public bool IsEmailConfirmed { get; set; }
 
-        [JsonProperty("password")]
-        public string Password { get; set; }
+        [JsonProperty("passwordHash")]
+        public string PasswordHash { get; set; }
 
         [JsonProperty("role")]
         public Role Role { get; set; }

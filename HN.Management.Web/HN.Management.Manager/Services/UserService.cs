@@ -1,13 +1,16 @@
 ﻿using AutoMapper;
 using HN.Management.Engine.Repositories.Interfaces;
+using HN.Management.Engine.Util;
 using HN.Management.Engine.ViewModels;
-using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
-using HN.ManagementEngine.Models;
+using LanguageExt.Pipes;
+using LanguageExt.Pretty;
+using Microsoft.Azure.Cosmos;
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
+using User = HN.ManagementEngine.Models.User;
+using UserResponse = HN.Management.Engine.ViewModels.UserResponse;
 
 namespace HN.Management.Manager.Services
 {
@@ -41,8 +44,15 @@ namespace HN.Management.Manager.Services
 
         public async Task<UserResponse> GetUserAsync(LoginRequest loginRequest)
         {
-            var result = await this.userRepository.GetUserAsync(loginRequest)
-                 ?? throw new ApiException("Invalid Credentials", HttpStatusCode.Unauthorized);
+            var result = await userRepository.GetUserByEmailAsync(loginRequest.Email);
+
+            var isValidPassword = PasswordHelper.VerifyPassword(loginRequest.Password, result.PasswordHash);
+
+            if (!isValidPassword)
+            {
+                throw new Exception("Invalid Password");
+            }
+
             var userResponse = _mapper.Map<UserResponse>(result);
 
             return userResponse;
@@ -51,6 +61,13 @@ namespace HN.Management.Manager.Services
         public async Task<UserResponse> CreateUserAsync(UserRequest userRequest)
         {
             var user = _mapper.Map<User>(userRequest);
+
+            var isUserExist = await userRepository.UserExistsAsync(userRequest.Email);
+            if (isUserExist)
+            {
+                throw new Exception("This email is already registered. Please use a different email.");
+            }
+
             var now = DateTime.UtcNow;
             var blobLocation = $"profile/{now.ToString("yyyyMMdd")}.{now.Ticks}";
             using (var fileStream = userRequest.File.OpenReadStream())
@@ -62,6 +79,8 @@ namespace HN.Management.Manager.Services
             }
 
             user.BlobName = blobLocation;
+
+            user.PasswordHash = PasswordHelper.HashPassword(userRequest.Password);
             var result = await userRepository.InsertAsync(user);
             var userResponse = _mapper.Map<UserResponse>(result);
             return userResponse;

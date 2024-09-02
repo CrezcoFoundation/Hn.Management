@@ -1,0 +1,28 @@
+<div class="row mt-4">
+    <div class="col-12">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header">
+          <h5 class="mb-0">Assign privileges to role</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="assignPrivilegeForm" (submit)="onSubmited()" role="form" class="multisteps-form__form mb-8">
+            <div class="row">
+              <div class="col-4" *ngFor="let privilege of privileges; let i = index">
+                <div class="form-check">
+                  <input class="form-check-input" formControlName="privilageId" [(ngModel)]="selectedPrivileges[i]" type="checkbox" id="fcustomCheck1">
+                  <label class="custom-control-label" for="customCheck1">{{ privilege.name }}</label>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let element of selectedPrivilagesId">
+              {{ element.id }}
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

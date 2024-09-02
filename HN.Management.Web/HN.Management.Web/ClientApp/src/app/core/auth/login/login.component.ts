@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.HideWebSiteMenus();
     if (localStorage.getItem('currentUser')) {
       this.router.navigate(['/admin/home']);
     }

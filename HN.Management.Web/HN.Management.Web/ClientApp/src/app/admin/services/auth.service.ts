@@ -6,8 +6,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import * as jwt_decode from 'jwt-decode';
-import * as functions from "src/app/jsScripts/functions"
 
 @Injectable({
   providedIn: 'root'
@@ -42,14 +40,6 @@ export class AuthService {
     return this.accessToken;
   }
 
-  public HideWebSiteMenus(){
-    functions.hideWebSiteNavBar();
-    functions.hideWebsiteFooter();
-  }
-  public ShowWebSiteMenus(){
-    functions.showWebSiteNavBar();
-    functions.showWebsiteFooter();
-  }
   
   login(email: string, password: string){
     return this.http.post<any>(`${this.baseUrl}${this.loginBase}login`, {email,password})

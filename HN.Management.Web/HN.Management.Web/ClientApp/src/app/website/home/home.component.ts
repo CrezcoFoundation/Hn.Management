@@ -7,7 +7,7 @@ import { ContactEmailsService } from 'src/app/website/contact-us/contact-emails.
 import Swal from 'sweetalert2';
 import { ContactUsComponent } from '../contact-us/contact-us/contact-us.component';
 import { SharedBannerComponent } from "../../shared/shared-banner/shared-banner.component";
-import { AuthService } from 'src/app/admin/services/auth.service';
+import { StripeDonationComponent } from 'src/app/shared/stripe-donation/stripe-donation.component';
 
 @Component({
     standalone: true,
@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/admin/services/auth.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     imports: [
+        StripeDonationComponent,
         CommonModule,
         TranslateModule,
         RouterModule,

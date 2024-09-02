@@ -182,7 +182,7 @@ namespace HN.Management.Manager.Services.DataInitializer
                 PrivilegesIds = privilegesIds
             };
 
-            _ = await _identityWrapperService.InsertRolePrivilegeAsync(rolePrivilegeRequest);
+            _ = await _identityWrapperService.AddUpdateAsync(rolePrivilegeRequest);
         }
 
         private async Task CreateUsers(List<Role> roles)

@@ -127,9 +127,9 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpPost("role-privileges")]
-        public async Task<IActionResult> InsertRolePrivilegeAsync([FromBody] RolePrivilegeRequest item)
+        public async Task<IActionResult> AddUpdateRolePrivilegeAsync([FromBody] RolePrivilegeRequest item)
         {
-            var rolePrivilege = await _identityWrapperService.InsertRolePrivilegeAsync(item)
+            var rolePrivilege = await _identityWrapperService.AddUpdateAsync(item)
                 ?? throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
 
             return Ok(rolePrivilege);

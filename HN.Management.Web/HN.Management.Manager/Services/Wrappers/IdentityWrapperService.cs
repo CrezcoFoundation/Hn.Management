@@ -121,9 +121,9 @@ namespace HN.Management.Manager.Services.Wrappers
             return await _rolePrivilegeService.GetAsync(id);
         }
 
-        public async Task<List<RolePrivilege>> InsertRolePrivilegeAsync(RolePrivilegeRequest item)
+        public async Task<RolePrivilegeResponse> AddUpdateAsync(RolePrivilegeRequest item)
         {
-            return await _rolePrivilegeService.InsertAsync(item);
+            return await _rolePrivilegeService.AddUpdateAsync(item);
         }
 
         public async Task<RolePrivilege> UpdateRolePrivilegeAsync(RolePrivilege item)

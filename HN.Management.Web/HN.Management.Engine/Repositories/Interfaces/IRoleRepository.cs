@@ -14,5 +14,6 @@ namespace HN.Management.Engine.Repositories.Interfaces
         Task<Role> InsertAsync(Role item);
         Task<Role> UpdateAsync(Role item);
         Task Delete(string id);
+        Task<bool> RoleExistsAsync(string id);
     }
 }

@@ -28,7 +28,7 @@ namespace HN.Management.Manager.Services.Interfaces
         // RolePrivilege
         Task<IEnumerable<RolePrivilege>> GetRolePrivilegeListAsync();
         Task<RolePrivilege> GetRolePrivilegeAsync(string id);
-        Task<List<RolePrivilege>> InsertRolePrivilegeAsync(RolePrivilegeRequest item);
+        Task<RolePrivilegeResponse> AddUpdateAsync(RolePrivilegeRequest item);
         Task<RolePrivilege> UpdateRolePrivilegeAsync(RolePrivilege item);
         Task DeleteRolePrivilege(string id);
         IEnumerable<RolePrivilege> GetRolePrivilegeList();

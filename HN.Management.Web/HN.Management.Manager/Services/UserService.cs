@@ -18,12 +18,18 @@ namespace HN.Management.Manager.Services
     {
         private readonly IBlobStorageService _blobStorageService;
         private readonly IUserRepository userRepository;
+        private readonly IRoleRepository _roleRepository;
         private readonly IMapper _mapper;
-        public UserService(IUserRepository usersRepository, IMapper mapper, IBlobStorageService blobStorageService)
+        public UserService(
+            IUserRepository usersRepository,
+            IMapper mapper, 
+            IBlobStorageService blobStorageService,
+            IRoleRepository roleRepository)
         {
             userRepository = usersRepository;
             _blobStorageService = blobStorageService;
             _mapper = mapper;
+            _roleRepository = roleRepository;
         }
 
         public async Task<IEnumerable<UserResponse>> GetAllAsync()
@@ -66,6 +72,12 @@ namespace HN.Management.Manager.Services
             if (isUserExist)
             {
                 throw new Exception("This email is already registered. Please use a different email.");
+            }
+
+            var isRoleExist = await _roleRepository.RoleExistsAsync(userRequest.Role.Id);
+            if (!isRoleExist)
+            {
+                throw new Exception("Invalid Role");
             }
 
             var now = DateTime.UtcNow;

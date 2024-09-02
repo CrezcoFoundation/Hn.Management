@@ -61,6 +61,16 @@ namespace HN.Management.Engine.Repositories.Auth
             return await this.dataManager.CreateItemAsync(item);
         }
 
+        public async Task<bool> RoleExistsAsync(string id)
+        {
+            var roles = await this.dataManager
+                .GetAllItemsByExpressionAsync(role => role.Id == id);
+
+            var role = roles.ToList().FirstOrDefault();
+
+            return role != null;
+        }
+
         public async Task<Role> UpdateAsync(Role item)
         {
             item.LastUpdatedAt = DateTime.UtcNow;

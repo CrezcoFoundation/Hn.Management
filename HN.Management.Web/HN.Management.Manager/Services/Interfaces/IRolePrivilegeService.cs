@@ -9,7 +9,7 @@ namespace HN.Management.Manager.Services.Interfaces
     {
         Task<IEnumerable<RolePrivilege>> GetAllAsync();
         Task<RolePrivilege> GetAsync(string id);
-        Task<List<RolePrivilege>> InsertAsync(RolePrivilegeRequest item);
+        Task<RolePrivilegeResponse> AddUpdateAsync(RolePrivilegeRequest item);
         Task<RolePrivilege> UpdateAsync(RolePrivilege item);
         Task Delete(string id);
         IEnumerable<RolePrivilege> GetAll();

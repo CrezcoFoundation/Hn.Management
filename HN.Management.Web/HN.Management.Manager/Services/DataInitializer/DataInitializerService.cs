@@ -1,4 +1,6 @@
 ﻿using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.Repositories.Interfaces;
+using HN.Management.Engine.Util;
 using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Exceptions;
 using HN.Management.Manager.Services.Interfaces;
@@ -14,13 +16,13 @@ namespace HN.Management.Manager.Services.DataInitializer
     {
         private const string createdByName = "System";
         private readonly IIdentityWrapperService _identityWrapperService;
-        private readonly IUserService _userService;
+        private readonly IUserRepository _userRepository;
         public DataInitializerService(
             IIdentityWrapperService identityWrapperService,
-            IUserService userService)
+            IUserRepository userRepository)
         {
             _identityWrapperService = identityWrapperService;
-            _userService = userService;
+            _userRepository = userRepository;
         }
 
         public async Task SeedDatabase()
@@ -190,7 +192,7 @@ namespace HN.Management.Manager.Services.DataInitializer
                 Id = Guid.NewGuid().ToString("D"),
                 Email = "admin@gmail.com",
                 Username = "admin",
-                Password = "adminadmin",
+                PasswordHash = PasswordHelper.HashPassword("CrezcoCrece@1"),
                 Role = roles.FirstOrDefault(x => x.Name == RoleConstant.Administrator),
             };
 
@@ -199,15 +201,15 @@ namespace HN.Management.Manager.Services.DataInitializer
                 Id = Guid.NewGuid().ToString("D"),
                 Email = "donor@gmail.com",
                 Username = "donor01",
-                Password = "donordonor",
+                PasswordHash = PasswordHelper.HashPassword("CrezcoCrece@1"),
                 Role = roles.FirstOrDefault(x => x.Name == RoleConstant.Donor),
             };
 
-            var users = _userService.GetAll().ToList();
+            var users = _userRepository.GetAll().ToList();
             if (!users.Any())
             {
-                _ = _userService.CreateUserAsync(adminUser);
-                _ = _userService.CreateUserAsync(donorUser);
+                _ = _userRepository.InsertAsync(adminUser);
+                _ = _userRepository.InsertAsync(donorUser);
             }
         }
     }

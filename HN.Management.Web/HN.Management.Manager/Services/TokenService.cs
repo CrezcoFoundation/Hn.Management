@@ -20,7 +20,7 @@ namespace HN.Management.Manager.Services
             this.appSetting = appSetting.Value;
         }
 
-        public string GenerateToken(User user, List<string> privileges)
+        public string GenerateToken(User user)
         {
             var key = Encoding.ASCII.GetBytes("OLAh6Yh5KwNFvOqgltw7");
             var expireTime = appSetting.ExpireTime;
@@ -35,7 +35,6 @@ namespace HN.Management.Manager.Services
                         new Claim("RoleId", user.Role.Id),
                         new Claim("RoleName", user.Role.Name),
                         new Claim("UserName", $"{user.Username}"),
-                        new Claim("Privileges", BaseUtility.ToJsonString(privileges)),
                         new Claim(ClaimTypes.Email, user.Email),
                     }),
 

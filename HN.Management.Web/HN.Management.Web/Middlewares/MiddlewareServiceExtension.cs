@@ -23,6 +23,8 @@ using HN.Management.Engine.Repositories.Auth;
 using HN.Management.Manager.Services.Auth;
 using HN.Management.Manager.Services.BlobStorage;
 using HN.Management.Web.Mapper;
+using HN.Management.Manager.Services.Wrappers;
+using HN.Management.Manager.Services.DataInitializer;
 
 namespace HN.Management.Web.Extensions
 {
@@ -54,6 +56,7 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<IStripeService, StripeService>();
             service.AddScoped<IRolePrivilegeService, RolePrivilegeService>();
+            service.AddScoped<IPrivilegeService, PrivilegeService>();
             service.AddScoped<IRoleService, RoleService>();
         }
 
@@ -145,6 +148,8 @@ namespace HN.Management.Web.Extensions
             services.AddScoped<IDataReader<Privilege>, PrivilegeDataAccessor>();
             services.AddScoped<IDataManager<Privilege>, PrivilegeDataAccessor>();
 
+            services.AddScoped<IDataReader<RolePrivilege>, RolePrivilegeDataAccessor>();
+            services.AddScoped<IDataManager<RolePrivilege>, RolePrivilegeDataAccessor>();
         }
 
         public static void ConfigureMapping(this IServiceCollection services)

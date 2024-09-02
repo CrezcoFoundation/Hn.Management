@@ -1,4 +1,3 @@
-using HN.Management.Engine.AutoMapper;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Manager.Services;
 using HN.Management.Web.Extensions;
@@ -9,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using HN.Management.Engine.ViewModels;
+using HN.Management.Engine.CosmosDb.Interfaces;
 using Stripe;
 using Microsoft.AspNetCore.Diagnostics;
 using System;
@@ -48,7 +48,7 @@ namespace HN.Management.Web
             //Add Cosmos db configuration
             services.SetupCosmosDb(Configuration);
             services.ConfigureClassesWithInterfaces();
-            services.AddAutoMapper(typeof(AutoMapping));
+            services.ConfigureMapping();
 
             services.Configure<AppSetting>(Configuration.GetSection("AppSettings"));
             services.Configure<EmailOptions>(Configuration.GetSection("EmailSettings"));

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using HN.Management.Engine.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using HN.Management.Manager.Services;
-using System.Linq;
+using AutoMapper;
+using HN.ManagementEngine.Models;
 
 namespace HN.Management.Web.Apis.V1.Controllers
 {
@@ -16,15 +17,13 @@ namespace HN.Management.Web.Apis.V1.Controllers
     {
         private readonly IUserService userService;
         private readonly TokenService tokenService;
-        private readonly IIdentityWrapperService identityWrapperService;
-        public AuthController(
-            IUserService userService,
-            TokenService tokenService,
-            IIdentityWrapperService identityWrapperService)
+        private readonly IMapper _mapper;
+
+        public AuthController(IUserService userService, TokenService tokenService, IMapper mapper)
         {
             this.userService = userService;
             this.tokenService = tokenService;
-            this.identityWrapperService = identityWrapperService;
+            this._mapper = mapper;
         }
 
         [AllowAnonymous]
@@ -41,19 +40,11 @@ namespace HN.Management.Web.Apis.V1.Controllers
                 throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
             }
 
-            var user = await this.userService.GetUserAsync(loginRequest)
+            var userResponse = await this.userService.GetUserAsync(loginRequest)
                 ?? throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.Unauthorized);
 
-            var privileges = identityWrapperService.GetPrivilegesByRoleId(user?.Role.Id)
-                                                   .Select(x => x.Name)
-                                                   .ToList();
-
-            if (privileges is null)
-            {
-                throw new ApiException(AppResource.InvalidCredentials, HttpStatusCode.NotFound);
-            }
-
-            var token = tokenService.GenerateToken(user, privileges);
+            var user = _mapper.Map<User>(userResponse); 
+            var token = tokenService.GenerateToken(user);
 
             return Ok(new
             {

@@ -21,8 +21,8 @@ using User = HN.ManagementEngine.Models.User;
 using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Auth;
 using HN.Management.Manager.Services.Auth;
-using HN.Management.Manager.Services.Wrappers;
-using HN.Management.Manager.Services.DataInitializer;
+using HN.Management.Manager.Services.BlobStorage;
+using HN.Management.Web.Mapper;
 
 namespace HN.Management.Web.Extensions
 {
@@ -30,18 +30,6 @@ namespace HN.Management.Web.Extensions
     {
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
         {
-            /// Services
-            service.AddScoped<IPaypalService, PaypalService>();
-            service.AddScoped<IEmailService, EmailService>();
-            service.AddScoped<IDonationService, DonationService>();
-            service.AddScoped<IUserService, UserService>();
-            service.AddScoped<IStripeService, StripeService>();
-            service.AddScoped<IRoleService, RoleService>();
-            service.AddScoped<IPrivilegeService, PrivilegeService>();
-            service.AddScoped<IRolePrivilegeService, RolePrivilegeService>();
-            service.AddScoped<TokenService>();
-
-            /// Repositories
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
@@ -55,6 +43,18 @@ namespace HN.Management.Web.Extensions
             // Seed Database
             service.AddScoped<IDataInitializerService, DataInitializerService>();
             service.AddHttpContextAccessor();
+            service.AddScoped<TokenService>();
+
+            // Blob Storage Service
+            service.AddScoped<IBlobStorageService, BlobStorageService>();
+
+            service.AddScoped<IPaypalService, PaypalService>();
+            service.AddScoped<IEmailService, EmailService>();
+            service.AddScoped<IDonationService, DonationService>();
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IStripeService, StripeService>();
+            service.AddScoped<IRolePrivilegeService, RolePrivilegeService>();
+            service.AddScoped<IRoleService, RoleService>();
         }
 
         public static void ConfigureRedis(this IServiceCollection services)
@@ -145,8 +145,16 @@ namespace HN.Management.Web.Extensions
             services.AddScoped<IDataReader<Privilege>, PrivilegeDataAccessor>();
             services.AddScoped<IDataManager<Privilege>, PrivilegeDataAccessor>();
 
-            services.AddScoped<IDataReader<RolePrivilege>, RolePrivilegeDataAccessor>();
-            services.AddScoped<IDataManager<RolePrivilege>, RolePrivilegeDataAccessor>();
+        }
+
+        public static void ConfigureMapping(this IServiceCollection services)
+        {
+            // Register AutoMapper and all profiles in the current assembly
+            services.AddAutoMapper(cfg =>
+            {
+                // Add your specific profiles if needed
+                cfg.AddProfile<ProfileMapping>();
+            }, typeof(ProfileMapping).Assembly);
         }
 
         private static ICosmosDbClient<T> CreateCosmosDbClient<T>(

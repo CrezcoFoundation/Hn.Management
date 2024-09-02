@@ -7,12 +7,11 @@ namespace HN.Management.Manager.Services.Interfaces
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAll();
-        Task<IEnumerable<User>> GetAllAsync();
-        Task<User> GetByIdAsync(string id);
-        Task<User> GetUserAsync(LoginRequest loginRequest);
-        Task<User> CreateUserAsync(User user);
-        Task<User> UpdateAsync(User user);
+        Task<IEnumerable<UserResponse>> GetAllAsync();
+        Task<UserResponse> GetByIdAsync(string id);
+        Task<UserResponse> GetUserAsync(LoginRequest loginRequest);
+        Task<UserResponse> CreateUserAsync(UserRequest user);
+        Task<UserResponse> UpdateAsync(User user);
         Task<bool> DeleteAsync(string id);
     }
 }

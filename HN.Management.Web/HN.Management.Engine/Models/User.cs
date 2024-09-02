@@ -24,13 +24,18 @@ namespace HN.ManagementEngine.Models
         [JsonProperty("username")]
         public string Username { get; set; }
 
+        [JsonProperty("fullname")]
+        public string FullName { get; set; }
+
         [JsonProperty("isEmailConfirmed")]
         public bool IsEmailConfirmed { get; set; }
 
-        [JsonProperty("password")]
-        public string Password { get; set; }
+        [JsonProperty("passwordHash")]
+        public string PasswordHash { get; set; }
 
         [JsonProperty("role")]
         public Role Role { get; set; }
+        public string BlobName { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

@@ -13,11 +13,6 @@ export const routes: Routes = [
     path: 'give',
     loadComponent: () => import('./website/give/give/give.component').then(c => c.GiveComponent)
   },
-
-  {
-    path: 'auth',
-    loadChildren: () => import('../app/core/auth/auth.module').then((m) => m.AuthModule),
-  },
   { path: 'projects/university',
     loadComponent: () => import('./website/projects/university-sponsorship/university-sponsorship.component').then(c => c.UniversitySponsorshipComponent)
   },
@@ -32,9 +27,5 @@ export const routes: Routes = [
   },
   { path: '',
     loadComponent: () => import('./website/home/home.component').then(c => c.HomeComponent)
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('../app/admin/admin.module').then((m) => m.AdminModule),
   },
 ];

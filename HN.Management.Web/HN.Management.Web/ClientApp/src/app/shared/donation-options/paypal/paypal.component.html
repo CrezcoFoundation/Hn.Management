@@ -17,8 +17,9 @@
     </div>
     <!-- CashApp Container End -->
   </div>
+
+  <!-- Stripe Container Start -->
   <div class="col-5 payment-option">
-    <!-- Stripe Container Start -->
     <div class="d-flex flex-column align-items-center justify-content-center">
       <a role="button" (click)="openModalStripe()">
         <img class="stripe-logo" src="../../../assets/Image/payment-logos/Stripe-logo.png" alt="stripe logo" />
@@ -43,7 +44,7 @@
 
 <!-- CashApp Modal -->
 <div class="modalqr-backdrop" *ngIf="isModalCashAppOpen" (click)="closeModalCashApp()"></div>
-<div class="modalqr" *ngIf="isModalCashAppOpen">
+<div class="modalqr" *ngIf="isModalCashAppOpen" data-aos="fade-up">
   <div class="modalqr-header">
     <!-- <h3 class="text-center">CashApp QR</h3> -->
     <button class="btn-close" (click)="closeModalCashApp()"></button>
@@ -55,7 +56,7 @@
 
 <!-- Stripe Modal -->
 <div class="modalqr-backdrop" *ngIf="isModalStripeAppOpen" (click)="openModalStripe()"></div>
-<div class="modalqr" *ngIf="isModalStripeAppOpen">
+<div class="modalqr" *ngIf="isModalStripeAppOpen" data-aos="fade-up">
   <div class="modalqr-header">
     <button class="btn-close" (click)="closeModalStripe()"></button>
   </div>
@@ -66,7 +67,7 @@
 
 <!-- Zelle Modal -->
 <div class="modalqr-backdrop" *ngIf="isModalZelleOpen" (click)="closeModalZelle()"></div>
-<div class="modalqr" *ngIf="isModalZelleOpen">
+<div class="modalqr" *ngIf="isModalZelleOpen" data-aos="fade-up">
   <div class="modalqr-header">
     <!-- <h3 class="text-center">Zelle QR</h3> -->
     <button class="btn-close" (click)="closeModalZelle()"></button>

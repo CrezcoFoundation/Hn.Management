@@ -4,6 +4,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import { StripeDonationComponent } from "../../stripe-donation/stripe-donation.component";
 
 @Component({
   standalone: true,
@@ -11,8 +12,9 @@ import { environment } from 'src/environments/environment';
     RouterModule,
     CommonModule,
     HttpClientModule,
-    TranslateModule
-  ],
+    TranslateModule,
+    StripeDonationComponent
+],
   selector: 'app-paypal',
   templateUrl: './paypal.component.html',
   styleUrls: ['./paypal.component.scss'],
@@ -39,6 +41,7 @@ export class PaypalComponent implements OnInit {
 
   isModalCashAppOpen = false;
   isModalZelleOpen = false;
+  isModalStripeAppOpen = false;
 
   openModalCashApp() {
     this.isModalCashAppOpen = true;
@@ -46,6 +49,14 @@ export class PaypalComponent implements OnInit {
 
   closeModalCashApp() {
     this.isModalCashAppOpen = false;
+  }
+
+  openModalStripe() {
+    this.isModalStripeAppOpen = true;
+  }
+
+  closeModalStripe() {
+    this.isModalStripeAppOpen = false;
   }
 
   openModalZelle() {

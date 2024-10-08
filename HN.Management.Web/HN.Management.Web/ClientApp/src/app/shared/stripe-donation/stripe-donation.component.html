@@ -1,13 +1,13 @@
-<section id="section-donation" class="mb-5">
-  <div class="container col-9">
+<section id="section-donation">
+  <div>
     <div class="row align-items-center justify-content-center">
-      <div class="col-5">
-        <div class="card" style="width: 28rem;">
+      <div class="col-12">
+        <div class="card">
           <img
             src="https://images.unsplash.com/photo-1505455184862-554165e5f6ba?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGFuZCUyMGZsb3dlcnN8ZW58MHx8MHx8fDA%3D"
             class="card-img-top" alt="...">
           <div class="card-body">
-            <div class="container mt-5">
+            <div class="container mt-1">
               <div *ngIf="currentStep === 1">
                 <form [formGroup]="donorFormGroup" (ngSubmit)="donorOnSubmit()">
                   <h2 class="text-center">{{ paso1 }}</h2>

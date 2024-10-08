@@ -20,7 +20,7 @@
   <div class="col-5 payment-option">
     <!-- Stripe Container Start -->
     <div class="d-flex flex-column align-items-center justify-content-center">
-      <a disabled>
+      <a role="button" (click)="openModalStripe()">
         <img class="stripe-logo" src="../../../assets/Image/payment-logos/Stripe-logo.png" alt="stripe logo" />
       </a>
     </div>
@@ -50,6 +50,17 @@
   </div>
   <div class="modalqr-body">
     <img class="qr-image" src="/assets/Image/payment-logos/Cashapp-qr.jpeg" alt="QR CashApp">
+  </div>
+</div>
+
+<!-- Stripe Modal -->
+<div class="modalqr-backdrop" *ngIf="isModalStripeAppOpen" (click)="openModalStripe()"></div>
+<div class="modalqr" *ngIf="isModalStripeAppOpen">
+  <div class="modalqr-header">
+    <button class="btn-close" (click)="closeModalStripe()"></button>
+  </div>
+  <div class="modalqr-body col">
+    <app-stripe-donation></app-stripe-donation>
   </div>
 </div>
 

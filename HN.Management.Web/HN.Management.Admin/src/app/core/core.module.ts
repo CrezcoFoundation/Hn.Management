@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from '../features/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidebarComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddUserComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidebarComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddUserComponent
   ]
 })
 export class CoreModule { }

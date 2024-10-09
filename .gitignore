@@ -72,3 +72,4 @@ HN.Management.Web/HN.Management.Web/ClientApp/dist/
 HN.Management.Web/node_modules/
 /HN.Management.Web/.vs/HN.Management.Web/DesignTimeBuild/.dtbcache.v2
 /HN.Management.Web/HN.Management.Web/ClientApp/package-lock.json
+HN.Management.Web/HN.Management.Admin/.angular/cache/

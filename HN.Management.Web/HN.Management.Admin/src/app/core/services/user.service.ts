@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../interfaces/user';
 import { AuthService } from './auth.service';
 import { environment } from '../../../environments/environment';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,11 @@ export class UserService {
     return this.http.get<User[]>(`${this.baseUrl}${this.userBase}all`, { headers: httpHeaders });
   }
 
-  create( user: User ){
+  create( _newUser: FormData ){
     const httpHeaders: HttpHeaders = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('currentUser')}`
     });
-    return this.http.post<any>(`${this.baseUrl}${this.userBase}create`, user, { headers: httpHeaders });
+    return this.http.post<any>(`${this.baseUrl}${this.userBase}create`, _newUser, { headers: httpHeaders });
   }
 
   update( user: User ){

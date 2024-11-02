@@ -1,35 +1,35 @@
 <div class="container-fluid bg-contact">
   <div class="container d-grid place-items-center card-contact mb-5 mb-lg-0">
-    <div class="col-12 cards d-flex flex-column-reverse flex-lg-row align-items-center rounded-4 mt-lg-5">
-      <div class="d-flex flex-column align-items-left px-3 p-lg-5 bg-violet col-12 col-lg-5">
-        <div class="my-lg-5 py-lg-3 d-flex flex-column gap-4">
+    <div class="col-12 cards d-flex flex-column-reverse flex-lg-row align-items-start rounded-4 mt-lg-5">
+      <div class="d-flex flex-column align-items-left bg-violet col-12 col-lg-5">
+        <div class="d-flex flex-column gap-5">
           <div class="d-none d-lg-block">
             <h3 class="text-lg-start text-center contact-title text-uppercase m-0">
               {{ 'PAGE_CONTACT.Title_left' | translate }}
             </h3>
           </div>
           <div class="d-none d-lg-block">
-            <p class="m-0 desc_contact-block text-center text-lg-start">
+            <p class="m-0 desc_contact-block text-center text-lg-start col-lg-10">
               {{ 'PAGE_CONTACT.Paragraph_1' | translate }}
             </p>
           </div>
           <div class="d-flex flex-column gap-3">
-            <div class="d-flex align-items-start justify-content-lg-start justify-content-center gap-2">
-              <a href="mailto:info@crezcofoundation.org">
+            <div class="d-flex align-items-start justify-content-start gap-2">
+              <a href="{{ mailTo }}">
                 <p class="mb-0 link-email">{{ 'PAGE_CONTACT.Contact_email' | translate }}</p>
               </a>
             </div>
-            <div class="d-flex align-items-start justify-content-lg-start justify-content-center gap-2">
+            <div class="d-flex align-items-start justify-content-start gap-2">
               <p class="mb-0 link-number">{{ 'PAGE_CONTACT.Contact_phone' | translate }}</p>
             </div>
           </div>
-          <div class="d-flex flex-column align-items-lg-start align-items-center gap-2 mt-2">
+          <div class="col-12 col-lg-6 d-flex flex-column align-items-start align-items-lg-center gap-2 mt-2">
             <div>
-              <h4 class="text-center social-media_title">
+              <h4 class="text-center social-media_title m-0">
                 {{ 'PAGE_CONTACT.Visit_us' | translate }}
               </h4>
             </div>
-            <div class="d-flex align-items-center justify-content-center gap-4 content-social-icons">
+            <div class="d-flex align-items-center gap-4 content-social-icons">
               <a href="" target="_blank" class="icons-contact">
                 <svg width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="24.404" cy="24.904" r="24.404" fill="#613DF4"/>
@@ -60,30 +60,30 @@
         <div class="d-flex flex-column mx-md-4 px-md-4 my-5 my-lg-0 justify-content-center align-items-center row">
           <div class="d-block d-lg-none mb-4 d-flex flex-column gap-2 px-0">
             <div>
-              <h3 class="text-lg-start text-center contact-title text-uppercase m-0">
+              <h3 class="text-start contact-title text-uppercase m-0">
                 {{ 'PAGE_CONTACT.Title_left' | translate }}
               </h3>
             </div>
             <div>
-              <p class="m-0 desc_contact-block text-center text-lg-start">
+              <p class="m-0 desc_contact-block text-start">
                 {{ 'PAGE_CONTACT.Paragraph_1' | translate }}
               </p>
             </div>
           </div>
-          <h3 class="contact-subtitle text-center mb-4">{{ 'PAGE_CONTACT.Title_right' | translate }}</h3>
+          <h3 class="contact-subtitle text-start mb-4">{{ 'PAGE_CONTACT.Title_right' | translate }}</h3>
           <form [formGroup]="contactForm" (ngSubmit)="onSubmited()">
             <div class="mb-3">
               <label for="userName" class="form-label">{{ 'PAGE_CONTACT.Label_1' | translate }}</label>
               <input type="text" class="form-control py-2" id="userName" aria-describedby="yourName"
-                placeholder="{{ 'PAGE_CONTACT.Label_1' | translate }}" formControlName="name" required />
+                formControlName="name" required />
               <label for="userEmail" class="mt-3 form-label">{{ 'PAGE_CONTACT.Label_2' | translate }}</label>
               <input type="email" class="form-control py-2" id="userEmail" aria-describedby="emailHelp"
-                placeholder="{{ 'PAGE_CONTACT.Label_2' | translate }}" formControlName="email" required />
+                formControlName="email" required />
             </div>
             <div class="mb-0">
               <label for="messageTextArea" class="form-label">{{ 'PAGE_CONTACT.Label_3' | translate }}</label>
-              <textarea [(ngModel)]="textChar" (input)="updateCharCount()" class="form-control py-3 py-lg-2 flex-wrap"
-                id="messageTextArea" placeholder="{{ 'PAGE_CONTACT.Label_3' | translate }}" cols="30" rows="5" maxlength="200"
+              <textarea style="overflow:hidden" style="resize:none" [(ngModel)]="textChar" (input)="updateCharCount()" class="form-control py-3 py-lg-2 flex-wrap"
+                id="messageTextArea" cols="30" rows="5" maxlength="{{ charLimits }}"
                 formControlName="message" required></textarea>
               <!-- Character Counter -->
               <div id="character-counter"
@@ -96,8 +96,8 @@
                   </label>
                 </div>
                 <div>
-                  <p [ngClass]="{ 'char-count-red': charCount >= 150 }" class="char-count-red m-0">
-                    {{ charCount }}/200
+                  <p [ngClass]="{ 'char-count-red': charCount >= (charLimits - 50) }" class="char-count-red m-0">
+                    {{ charCount }}/{{ charLimits }}
                   </p>
                 </div>
               </div>

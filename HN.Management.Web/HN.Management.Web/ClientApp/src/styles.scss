@@ -19,12 +19,17 @@
   --Inter-text-body-letter-spacing: 0px;
   --Inter-text-body-line-height: normal;
   --Inter-text-body-font-style: normal;
+
   --Oswald-text-body-font-family: "Oswald", Helvetica;
   --Oswald-text-body-font-weight: 700;
   --Oswald-text-body-font-size: 26px;
   --Oswald-text-body-letter-spacing: 0px;
   --Oswald-text-body-line-height: 45px;
   --Oswald-text-body-font-style: normal;
+
+  --Newsreader-text-body-font-family: "Newsreader", Helvetica;
+  --Newsreader-text-body-font-normal: normal;
+  --Newsreader-text-body-font-italic: italic;
 }
 
 /* ========= Oswald Font Family ========= */
@@ -116,6 +121,23 @@
   src: url("../src/assets/fonts/Inter/woff/Inter-Black.woff") format("woff");
   font-weight: 800;
   font-style: normal;
+}
+
+/* ========= NewsReader Font Family ========= */
+@font-face {
+  font-family: "Newsreader";
+  src: url("../src/assets/fonts/NewsReader/Newsreader-regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Newsreader-Italic";
+  src: url("../src/assets/fonts/NewsReader/Newsreader-italic.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: italic;
 }
 
 /* FontAwsome Styles Import */

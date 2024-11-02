@@ -27,19 +27,22 @@ export class ContactUsComponent implements OnInit {
   emailCrezco: string = 'info@crezcofoundation.org';
   numberCrezco: string = '33 3333 3333 333';
 
+  mailTo: string = `mailto:${this.emailCrezco}`
+
   // @ts-ignoretypes
   contactForm: FormGroup;
 
   // Conteo de caracteres para el textArea
   textChar: string = '';
   charCount: number = 0;
+  charLimits: number = 400;
 
   updateCharCount() {
     this.charCount = this.textChar.length;
-    if (this.charCount > 200) {
-      // Se limita el texto a 200 caracteres
-      this.textChar = this.textChar.substring(0, 200);
-      this.charCount = 200;
+    if (this.charCount > this.charLimits) {
+      // Se limita el texto a charLimits caracteres
+      this.textChar = this.textChar.substring(0, this.charLimits);
+      this.charCount = this.charLimits;
     }
   }
 

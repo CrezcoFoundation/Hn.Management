@@ -49,10 +49,10 @@
     "University_Page": {
       "Abreviation-desktop": "Las investigaciones han demostrado que las oportunidades de educación...",
       "Abreviation-mobile": "Las investigaciones han demostrado que las...",
-      "Paragraph_1": "Las mayores oportunidades de educación son la clave para romper los ciclos generacionales negativos. Al brindarles a los estudiantes acceso a oportunidades de educación superior, los capacitamos para trascender las limitaciones de sus circunstancias pasadas y actuales. Los estudiantes se preparan para el éxito personal y obtienen conocimientos, habilidades y confianza para impactar positivamente a sus futuras familias y comunidades.",
+      "Paragraph_1": "Las mayores oportunidades de educación son la clave para romper los ciclos generacionales negativos.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "La educación capacita a las personas para interrumpir los ciclos destructivos de empobrecimiento cognitivo, emocional y financiero, iniciando un efecto dominó de transformación positiva dentro de la comunidad circundante.",
+        "quote_autor": "Amanda Corea, Fundadora de Crezco"
       },
       "Subjects": {
         "subject_1": {
@@ -70,10 +70,10 @@
     "Special_education": {
       "Abreviation-desktop": "En Crezco, creemos firmemente que no hay una solución única para todos...",
       "Abreviation-mobile": "En Crezco, creemos firmemente que no hay una solución...",
-      "Paragraph_1": "No hay una solución única para todos cuando se trata de educación, hay niños dentro de nuestra esfera de influencia que requieren recursos educativos especializados para prosperar. Dichos recursos no siempre están fácilmente disponibles o son asequibles en la comunidad local, por lo que estamos dedicados a abordar este desafío de frente.",
+      "Paragraph_1": "No hay una solución única para todos cuando se trata de educación; hay niños que requieren recursos educativos especializados para prosperar.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "Todos los estudiantes pueden aprender, pero no el mismo día ni de la misma manera.",
+        "quote_autor": "John Evans"
       },
       "Subjects": {
         "subject_1": {
@@ -90,10 +90,10 @@
     "Community_support": {
       "Abreviation-desktop": "Atender las necesidades de la comunidad local permite a Crezco...",
       "Abreviation-mobile": "Atender las necesidades de la comunidad local permite a Crezco...",
-      "Paragraph_1": "Crezco busca ser una luz en un mundo difícil, encontrando maneras de crear más oportunidades de crecimiento en la comunidad circundante. Desde afrontar las consecuencias de desastres naturales devastadores hasta brindar apoyo inquebrantable durante tragedias familiares personales y ofrecer ayuda especializada para desafíos educativos, nuestro propósito es claro: romper ciclos negativos e inspirar un progreso positivo.",
+      "Paragraph_1": "Crezco busca ser una luz en un mundo difícil, creando formas de crear más oportunidades de crecimiento.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "Solos poco podemos hacer; Juntos podemos hacer mucho.",
+        "quote_autor": "Helen Keller"
       },
       "Subjects": {
         "subject_1": {
@@ -111,10 +111,11 @@
     "Student_mission": {
       "Abreviation-desktop": "El programa de viaje misionero estudiantil de Crezco se centra en fomentar un...",
       "Abreviation-mobile": "El programa de viaje misionero estudiantil de Crezco...",
-      "Paragraph_1": "El propósito de este programa es fomentar un profundo sentido de servicio y altruismo como principios fundamentales en cada estudiante brindándoles la oportunidad de hacer contribuciones significativas a las comunidades locales y globales. Todo ello reconociendo la generosidad que también han recibido de los demás.",
+      "Paragraph_1": "El servicio y el altruismo son principios fundamentales necesarios para hacer contribuciones significativas a la comunidad.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "...Vayamos tras Dios, que acumula todas las riquezas que podamos conseguir para hacer el bien, para ser ricos en ayudar a los demás, para ser extravagantemente generosos.",
+        "quote_phrase-2": "Si lo hacen, construirán un tesoro que durará y obtendrán vida que es verdaderamente vida.",
+        "quote_autor": "1 Timoteo 16:17-19 (MSG)"
       },
       "Subjects": {
         "subject_1": {

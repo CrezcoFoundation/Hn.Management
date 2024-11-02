@@ -1,43 +1,35 @@
 <!-- Image banner section start -->
 <section class="container-fluid p-0">
-  <div class="d-none d-lg-block mt-5">
-    <img class="banner-special-education mt-3"
-      src="../../assets/Image/Projects-images/special-education/banner_special-education.webp"
-      alt="Special Education banner" />
-  </div>
-  <div class="d-block d-lg-none pt-5 mt-2">
-    <img class="banner-special-education"
-      src="../../assets/Image/Projects-images/special-education/banner_special-education-mobile.webp"
-      alt="Special Education banner" />
+  <div class="mt-5">
+    <div class="banner-education d-flex align-items-end align-items-lg-center justify-content-center">
+      <div class="banner_content container d-flex flex-column col-lg-10 text-center text-lg-start pb-4 p-lg-5 gap-2 gap-lg-3">
+        <h2 class="banner_content-title m-0">{{ 'NAVBAR.Projects.Project_Footer' | translate }}</h2>
+        <h3 class="banner_content-project m-0">{{ 'NAVBAR.Projects.Project_2' | translate }}</h3>
+        <p class="banner_content-description m-0 col-lg-6">{{ 'PAGE_PROJECTS.Special_education.Paragraph_1' | translate }}</p>
+        <a class="donate-btn" id="hover-link">
+          <button class="btn btn-primary py-3 px-5 py-lg-2 px-lg-3" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          {{ 'PAGE_HOME.Donate' | translate }}
+            <img class="ms-1 heart-vector" src="../../../assets/Image/home-page/heart-vector.svg" alt="heart-vector" loading="lazy">
+          </button>
+        </a>
+      </div>
+      <div class="banner_img d-none d-lg-block">
+        <img class="mt-3" src="../../assets/Image/Projects-images/special-education/banner_special-education.webp"
+        alt="Special Education banner" loading="lazy"/>
+      </div>
+      <div class="banner_img d-block d-lg-none">
+        <img class="mt-3" src="../../assets/Image/Projects-images/special-education/banner_special-education-mobile.webp"
+        alt="Special Education banner mobile" loading="lazy"/>
+      </div>
+    </div>
   </div>
 </section>
 <!-- Image banner section end -->
 
-<!-- Description section start -->
-<section class="container p-0 my-5 py-lg-3">
-  <div class="title-project px-3 px-lg-0">
-    <h2 class="text-start text-lg-center">{{ 'NAVBAR.Projects.Project_2' | translate }}</h2>
-  </div>
-  <div class="d-flex flex-column align-items-center justify-content-center my-4">
-    <p class="text-start text-lg-center description-project">
-      {{ 'PAGE_PROJECTS.Special_education.Paragraph_1' | translate }}
-    </p>
-  </div>
-  <div class="d-flex flex-column align-items-center justify-content-center mt-4">
-    <a class="donate-btn" id="hover-link">
-      <button class="btn btn-primary py-3 px-5 py-lg-2 px-lg-3" data-bs-toggle="modal"
-        data-bs-target="#exampleModal">
-        {{ 'PAGE_HOME.Donate' | translate }}
-        <img class="ms-1 heart-vector" src="../../../assets/Image/home-page/heart-vector.svg" alt="heart-vector">
-      </button>
-    </a>
-  </div>
-</section>
-<!-- Description section end -->
-
 <!-- Boxes section start -->
-<section class="container-fluid p-0 my-lg-5">
-  <div class="d-flex flex-column-reverse flex-lg-row container my-4 col-11 gap-4 gap-lg-0">
+<section class="container p-0 my-lg-5 py-lg-5">
+  <div class="d-flex flex-column-reverse flex-lg-row-reverse container my-4 col-11 gap-4 gap-lg-0">
     <div class="d-flex flex-column align-items-center justify-content-center gap-3">
       <div class="col-lg-10 col-12 text-box">
         <div class="title-box mb-4">
@@ -47,32 +39,32 @@
           <p class="text-start">
             {{ 'PAGE_PROJECTS.Special_education.Subjects.subject_1.description_1' | translate }}
           </p>
-          <p class="text-start">
+          <p class="text-start pt-lg-4">
             {{ 'PAGE_PROJECTS.Special_education.Subjects.subject_1.description_2' | translate }}
           </p>
         </div>
       </div>
     </div>
     <div class="image-box col-lg-6 col-12 px-0 text-center">
-      <img src="../../assets/Image/Projects-images/special-education/special_education-support-services.webp" alt="Support Services Image" />
+      <img src="/assets/Image/Projects-images/special-education/special_education-support-services.webp" alt="Emotional Health" loading="lazy"/>
     </div>
   </div>
 
-  <div class="d-flex flex-column-reverse flex-lg-row-reverse container my-4 col-11 gap-4 gap-lg-0">
+  <div class="d-flex flex-column-reverse flex-lg-row container my-4 col-11 gap-4 gap-lg-0">
     <div class="d-flex flex-column align-items-center justify-content-center gap-3">
       <div class="col-lg-10 col-12 text-box">
         <div class="title-box mb-4">
           <h3 class="text-start tex-lg-center">{{ 'PAGE_PROJECTS.Special_education.Subjects.subject_2.title' | translate }}</h3>
         </div>
         <div class="description-box">
-          <p class="text-start">
+          <p class="text-start pt-lg-4">
             {{ 'PAGE_PROJECTS.Special_education.Subjects.subject_2.description_1' | translate }}
           </p>
         </div>
       </div>
     </div>
     <div class="image-box col-lg-6 col-12 px-0 text-center">
-      <img src="../../assets/Image/Projects-images/special-education/special_education-growth-child.webp" alt="Growth Child Image" />
+      <img src="/assets/Image/Projects-images/special-education/special_education-growth-child.webp" alt="Emotional Health Image" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -84,9 +76,10 @@
 
 <!-- Paragraph Section Start -->
 <section class="container-fluid section-paragraph">
-  <div class="container">
-    <div class="d-flex flex-column align-items-center justify-content-center my-lg-5">
-      <img class="img-quote" src="/assets/Image/Projects-images/special-education/special_education-quote.webp" alt="Special-Education_quote">
+  <div class="container col-12 col-lg-8 py-5">
+    <div class="d-flex flex-column align-items-center justify-content-center my-lg-5 gap-3">
+      <span class="text-quote text-center">“{{ 'PAGE_PROJECTS.Special_education.Quote.quote_phrase' | translate }}”</span>
+      <p class="text-quote_author">{{ 'PAGE_PROJECTS.Special_education.Quote.quote_autor' | translate }}</p>
     </div>
   </div>
 </section>
@@ -97,9 +90,9 @@
   <div class="container my-5 my-lg-0">
     <div class="d-flex flex-column align-items-center justify-content-center my-lg-5">
       <img class="img-gallery d-none d-lg-block" src="assets/Image/Projects-images/special-education/special_education-gallery.webp"
-        alt="Special Education Gallery">
+        alt="Special Education Gallery" loading="lazy">
       <img class="img-gallery d-block d-lg-none" src="assets/Image/Projects-images/special-education/special_education-gallery-mobile.webp"
-        alt="Special Education Gallery">
+        alt="Special Education Gallery" loading="lazy">
     </div>
   </div>
 </section>
@@ -108,7 +101,7 @@
 <!-- Projects Section Start -->
 <section class="container-fluid p-0 section-projects_card">
 
-  <div class="text-center d-flex flex-column align-items-center justify-content-center title-project my-5">
+  <div class="text-center d-flex flex-column align-items-center justify-content-center title-project py-5">
     <h3 class="text-center">{{ 'GENERAL.Other_projects' | translate }}</h3>
   </div>
 
@@ -120,7 +113,7 @@
           class="d-flex flex-row justify-content-center justify-content-lg-between align-items-center card-body gap-3 pe-3 pe-md-4">
           <div>
             <img src="../../../assets/Image/home-page/Cards-images/card-image-university.webp"
-              class="card-img-top" alt="card-image-university" />
+              class="card-img-top" alt="card-image-university" loading="lazy" />
           </div>
           <div class="card-body-content d-flex flex-column align-items-start justify-content-center gap-2">
             <h4 class="card-title mb-0">{{ 'NAVBAR.Projects.Project_1' | translate }}</h4>
@@ -143,7 +136,7 @@
           class="d-flex flex-row justify-content-center justify-content-lg-between align-items-center card-body gap-3 pe-3 pe-md-4">
           <div>
             <img src="../../../assets/Image/home-page/Cards-images/card-image-community.webp" class="card-img-top"
-              alt="card-image-community-support" />
+              alt="card-image-community-support" loading="lazy" />
           </div>
           <div class="card-body-content d-flex flex-column align-items-start justify-content-center gap-2">
             <h4 class="card-title mb-0">{{ 'NAVBAR.Projects.Project_3' | translate }}</h4>
@@ -166,7 +159,7 @@
           class="d-flex flex-row justify-content-center justify-content-lg-between align-items-center card-body gap-3 pe-3 pe-md-4">
           <div>
             <img src="../../../assets/Image/home-page/Cards-images/card-image-mission-trip.webp" class="card-img-top"
-              alt="card-image-mission-trip" />
+              alt="card-image-mission-trip" loading="lazy"/>
           </div>
           <div class="card-body-content d-flex flex-column align-items-start justify-content-center gap-2">
             <h4 class="card-title mb-0">{{ 'NAVBAR.Projects.Project_4' | translate }}</h4>

@@ -22,13 +22,15 @@ using HN.Management.Engine.Models.Auth;
 using HN.Management.Engine.Repositories.Auth;
 using HN.Management.Engine.CosmosDb.DataInitializer;
 using HN.Management.Manager.Services.Auth;
+using HN.Management.Manager.Services.BlobStorage;
+using HN.Management.Web.Mapper;
 
 namespace HN.Management.Web.Extensions
 {
     public static class MiddlewareServiceExtension
     {
         public static void ConfigureClassesWithInterfaces(this IServiceCollection service)
-        { 
+        {
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IDonationRepository, DonationRepository>();
             service.AddScoped<IPaypalRepository, PaypalRepository>();
@@ -38,7 +40,10 @@ namespace HN.Management.Web.Extensions
             service.AddScoped<IDataInitializer, DataInitializer>();
 
             service.AddHttpContextAccessor();
-            service.AddScoped<Manager.Services.TokenService>();
+            service.AddScoped<TokenService>();
+
+            // Blob Storage Service
+            service.AddScoped<IBlobStorageService, BlobStorageService>();
 
             service.AddScoped<IPaypalService, PaypalService>();
             service.AddScoped<IEmailService, EmailService>();
@@ -132,6 +137,16 @@ namespace HN.Management.Web.Extensions
             services.AddScoped<IDataReader<RolePrivilege>, PrivilegeDataAccessor>();
             services.AddScoped<IDataManager<RolePrivilege>, PrivilegeDataAccessor>();
 
+        }
+
+        public static void ConfigureMapping(this IServiceCollection services)
+        {
+            // Register AutoMapper and all profiles in the current assembly
+            services.AddAutoMapper(cfg =>
+            {
+                // Add your specific profiles if needed
+                cfg.AddProfile<ProfileMapping>();
+            }, typeof(ProfileMapping).Assembly);
         }
 
         private static ICosmosDbClient<T> CreateCosmosDbClient<T>(

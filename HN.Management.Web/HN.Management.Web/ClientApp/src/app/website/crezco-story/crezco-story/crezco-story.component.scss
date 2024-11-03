@@ -10,15 +10,23 @@
 }
 
 .title-project h2 {
-  font-size: 56px;
+  font-size: 40px;
   font-family: "Oswald", sans-serif !important;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 200;
   color: var(--basic-colors-black);
 }
 
+.title-project_width {
+  font-size: 32px;
+  font-family: "Newsreader-Italic", sans-serif !important;
+  font-style: italic;
+  color: var(--basic-colors-black);
+  max-width: 280px;
+}
+
 .title-project_section h2 {
-  font-size: 56px;
+  font-size: 48px;
   font-family: "Oswald", sans-serif !important;
   text-transform: uppercase;
   font-weight: bold;
@@ -27,13 +35,13 @@
 .description-project {
   font-family: Inter;
   font-size: 1.3rem;
+  font-weight: 300;
   font-style: normal;
   line-height: 1.5em;
-  max-width: 800px;
 }
 
 .section-knoledge {
-  background: var(--colors-gray-bg);
+  background: var(--basic-colors-white);
 }
 .section-influence {
   background: rgb(245, 225, 255);
@@ -55,14 +63,15 @@
   font-size: 40px;
   font-family: var(--Inter-text-body-font-family);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
 }
 
 .knoledge-content p,
 .influence-content p {
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-family: var(--Inter-text-body-font-family), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
   line-height: 2.2rem;
   font-style: normal;
   text-align: left;
@@ -107,7 +116,8 @@ div > .text-graylight {
 .grads {
   .card-grad {
     display: flex;
-    background: var(--language-colors-buttom);
+    /* background: var(--language-colors-buttom); */
+    border: 1.5px solid #9E9E9E;
     padding: 1.5rem;
     flex-direction: column;
     /* justify-content: start; */
@@ -130,23 +140,23 @@ div > .text-graylight {
       max-width: 200px;
       text-align: center;
       h5 {
-        font-size: 24px;
-        font-weight: 700;
+        font-size: 21.5px;
+        font-weight: 300;
       }
       p {
-        color: var(--blueviolet-colors-oficial);
-        font-size: 20px;
+        color: #9E9E9E;
+        font-size: 18px;
+        font-weight: 200;
       }
     }
   }
 }
 
-.title-project_width {
-  max-width: 350px;
-}
-
 .desc-project_width {
-  max-width: 650px;
+  font-family: var(--Inter-text-body-font-family);
+  max-width: 600px;
+  font-size: 21.5px;
+  font-weight: 200;
 }
 
 .btn-learn_more {
@@ -154,7 +164,8 @@ div > .text-graylight {
   font-size: 20px;
   color: white;
   border-radius: 100px;
-  padding: .8rem 2.5rem;
+  padding: 0.5rem 2.5rem;
+  width: auto;
   font-weight: 600;
 }
 
@@ -170,7 +181,7 @@ div > .text-graylight {
 
 .title-founders {
   font-family: var(--Oswald-text-body-font-family);
-  font-size: 42px;
+  font-size: 38px;
 }
 
 .founders {
@@ -208,9 +219,9 @@ div > .text-graylight {
   }
 }
 
-section {
+/* section {
   overflow-x: hidden;
-}
+} */
 
 .admin-section {
   background: var(--colors-gray-bg);
@@ -245,8 +256,8 @@ section {
 
   .knoledge-content p,
   .influence-content p {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 300;
     line-height: 2rem;
     font-style: normal;
     text-align: left;
@@ -282,7 +293,7 @@ section {
 
   .btn-learn_more {
     font-size: 16px;
-    padding: .8rem 7.2rem;
+    padding: 1rem 6rem;
   }
 
   .grads {
@@ -300,10 +311,10 @@ section {
       .card-grad_content {
         max-width: 200px;
         h5 {
-          font-size: 13px;
+          font-size: 14px;
         }
         p {
-          font-size: 13px;
+          font-size: 14px;
         }
       }
     }
@@ -322,7 +333,7 @@ section {
   }
   .title-founders {
     font-family: var(--Oswald-text-body-font-family);
-    font-size: 42px;
+    font-size: 32px;
   }
 
   .line_founders {

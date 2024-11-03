@@ -1,0 +1,150 @@
+<section id="section-donation" class="mb-5">
+  <div class="container col-9">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-5">
+        <div class="card" style="width: 28rem;">
+          <img
+            src="https://images.unsplash.com/photo-1505455184862-554165e5f6ba?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGFuZCUyMGZsb3dlcnN8ZW58MHx8MHx8fDA%3D"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="container mt-5">
+              <div *ngIf="currentStep === 1">
+                <form [formGroup]="donorFormGroup" (ngSubmit)="donorOnSubmit()">
+                  <h2 class="text-center">{{ paso1 }}</h2>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" id="email" class="form-control" formControlName="email">
+                  </div>
+                  <button type="submit" class="btn btn-success">Next</button>
+                  <!-- <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button> -->
+                </form>
+              </div>
+
+              <div *ngIf="currentStep === 2">
+                <form [formGroup]="donationDetailsFormGroup" (ngSubmit)="onPriceSubmit()">
+                  <h2 class="text-center">{{ paso2 }}</h2>
+                  <div class="mb-3">
+                    <div class="card-header">
+                      Overview
+                    </div>
+                    <div class="card-body">
+                      <ul class="list-group list-group-flush gap-3">
+                        <li class="list-group-item ps-0">
+                          <div class="d-flex align-items-center justify-content-start gap-4">
+                            <p class="m-0">Name:</p>
+                            {{donorCustomer.name }}
+                          </div>
+                        </li>
+                        <li class="list-group-item ps-0">
+                          <div class="d-flex align-items-center justify-content-start gap-4">
+                            <p class="m-0">Email:</p>
+                            {{donorCustomer.email }}
+                          </div>
+                        </li>
+                        <li class="list-group-item ps-0"></li>
+                      </ul>
+                    </div>
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                        #selectedDonationType id="donationType"
+                        (change)="changeDonationType(selectedDonationType.value)" formControlName="donationType">
+                        <option *ngFor="let donationtype of donationTypes" value="{{donationtype}}">{{donationtype}}</option>
+                      </select>
+                      <label for="floatingSelect">Tipo de donación:</label>
+                    </div>
+                    <!-- <div>
+                      <label for="donationType" class="form-label">Tipo de donacion: </label>
+                      <select #selectedDonationType id="donationType"
+                        (change)="changeDonationType(selectedDonationType.value)" formControlName="donationType">
+                        <option *ngFor="let donationtype of donationTypes" value="{{donationtype}}">{{donationtype}}
+                        </option>
+                      </select>
+                    </div> -->
+                    <div class="d-flex align-items-center justify-content-between mt-3">
+                      <div class="col-md-5">
+                        <label for="amount" class="form-label">Amount:</label>
+                        <input type="number" id="amount" class="form-control" formControlName="price">
+                      </div>
+                      <div class="col-md-5">
+                        <label for="floatingSelect" class="form-label">Moneda:</label>
+                        <select name="currency" id="currency" formControlName="currency" class="form-select">
+                          <option selected disabled>Choose a mount</option>
+                          <option *ngFor="let currency of currencyTypes" value="currency">{{currency}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3" *ngIf="donationDetailsFormGroup.controls['recurring']">
+                      <label for="recurring" class="form-label">Intervalo de: </label>
+                      <select id="recurring" formControlName="recurring" class="form-select">
+                        <option *ngFor="let interval of recurringTypes" value="{{interval}}">{{interval}}</option>
+                      </select>
+                    </div>
+                    <!-- <div>
+                      <label for="amount" class="form-label">Monto</label>
+                      <input type="number" id="amount" class="form-control" formControlName="price">
+
+                      <label for="currency" class="form-label">Moneda: </label>
+                      <select name="currency" id="currency" formControlName="currency">
+                        <option *ngFor="let currency of currencyTypes" value="currency">{{currency}}</option>
+                      </select>
+                    </div>
+                    <div *ngIf="donationDetailsFormGroup.controls['recurring']">
+                      <label for="recurring" class="form-label">Intervalo de: </label>
+                      <select id="recurring" formControlName="recurring">
+                        <option *ngFor="let interval of recurringTypes" value="{{interval}}">{{interval}}</option>
+                      </select>
+                    </div> -->
+
+                  </div>
+                  <button type="button" class="btn btn-secondary" (click)="previousStep()">Anterior</button>
+                  <button type="submit" [disabled]="!donationDetailsFormGroup.valid" class="btn btn-success">Guardar
+                    price</button>
+                  <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+                </form>
+              </div>
+
+              <div *ngIf="currentStep === 3">
+                <h2 class="text-center">{{ paso3 }}</h2>
+
+                <h2 class="text-center">Resumen</h2>
+
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{donorCustomer.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{donorCustomer.email }}</h6>
+                  </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{donationSummary.type }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{donationSummary.unitAmount }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{donationSummary.currency }}</h6>
+                  </div>
+                </div>
+
+                <button type="button" (click)="paymentIntent()" class="btn btn-success">Proceder a donar</button>
+                <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+              </div>
+
+              <div *ngIf="currentStep === 4">
+                <h2 class="text-center">{{ paso4 }}</h2>
+
+                <h2 class="text-center"> Completar la Donacion</h2>
+
+                <label for="donation-element">Card</label>
+                <div #donationConainer id="donation-element"></div>
+
+                <button type="button" (click)="confirmOneTimeDonationAndComplete()" class="btn btn-success">Donar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

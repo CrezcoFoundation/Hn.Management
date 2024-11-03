@@ -1,4 +1,5 @@
 ﻿using HN.Management.Engine.Models.Auth;
+using HN.Management.Engine.ViewModels;
 using HN.Management.Manager.Services.Interfaces;
 using HN.Management.Web.Attributes;
 using HN.ManagementEngine.Models;
@@ -32,7 +33,7 @@ namespace HN.Management.Web.Apis.V1.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> CreateAsync(User user)
+        public async Task<IActionResult> CreateAsync([FromForm]UserRequest user)
         {
             return Ok(await userService.CreateUserAsync(user));
         }

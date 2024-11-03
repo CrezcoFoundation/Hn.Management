@@ -31,11 +31,13 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@popperjs/core": "^2.11.8",
+    "@stripe/stripe-js": "^4.0.0",
     "@sweetalert2/ngx-sweetalert2": "^12.2.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.1",
     "jquery": "^3.7.1",
     "rxjs": "~7.8.0",
+    "stripe": "^16.2.0",
     "sweetalert2": "^11.6.13",
     "zone.js": "~0.13.1"
   },

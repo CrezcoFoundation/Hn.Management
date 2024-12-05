@@ -26,6 +26,10 @@ export class ContactUsComponent implements OnInit {
 
   emailCrezco: string = 'info@crezcofoundation.org';
   numberCrezco: string = '33 3333 3333 333';
+  facebookLink: string = 'https://www.facebook.com/share/19kCKb9zcP/?mibextid=LQQJ4d';
+  instagramLink: string = 'https://www.instagram.com/crezcofoundation/profilecard/?igsh=MXgyMW15c3p6bmhnbw=='
+  linkedinLink: string = 'https://www.linkedin.com/company/crezco-foundation?trk=public_profile_topcard-current-company'
+
 
   mailTo: string = `mailto:${this.emailCrezco}`
 

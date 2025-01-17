@@ -2,7 +2,10 @@
 <div class="my-5 row justify-content-center">
   <div class="col-5 payment-option">
     <div class="d-flex flex-column align-items-center justify-content-center">
-      <div id="paypal-donate-button-container"></div>
+      <a href='{{ paypal_url }}' target="_blank">
+        <img class="paypal-logo" src="/assets/Image/payment-logos/Paypal-logo.png" alt="Paypal logo" />
+      </a>
+      <!-- <div id="paypal-donate-button-container"></div> -->
     </div>
     <!-- CashApp Container Start -->
     <div class="d-none d-lg-flex flex-column align-items-center justify-content-center">
@@ -38,6 +41,17 @@
       </a>
     </div>
     <!-- Zelle Container End -->
+  </div>
+</div>
+
+<!-- Paypal Modal -->
+<div class="modalqr-backdrop" *ngIf="isModalPaypalOpen" (click)="closeModalPaypal()"></div>
+<div class="modalqr" *ngIf="isModalPaypalOpen">
+  <div class="modalqr-header">
+    <button class="btn-close" (click)="closeModalPaypal()"></button>
+  </div>
+  <div class="modalqr-body">
+
   </div>
 </div>
 

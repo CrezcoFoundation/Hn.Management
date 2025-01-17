@@ -19,6 +19,8 @@ import { environment } from 'src/environments/environment';
 })
 export class PaypalComponent implements OnInit {
 
+  paypal_url:string = 'https://www.paypal.com/US/fundraiser/charity/5099261';
+
   ngOnInit(): void {
     // @ts-ignore
     window.PayPal.Donation.Button({
@@ -37,8 +39,17 @@ export class PaypalComponent implements OnInit {
     }).render('#paypal-donate-button-container');
   }
 
+  isModalPaypalOpen = false;
   isModalCashAppOpen = false;
   isModalZelleOpen = false;
+
+  openModalPaypal() {
+    this.isModalPaypalOpen = true;
+  }
+
+  closeModalPaypal() {
+    this.isModalPaypalOpen = false;
+  }
 
   openModalCashApp() {
     this.isModalCashAppOpen = true;

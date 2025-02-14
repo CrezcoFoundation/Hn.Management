@@ -42,7 +42,7 @@
 .icons-contact svg {
   width: 40px;
   transition: .2s ease all;
-  fill: #00bf1b;
+  fill: rgb(69, 42, 178);
   /* circle {
     fill: var(--blueviolet-colors-oficial);
   } */
@@ -75,12 +75,12 @@
 }
 
 .message-btn {
-  background-color: #00bf1b;
+  background-color: rgb(69, 42, 178);
   border-radius: 5px;
 }
 
 .btn:first-child:active {
-  background-color: #00bf1b;
+  background-color: rgb(69, 42, 178);
 }
 
 .form-label {

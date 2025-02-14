@@ -7,6 +7,26 @@
     "Button_contact": "Contact Us",
     "Other_projects" : "Other Projects"
   },
+  "DONOR": {
+    "legend_1": "Please fill out the form bellow to make a donation with",
+    "Form": {
+      "label_name": "Full Name",
+      "placeholder_name": "John Doe",
+      "label_phone": "Phone Number",
+      "placeholder_phone": "000 000 0000",
+      "label_email": "Email Address",
+      "placeholder_email": "example@email.com",
+      "label_country": "Country",
+      "placeholder_country": "Select a country",
+      "label_street": "Street",
+      "placeholder_street": "Your street",
+      "label_city": "City",
+      "placeholder_city": "Your city",
+      "label_state": "State",
+      "placeholder_state": "Your State",
+      "btn-submit": "Submit"
+    }
+  },
   "NAVBAR": {
     "Link1": "Projects",
     "Projects": {

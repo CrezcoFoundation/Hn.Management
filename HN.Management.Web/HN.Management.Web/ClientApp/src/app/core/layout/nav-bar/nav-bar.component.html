@@ -140,46 +140,6 @@
               </li>
             </ul>
           </div>
-            <!-- <div class="d-flex justify-content-start">
-              <h4 class="ms-5 ps-4">{{ 'NAVBAR.Link1' | translate }}</h4>
-            </div>
-            <div class="d-flex justify-content-end">
-              <hr class="separator-mobile">
-            </div>
-            <div class="d-flex flex-column align-items-start">
-              <ul class="ms-5 ps-4">
-                <li class="list-group-item">
-                  <a class="nav-link active" [routerLink]="['/projects/university']" data-bs-dismiss="offcanvas">
-                    {{ 'NAVBAR.Projects.Project_1' | translate }}</a>
-                </li>
-                <li class="list-group-item">
-                  <a class="nav-link active" [routerLink]="['/projects/special-education']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_2' | translate }}</a>
-                </li>
-                <li class="list-group-item">
-                  <a class="nav-link active" [routerLink]="['/projects/community-support']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_3' | translate }}</a>
-                </li>
-                <li class="list-group-item">
-                  <a class="nav-link active" [routerLink]="['/projects/mission-trip']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Projects.Project_4' | translate }}</a>
-                </li>
-              </ul>
-            </div>
-            <div class="d-flex justify-content-end">
-              <hr class="separator-mobile">
-            </div>
-
-            <div class="d-flex justify-content-start">
-              <ul class="ms-5 ps-4">
-                <li class="list-group-item">
-                  <a [routerLink]="['/crezco-story']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link2' | translate }}</a>
-                </li>
-                <li class="list-group-item">
-                  <a [routerLink]="['/contact-us']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link3' | translate }}</a>
-                </li>
-                <li class="list-group-item">
-                  <a [routerLink]="['/']" data-bs-dismiss="offcanvas">{{ 'NAVBAR.Link5' | translate }}</a>
-                </li>
-              </ul>
-            </div> -->
         </div>
       </div>
 
@@ -275,7 +235,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button (click)="closeModalRefresh()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body col">
         <app-paypal></app-paypal>

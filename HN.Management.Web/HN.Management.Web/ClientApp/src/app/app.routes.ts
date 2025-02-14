@@ -13,7 +13,6 @@ export const routes: Routes = [
     path: 'give',
     loadComponent: () => import('./website/give/give/give.component').then(c => c.GiveComponent)
   },
-
   {
     path: 'auth',
     loadChildren: () => import('../app/core/auth/auth.module').then((m) => m.AuthModule),

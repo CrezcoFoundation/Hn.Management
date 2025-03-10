@@ -21,11 +21,15 @@
       "label_street": "Calle, nombre y dirección",
       "placeholder_street": "Dirección de calle",
       "label_city": "Ciudad",
-      "placeholder_city": "'Su' ciudad",
+      "placeholder_city": "Su ciudad",
       "label_state": "State",
       "placeholder_state": "Su estado",
       "btn-submit": "Enviar"
-    }
+    },
+    "Qr_legend": "Escanea el código QR para hacer tu donación con",
+    "Form_error": "Por favor, complete todos los campos requeridos",
+    "Form_success": "¡Gracias!",
+    "Form_back": "Volver"
   },
   "NAVBAR": {
     "Link1": "Proyectos",

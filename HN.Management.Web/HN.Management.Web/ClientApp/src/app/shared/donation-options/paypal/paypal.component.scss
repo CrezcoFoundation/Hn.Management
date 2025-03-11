@@ -114,3 +114,10 @@ div:where(.swal2-container) {
   padding: .5em 2em;
   border-radius: 50px;
 }
+.btn-email:disabled {
+  background: var(--blueviolet-colors-oficial);
+  border: 1.5px solid var(--blueviolet-colors-oficial);
+  padding: .5em 2em;
+  border-radius: 50px;
+  opacity: 0.5;
+}

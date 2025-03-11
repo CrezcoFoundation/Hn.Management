@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CountryStatesService } from '../../country.service';
+import Swal from 'sweetalert2';
 
 @Component({
   standalone: true,
@@ -34,12 +35,13 @@ export class PaypalComponent implements OnInit {
   constructor(
     private countryService: CountryStatesService,
     private formBuilder: FormBuilder,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.donationForm = this.formBuilder.group({
       fullNameDonor: ['', Validators.required],
-      phoneNumberDonor: [''],
+      phoneNumberDonor: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       emailDonor: ['', [Validators.required, Validators.email]],
       countryDonor: ['', Validators.required],
       streetDonor: ['', Validators.required],
@@ -76,14 +78,46 @@ export class PaypalComponent implements OnInit {
     }
   }
 
+  // Alertas de QR de CashApp
+  showAlertCashApp() {
+    Swal.fire({
+      titleText: this.translate.instant('DONOR.Form_success') + ' ' +  this.donationForm.get('fullNameDonor')?.value + '!',
+      text: this.translate.instant('DONOR.Qr_legend') + ' ' +  this.selectedDonationOption,
+      imageUrl: '/assets/Image/payment-logos/Cashapp-qr.jpeg',
+      imageWidth: 300,
+      imageHeight: 300,
+      imageAlt: 'CashApp QR',
+      confirmButtonText: this.translate.instant('DONOR.Form_back')
+    });
+  }
+
+  showAlertZelle() {
+    Swal.fire({
+      titleText: this.translate.instant('DONOR.Form_success') + ' ' +  this.donationForm.get('fullNameDonor')?.value + '!',
+      text: this.translate.instant('DONOR.Qr_legend') + ' ' +  this.selectedDonationOption,
+      imageUrl: '/assets/Image/payment-logos/Zelle-QR-web.jpeg',
+      imageWidth: 300,
+      imageHeight: 300,
+      imageAlt: 'Zelle QR',
+      confirmButtonText: this.translate.instant('DONOR.Form_back')
+    });
+  }
+  showInvalidForm() {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: this.translate.instant('DONOR.Form_error'),
+      timer: 1500
+    });
+  }
 
   showQrCodes() {
     if (this.selectedDonationOption === 'cashapp') {
-      this.cashAppQrCode?.classList.remove('d-none');
-      /* this.showAlertCashApp(); */
+      /* this.cashAppQrCode?.classList.remove('d-none'); */
+      this.showAlertCashApp();
     } else if (this.selectedDonationOption === 'zelle') {
-      this.zelleQrCode?.classList.remove('d-none');
-      /* this.showAlertZelle(); */
+      /* this.zelleQrCode?.classList.remove('d-none'); */
+      this.showAlertZelle();
     }
   }
 
@@ -91,10 +125,6 @@ export class PaypalComponent implements OnInit {
     this.donationFormVisible = true;
     this.selectedDonationOption = option;
   }
-
-  /* get f() {
-    return this.donationForm.controls;
-  } */
 
   onSubmit() {
     if (this.donationForm.valid) {

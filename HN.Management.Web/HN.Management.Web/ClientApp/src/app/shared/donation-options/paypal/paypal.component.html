@@ -40,95 +40,83 @@
 <div class="form-main-donor" *ngIf="donationFormVisible">
   <div class="container flex-column align-items-start justify-content-center">
     <!-- <h3 class="fw-semibold m-0">Donation Form</h3> -->
-    <div class="form-text my-2">{{ 'DONOR.legend_1' | translate }}<span id="printOptionDonation"> {{ selectedDonationOption }}.</span></div>
+    <div class="form-text my-3">{{ 'DONOR.legend_1' | translate }}<span id="printOptionDonation"> {{ selectedDonationOption }}.</span></div>
   </div>
   <form class="container" id="form-donor" [formGroup]="donationForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="fullNameDonor" class="form-label">{{ 'DONOR.Form.label_name' | translate }}:</label>
-      <input type="text" formControlName="fullNameDonor" class="form-control" id="fullNameDonor" aria-describedby="fullName" placeholder="John Doe" required>
-      <!-- <div *ngIf="f['fullNameDonor']?.invalid && f['fullNameDonor']?.touched">
-        <small *ngIf="f.fullNameDonor?.errors?.required">El nombre es obligatorio.</small>
-      </div> -->
-    </div>
-    <div class="mb-3">
-      <label for="emailDonor" class="form-label">{{ 'DONOR.Form.label_email' | translate }}:</label>
-      <input type="email" formControlName="emailDonor" class="form-control" id="emailDonor" aria-describedby="emailAddressDonor" placeholder="{{ 'DONOR.Form.placeholder_email' | translate }}" required>
-      <!-- <div *ngIf="f['emailDonor']?.invalid && f['emailDonor']?.touched">
-        <small *ngIf="f.emailDonor?.errors?.required">El correo electrónico es obligatorio.</small>
-        <small *ngIf="f.emailDonor?.errors?.email">Formato de correo electrónico no válido.</small>
-      </div> -->
-    </div>
-    <div class="d-flex flex-row align-items-center justify-content-between">
-      <!-- TODO: FILTER PHONE NUMBERS BY COUNTRY -->
-      <div class="mb-3 col-5">
-        <label for="phoneNumberDonor" class="form-label">{{ 'DONOR.Form.label_phone' | translate }}:</label>
-        <input type="text" formControlName="phoneNumberDonor" class="form-control" id="phoneNumberDonor" aria-describedby="phoneNumber" placeholder="000 000 0000">
-        <!-- <div *ngIf="f['phoneNumberDonor']?.invalid && f['phoneNumberDonor']?.touched">
-          <small *ngIf="f.phoneNumberDonor?.errors?.pattern">Número de teléfono inválido. Debe tener el formato XXX XXX XXXX.</small>
+      <div class="mb-3">
+        <label for="fullNameDonor" class="form-label">{{ 'DONOR.Form.label_name' | translate }}:</label>
+        <input type="text" formControlName="fullNameDonor" class="form-control" id="fullNameDonor" aria-describedby="fullName" placeholder="John Doe" required>
+        <!-- <div *ngIf="f['fullNameDonor']?.invalid && f['fullNameDonor']?.touched">
+          <small *ngIf="f.fullNameDonor?.errors?.required">El nombre es obligatorio.</small>
         </div> -->
       </div>
+      <div class="mb-3">
+        <label for="emailDonor" class="form-label">{{ 'DONOR.Form.label_email' | translate }}:</label>
+        <input type="email" formControlName="emailDonor" class="form-control" id="emailDonor" aria-describedby="emailAddressDonor" placeholder="{{ 'DONOR.Form.placeholder_email' | translate }}" required inputmode="email">
+        <!-- <div *ngIf="f['emailDonor']?.invalid && f['emailDonor']?.touched">
+          <small *ngIf="f.emailDonor?.errors?.required">El correo electrónico es obligatorio.</small>
+          <small *ngIf="f.emailDonor?.errors?.email">Formato de correo electrónico no válido.</small>
+        </div> -->
+      </div>
+      <div class="d-flex flex-row align-items-center justify-content-between">
+        <div class="mb-3 col-5">
+          <label for="phoneNumberDonor" class="form-label">{{ 'DONOR.Form.label_phone' | translate }}:</label>
+            <input type="text" formControlName="phoneNumberDonor" class="form-control" id="phoneNumberDonor" aria-describedby="phoneNumber" placeholder="000 000 0000" required minlength="10" maxlength="10" inputmode="numeric">
+          <!-- <div *ngIf="f['phoneNumberDonor']?.invalid && f['phoneNumberDonor']?.touched">
+            <small *ngIf="f.phoneNumberDonor?.errors?.pattern">Número de teléfono inválido. Debe tener el formato XXX XXX XXXX.</small>
+          </div> -->
+        </div>
 
-      <div class="mb-3 col-6">
-        <label for="country" class="form-label">{{ 'DONOR.Form.label_country' | translate }}:</label>
-        <select name="countryDonor" id="country" class="form-select" formControlName="countryDonor" required (change)="onCountryChange($event.target.value)">
-          <option value="select" selected disabled>{{ 'DONOR.Form.placeholder_country' | translate }}</option>
-          <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
-        </select>
+        <div class="mb-3 col-6">
+          <label for="country" class="form-label">{{ 'DONOR.Form.label_country' | translate }}:</label>
+          <select name="countryDonor" id="country" class="form-select" formControlName="countryDonor" required (change)="onCountryChange($event.target.value)">
+            <option value="select" selected disabled>{{ 'DONOR.Form.placeholder_country' | translate }}</option>
+            <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="mb-3">
-      <label for="streetDonor" class="form-label">{{ 'DONOR.Form.label_street' | translate }}:</label>
-      <input type="text" formControlName="streetDonor" class="form-control" id="streetDonor" aria-describedby="streetDonor" placeholder="{{ 'DONOR.Form.placeholder_street' | translate }}" required>
-      <!-- <div *ngIf="f['streetDonor']?.invalid && f['streetDonor']?.touched">
-        <small *ngIf="f.streetDonor?.errors?.required">La calle es obligatoria.</small>
-      </div> -->
-    </div>
-    <div class="d-flex flex-row align-items-center justify-content-between">
-      <div class="mb-3 col-3">
-        <label for="cityDonor" class="form-label">{{ 'DONOR.Form.label_city' | translate }}:</label>
-        <input type="text" formControlName="cityDonor" class="form-control" id="cityDonor" aria-describedby="cityDonor" placeholder="{{ 'DONOR.Form.placeholder_city' | translate }}" required>
-        <!-- <div *ngIf="f['cityDonor']?.invalid && f['cityDonor']?.touched">
-          <small *ngIf="f.cityDonor?.errors?.required">La ciudad es obligatoria.</small>
+      <div class="mb-3">
+        <label for="streetDonor" class="form-label">{{ 'DONOR.Form.label_street' | translate }}:</label>
+        <input type="text" formControlName="streetDonor" class="form-control" id="streetDonor" aria-describedby="streetDonor" placeholder="{{ 'DONOR.Form.placeholder_street' | translate }}" required>
+        <!-- <div *ngIf="f['streetDonor']?.invalid && f['streetDonor']?.touched">
+          <small *ngIf="f.streetDonor?.errors?.required">La calle es obligatoria.</small>
         </div> -->
       </div>
-      <div class="mb-3 col-5">
-        <label for="stateDonor" class="form-label">{{ 'DONOR.Form.label_state' | translate }}:</label>
-        <select
-          name="stateDonor"
-          id="stateDonor"
-          class="form-select"
-          formControlName="stateDonor"
-          required>
-          <option value="select" selected disabled>{{ 'DONOR.Form.placeholder_state' | translate }}</option>
-          <option *ngFor="let state of states" [value]="state">{{ state }}</option>
-        </select>
-        <!-- <div *ngIf="f['stateDonor']?.invalid && f['stateDonor']?.touched">
-          <small *ngIf="f.stateDonor?.errors?.required">El estado es obligatorio.</small>
-        </div> -->
+      <div class="d-flex flex-row align-items-center justify-content-between">
+        <div class="mb-3 col-3">
+          <label for="cityDonor" class="form-label">{{ 'DONOR.Form.label_city' | translate }}:</label>
+          <input type="text" formControlName="cityDonor" class="form-control" id="cityDonor" aria-describedby="cityDonor" placeholder="{{ 'DONOR.Form.placeholder_city' | translate }}" required>
+          <!-- <div *ngIf="f['cityDonor']?.invalid && f['cityDonor']?.touched">
+            <small *ngIf="f.cityDonor?.errors?.required">La ciudad es obligatoria.</small>
+          </div> -->
+        </div>
+        <div class="mb-3 col-5">
+          <label for="stateDonor" class="form-label">{{ 'DONOR.Form.label_state' | translate }}:</label>
+          <select
+            name="stateDonor"
+            id="stateDonor"
+            class="form-select"
+            formControlName="stateDonor"
+            required>
+            <option value="select" selected disabled>{{ 'DONOR.Form.placeholder_state' | translate }}</option>
+            <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+          </select>
+          <!-- <div *ngIf="f['stateDonor']?.invalid && f['stateDonor']?.touched">
+            <small *ngIf="f.stateDonor?.errors?.required">El estado es obligatorio.</small>
+          </div> -->
+        </div>
+        <div class="mb-3 col-3">
+          <label for="zipCodeDonor" class="form-label">C.P.</label>
+          <input type="text" formControlName="zipCodeDonor" class="form-control" id="zipCodeDonor" aria-describedby="zipCodeDonor" placeholder="11111" required>
+          <!-- <div *ngIf="f['zipCodeDonor']?.invalid && f['zipCodeDonor']?.touched">
+            <small *ngIf="f.zipCodeDonor?.errors?.required">El código postal es obligatorio.</small>
+          </div> -->
+        </div>
       </div>
-      <div class="mb-3 col-3">
-        <label for="zipCodeDonor" class="form-label">C.P.</label>
-        <input type="text" formControlName="zipCodeDonor" class="form-control" id="zipCodeDonor" aria-describedby="zipCodeDonor" placeholder="11111" required>
-        <!-- <div *ngIf="f['zipCodeDonor']?.invalid && f['zipCodeDonor']?.touched">
-          <small *ngIf="f.zipCodeDonor?.errors?.required">El código postal es obligatorio.</small>
-        </div> -->
-      </div>
-    </div>
-    <div class="d-flex flex-row align-items-center justify-content-center">
+    <div class="d-flex flex-row align-items-center justify-content-center mt-3">
       <button type="submit" [disabled]="donationForm.invalid" class="btn-email text-white">{{ 'DONOR.Form.btn-submit' | translate }}
         <i style="rotate: -45deg;" class="ms-2 ms-lg-1 fa-solid fa-arrow-right"></i>
       </button>
     </div>
   </form>
-</div>
-
-
-<!-- QR CashApp -->
-<div class="modalqr-body text-center d-none" id="cashAppQrCode">
-  <img class="qr-image" src="/assets/Image/payment-logos/Cashapp-qr.jpeg" alt="QR CashApp">
-</div>
-
-<!-- QR Zelle -->
-<div class="modalqr-body text-center d-none" id="zelleQrCode">
-  <img class="qr-image" src="/assets/Image/payment-logos/Zelle-QR-web.jpeg" alt="QR Zelle">
 </div>

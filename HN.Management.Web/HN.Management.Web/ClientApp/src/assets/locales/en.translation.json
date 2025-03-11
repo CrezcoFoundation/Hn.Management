@@ -25,7 +25,11 @@
       "label_state": "State",
       "placeholder_state": "Your State",
       "btn-submit": "Submit"
-    }
+    },
+    "Qr_legend": "Scan the Qr code to make a donation with",
+    "Form_error": "Please fill out all the fields required",
+    "Form_success": "¡Thanks!",
+    "Form_back": "Return"
   },
   "NAVBAR": {
     "Link1": "Projects",

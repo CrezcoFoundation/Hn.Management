@@ -6,9 +6,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { PaypalComponent } from "../../../shared/donation-options/paypal/paypal.component";
-import { HomeComponent } from 'src/app/website/home/home.component';
-import { SharedBannerComponent } from 'src/app/shared/shared-banner/shared-banner.component';
-import { ContactUsComponent } from 'src/app/website/contact-us/contact-us/contact-us.component';
 
 @Component({
     standalone: true,
@@ -22,13 +19,14 @@ import { ContactUsComponent } from 'src/app/website/contact-us/contact-us/contac
         HttpClientModule,
         TranslateModule,
         PaypalComponent,
-        HomeComponent,
-        SharedBannerComponent,
-        ContactUsComponent,
     ]
 })
 
 export class NavBarComponent  {
+
+  closeModalRefresh() {
+    window.location.reload();
+  }
 
   selectedLanguage = new FormControl('en', Validators.required);
 

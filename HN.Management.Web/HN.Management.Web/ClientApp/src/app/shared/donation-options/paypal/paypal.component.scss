@@ -1,4 +1,6 @@
 @import url(../../../../styles.scss);
+@import url(../../../website/contact-us/contact-us/contact-us.component.scss);
+
 
 img#donate-button {
   width: 100%;
@@ -76,4 +78,47 @@ img#donate-button {
 
 .modalqr-body {
   margin: 1rem 0;
+}
+
+
+/* Form Styles */
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 1.3rem 5.5rem;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+input#cashapp:checked,
+input#zelle:checked {
+  background: none;
+  border: solid none 2px;
+  padding: 1.3rem 5.5rem;
+}
+
+.donateOption {
+  position: relative;
+  z-index: 1;
+}
+
+div:where(.swal2-container) {
+  /* position: absolute; */
+  z-index: 9992 !important;
+}
+
+.btn-email {
+  background: var(--blueviolet-colors-oficial);
+  border: 1.5px solid var(--blueviolet-colors-oficial);
+  padding: .5em 2em;
+  border-radius: 50px;
+}
+.btn-email:disabled {
+  background: var(--blueviolet-colors-oficial);
+  border: 1.5px solid var(--blueviolet-colors-oficial);
+  padding: .5em 2em;
+  border-radius: 50px;
+  opacity: 0.5;
 }

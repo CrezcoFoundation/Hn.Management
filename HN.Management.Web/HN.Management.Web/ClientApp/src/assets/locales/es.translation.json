@@ -7,6 +7,30 @@
     "Button_contact": "Contáctanos",
     "Other_projects" : "Otros Proyectos"
   },
+  "DONOR": {
+    "legend_1": "Porfavor, complete el siguiente formulario para hacer su donación con",
+    "Form": {
+      "label_name": "Nombre Completo",
+      "placeholder_name": "John Doe",
+      "label_phone": "Número de Teléfono",
+      "placeholder_phone": "000 000 0000",
+      "label_email": "Correo Electrónico",
+      "placeholder_email": "ejemplo@email.com",
+      "label_country": "País",
+      "placeholder_country": "Seleccione su país",
+      "label_street": "Calle, nombre y dirección",
+      "placeholder_street": "Dirección de calle",
+      "label_city": "Ciudad",
+      "placeholder_city": "Su ciudad",
+      "label_state": "State",
+      "placeholder_state": "Su estado",
+      "btn-submit": "Enviar"
+    },
+    "Qr_legend": "Escanea el código QR para hacer tu donación con",
+    "Form_error": "Por favor, complete todos los campos requeridos",
+    "Form_success": "¡Gracias!",
+    "Form_back": "Volver"
+  },
   "NAVBAR": {
     "Link1": "Proyectos",
     "Projects": {

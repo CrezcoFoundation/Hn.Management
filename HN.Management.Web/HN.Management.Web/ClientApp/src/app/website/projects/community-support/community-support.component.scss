@@ -1,13 +1,44 @@
-/* @import url(../university-sponsorship/university-sponsorship.component.scss); */
+/* @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"); */
 @import url(../../../../styles.scss);
-@import url(../university-sponsorship/university-sponsorship.component.scss);
 
-.banner-special-education {
-  width: 100vw;
-  max-width: 100%;
+.banner-community {
+  width: 100%;
 }
-.description-project {
-  max-width: 63%;
+
+.aspect-radio-img {
+  aspect-ratio: 16 / 9;
+}
+
+.banner-community {
+  .banner_content {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--basic-colors-white);
+    position: absolute;
+    z-index: 100;
+    .banner_content-title {
+      font-family: var(--Newsreader-text-body-font-family);
+      text-transform: capitalize;
+      font-style: italic;
+      font-size: 30px;
+    }
+    .banner_content-project {
+      font-family: var(--Oswald-text-body-font-family);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 50px;
+    }
+    .banner_content-description {
+      line-height: 1.35em;
+      font-size: 22px;
+      font-weight: 300;
+    }
+  }
+  .banner_img img {
+      position: relative;
+      width: 100%;
+      /* aspect-ratio: 16 / 6; */
+  }
 }
 
 .title-project h2 {
@@ -19,16 +50,218 @@
 }
 
 .title-project h3 {
-  font-size: 42px;
+  font-size: 32px;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   color: var(--basic-colors-black);
 }
 
+.description-project {
+  font-family: Inter;
+  font-size: 1.3rem;
+  font-style: normal;
+  line-height: 1.5em;
+  max-width: 74%;
+}
+
+.btn,
+.donate-btn .btn-primary {
+  font-family: var(--Inter-text-body-font-family);
+  background-color: transparent;
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  border: 2px solid var(--basic-colors-white);
+}
+
+.image-box img {
+  width: 450px;
+  max-width: 100%;
+  aspect-ratio: 1/1;
+}
+
+/* Heart Animation Start */
+
+.heart-vector {
+  transition: ease all;
+}
+
+#hover-link:hover .heart-vector {
+  animation: pulseHeart 1.5s ease-in-out;
+}
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  20% {
+    transform: rotate(-25deg);
+  }
+
+  30% {
+    transform: rotate(20deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotate(45deg);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Heart Animation End */
+
+div>.author-font span {
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.text-box {
+
+  /* padding: 10em; */
+  .title-box h3 {
+    font-size: 32px;
+    font-family: var(--Inter-text-body-font-family);
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .description-box p {
+    font-weight: 300;
+    line-height: 1.8rem;
+    font-size: 19px;
+    text-align: left;
+  }
+}
+
+/* section {
+  overflow-x: hidden;
+} */
+
+/* Paragraph Section Start */
+/* .section-paragraph {
+  background-color: var(--colors-gray-bg);
+} */
+
+.text-quote {
+  color: var(--blue-colors-buttom);
+  font-family: var(--Newsreader-text-body-font-family);
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.4em;
+  max-width: 40%;
+}
+.text-quote_author {
+  font-family: var(--Inter-text-body-font-family);
+  font-size: 1.2rem;
+}
+
+.img-gallery {
+  width: 1200px;
+  max-width: 100%;
+}
+
+/* Paragraph Section End */
+
+/* Cards Projects Styles Start */
+.card {
+  transition: ease 0.3s all;
+  border: none;
+}
+
+.card-body {
+  border: 1px solid #9E9E9E;
+  border-radius: 90px 24.45px 24.45px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: .2s ease all;
+}
+
+.card-body:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-body-content {
+  width: 160px;
+  padding: .5em 0;
+}
+
+.card-title {
+  font-size: 24px;
+  color: var(--basic-colors-black);
+  font-family: var(--Inter-text-body-font-family);
+  text-transform: capitalize;
+  font-weight: 300;
+  margin-bottom: .5em;
+  max-width: 200px;
+}
+
+.card-text {
+  font-size: 17px;
+  font-weight: 200;
+  color: var(--basic-colors-black);
+  height: 100px;
+}
+
+.link-card {
+  color: var(--blue-colors-buttom);
+}
+
+.card-img-top {
+  width: 150px;
+  aspect-ratio: 6/8.5;
+  /* position: absolute;
+  z-index: 5; */
+  /* left: 400px; */
+}
+
+
+.cards-container {
+  overflow: visible;
+}
+
+/* Cards Projects Styles End */
+
+.rounded-3 {
+  border-radius: 20px !important;
+}
+
+// Media Queries mobile
+
 @media only screen and (max-width: 768px) {
-  @import url(../../../../styles.scss);
-  @import url(../university-sponsorship/university-sponsorship.component.scss);
+
+  .banner-community {
+    .banner_content {
+      .banner_content-title {
+        font-size: 25px;
+      }
+      .banner_content-project {
+        font-size: 35px;
+      }
+      .banner_content-description {
+        font-size: 21px;
+      }
+    }
+    .banner_img img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: auto;
+    }
+  }
+
 
   .title-project h2 {
     font-size: 45px;
@@ -42,17 +275,68 @@
     color: var(--basic-colors-black);
   }
 
-  .btn,
-  .donate-btn .btn-primary {
-    padding: 1em 8em !important;
+  .description-project {
+    max-width: 90%;
+    font-size: 1.15rem;
   }
 
-  .img-quote {
-    width: 1700px;
-    max-width: 200%;
+  .btn,
+  .donate-btn .btn-primary {
+    padding: 1em 8em;
   }
-  .description-project {
-    font-size: 1.15rem;
-    max-width: 90%;
+
+  /* Quote Section Start */
+  .text-quote {
+    font-size: 1.5rem;
+    line-height: 1.3em;
+    max-width: 98%;
+  }
+  .text-quote_author {
+    font-size: 1.1rem;
+  }
+  /* Quote Section End */
+
+  .img-gallery {
+    width: 1200px;
+    max-width: 100%;
+    aspect-ratio: auto;
+  }
+
+
+  .card-body-content {
+    width: 160px;
+    padding: .5em 0;
+  }
+
+  /* .card-text {
+    height: 80px;
+  } */
+
+  div>.author-font span {
+    font-size: 1.1rem;
+  }
+
+  .text-box {
+
+    /* padding: 2em; */
+    .title-box h3 {
+      text-align: center;
+    }
+
+    .description-box p {
+      text-align: center;
+      font-size: 1.15rem;
+    }
+  }
+
+  .image-box img {
+    width: 250px;
+    max-width: 100%;
+  }
+
+  .rounded-3 {
+    border-radius: 10px !important;
   }
 }
+
+@media only screen and (max-width: 768px) {}

@@ -1,42 +1,42 @@
 <div class="container-fluid bg-contact">
   <div class="container d-grid place-items-center card-contact mb-5 mb-lg-0">
-    <div class="col-12 cards d-flex flex-column-reverse flex-lg-row align-items-center rounded-4 mt-lg-5">
-      <div class="d-flex flex-column align-items-left px-3 p-lg-5 bg-violet col-12 col-lg-5">
-        <div class="my-lg-5 py-lg-3 d-flex flex-column gap-4">
+    <div class="col-12 cards d-flex flex-column-reverse flex-lg-row align-items-start rounded-4 mt-lg-5">
+      <div class="d-flex flex-column align-items-left bg-violet col-12 col-lg-5">
+        <div class="d-flex flex-column gap-5">
           <div class="d-none d-lg-block">
             <h3 class="text-lg-start text-center contact-title text-uppercase m-0">
               {{ 'PAGE_CONTACT.Title_left' | translate }}
             </h3>
           </div>
           <div class="d-none d-lg-block">
-            <p class="m-0 desc_contact-block text-center text-lg-start">
+            <p class="m-0 desc_contact-block text-center text-lg-start col-lg-10">
               {{ 'PAGE_CONTACT.Paragraph_1' | translate }}
             </p>
           </div>
           <div class="d-flex flex-column gap-3">
-            <div class="d-flex align-items-start justify-content-lg-start justify-content-center gap-2">
-              <a href="mailto:info@crezcofoundation.org">
+            <div class="d-flex align-items-start justify-content-start gap-2">
+              <a href="{{ mailTo }}">
                 <p class="mb-0 link-email">{{ 'PAGE_CONTACT.Contact_email' | translate }}</p>
               </a>
             </div>
-            <div class="d-flex align-items-start justify-content-lg-start justify-content-center gap-2">
+            <div class="d-flex align-items-start justify-content-start gap-2">
               <p class="mb-0 link-number">{{ 'PAGE_CONTACT.Contact_phone' | translate }}</p>
             </div>
           </div>
-          <div class="d-flex flex-column align-items-lg-start align-items-center gap-2 mt-2">
+          <div class="col-12 col-lg-6 d-flex flex-column align-items-start align-items-lg-center gap-2 mt-2">
             <div>
-              <h4 class="text-center social-media_title">
+              <h4 class="text-center social-media_title m-0">
                 {{ 'PAGE_CONTACT.Visit_us' | translate }}
               </h4>
             </div>
-            <div class="d-flex align-items-center justify-content-center gap-4 content-social-icons">
-              <a href="" target="_blank" class="icons-contact">
+            <div class="d-flex align-items-center gap-4 content-social-icons">
+              <a href="{{ facebookLink }}" target="_blank" class="icons-contact">
                 <svg width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="24.404" cy="24.904" r="24.404" fill="#613DF4"/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7762 11.5293C22.2664 10.012 24.2876 9.15967 26.3951 9.15967H30.6739C31.124 9.15967 31.4889 9.53117 31.4889 9.98945V15.7979C31.4889 16.2562 31.124 16.6277 30.6739 16.6277H26.3951C26.233 16.6277 26.0775 16.6933 25.9629 16.81C25.8482 16.9267 25.7838 17.085 25.7838 17.25V20.7766H30.6739C30.9249 20.7766 31.1618 20.8943 31.3163 21.0957C31.4707 21.2971 31.5254 21.5597 31.4646 21.8076L30.0383 27.6161C29.9476 27.9855 29.6216 28.2446 29.2476 28.2446H25.7838V39.0317C25.7838 39.49 25.4189 39.8615 24.9688 39.8615H19.2637C18.8136 39.8615 18.4487 39.49 18.4487 39.0317V28.2446H14.9849C14.5348 28.2446 14.1699 27.8731 14.1699 27.4148V21.6064C14.1699 21.1481 14.5348 20.7766 14.9849 20.7766H18.4487V17.25C18.4487 15.1043 19.2859 13.0465 20.7762 11.5293ZM26.3951 10.8192C24.7199 10.8192 23.1133 11.4968 21.9288 12.7028C20.7442 13.9088 20.0788 15.5445 20.0788 17.25V21.6064C20.0788 22.0646 19.7139 22.4361 19.2637 22.4361H15.7999V26.585H19.2637C19.7139 26.585 20.0788 26.9566 20.0788 27.4148V38.202H24.1538V27.4148C24.1538 26.9566 24.5187 26.585 24.9688 26.585H28.6113L29.6301 22.4361H24.9688C24.5187 22.4361 24.1538 22.0646 24.1538 21.6064V17.25C24.1538 16.6448 24.3899 16.0644 24.8103 15.6365C25.2306 15.2085 25.8007 14.9681 26.3951 14.9681H29.8589V10.8192H26.3951Z" fill="white"/>
                   </svg>
               </a>
-              <a href="" target="_blank" class="icons-contact">
+              <a href="{{ instagramLink }}" target="_blank" class="icons-contact">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="25.2126" cy="24.904" r="24.404" fill="#613DF4"/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1713 13.7684C16.3572 13.7684 14.076 16.0496 14.076 18.8637V31.602C14.076 34.4161 16.3572 36.6974 19.1713 36.6974H31.9097C34.7237 36.6974 37.005 34.4161 37.005 31.602V18.8637C37.005 16.0496 34.7237 13.7684 31.9097 13.7684H19.1713ZM11.5283 18.8637C11.5283 14.6426 14.9502 11.2207 19.1713 11.2207H31.9097C36.1308 11.2207 39.5527 14.6426 39.5527 18.8637V31.602C39.5527 35.8232 36.1308 39.2451 31.9097 39.2451H19.1713C14.9502 39.2451 11.5283 35.8232 11.5283 31.602V18.8637Z" fill="white"/>
@@ -44,7 +44,7 @@
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M31.2734 18.2267C31.2734 17.5232 31.8438 16.9529 32.5473 16.9529H32.56C33.2635 16.9529 33.8338 17.5232 33.8338 18.2267C33.8338 18.9302 33.2635 19.5005 32.56 19.5005H32.5473C31.8438 19.5005 31.2734 18.9302 31.2734 18.2267Z" fill="white"/>
                 </svg>
               </a>
-              <a href="" target="_blank" class="icons-contact">
+              <a href="{{ linkedinLink }}" target="_blank" class="icons-contact">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="25.0203" cy="24.904" r="24.404" fill="#613DF4"/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M29.8128 21.0838C28.0167 21.0838 26.2941 21.7973 25.024 23.0674C23.7539 24.3375 23.0404 26.0601 23.0404 27.8563V35.908H26.3514V27.8563C26.3514 26.9382 26.716 26.0578 27.3652 25.4087C28.0144 24.7595 28.8948 24.3948 29.8128 24.3948C30.7309 24.3948 31.6113 24.7595 32.2605 25.4087C32.9096 26.0578 33.2743 26.9382 33.2743 27.8563V35.908H36.5853V27.8563C36.5853 26.0601 35.8718 24.3375 34.6017 23.0674C33.3316 21.7973 31.609 21.0838 29.8128 21.0838ZM23.7469 21.7904C25.3557 20.1816 27.5377 19.2778 29.8128 19.2778C32.088 19.2778 34.2699 20.1816 35.8787 21.7904C37.4875 23.3992 38.3913 25.5811 38.3913 27.8563V36.811C38.3913 37.3097 37.987 37.714 37.4883 37.714H32.3713C31.8726 37.714 31.4683 37.3097 31.4683 36.811V27.8563C31.4683 27.4172 31.2939 26.9961 30.9834 26.6857C30.673 26.3752 30.2519 26.2008 29.8128 26.2008C29.3738 26.2008 28.9527 26.3752 28.6422 26.6857C28.3318 26.9961 28.1573 27.4172 28.1573 27.8563V36.811C28.1573 37.3097 27.7531 37.714 27.2543 37.714H22.1374C21.6387 37.714 21.2344 37.3097 21.2344 36.811V27.8563C21.2344 25.5811 22.1382 23.3992 23.7469 21.7904Z" fill="white"/>
@@ -60,30 +60,30 @@
         <div class="d-flex flex-column mx-md-4 px-md-4 my-5 my-lg-0 justify-content-center align-items-center row">
           <div class="d-block d-lg-none mb-4 d-flex flex-column gap-2 px-0">
             <div>
-              <h3 class="text-lg-start text-center contact-title text-uppercase m-0">
+              <h3 class="text-start contact-title text-uppercase m-0">
                 {{ 'PAGE_CONTACT.Title_left' | translate }}
               </h3>
             </div>
             <div>
-              <p class="m-0 desc_contact-block text-center text-lg-start">
+              <p class="m-0 desc_contact-block text-start">
                 {{ 'PAGE_CONTACT.Paragraph_1' | translate }}
               </p>
             </div>
           </div>
-          <h3 class="contact-subtitle text-center mb-4">{{ 'PAGE_CONTACT.Title_right' | translate }}</h3>
+          <h3 class="contact-subtitle text-start mb-4">{{ 'PAGE_CONTACT.Title_right' | translate }}</h3>
           <form [formGroup]="contactForm" (ngSubmit)="onSubmited()">
             <div class="mb-3">
               <label for="userName" class="form-label">{{ 'PAGE_CONTACT.Label_1' | translate }}</label>
               <input type="text" class="form-control py-2" id="userName" aria-describedby="yourName"
-                placeholder="{{ 'PAGE_CONTACT.Label_1' | translate }}" formControlName="name" required />
+                formControlName="name" required />
               <label for="userEmail" class="mt-3 form-label">{{ 'PAGE_CONTACT.Label_2' | translate }}</label>
               <input type="email" class="form-control py-2" id="userEmail" aria-describedby="emailHelp"
-                placeholder="{{ 'PAGE_CONTACT.Label_2' | translate }}" formControlName="email" required />
+                formControlName="email" required />
             </div>
             <div class="mb-0">
               <label for="messageTextArea" class="form-label">{{ 'PAGE_CONTACT.Label_3' | translate }}</label>
-              <textarea [(ngModel)]="textChar" (input)="updateCharCount()" class="form-control py-3 py-lg-2 flex-wrap"
-                id="messageTextArea" placeholder="{{ 'PAGE_CONTACT.Label_3' | translate }}" cols="30" rows="5" maxlength="200"
+              <textarea style="overflow:hidden" style="resize:none" [(ngModel)]="textChar" (input)="updateCharCount()" class="form-control py-3 py-lg-2 flex-wrap"
+                id="messageTextArea" cols="30" rows="5" maxlength="{{ charLimits }}"
                 formControlName="message" required></textarea>
               <!-- Character Counter -->
               <div id="character-counter"
@@ -96,8 +96,8 @@
                   </label>
                 </div>
                 <div>
-                  <p [ngClass]="{ 'char-count-red': charCount >= 150 }" class="char-count-red m-0">
-                    {{ charCount }}/200
+                  <p [ngClass]="{ 'char-count-red': charCount >= (charLimits - 50) }" class="char-count-red m-0">
+                    {{ charCount }}/{{ charLimits }}
                   </p>
                 </div>
               </div>

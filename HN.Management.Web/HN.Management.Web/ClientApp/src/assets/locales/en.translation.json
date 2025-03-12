@@ -50,10 +50,10 @@
     "University_Page": {
       "Abreviation-desktop": "Higher educational opportunities hold the key to breaking negative...",
       "Abreviation-mobile": "Higher educational opportunities hold the key to breaking negative...",
-      "Paragraph_1": "Higher educational opportunities hold the key to breaking negative generational cycles. By providing students with access to higher educational opportunities, we empower them to transcend the limitations of their past and current circumstances. Students prepare for personal success and gain knowledge, skills, and confidence to positively impact their future families and communities.",
+      "Paragraph_1": "Higher educational opportunities hold the key to breaking negative generational cycles.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "Education empowers individuals to disrupt destructive cycles of cognitive, emotional, and financial impoverishment, initiating a ripple effect of positive transformation within the surrounding community",
+        "quote_autor": "Amanda Corea, Founder of Crezco"
       },
       "Subjects": {
         "subject_1": {
@@ -71,10 +71,10 @@
     "Special_education": {
       "Abreviation-desktop": "One size does not fit all when it comes to education, there are children within...",
       "Abreviation-mobile": "One size does not fit all when it comes to education, there...",
-      "Paragraph_1": "One size does not fit all when it comes to education, there are children within our sphere of influence who require specialized educational resources to thrive. Such resources are not always readily available or affordable in the local community, therefore we are dedicated to addressing this challenge head-on.",
+      "Paragraph_1": "One size does not fit all when it comes to education, there are children who require specialized educational resources to thrive.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "Every student can learn, just not the same day, or in the same way.",
+        "quote_autor": "John Evans"
       },
       "Subjects": {
         "subject_1": {
@@ -91,10 +91,10 @@
     "Community_support": {
       "Abreviation-desktop": "Crezco seeks be a light in difficult world, finding ways to create more...",
       "Abreviation-mobile": "Crezco seeks be a light in difficult world, finding ways to...",
-      "Paragraph_1": "Crezco seeks be a light in difficult world, finding ways to create more opportunities for growth in the surrounding community. From weathering the aftermath of devastating natural disasters, to providing unwavering support during personal family tragedies, and offering specialized aid for educational challenges, our purpose is clear: to break negative cycles and inspire positive progress.",
+      "Paragraph_1": "Crezco seeks to be a light in a difficult world, creating ways to create more opportunities for growth.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "Alone, we can do little; Together, we can do much.",
+        "quote_autor": "Helen Keller"
       },
       "Subjects": {
         "subject_1": {
@@ -112,10 +112,11 @@
     "Student_mission": {
       "Abreviation-desktop": "The purpose of this program is to foster a deep sense of service...",
       "Abreviation-mobile": "The purpose of this program is to foster a deep sense of service...",
-      "Paragraph_1": "The purpose of this program is to foster a deep sense of service and selflessness as foundational principles in each student by giving them the opportunity to make meaningful contributions to both local and global communities. All while acknowledging the generosity they also have received from others.",
+      "Paragraph_1": "Service and selflessness are foundational principles needed to make meaningful contributions to the community.",
       "Quote": {
-        "quote_phrase": "",
-        "quote_autor": ""
+        "quote_phrase": "...Go after God, who piles on all the riches we could ever manage to do good, to be rich in helping others, to be extravagantly generous.",
+        "quote_phrase-2": "If they do they'll build a treasury that will last, gaining life that is truly life.",
+        "quote_autor": "1 Timothy 16:17-19 (MSG)"
       },
       "Subjects": {
         "subject_1": {
@@ -156,9 +157,9 @@
     "Contact_email": "info@crezcofoundation.org",
     "Contact_phone": "33 3333 3333 333",
     "Visit_us": "Visit us on social media",
-    "Label_1": "Enter Your Name",
-    "Label_2": "Enter a Valid Email Address",
-    "Label_3": "Enter Your Message",
+    "Label_1": "Full Name",
+    "Label_2": "Valid Email Address",
+    "Label_3": "Message",
     "Contact_newsletter": "I want to subscribe to the newsletter",
     "Contact_button": "Send Message"
   },

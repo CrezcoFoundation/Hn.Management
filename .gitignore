@@ -56,6 +56,9 @@ HN.Management.Web/HN.Management.Manager/obj
 /HN.Management.Web/HN.Management.Web/obj/project.assets.json
 /HN.Management.Web/HN.Management.Web/obj/project.nuget.cache
 HN.Management.Web/crezco-foundation/dist
+HN.Management.Web/HN.Management.Admin/.angular
+HN.Management.Web/HN.Management.Admin/.vscode
+HN.Management.Web/HN.Management.Admin/node_modules
 
 HN.Management.Web/HN.Management.Web/C:/Logs/structuredLog.json
 
